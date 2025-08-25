@@ -6,13 +6,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.31.4",
+    "@google/generative-ai": "^0.24.1",
+    "@supabase/supabase-js": "2",
+    "@tanstack/react-query": "^5.85.5",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "11.0.0",
+    "lucide-react": "^0.541.0",
     "next": "15.5.0",
+    "next-intl": "^4.3.5",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-hook-form": "^7.62.0",
+    "tailwind-merge": "3.3.1",
+    "zod": "^4.1.1",
+    "zustand": "5.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

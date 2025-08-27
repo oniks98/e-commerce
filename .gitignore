@@ -45,3 +45,7 @@ next-env.d.ts
 .gemini
 
 google OAuth.json
+
+# Supabase
+.branches
+.temp

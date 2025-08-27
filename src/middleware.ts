@@ -1,12 +1,17 @@
-import { clerkMiddleware } from '@clerk/nextjs/server';
+import { type NextRequest } from 'next/server';
+import { updateSession } from './lib/supabase/middleware';
+import createIntlMiddleware from 'next-intl/middleware';
+import { routing } from './i18n/routing';
 
-export default clerkMiddleware();
+const handleI18n = createIntlMiddleware(routing);
+
+export async function middleware(request: NextRequest) {
+  const response = handleI18n(request);
+  return await updateSession(request, response);
+}
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for API routes
-    '/(api|trpc)(.*)',
-  ],
+    '/((?!api|_next/static|_next/image|_next/webpack-hmr|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)'
+  ]
 };

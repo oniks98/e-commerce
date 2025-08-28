@@ -1,7 +1,8 @@
-// src\app\(shop)\[locale]\(public)\(home)\page.tsx
+// src\app\(admin)\[locale]\(private)\dashboard\(home)\page.tsx
+'use client';
 import { useTranslations } from 'next-intl';
 
-export default function HomePage() {
+export default function DashboardPage() {
   const t = useTranslations('HelloWorld');
 
   return (

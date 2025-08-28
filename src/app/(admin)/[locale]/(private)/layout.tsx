@@ -1,6 +1,9 @@
+// src\app\(admin)\[locale]\(private)\layout.tsx
 import React from 'react';
+import Sidebar from '@/components/admin/sidebar';
+import Header from '@/components/shop/header/header';
 
-export default function AdminLayout({
+export default function AdminPrivateLayout({
   children,
   modal,
 }: {
@@ -8,9 +11,13 @@ export default function AdminLayout({
   modal: React.ReactNode;
 }) {
   return (
-    <div>
-      {children}
+    <>
+      <Header />
+      <main>
+        <Sidebar />
+        <div className="ml-60">{children}</div>
+      </main>
       {modal}
-                                             </div>
+    </>
   );
 }

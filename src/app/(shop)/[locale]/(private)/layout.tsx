@@ -1,10 +1,20 @@
+// src\app\(shop)\[locale]\(private)\layout.tsx
 import React from 'react';
 
-export default function ShopLayout({
+import Header from '@/components/shop/header/header';
+import Footer from '@/components/shop/footer/footer';
+
+export default function ShopPrivateLayout({
   children,
 }: {
   children: React.ReactNode;
   modal: React.ReactNode;
 }) {
-  return <div>{children}</div>;
+  return (
+    <>
+      <Header />
+      <main>{children}</main>;
+      <Footer />
+    </>
+  );
 }

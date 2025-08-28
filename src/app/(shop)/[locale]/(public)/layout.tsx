@@ -1,4 +1,8 @@
+// src\app\(shop)\[locale]\(public)\layout.tsx
 import React from 'react';
+
+import Header from '@/components/shop/header/header';
+import Footer from '@/components/shop/footer/footer';
 
 export default function ShopPublicLayout({
   children,
@@ -8,9 +12,11 @@ export default function ShopPublicLayout({
   modal: React.ReactNode;
 }) {
   return (
-    <div>
-      {children}
+    <>
+      <Header />
+      <main>{children}</main>
+      <Footer />
       {modal}
-    </div>
+    </>
   );
 }

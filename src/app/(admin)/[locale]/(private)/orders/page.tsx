@@ -1,7 +1,6 @@
-// src\app\(shop)\[locale]\(public)\(home)\page.tsx
 import { useTranslations } from 'next-intl';
 
-export default function HomePage() {
+export default function OrdersPage() {
   const t = useTranslations('HelloWorld');
 
   return (

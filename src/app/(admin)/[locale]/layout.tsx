@@ -2,6 +2,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import React from "react";
+import '@/styles/globals.css';
 
 export default async function LocaleLayout({
   children,
@@ -15,8 +16,12 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
+    <html lang="en">
+      <body>
     <NextIntlClientProvider messages={messages}>
       {children}
-    </NextIntlClientProvider>
+        </NextIntlClientProvider>
+        </body>
+      </html>
   );
 }

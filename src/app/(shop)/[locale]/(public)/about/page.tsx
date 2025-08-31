@@ -1,6 +1,6 @@
-import { await getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 
-export default function AboutPage() {
+export default async function AboutPage() {
   const t = await getTranslations('HelloWorld');
 
   return (

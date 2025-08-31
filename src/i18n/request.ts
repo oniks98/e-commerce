@@ -1,21 +1,24 @@
-//src\i18n\request.ts
+// src/i18n/request.ts
 import { getRequestConfig } from 'next-intl/server';
-import { hasLocale } from 'next-intl';
-import { routing } from './routing';
+import { headers } from 'next/headers';
+import { getMessages, validateLocale } from './utils';
+import { shopRouting } from './shop-routing';
+import { adminRouting } from './admin-routing';
+import type { Locale, Segment } from './types';
 
-/**
- * Конфігурація для next-intl з підтримкою локалізації
- */
 export default getRequestConfig(async ({ requestLocale }) => {
-  const requested = await requestLocale;
+  const headersList = await headers();
+  const segment = (headersList.get('x-segment') as Segment) || 'shop';
 
-  // Перевіряємо чи підтримується запитувана локаль
-  const locale = hasLocale(routing.locales, requested)
-    ? requested
-    : routing.defaultLocale;
+  const rawLocale = await requestLocale;
+  const locale: Locale = validateLocale(rawLocale ?? '')
+    ? (rawLocale as Locale)
+    : segment === 'admin'
+      ? adminRouting.defaultLocale
+      : shopRouting.defaultLocale;
 
   return {
     locale,
-    messages: (await import(`@/dictionaries/${locale}.json`)).default,
+    messages: await getMessages(locale, segment),
   };
 });

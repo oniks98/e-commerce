@@ -1,8 +1,8 @@
 // src\app\(shop)\[locale]\(public)\(home)\page.tsx
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
-export default function HomePage() {
-  const t = useTranslations('HelloWorld');
+export default async function HomePage() {
+  const t = await getTranslations('HelloWorld');
 
   return (
     <>

@@ -1,25 +1,35 @@
 // src\app\(admin)\[locale]\layout.tsx
-
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
-import React from 'react';
-import '@/styles/globals.css';
+import { setRequestLocale } from 'next-intl/server';
+import { getMessages } from '@/i18n/utils';
+import { locales } from '@/i18n/types';
+import '@/styles/globals-admin.css';
+
+interface AdminLocaleLayoutProps {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export default async function AdminLocaleLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
+}: AdminLocaleLayoutProps) {
   const { locale } = await params;
+
+  // Устанавливаем локаль для текущего запроса
   setRequestLocale(locale);
-  const messages = await getMessages();
+
+  // Загружаем словарь только для админки
+  const messages = await getMessages(locale, 'admin');
 
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={messages} locale={locale}>
           {children}
         </NextIntlClientProvider>
       </body>

@@ -1,6 +1,6 @@
 //src\lib\supabase\middleware.ts
-import { createServerClient } from '@supabase/ssr'
-import { NextResponse, type NextRequest } from 'next/server'
+import { createServerClient } from '@supabase/ssr';
+import { NextResponse, type NextRequest } from 'next/server';
 
 export async function updateSession(
   request: NextRequest,
@@ -28,7 +28,7 @@ export async function updateSession(
           });
         },
       },
-    }
+    },
   );
 
   await supabase.auth.getUser();

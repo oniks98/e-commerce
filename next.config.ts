@@ -5,7 +5,16 @@ import withNextIntl from 'next-intl/plugin';
 const withIntl = withNextIntl();
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ['res.cloudinary.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 export default withIntl(nextConfig);

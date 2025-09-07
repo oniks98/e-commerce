@@ -1,27 +1,24 @@
 @import 'tailwindcss';
 
-
 @theme {
-    --color-dark: #2b2929;
-	--color-grey: #535353;
-	--color-grey-light: #b1b1b1;
-	--color-light: #f8f8f8;
-	--color-yellow: #ffbc57;
+  --color-dark: #2b2929;
+  --color-grey: #535353;
+  --color-grey-light: #b1b1b1;
+  --color-light: #f8f8f8;
+  --color-yellow: #ffbc57;
 
-    --breakpoint-sm: 320px;
-    --breakpoint-md: 768px;
-    --breakpoint-xl: 1024px;
+  --breakpoint-xl: 1024px;
 
-    --font-sans: Proxima Nova, Rubik, Roboto, sans-serif;
+  --font-sans: Proxima Nova, Rubik, Roboto, sans-serif;
 }
 
 @layer base {
-    body {
-        @apply bg-white text-base tracking-normal text-dark font-normal leading-normal;
-    }
+  body {
+    @apply text-dark bg-white text-base leading-normal font-normal tracking-normal;
+  }
 
-    button:not(:disabled),
-    [role="button"]:not(:disabled) {
-        @apply cursor-pointer;
-    }
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    @apply cursor-pointer;
+  }
 }

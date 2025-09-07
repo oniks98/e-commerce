@@ -43,6 +43,7 @@ next-env.d.ts
 .idea
 .vscode
 .gemini
+.roo
 
 google OAuth.json
 
@@ -50,4 +51,3 @@ google OAuth.json
 .branches
 .temp
 
-.roo\mcp.json

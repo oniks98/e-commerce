@@ -1,3 +1,4 @@
+// src\components\shop\ui\dropdown-menu.tsx
 'use client';
 
 import * as React from 'react';
@@ -29,7 +30,7 @@ export function DropdownMenuContent({
       <DropdownMenuPrimitive.Content
         sideOffset={sideOffset}
         className={clsx(
-          'bg-popover text-popover-foreground z-50 min-w-[8rem] rounded-md border p-1 shadow-md',
+          'text-popover-foreground z-50 min-w-[8rem] rounded-md border bg-white p-1 shadow-lg',
           'data-[state=open]:animate-in data-[state=closed]:animate-out',
           'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
           'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',

@@ -8,7 +8,8 @@
   --color-yellow: #ffbc57;
   --color-yellow-dark: #ffac41;
 
-  --breakpoint-xl: 1320px;
+  --breakpoint-xl: 1180px;
+  --breakpoint-md: 768px;
 
   --font-sans: Proxima Nova, Rubik, Roboto, sans-serif;
 }

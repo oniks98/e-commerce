@@ -1,11 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import TopBar from './TopBar';
-import MainHeader from './MainHeader';
-// import NavBar from './NavBar';
-import MobileHeader from './MobileHeader';
-import MobileMenu from './MobileMenu';
+import DesktopHeader from './desktop/DesktopHeader';
+import TabletHeader from './tablet/TabletHeader';
+import MobileHeader from './mobile/MobileHeader';
+import MobileMenu from './mobile/MobileMenu';
 
 const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,20 +15,36 @@ const Header = () => {
 
   return (
     <header className="relative z-50">
-      {/* Desktop Header */}
+      {/* Desktop 1180px+ */}
       <div className="hidden xl:block">
-        <TopBar />
-        <MainHeader />
-        {/* <NavBar /> */}
+        <DesktopHeader />
       </div>
 
-      {/* Mobile Header */}
-      <div className="block xl:hidden">
-        <MobileHeader onMenuClick={toggleMobileMenu} />
+      {/* Tablet 768-1179px */}
+      <div className="hidden md:block xl:hidden">
+        <TabletHeader
+          isMobileMenuOpen={isMobileMenuOpen}
+          setMobileMenuOpen={setMobileMenuOpen}
+        />
+        {/* Mobile Menu for tablet */}
+        <MobileMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setMobileMenuOpen(false)}
+        />
       </div>
 
-      {/* Mobile Menu - Conditionally rendered */}
-      <MobileMenu isOpen={isMobileMenuOpen} onClose={toggleMobileMenu} />
+      {/* Mobile 0-767px */}
+      <div className="block md:hidden">
+        <MobileHeader
+          onMenuClick={toggleMobileMenu}
+          isMenuOpen={isMobileMenuOpen}
+        />
+        {/* Mobile Menu */}
+        <MobileMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setMobileMenuOpen(false)}
+        />
+      </div>
     </header>
   );
 };

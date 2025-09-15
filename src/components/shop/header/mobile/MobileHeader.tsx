@@ -27,9 +27,9 @@ const MobileHeader = ({ onMenuClick, isMenuOpen }: MobileHeaderProps) => {
   };
 
   return (
-    <div className="border-light relative border-b-2 bg-white px-4 shadow-md">
+    <div className="border-light relative border-b-2 bg-white shadow-md">
       {/* Header content stays visible */}
-      <div className="relative z-50 mx-auto bg-white">
+      <div className="relative z-50 mx-auto bg-white px-4">
         {/* Верхняя строка */}
         <div className="flex h-[70px] items-center justify-between">
           <button

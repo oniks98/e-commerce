@@ -9,7 +9,7 @@ import clsx from 'clsx';
 
 const DesktopTopBar = () => {
   return (
-    <div className="bg-light relative z-50">
+    <div className="bg-light relative z-60">
       <div
         className={clsx(
           'mx-auto flex max-w-[1360px] items-center justify-between px-[35px] py-4',

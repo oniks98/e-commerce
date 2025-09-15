@@ -1,5 +1,8 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import clsx from 'clsx';
 
 import { catalogData } from '@/lib/shop/constants/catalog-data';
 import ChevronRightIcon from '@/lib/shop/icons/ChevronRightIcon';
@@ -10,77 +13,96 @@ interface DesktopCatalogMenuProps {
 }
 
 const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
+  const defaultCategory =
+    catalogData.find((c) => c.subcategories && c.subcategories.length > 0) ||
+    catalogData[0];
+  const [hoveredCategory, setHoveredCategory] = useState(defaultCategory);
+
+  useEffect(() => {
+    if (isOpen) {
+      setHoveredCategory(defaultCategory);
+    }
+  }, [isOpen, defaultCategory]);
+
   if (!isOpen) return null;
 
   return (
     <>
       {/* Backdrop overlay */}
       <div
-        className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+        className="fixed top-[172px] right-0 bottom-0 left-0 z-40 bg-black/50 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      {/* Menu container */}
-      <div className="absolute top-full left-0 z-50 w-full bg-white shadow-lg">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex w-full">
-            {/* Left sidebar with categories */}
-            <div className="w-80 border-r border-gray-200 bg-white">
-              <div className="py-2">
+      {/* Menu container wrapper */}
+      <div className="absolute top-full left-0 z-50 w-full">
+        {/* Container to align with header content */}
+        <div className="mx-auto max-w-[1360px]">
+          {/* Left-aligned menu with fixed width */}
+          <div className="w-[623px]">
+            <div className="flex w-full overflow-hidden rounded-lg bg-white shadow-lg">
+              {/* Left sidebar with categories */}
+              <div className="w-[300px] bg-white py-2">
                 {catalogData.map((category) => (
-                  <div key={category.id} className="group relative">
+                  <div
+                    key={category.id}
+                    onMouseEnter={() => setHoveredCategory(category)}
+                  >
                     <Link
                       href={category.href}
-                      className="hover:bg-yellow flex items-center justify-between px-8 py-3 text-xl leading-7 font-semibold text-gray-900 transition-colors hover:text-white"
                       onClick={onClose}
+                      className={clsx(
+                        'flex items-center justify-between py-[10px] pr-[15px] pl-[30px] text-xl font-semibold transition-colors',
+                        {
+                          'bg-yellow text-white':
+                            hoveredCategory?.id === category.id,
+                          'hover:bg-yellow/10 text-gray-900':
+                            hoveredCategory?.id !== category.id,
+                        },
+                      )}
                     >
-                      <span>{category.name}</span>
+                      <span className="w-[161px]">{category.name}</span>
                       {category.subcategories &&
                         category.subcategories.length > 0 && (
-                          <ChevronRightIcon className="text-yellow h-6 w-6 group-hover:text-white" />
+                          <ChevronRightIcon
+                            className={clsx('h-6 w-6', {
+                              'text-white': hoveredCategory?.id === category.id,
+                              'text-yellow':
+                                hoveredCategory?.id !== category.id,
+                            })}
+                          />
                         )}
                     </Link>
-
-                    {/* Subcategories panel */}
-                    {category.subcategories &&
-                      category.subcategories.length > 0 && (
-                        <div className="absolute top-0 left-full z-[60] hidden min-h-full w-80 bg-gray-50 py-2 group-hover:block">
-                          <div className="px-8 py-2">
-                            <h3 className="text-xl leading-7 font-semibold text-gray-900">
-                              {category.name}
-                            </h3>
-                            <div className="mt-4 space-y-2">
-                              {category.subcategories.map((subcategory) => (
-                                <Link
-                                  key={subcategory.id}
-                                  href={subcategory.href}
-                                  className="block text-lg leading-10 text-gray-600 transition-colors hover:text-yellow-600"
-                                  onClick={onClose}
-                                >
-                                  {subcategory.name}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      )}
                   </div>
                 ))}
               </div>
-            </div>
 
-            {/* Yellow separator line */}
-            <div className="bg-yellow w-1" />
+              {/* Yellow separator line */}
+              <div className="bg-yellow w-[5px]" />
 
-            {/* Right panel */}
-            <div className="bg-light flex-1 p-8">
-              <div className="text-center">
-                <h2 className="text-dark mb-8 text-[40px] leading-[48px] font-semibold">
-                  Популярні категорії
-                </h2>
-                <p className="text-lg text-gray-500">
-                  Оберіть категорію зліва, щоб побачити підкategorії
-                </p>
+              {/* Right panel with subcategories */}
+              <div className="bg-light w-[318px] py-[20px] pr-[20px] pl-[30px]">
+                {hoveredCategory?.subcategories &&
+                hoveredCategory.subcategories.length > 0 ? (
+                  <div>
+                    {hoveredCategory.subcategories.map((subcategory) => (
+                      <Link
+                        key={subcategory.id}
+                        href={subcategory.href}
+                        onClick={onClose}
+                        className="block text-[19px] leading-[2.1] font-normal text-gray-600 transition-colors hover:text-yellow-600"
+                      >
+                        {subcategory.name}
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex h-full items-center justify-center">
+                    <p className="text-lg text-gray-500">
+                      Для цієї категорії немає підкатегорій.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>

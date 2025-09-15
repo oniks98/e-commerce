@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 interface NavigationProps {
   className?: string;
+  isMobile?: boolean;
 }
 
 const infoLinks = [
@@ -13,14 +14,18 @@ const infoLinks = [
   { href: '/contacts', label: 'Контакти' },
 ];
 
-const Navigation = ({ className = '' }: NavigationProps) => {
+const Navigation = ({ className = '', isMobile = false }: NavigationProps) => {
   return (
     <nav className={`flex items-center gap-[30px] ${className}`}>
       {infoLinks.map((link) => (
         <Link
           href={link.href}
           key={link.href}
-          className="hover:text-yellow text-base leading-[30px] font-normal"
+          className={`hover:text-yellow ${
+            isMobile
+              ? 'text-xl leading-[28px] font-semibold'
+              : 'text-base leading-[30px] font-normal'
+          }`}
         >
           {link.label}
         </Link>

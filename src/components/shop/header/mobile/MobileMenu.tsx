@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ThemeToggle } from '@/components/shop/ui/ThemeToggle';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import RegistrationIcon from '@/lib/shop/icons/RegistrationIcon';
 import { LanguageSwitcher } from '@/components/shop/header/shared/language-switcher';
 import Navigation from '../shared/Navigation';
@@ -35,7 +35,10 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
           {/* Navigation Links */}
           <div className="flex flex-col gap-4">
-            <Navigation className="flex-col items-start gap-4" />
+            <Navigation
+              className="flex-col items-start gap-4"
+              isMobile={true}
+            />
           </div>
         </div>
       </div>

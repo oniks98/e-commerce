@@ -1,7 +1,7 @@
 'use client';
 
 import { LanguageSwitcher } from '@/components/shop/header/shared/language-switcher';
-import { ThemeToggle } from '@/components/shop/ui/ThemeToggle';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import RegistrationIcon from '@/lib/shop/icons/RegistrationIcon';
 import Navigation from '../shared/Navigation';
 import SocialLinks from '../shared/SocialLinks';
@@ -9,7 +9,7 @@ import clsx from 'clsx';
 
 const DesktopTopBar = () => {
   return (
-    <div className="bg-light">
+    <div className="bg-light relative z-50">
       <div
         className={clsx(
           'mx-auto flex max-w-[1360px] items-center justify-between px-[35px] py-4',

@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Logo from '../shared/Logo';
 import CatalogButton from '../shared/CatalogButton';
 import SearchInput from '../shared/SearchInput';
@@ -5,6 +8,7 @@ import ActionButtons from '../shared/ActionButtons';
 import PhoneIcon from '@/lib/shop/icons/PhoneIcon';
 import HamburgerIcon from '@/lib/shop/icons/HamburgerIcon';
 import CloseIcon from '@/lib/shop/icons/CloseIcon';
+import MobileCatalogMenu from './MobileCatalogMenu';
 
 interface MobileHeaderProps {
   onMenuClick: () => void;
@@ -12,9 +16,20 @@ interface MobileHeaderProps {
 }
 
 const MobileHeader = ({ onMenuClick, isMenuOpen }: MobileHeaderProps) => {
+  const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+
+  const handleCatalogToggle = () => {
+    setIsCatalogOpen(!isCatalogOpen);
+  };
+
+  const handleCatalogClose = () => {
+    setIsCatalogOpen(false);
+  };
+
   return (
-    <div className="border-light border-b-2 bg-white px-4 shadow-md">
-      <div className="mx-auto">
+    <div className="border-light relative border-b-2 bg-white px-4 shadow-md">
+      {/* Header content stays visible */}
+      <div className="relative z-50 mx-auto bg-white">
         {/* Верхняя строка */}
         <div className="flex h-[70px] items-center justify-between">
           <button
@@ -42,7 +57,7 @@ const MobileHeader = ({ onMenuClick, isMenuOpen }: MobileHeaderProps) => {
 
         {/* Нижняя строка */}
         <div className="flex items-center justify-between gap-3 py-3">
-          <CatalogButton size="compact" />
+          <CatalogButton size="compact" onClick={handleCatalogToggle} />
 
           {/* Иконки справа */}
           <div className="flex items-center gap-2">
@@ -51,6 +66,9 @@ const MobileHeader = ({ onMenuClick, isMenuOpen }: MobileHeaderProps) => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Catalog Menu */}
+      <MobileCatalogMenu isOpen={isCatalogOpen} onClose={handleCatalogClose} />
     </div>
   );
 };

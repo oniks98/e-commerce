@@ -1,15 +1,17 @@
 'use client';
 
+import { useState } from 'react';
 import Logo from '../shared/Logo';
 import CatalogButton from '../shared/CatalogButton';
 import SearchInput from '../shared/SearchInput';
 import ActionButtons from '../shared/ActionButtons';
 import { LanguageSwitcher } from '@/components/shop/header/shared/language-switcher';
-import { ThemeToggle } from '@/components/shop/ui/ThemeToggle';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import RegistrationIcon from '@/lib/shop/icons/RegistrationIcon';
 import HamburgerIcon from '@/lib/shop/icons/HamburgerIcon';
 import CloseIcon from '@/lib/shop/icons/CloseIcon';
 import { PhoneMenu } from '@/components/shop/header/shared/phone-menu';
+import MobileCatalogMenu from '../mobile/MobileCatalogMenu';
 import clsx from 'clsx';
 
 interface TabletHeaderProps {
@@ -21,13 +23,24 @@ const TabletHeader = ({
   isMobileMenuOpen,
   setMobileMenuOpen,
 }: TabletHeaderProps) => {
+  const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const handleCatalogToggle = () => {
+    setIsCatalogOpen(!isCatalogOpen);
+  };
+
+  const handleCatalogClose = () => {
+    setIsCatalogOpen(false);
+  };
+
   return (
-    <div className="border-light border-b-2 bg-white">
-      <div className="mx-auto max-w-[1360px] px-[35px]">
+    <div className="border-light relative border-b-2 bg-white">
+      {/* Header content stays visible */}
+      <div className="relative z-50 mx-auto max-w-[1360px] bg-white px-[35px]">
         {/* Верхняя строка - TopBar адаптированный */}
         <div className="bg-white py-4">
           <div className="text-grey flex items-center justify-between">
@@ -62,7 +75,7 @@ const TabletHeader = ({
         <div className="flex h-[100px] items-center gap-3 pb-4">
           {/* Каталог + Поиск */}
           <div className="flex flex-1 items-center gap-3">
-            <CatalogButton className="shrink-0" />
+            <CatalogButton className="shrink-0" onClick={handleCatalogToggle} />
             <SearchInput className="flex-1" />
           </div>
 
@@ -73,6 +86,9 @@ const TabletHeader = ({
           </div>
         </div>
       </div>
+
+      {/* Tablet Catalog Menu (uses mobile version) */}
+      <MobileCatalogMenu isOpen={isCatalogOpen} onClose={handleCatalogClose} />
     </div>
   );
 };

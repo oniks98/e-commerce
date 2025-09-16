@@ -12,7 +12,7 @@ const DesktopTopBar = () => {
     <div className="bg-light relative z-60">
       <div
         className={clsx(
-          'mx-auto flex max-w-[1360px] items-center justify-between px-[35px] py-4',
+          'mx-auto flex max-w-[1360px] items-center justify-between px-[35px] py-2',
           'text-grey',
         )}
       >

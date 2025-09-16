@@ -30,7 +30,7 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
     <>
       {/* Backdrop overlay */}
       <div
-        className="fixed top-[172px] right-0 bottom-0 left-0 z-40 bg-black/50 backdrop-blur-sm"
+        className="fixed top-[138px] right-0 bottom-0 left-0 z-40 bg-black/50 backdrop-blur-sm"
         onClick={onClose}
       />
 
@@ -39,10 +39,10 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
         {/* Container to align with header content */}
         <div className="mx-auto max-w-[1360px]">
           {/* Left-aligned menu with fixed width */}
-          <div className="w-[623px]" onClick={(e) => e.stopPropagation()}>
+          <div className="w-[920px]" onClick={(e) => e.stopPropagation()}>
             <div className="flex w-full overflow-hidden rounded-lg bg-white shadow-lg">
               {/* Left sidebar with categories */}
-              <div className="w-[300px] bg-white py-2">
+              <div className="w-[500px] bg-white py-2">
                 {catalogData.map((category) => (
                   <div
                     key={category.id}
@@ -52,7 +52,7 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
                       href={category.href}
                       onClick={onClose}
                       className={clsx(
-                        'flex items-center justify-between py-[10px] pr-[15px] pl-[30px] text-xl font-semibold transition-colors',
+                        'flex items-center justify-between py-2 pr-[15px] pl-[30px] text-base transition-colors',
                         {
                           'bg-yellow text-white':
                             hoveredCategory?.id === category.id,
@@ -61,7 +61,7 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
                         },
                       )}
                     >
-                      <span className="w-[161px]">{category.name}</span>
+                      <span className="w-[450px]">{category.name}</span>
                       {category.subcategories &&
                         category.subcategories.length > 0 && (
                           <ChevronRightIcon
@@ -81,7 +81,7 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
               <div className="bg-yellow w-[5px]" />
 
               {/* Right panel with subcategories */}
-              <div className="bg-light w-[318px] py-[20px] pr-[20px] pl-[30px]">
+              <div className="bg-light w-[500px] py-[20px] pr-[20px] pl-[30px]">
                 {hoveredCategory?.subcategories &&
                 hoveredCategory.subcategories.length > 0 ? (
                   <div>
@@ -90,7 +90,7 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
                         key={subcategory.id}
                         href={subcategory.href}
                         onClick={onClose}
-                        className="block text-[19px] leading-[2.1] font-normal text-gray-600 transition-colors hover:text-yellow-600"
+                        className="block text-base leading-[2.1] text-gray-600 transition-colors hover:text-yellow-600"
                       >
                         {subcategory.name}
                       </Link>

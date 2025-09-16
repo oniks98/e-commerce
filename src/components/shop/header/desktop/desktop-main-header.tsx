@@ -38,7 +38,7 @@ const DesktopMainHeader = () => {
     <div className="border-light relative z-50 border-b-2 bg-white">
       {/* Header content stays visible - точно как в мобильной версии */}
       <div className="relative z-50 mx-auto max-w-[1360px] bg-white px-[35px]">
-        <div className="flex h-[100px] items-center gap-[30px]">
+        <div className="flex h-[80px] items-center gap-[30px]">
           {/* Лого */}
           <Logo />
 

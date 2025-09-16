@@ -42,7 +42,7 @@ const TabletHeader = ({
       {/* Header content stays visible */}
       <div className="relative z-50 mx-auto max-w-[1360px] bg-white px-[35px]">
         {/* Верхняя строка - TopBar адаптированный */}
-        <div className="bg-white py-4">
+        <div className="bg-white py-2">
           <div className="text-grey flex items-center justify-between">
             <button
               onClick={toggleMobileMenu}
@@ -72,7 +72,7 @@ const TabletHeader = ({
         </div>
 
         {/* Главная строка */}
-        <div className="flex h-[100px] items-center gap-3 pb-4">
+        <div className="flex h-[72px] items-center gap-3 pb-4">
           {/* Каталог + Поиск */}
           <div className="flex flex-1 items-center gap-3">
             <CatalogButton className="shrink-0" onClick={handleCatalogToggle} />

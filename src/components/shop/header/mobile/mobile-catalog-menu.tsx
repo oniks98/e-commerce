@@ -45,7 +45,7 @@ const MobileCatalogMenu = ({ isOpen, onClose }: MobileCatalogMenuProps) => {
                         <Link
                           href={category.href}
                           onClick={onClose}
-                          className="text-dark flex items-center gap-4 text-lg leading-7 font-semibold"
+                          className="text-dark flex items-center gap-4 text-lg leading-7"
                         >
                           <span>{category.name}</span>
                         </Link>
@@ -73,15 +73,11 @@ const MobileCatalogMenu = ({ isOpen, onClose }: MobileCatalogMenuProps) => {
                     // Simple link for categories without subcategories
                     <Link
                       href={category.href}
-                      className="text-dark hover:bg-light flex items-center justify-between px-6 py-3 text-lg leading-7 font-semibold transition-colors"
+                      className="text-dark hover:bg-light flex items-center justify-between px-6 py-3 text-lg leading-7  transition-colors"
                       onClick={onClose}
                     >
                       <div className="flex items-center gap-4">
-                        {/* Icon placeholder */}
-                        <div className="bg-light border-grey-light flex h-8 w-8 items-center justify-center rounded-lg border">
-                          <div className="bg-yellow h-4 w-4 rounded-sm" />
-                        </div>
-                        <span>{category.name}</span>
+                     <span>{category.name}</span>
                       </div>
                       <ChevronDownIcon className="text-yellow h-6 w-6 rotate-[-90deg]" />
                     </Link>

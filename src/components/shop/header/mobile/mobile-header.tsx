@@ -9,6 +9,7 @@ import PhoneIcon from '@/lib/shop/icons/phone-icon';
 import HamburgerIcon from '@/lib/shop/icons/hamburger-icon';
 import CloseIcon from '@/lib/shop/icons/close-icon';
 import MobileCatalogMenu from './mobile-catalog-menu';
+import SearchIcon from '@/lib/shop/icons/search-icon';
 
 interface MobileHeaderProps {
   onMenuClick: () => void;
@@ -17,6 +18,7 @@ interface MobileHeaderProps {
 
 const MobileHeader = ({ onMenuClick, isMenuOpen }: MobileHeaderProps) => {
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const handleCatalogToggle = () => {
     setIsCatalogOpen(!isCatalogOpen);
@@ -24,6 +26,10 @@ const MobileHeader = ({ onMenuClick, isMenuOpen }: MobileHeaderProps) => {
 
   const handleCatalogClose = () => {
     setIsCatalogOpen(false);
+  };
+
+  const handleSearchToggle = () => {
+    setIsSearchOpen(!isSearchOpen);
   };
 
   return (
@@ -47,11 +53,11 @@ const MobileHeader = ({ onMenuClick, isMenuOpen }: MobileHeaderProps) => {
           <Logo width={215} height={43} />
 
           <div className="flex items-center">
-            <button aria-label="Call us" className="p-2">
+            <a href="tel:+380633388260" aria-label="Call us" className="p-2">
               <div className="h-[50px] w-[50px]">
                 <PhoneIcon className="text-grey h-6 w-6" />
               </div>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -61,11 +67,32 @@ const MobileHeader = ({ onMenuClick, isMenuOpen }: MobileHeaderProps) => {
 
           {/* Иконки справа */}
           <div className="flex items-center gap-2">
-            <SearchInput variant="mobile" />
+            <button
+              onClick={handleSearchToggle}
+              className="relative h-[50px] w-[50px]"
+            >
+              {isSearchOpen ? (
+                <>
+                  <div className="border-yellow h-full w-full rounded-full border-2" />
+                  <CloseIcon className="text-grey absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
+                </>
+              ) : (
+                <>
+                  <div className="border-yellow h-full w-full rounded-full border-2" />
+                  <SearchIcon className="text-grey absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
+                </>
+              )}
+            </button>
             <ActionButtons />
           </div>
         </div>
       </div>
+
+      {isSearchOpen && (
+        <div className="absolute top-full left-0 z-50 w-full bg-white p-4 shadow-lg">
+          <SearchInput variant="desktop" />
+        </div>
+      )}
 
       {/* Mobile Catalog Menu */}
       <MobileCatalogMenu isOpen={isCatalogOpen} onClose={handleCatalogClose} />

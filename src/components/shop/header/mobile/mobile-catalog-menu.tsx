@@ -73,11 +73,11 @@ const MobileCatalogMenu = ({ isOpen, onClose }: MobileCatalogMenuProps) => {
                     // Simple link for categories without subcategories
                     <Link
                       href={category.href}
-                      className="text-dark hover:bg-light flex items-center justify-between px-6 py-3 text-lg leading-7  transition-colors"
+                      className="text-dark hover:bg-light flex items-center justify-between px-6 py-3 text-lg leading-7 transition-colors"
                       onClick={onClose}
                     >
                       <div className="flex items-center gap-4">
-                     <span>{category.name}</span>
+                        <span>{category.name}</span>
                       </div>
                       <ChevronDownIcon className="text-yellow h-6 w-6 rotate-[-90deg]" />
                     </Link>

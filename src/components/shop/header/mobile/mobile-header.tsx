@@ -1,14 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import Logo from '../shared/Logo';
-import CatalogButton from '../shared/CatalogButton';
-import SearchInput from '../shared/SearchInput';
-import ActionButtons from '../shared/ActionButtons';
-import PhoneIcon from '@/lib/shop/icons/PhoneIcon';
-import HamburgerIcon from '@/lib/shop/icons/HamburgerIcon';
-import CloseIcon from '@/lib/shop/icons/CloseIcon';
-import MobileCatalogMenu from './MobileCatalogMenu';
+import Logo from '../shared/logo';
+import CatalogButton from '../shared/catalog-button';
+import SearchInput from '../shared/search-input';
+import ActionButtons from '../shared/action-buttons';
+import PhoneIcon from '@/lib/shop/icons/phone-icon';
+import HamburgerIcon from '@/lib/shop/icons/hamburger-icon';
+import CloseIcon from '@/lib/shop/icons/close-icon';
+import MobileCatalogMenu from './mobile-catalog-menu';
 
 interface MobileHeaderProps {
   onMenuClick: () => void;

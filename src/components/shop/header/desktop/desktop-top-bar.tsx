@@ -1,10 +1,10 @@
 'use client';
 
 import { LanguageSwitcher } from '@/components/shop/header/shared/language-switcher';
-import { ThemeToggle } from '@/components/ui/ThemeToggle';
-import RegistrationIcon from '@/lib/shop/icons/RegistrationIcon';
-import Navigation from '../shared/Navigation';
-import SocialLinks from '../shared/SocialLinks';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
+import RegistrationIcon from '@/lib/shop/icons/registration-icon';
+import Navigation from '../shared/navigation';
+import SocialLinks from '../shared/social-links';
 import clsx from 'clsx';
 
 const DesktopTopBar = () => {

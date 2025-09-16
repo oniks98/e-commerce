@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { ThemeToggle } from '@/components/ui/ThemeToggle';
-import RegistrationIcon from '@/lib/shop/icons/RegistrationIcon';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
+import RegistrationIcon from '@/lib/shop/icons/registration-icon';
 import { LanguageSwitcher } from '@/components/shop/header/shared/language-switcher';
-import Navigation from '../shared/Navigation';
+import Navigation from '../shared/navigation';
 
 interface MobileMenuProps {
   isOpen: boolean;

@@ -1,17 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import Logo from '../shared/Logo';
-import CatalogButton from '../shared/CatalogButton';
-import SearchInput from '../shared/SearchInput';
-import ActionButtons from '../shared/ActionButtons';
+import Logo from '../shared/logo';
+import CatalogButton from '../shared/catalog-button';
+import SearchInput from '../shared/search-input';
+import ActionButtons from '../shared/action-buttons';
 import { LanguageSwitcher } from '@/components/shop/header/shared/language-switcher';
-import { ThemeToggle } from '@/components/ui/ThemeToggle';
-import RegistrationIcon from '@/lib/shop/icons/RegistrationIcon';
-import HamburgerIcon from '@/lib/shop/icons/HamburgerIcon';
-import CloseIcon from '@/lib/shop/icons/CloseIcon';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
+import RegistrationIcon from '@/lib/shop/icons/registration-icon';
+import HamburgerIcon from '@/lib/shop/icons/hamburger-icon';
+import CloseIcon from '@/lib/shop/icons/close-icon';
 import { PhoneMenu } from '@/components/shop/header/shared/phone-menu';
-import MobileCatalogMenu from '../mobile/MobileCatalogMenu';
+import MobileCatalogMenu from '../mobile/mobile-catalog-menu';
 import clsx from 'clsx';
 
 interface TabletHeaderProps {

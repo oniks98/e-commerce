@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import React from 'react';
 import '@/styles/globals-shop.css';
-import { ThemeProvider } from '@/components/shop/providers/ThemeProvider';
+import { ThemeProvider } from '@/components/shop/providers/theme-provider';
 
 export default async function ShopLocaleLayout({
   children,

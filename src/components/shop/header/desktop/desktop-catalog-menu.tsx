@@ -5,7 +5,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 
 import { catalogData } from '@/lib/shop/constants/catalog-data';
-import ChevronRightIcon from '@/lib/shop/icons/ChevronRightIcon';
+import ChevronRightIcon from '@/lib/shop/icons/chevron-right-icon';
 
 interface DesktopCatalogMenuProps {
   isOpen: boolean;
@@ -35,11 +35,11 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
       />
 
       {/* Menu container wrapper */}
-      <div className="absolute top-full left-0 z-50 w-full">
+      <div className="absolute top-full left-0 z-50 w-full" onClick={onClose}>
         {/* Container to align with header content */}
         <div className="mx-auto max-w-[1360px]">
           {/* Left-aligned menu with fixed width */}
-          <div className="w-[623px]">
+          <div className="w-[623px]" onClick={(e) => e.stopPropagation()}>
             <div className="flex w-full overflow-hidden rounded-lg bg-white shadow-lg">
               {/* Left sidebar with categories */}
               <div className="w-[300px] bg-white py-2">

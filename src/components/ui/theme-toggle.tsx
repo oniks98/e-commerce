@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useTheme } from 'next-themes';
 import clsx from 'clsx';
 
-import MoonIcon from '@/lib/shop/icons/MoonIcon';
-import SunIcon from '@/lib/shop/icons/ThemeIcon';
+import MoonIcon from '@/lib/shop/icons/moon-icon';
+import SunIcon from '@/lib/shop/icons/theme-icon';
 
 export function ThemeToggle({ className }: { className?: string }) {
   const { setTheme, resolvedTheme } = useTheme();

@@ -1,4 +1,4 @@
-import SearchIcon from '@/lib/shop/icons/SearchIcon';
+import SearchIcon from '@/lib/shop/icons/search-icon';
 import clsx from 'clsx';
 
 interface SearchInputProps {

@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Logo from '../shared/Logo';
-import CatalogButton from '../shared/CatalogButton';
-import SearchInput from '../shared/SearchInput';
-import ActionButtons from '../shared/ActionButtons';
+import Logo from '../shared/logo';
+import CatalogButton from '../shared/catalog-button';
+import SearchInput from '../shared/search-input';
+import ActionButtons from '../shared/action-buttons';
 import { PhoneMenu } from '@/components/shop/header/shared/phone-menu';
-import DesktopCatalogMenu from './DesktopCatalogMenu';
+import DesktopCatalogMenu from './desktop-catalog-menu';
 import clsx from 'clsx';
 
 const DesktopMainHeader = () => {

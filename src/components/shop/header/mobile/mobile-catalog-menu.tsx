@@ -9,7 +9,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { catalogData } from '@/lib/shop/constants/catalog-data';
-import ChevronDownIcon from '@/lib/shop/icons/ChevronDownIcon';
+import ChevronDownIcon from '@/lib/shop/icons/chevron-down-icon';
 
 interface MobileCatalogMenuProps {
   isOpen: boolean;
@@ -41,26 +41,18 @@ const MobileCatalogMenu = ({ isOpen, onClose }: MobileCatalogMenuProps) => {
                   {category.subcategories &&
                   category.subcategories.length > 0 ? (
                     <>
-                      <AccordionTrigger className="text-dark hover:bg-light flex items-center justify-between px-6 py-3 text-lg leading-7 font-semibold transition-colors hover:no-underline">
-                        <div className="flex items-center gap-4">
-                          {/* Icon placeholder */}
-                          <div className="bg-light border-grey-light flex h-8 w-8 items-center justify-center rounded-lg border">
-                            <div className="bg-yellow h-4 w-4 rounded-sm" />
-                          </div>
+                      <div className="flex items-center justify-between px-6 py-3">
+                        <Link
+                          href={category.href}
+                          onClick={onClose}
+                          className="text-dark flex items-center gap-4 text-lg leading-7 font-semibold"
+                        >
                           <span>{category.name}</span>
-                        </div>
-                      </AccordionTrigger>
+                        </Link>
+                        <AccordionTrigger className="!flex-grow-0 !p-2" />
+                      </div>
                       <AccordionContent className="bg-light/30 pt-0 pb-0">
                         <div className="px-6 py-4">
-                          {/* Main category link */}
-                          <Link
-                            href={category.href}
-                            className="text-dark hover:text-yellow mb-4 block text-lg leading-7 font-semibold transition-colors"
-                            onClick={onClose}
-                          >
-                            Всі {category.name.toLowerCase()}
-                          </Link>
-
                           {/* Subcategories */}
                           <div className="space-y-2">
                             {category.subcategories.map((subcategory) => (

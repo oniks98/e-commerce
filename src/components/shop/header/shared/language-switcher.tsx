@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import clsx from 'clsx';
-import ArrowDownIcon from '@/lib/shop/icons/ArrowDownIcon';
+import ArrowDownIcon from '@/lib/shop/icons/arrow-down-icon';
 
 const LANGUAGES = [
   { code: 'UA', label: 'UA' },

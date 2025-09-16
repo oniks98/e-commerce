@@ -1,5 +1,5 @@
-import DesktopTopBar from './DesktopTopBar';
-import DesktopMainHeader from './DesktopMainHeader';
+import DesktopTopBar from './desktop-top-bar';
+import DesktopMainHeader from './desktop-main-header';
 
 const DesktopHeader = () => {
   return (

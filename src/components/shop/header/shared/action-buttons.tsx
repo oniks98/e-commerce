@@ -1,5 +1,5 @@
-import FavoritesIcon from '@/lib/shop/icons/FavoritesIcon';
-import CartIcon from '@/lib/shop/icons/CartIcon';
+import FavoritesIcon from '@/lib/shop/icons/favorites-icon';
+import CartIcon from '@/lib/shop/icons/cart-icon';
 
 interface ActionButtonsProps {
   showLabels?: boolean;

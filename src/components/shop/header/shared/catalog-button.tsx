@@ -1,4 +1,4 @@
-import CatalogIcon from '@/lib/shop/icons/CatalogIcon';
+import CatalogIcon from '@/lib/shop/icons/catalog-icon';
 import clsx from 'clsx';
 
 interface CatalogButtonProps {

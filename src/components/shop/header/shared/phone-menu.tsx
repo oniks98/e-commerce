@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import PhoneIcon from '@/lib/shop/icons/PhoneIcon';
-import ArrowDownIcon from '@/lib/shop/icons/ArrowDownIcon';
+import PhoneIcon from '@/lib/shop/icons/phone-icon';
+import ArrowDownIcon from '@/lib/shop/icons/arrow-down-icon';
 
 const PHONES = ['063 338-82-60', '067 636-01-90'];
 

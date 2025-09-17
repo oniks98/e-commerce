@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header className="relative z-50">
       {/* Desktop 1180px+ */}
-      <div className="sticky top-0 hidden w-full xl:block">
+      <div className="fixed top-0 left-0 hidden w-full xl:block">
         <DesktopHeader />
       </div>
 

@@ -9,6 +9,10 @@ import { EmblaOptionsType } from 'embla-carousel';
 import Image from 'next/image';
 import clsx from 'clsx';
 
+interface HeroProps {
+  className?: string;
+}
+
 const slides = [
   {
     id: 'e1c99fbd75fef4721f21625d062aa7b4a4d22dd7',
@@ -24,7 +28,7 @@ const slides = [
   },
 ];
 
-const Hero = () => {
+const Hero: React.FC<HeroProps> = ({ className }) => {
   const options: EmblaOptionsType = { loop: true };
 
   const slideComponents = slides.map((slide) => (
@@ -32,27 +36,36 @@ const Hero = () => {
       <Image
         src={getPlaceholder('banner', slide.id)}
         alt={slide.alt}
-        layout="fill"
-        objectFit="cover"
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        style={{ objectFit: 'cover' }}
         className="rounded-lg"
       />
     </div>
   ));
 
   const prevButton = (
-    <button className="text-yellow absolute top-1/2 left-5 hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full bg-white md:flex">
+    <button
+      type="button"
+      className="text-yellow absolute top-1/2 left-5 hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full bg-white transition-all duration-200 hover:bg-gray-50 md:flex"
+      aria-label="Previous slide"
+    >
       <ArrowLeftIcon />
     </button>
   );
 
   const nextButton = (
-    <button className="text-yellow absolute top-1/2 right-5 hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full bg-white md:flex">
+    <button
+      type="button"
+      className="text-yellow absolute top-1/2 right-5 hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full bg-white transition-all duration-200 hover:bg-gray-50 md:flex"
+      aria-label="Next slide"
+    >
       <ArrowRightIcon />
     </button>
   );
 
   return (
-    <div className="mx-auto h-auto w-full">
+    <div className={clsx('mx-auto h-auto w-full', className)}>
       <Carousel
         slides={slideComponents}
         options={options}

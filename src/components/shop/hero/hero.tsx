@@ -3,8 +3,8 @@
 import React from 'react';
 import Carousel from '@/components/ui/carousel';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
-import ArrowLeftIcon from '@/lib/shop/icons/arrow-left-icon';
-import ArrowRightIcon from '@/lib/shop/icons/arrow-right-icon';
+import ChevronLeftIcon from '@/lib/shop/icons/chevron-left-icon';
+import ChevronRightIcon from '@/lib/shop/icons/chevron-right-icon';
 import { EmblaOptionsType } from 'embla-carousel';
 import Image from 'next/image';
 import clsx from 'clsx';
@@ -50,7 +50,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       className="text-yellow absolute top-1/2 left-5 hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full bg-white transition-all duration-200 hover:bg-gray-50 md:flex"
       aria-label="Previous slide"
     >
-      <ArrowLeftIcon />
+      <ChevronLeftIcon />
     </button>
   );
 
@@ -60,7 +60,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       className="text-yellow absolute top-1/2 right-5 hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full bg-white transition-all duration-200 hover:bg-gray-50 md:flex"
       aria-label="Next slide"
     >
-      <ArrowRightIcon />
+      <ChevronRightIcon />
     </button>
   );
 

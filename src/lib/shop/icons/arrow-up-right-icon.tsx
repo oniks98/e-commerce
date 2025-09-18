@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ArrowCategoriesIcon = ({ className }: { className?: string }) => (
+const ArrowUpRightIcon = ({ className }: { className?: string }) => (
   <svg
     width="11"
     height="11"
@@ -16,4 +16,4 @@ const ArrowCategoriesIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default ArrowCategoriesIcon;
+export default ArrowUpRightIcon;

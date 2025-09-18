@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ArrowLeftIcon = ({ className }: { className?: string }) => (
+const ChevronLeftIcon = ({ className }: { className?: string }) => (
   <svg
     width="12"
     height="20"
@@ -16,4 +16,4 @@ const ArrowLeftIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default ArrowLeftIcon;
+export default ChevronLeftIcon;

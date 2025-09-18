@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import { catalogData } from '@/lib/shop/constants/catalog-data';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
-import ArrowCategoriesIcon from '@/lib/shop/icons/arrow-categories-icon';
+import ArrowCategoriesIcon from '@/lib/shop/icons/arrow-up-right-icon';
 
 const Categories = () => {
   const categories = catalogData.slice(0, 12);
@@ -11,7 +11,7 @@ const Categories = () => {
   return (
     <section className="py-[35px]">
       <div className="mx-auto">
-        <h1 className="mb-[35px] text-center text-3xl font-semibold md:text-4xl">
+        <h1 className="mb-[35px] text-left text-3xl font-semibold md:text-4xl">
           Популярні категорії
         </h1>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-4">
@@ -27,10 +27,10 @@ const Categories = () => {
                     )})`,
                   }}
                 />
-                <div className="bg-opacity-20 absolute inset-0 bg-black" />
+                <div className="bg-opacity-20 bg-light absolute inset-0" />
 
                 {/* Контент карточки */}
-                <div className="relative z-10 flex h-full flex-col p-4 text-white md:p-5">
+                <div className="relative z-10 flex h-full flex-col p-4 text-black md:p-5">
                   {/* Верхняя часть с названием и количеством */}
                   <div className="flex items-start justify-between">
                     <h2 className="text-xl leading-[1.4] font-semibold">

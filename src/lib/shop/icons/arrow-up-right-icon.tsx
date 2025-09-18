@@ -1,6 +1,8 @@
-import React from 'react';
+interface ArrowUpRightIconProps {
+  className?: string;
+}
 
-const ArrowUpRightIcon = ({ className }: { className?: string }) => (
+const ArrowUpRightIcon = ({ className }: ArrowUpRightIconProps) => (
   <svg
     width="11"
     height="11"

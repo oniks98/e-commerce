@@ -1,6 +1,8 @@
-import React from 'react';
+interface MoonIconProps {
+  className?: string;
+}
 
-const MoonIcon = ({ className }: { className?: string }) => (
+const MoonIcon = ({ className }: MoonIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"

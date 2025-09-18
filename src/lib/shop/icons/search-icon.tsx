@@ -1,6 +1,8 @@
-import React from 'react';
+interface SearchIconProps {
+  className?: string;
+}
 
-const SearchIcon = ({ className }: { className?: string }) => (
+const SearchIcon = ({ className }: SearchIconProps) => (
   <svg
     width="23"
     height="23"

@@ -1,6 +1,8 @@
-import React from 'react';
+interface ChevronLeftIconProps {
+  className?: string;
+}
 
-const ChevronLeftIcon = ({ className }: { className?: string }) => (
+const ChevronLeftIcon = ({ className }: ChevronLeftIconProps) => (
   <svg
     width="12"
     height="20"

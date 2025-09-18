@@ -1,6 +1,8 @@
-import React from 'react';
+interface CloseIconProps {
+  className?: string;
+}
 
-const CloseIcon = ({ className }: { className?: string }) => (
+const CloseIcon = ({ className }: CloseIconProps) => (
   <svg
     width="24"
     height="24"

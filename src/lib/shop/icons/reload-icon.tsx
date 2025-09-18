@@ -1,10 +1,4 @@
-import { FC } from 'react';
-
-interface ReloadIconProps {
-  className?: string;
-}
-
-const ReloadIcon: FC<ReloadIconProps> = ({ className }) => (
+const ReloadIcon = ({ className }: ReloadIconProps) => (
   <svg
     className={className}
     width="24"

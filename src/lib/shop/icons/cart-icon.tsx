@@ -1,6 +1,8 @@
-import React from 'react';
+interface CartIconProps {
+  className?: string;
+}
 
-const CartIcon = ({ className }: { className?: string }) => (
+const CartIcon = ({ className }: CartIconProps) => (
   <svg
     width="25"
     height="25"

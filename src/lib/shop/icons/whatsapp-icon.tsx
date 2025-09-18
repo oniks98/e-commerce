@@ -1,6 +1,8 @@
-import React from 'react';
+interface WhatsappIconProps {
+  className?: string;
+}
 
-const WhatsappIcon = ({ className }: { className?: string }) => (
+const WhatsappIcon = ({ className }: WhatsappIconProps) => (
   <svg
     width="30"
     height="30"

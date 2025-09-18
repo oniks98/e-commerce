@@ -1,10 +1,4 @@
-import { FC } from 'react';
-
-interface CheckIconProps {
-  className?: string;
-}
-
-const CheckIcon: FC<CheckIconProps> = ({ className }) => (
+const CheckIcon = ({ className }: CheckIconProps) => (
   <svg
     className={className}
     width="20"

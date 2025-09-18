@@ -1,6 +1,8 @@
-import React from 'react';
+interface CatalogIconProps {
+  className?: string;
+}
 
-const CatalogIcon = ({ className }: { className?: string }) => (
+const CatalogIcon = ({ className }: CatalogIconProps) => (
   <svg
     width="24"
     height="24"

@@ -1,5 +1,6 @@
 import FavoritesIcon from '@/lib/shop/icons/favorites-icon';
 import CartIcon from '@/lib/shop/icons/cart-icon';
+import clsx from 'clsx';
 
 interface ActionButtonsProps {
   showLabels?: boolean;
@@ -19,7 +20,12 @@ const ActionButtons = ({
 
       <button aria-label="Cart" className="relative h-[50px] w-[50px]">
         <div className="border-yellow absolute inset-0 rounded-full border-2"></div>
-        <CartIcon className="text-grey hover:text-yellow absolute top-1/2 left-1/2 h-[25px] w-[25px] -translate-x-1/2 -translate-y-1/2" />
+        <CartIcon
+          className={clsx(
+            'text-grey hover:text-yellow absolute top-1/2 left-1/2 h-[25px] w-[25px]',
+            '-translate-x-1/2 -translate-y-1/2',
+          )}
+        />
       </button>
     </div>
   );

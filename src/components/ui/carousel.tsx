@@ -83,7 +83,12 @@ const Carousel: React.FC<CarouselProps> = ({
         </div>
       </div>
 
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center space-x-2">
+      <div
+        className={clsx(
+          'absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center',
+          'space-x-2',
+        )}
+      >
         {scrollSnaps.map((_, index) => (
           <button
             key={index}

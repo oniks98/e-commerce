@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC } from 'react';
+import clsx from 'clsx';
 
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import { products } from '@/lib/shop/constants/products-data';
@@ -13,9 +13,27 @@ interface ProductCardProps {
   product: (typeof products)[0];
 }
 
-const ProductCard: FC<ProductCardProps> = ({ product }) => {
+const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <div className="group flex h-[498px] min-w-[270px] flex-col items-center rounded-lg border border-gray-200 bg-white p-5 shadow-md transition-transform duration-300 hover:scale-105">
+    <div
+      className={clsx(
+        'group',
+        'flex',
+        'h-[498px]',
+        'min-w-[270px]',
+        'flex-col',
+        'items-center',
+        'rounded-lg',
+        'border',
+        'border-gray-200',
+        'bg-white',
+        'p-5',
+        'shadow-md',
+        'transition-transform',
+        'duration-300',
+        'hover:scale-105',
+      )}
+    >
       <Link href={`/products/${product.id}`} className="flex flex-col">
         <div className="flex justify-center">
           <Image

@@ -1,6 +1,8 @@
-import React from 'react';
+interface ViberIconProps {
+  className?: string;
+}
 
-const ViberIcon = ({ className }: { className?: string }) => (
+const ViberIcon = ({ className }: ViberIconProps) => (
   <svg
     width="30"
     height="30"

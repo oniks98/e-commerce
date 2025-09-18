@@ -43,8 +43,17 @@ const Categories = () => {
 
                   {/* Нижняя часть с иконкой */}
                   <div className="mt-auto flex justify-end">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-yellow-400 md:h-12 md:w-12">
-                      <ArrowCategoriesIcon className="h-3 w-3 text-yellow-400 md:h-4 md:w-4" />
+                    <div
+                      className={clsx(
+                        'flex items-center justify-center rounded-full border-2 border-yellow-400',
+                        'h-10 w-10 md:h-12 md:w-12',
+                      )}
+                    >
+                      <ArrowCategoriesIcon
+                        className={clsx(
+                          'h-3 w-3 text-yellow-400 md:h-4 md:w-4',
+                        )}
+                      />
                     </div>
                   </div>
                 </div>

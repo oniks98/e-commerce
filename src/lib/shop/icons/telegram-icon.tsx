@@ -1,6 +1,8 @@
-import React from 'react';
+interface TelegramIconProps {
+  className?: string;
+}
 
-const TelegramIcon = ({ className }: { className?: string }) => (
+const TelegramIcon = ({ className }: TelegramIconProps) => (
   <svg
     width="30"
     height="30"

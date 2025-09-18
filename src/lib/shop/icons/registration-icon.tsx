@@ -1,6 +1,8 @@
-import React from 'react';
+interface RegistrationIconProps {
+  className?: string;
+}
 
-const RegistrationIcon = ({ className }: { className?: string }) => (
+const RegistrationIcon = ({ className }: RegistrationIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"

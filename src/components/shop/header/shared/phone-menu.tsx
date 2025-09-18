@@ -60,7 +60,10 @@ export function PhoneMenu() {
               alert('Форма зворотного дзвінка');
               setIsOpen(false);
             }}
-            className="text-xm w-full text-left font-medium text-orange-400 transition-colors duration-200 hover:text-orange-500"
+            className={clsx(
+              'text-xm w-full text-left font-medium text-orange-400',
+              'transition-colors duration-200 hover:text-orange-500',
+            )}
           >
             Передзвоніть мені
           </button>

@@ -1,6 +1,8 @@
-import React from 'react';
+interface ThemeIconProps {
+  className?: string;
+}
 
-const ThemeIcon = ({ className }: { className?: string }) => (
+const ThemeIcon = ({ className }: ThemeIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"

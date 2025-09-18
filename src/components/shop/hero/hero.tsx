@@ -27,7 +27,7 @@ const slides = [
   },
 ];
 
-const Hero = ({ className }: HeroProps) => {
+export default function Hero({ className }: HeroProps) {
   const options: EmblaOptionsType = { loop: true };
 
   const slideComponents = slides.map((slide) => (
@@ -46,7 +46,15 @@ const Hero = ({ className }: HeroProps) => {
   const prevButton = (
     <button
       type="button"
-      className="text-yellow absolute top-1/2 left-5 hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full bg-white transition-all duration-200 hover:bg-gray-50 md:flex"
+      className={clsx(
+        'absolute top-1/2 left-5 -translate-y-1/2',
+        'h-[60px] w-[60px]',
+        'flex items-center justify-center',
+        'rounded-full bg-white',
+        'text-yellow',
+        'transition-all duration-200 hover:bg-gray-50',
+        'hidden md:flex',
+      )}
       aria-label="Previous slide"
     >
       <ChevronLeftIcon />
@@ -56,7 +64,15 @@ const Hero = ({ className }: HeroProps) => {
   const nextButton = (
     <button
       type="button"
-      className="text-yellow absolute top-1/2 right-5 hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full bg-white transition-all duration-200 hover:bg-gray-50 md:flex"
+      className={clsx(
+        'absolute top-1/2 right-5 -translate-y-1/2',
+        'h-[60px] w-[60px]',
+        'flex items-center justify-center',
+        'rounded-full bg-white',
+        'text-yellow',
+        'transition-all duration-200 hover:bg-gray-50',
+        'hidden md:flex',
+      )}
       aria-label="Next slide"
     >
       <ChevronRightIcon />
@@ -64,7 +80,12 @@ const Hero = ({ className }: HeroProps) => {
   );
 
   return (
-    <div className={clsx('mx-auto h-auto w-full py-[35px] xl:mt-[138px]', className)}>
+    <div
+      className={clsx(
+        'mx-auto h-auto w-full py-[35px] xl:mt-[138px]',
+        className,
+      )}
+    >
       <Carousel
         slides={slideComponents}
         options={options}
@@ -73,6 +94,4 @@ const Hero = ({ className }: HeroProps) => {
       />
     </div>
   );
-};
-
-export default Hero;
+}

@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import Link from 'next/link';
 
 import { products } from '@/lib/shop/constants/products-data';
@@ -6,7 +5,7 @@ import ProductCard from './product-card';
 import ArrowUpRightIcon from '@/lib/shop/icons/arrow-up-right-icon';
 import ReloadIcon from '@/lib/shop/icons/reload-icon';
 
-const Products: FC = () => {
+const Products = () => {
   const productsToShow = products.slice(0, 8);
 
   return (

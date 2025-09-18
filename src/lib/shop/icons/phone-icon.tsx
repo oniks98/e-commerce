@@ -1,7 +1,10 @@
-import React from 'react';
 import clsx from 'clsx';
 
-const PhoneIcon = ({ className }: { className?: string }) => (
+interface PhoneIconProps {
+  className?: string;
+}
+
+const PhoneIcon = ({ className }: PhoneIconProps) => (
   <div className={clsx('relative h-[50px] w-[50px]', className)}>
     <div className="bg-light absolute inset-0 rounded-full" />
     <svg

@@ -1,6 +1,8 @@
-import React from 'react';
+interface AkciiIconProps {
+  className?: string;
+}
 
-const AkciiIcon = ({ className }: { className?: string }) => (
+const AkciiIcon = ({ className }: AkciiIconProps) => (
   <svg
     width="21"
     height="20"

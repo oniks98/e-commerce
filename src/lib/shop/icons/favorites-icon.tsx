@@ -1,6 +1,8 @@
-import React from 'react';
+interface FavoritesIconProps {
+  className?: string;
+}
 
-const FavoritesIcon = ({ className }: { className?: string }) => (
+const FavoritesIcon = ({ className }: FavoritesIconProps) => (
   <svg
     width="26"
     height="23"

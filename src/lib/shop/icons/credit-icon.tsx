@@ -1,6 +1,8 @@
-import React from 'react';
+interface CreditIconProps {
+  className?: string;
+}
 
-const CreditIcon = ({ className }: { className?: string }) => (
+const CreditIcon = ({ className }: CreditIconProps) => (
   <svg
     width="20"
     height="20"

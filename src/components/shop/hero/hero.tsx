@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Carousel from '@/components/ui/carousel';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import ChevronLeftIcon from '@/lib/shop/icons/chevron-left-icon';
@@ -28,7 +27,7 @@ const slides = [
   },
 ];
 
-const Hero: React.FC<HeroProps> = ({ className }) => {
+const Hero = ({ className }: HeroProps) => {
   const options: EmblaOptionsType = { loop: true };
 
   const slideComponents = slides.map((slide) => (
@@ -65,7 +64,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   );
 
   return (
-    <div className={clsx('mx-auto h-auto w-full', className)}>
+    <div className={clsx('mx-auto h-auto w-full py-[35px] xl:mt-[138px]', className)}>
       <Carousel
         slides={slideComponents}
         options={options}

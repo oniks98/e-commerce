@@ -7,12 +7,12 @@ export function getPlaceholder(
   const categoryTransformations = 'c_fill,w_310,h_300';
 
   if (type === 'banner') {
-    return `${baseUrl}${bannerTransformations}/${id}.jpg`;
+    return `${baseUrl}${bannerTransformations}/${id}`;
   }
 
   if (type === 'category') {
-    return `${baseUrl}${categoryTransformations}/${id}.jpg`;
+    return `${baseUrl}${categoryTransformations}/${id}`;
   }
 
-  return `${baseUrl}${id}.jpg`;
+  return `${baseUrl}${id}`;
 }

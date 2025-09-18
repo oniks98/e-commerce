@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import Hero from '@/components/shop/hero/hero';
 import Categories from '@/components/shop/categories/categories';
 import Products from '@/components/shop/products/products';
+import Promotions from '@/components/shop/promotions/promotions';
 
 export default async function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default async function HomePage() {
         <Hero />
         <Categories />
         <Products />
+        <Promotions />
       </div>
     </div>
   );

@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import clsx from 'clsx';
+
 import Logo from '../shared/logo';
 import CatalogButton from '../shared/catalog-button';
 import SearchInput from '../shared/search-input';

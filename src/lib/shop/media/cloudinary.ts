@@ -1,5 +1,5 @@
 export function getPlaceholder(
-  type: 'banner' | 'category',
+  type: 'banner' | 'category' | 'product',
   id: string,
 ): string {
   const baseUrl = 'https://res.cloudinary.com/demo/image/upload/';

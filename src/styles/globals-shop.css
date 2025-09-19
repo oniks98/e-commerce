@@ -4,6 +4,7 @@
   --color-dark: #2b2929;
   --color-grey: #535353;
   --color-grey-light: #b1b1b1;
+  --color-grey-light-r: #e9e9e9;
   --color-light: #f8f8f8;
   --color-yellow: #ffbc57;
   --color-yellow-dark: #ffac41;
@@ -44,5 +45,18 @@
   button:not(:disabled),
   [role='button']:not(:disabled) {
     @apply cursor-pointer;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f8f8f8;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #b1b1b1;
+    border-radius: 3px;
   }
 }

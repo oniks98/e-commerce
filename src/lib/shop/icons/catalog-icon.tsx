@@ -1,8 +1,10 @@
-interface CatalogIconProps {
+import { SVGProps } from 'react';
+
+interface CatalogIconProps extends SVGProps<SVGSVGElement> {
   className?: string;
 }
 
-const CatalogIcon = ({ className }: CatalogIconProps) => (
+const CatalogIcon = ({ className, ...props }: CatalogIconProps) => (
   <svg
     width="24"
     height="24"
@@ -10,6 +12,7 @@ const CatalogIcon = ({ className }: CatalogIconProps) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     className={className}
+    {...props}
   >
     <path
       d="M21 3.47517H15.8772C15.3249 3.47517 14.8772 3.92289 14.8772 4.47517V9.59794C14.8772 10.1502 15.3249 10.5979 15.8772 10.5979H21C21.5523 10.5979 22 10.1502 22 9.59794V4.47517C22 3.92289 21.5523 3.47517 21 3.47517Z"

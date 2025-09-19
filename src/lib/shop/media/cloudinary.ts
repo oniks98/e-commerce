@@ -1,23 +1,5 @@
-export function getPlaceholder(
-  type: 'banner' | 'category' | 'product' | 'promotions',
-  id: string,
-): string {
-  const baseUrl = 'https://res.cloudinary.com/demo/image/upload/';
-  const bannerTransformations = 'c_fill,w_1290,h_420';
-  const categoryTransformations = 'c_fill,w_310,h_300';
-  const promotionTransformations = 'c_fill,w_410,h_280';
+const CLOUDINARY_BASE_URL = 'https://res.cloudinary.com/demo/image/upload/';
 
-  if (type === 'banner') {
-    return `${baseUrl}${bannerTransformations}/${id}`;
-  }
-
-  if (type === 'category') {
-    return `${baseUrl}${categoryTransformations}/${id}`;
-  }
-
-  if (type === 'promotions') {
-    return `${baseUrl}${promotionTransformations}/${id}`;
-  }
-
-  return `${baseUrl}${id}`;
-}
+export const getPlaceholder = (type: string, id: string): string => {
+  return `${CLOUDINARY_BASE_URL}${id}`;
+};

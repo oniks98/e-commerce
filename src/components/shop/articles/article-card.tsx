@@ -1,0 +1,46 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import clsx from 'clsx';
+
+import { getPlaceholder } from '@/lib/shop/media/cloudinary';
+import ArrowUpRightIcon from '@/lib/shop/icons/arrow-up-right-icon';
+import { Article } from '@/lib/shop/constants/articles-data';
+
+interface ArticleCardProps {
+  article: Article;
+  className?: string;
+}
+
+const ArticleCard: React.FC<ArticleCardProps> = ({ article, className }) => {
+  return (
+    <div
+      className={clsx(
+        'border-grey-light-r flex h-[476px] w-full flex-col overflow-hidden rounded-lg border bg-white shadow-[-3px_4px_15px_0px_rgba(0,0,0,0.06)]',
+        className,
+      )}
+    >
+      <div className="relative h-[270px] w-full flex-shrink-0">
+        <Image
+          src={getPlaceholder('articles', article.image)}
+          alt={article.title}
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
+      <div className="flex flex-col p-[30px]">
+        <h3 className="text-dark h-[102px] text-[26px] leading-[1.3] font-semibold">
+          {article.title}
+        </h3>
+        <Link
+          href={article.link}
+          className="text-yellow mt-[30px] inline-flex items-center gap-[10px] text-[19px] font-semibold"
+        >
+          Детальніше
+          <ArrowUpRightIcon />
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default ArticleCard;

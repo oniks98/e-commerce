@@ -81,13 +81,13 @@ const Promotions = () => {
           <div className="hidden items-center gap-5 md:flex">
             <button
               onClick={onPrevButtonClick}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-yellow-500 shadow-md transition-colors hover:bg-gray-100"
+              className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white text-yellow-500 shadow-md transition-colors hover:bg-gray-100"
             >
               <ChevronLeftIcon />
             </button>
             <button
               onClick={onNextButtonClick}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-yellow-500 shadow-md transition-colors hover:bg-gray-100"
+              className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white text-yellow-500 shadow-md transition-colors hover:bg-gray-100"
             >
               <ChevronRightIcon />
             </button>

@@ -4,6 +4,7 @@ import Categories from '@/components/shop/categories/categories';
 import Products from '@/components/shop/products/products';
 import Promotions from '@/components/shop/promotions/promotions';
 import Reviews from '@/components/shop/reviews/reviews';
+import Articles from '@/components/shop/articles/articles';
 
 export default async function HomePage() {
   return (
@@ -15,6 +16,9 @@ export default async function HomePage() {
         <Promotions />
       </div>
       <Reviews />
+      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
+        <Articles />
+      </div>
     </div>
   );
 }

@@ -57,6 +57,60 @@
     display: none; /* Safari и Chrome */
   }
 
+  /* Кастомный вертикальный скроллбар для карточек отзывов */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #b1b1b1 #f8f8f8;
+    /* Принудительное отображение overflow для всех экранов */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  /* WebKit скроллбар для Chrome/Safari */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f8f8f8;
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #b1b1b1;
+    border-radius: 3px;
+    min-height: 20px;
+    /* Принудительное отображение */
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #9a9a9a;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:active {
+    background: #888888;
+  }
+
+  /* Принудительное отображение скроллбара в WebKit браузерах */
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    visibility: visible;
+  }
+  
+  .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+  }
+
+  /* Дополнительный класс для форсированного скролла */
+  .force-scroll {
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    scrollbar-width: thin;
+    scrollbar-color: #b1b1b1 #f8f8f8;
+  }
+
   /* Стили для родной вертикальной прокрутки браузера */
   body::-webkit-scrollbar {
     width: 8px;

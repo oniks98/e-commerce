@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import clsx from 'clsx';
 import PhoneIcon from '@/lib/shop/icons/phone-icon';
 import ArrowDownIcon from '@/lib/shop/icons/chevron-down-icon';
 

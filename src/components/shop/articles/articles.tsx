@@ -38,7 +38,7 @@ const Articles = () => {
             Читати блог
             <ArrowUpRightIcon />
           </Link>
-         <div className="md:w-35"></div>
+          <div className="md:w-35"></div>
         </div>
 
         {/* Mobile Carousel */}

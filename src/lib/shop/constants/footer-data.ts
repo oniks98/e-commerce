@@ -23,68 +23,53 @@ export interface SocialLink {
 
 export const footerData = {
   categories: {
-    title: "Категорії",
+    title: 'Категорії',
     links: [
-      { title: "Ліжка", href: "/categories/beds" },
-      { title: "Матраци", href: "/categories/mattresses" },
-      { title: "М'які меблі", href: "/categories/soft-furniture" },
-      { title: "Шафи", href: "/categories/wardrobes" },
-      { title: "Комоди", href: "/categories/dressers" },
-      { title: "Тумби", href: "/categories/nightstands" },
-      { title: "Столи", href: "/categories/tables" },
-      { title: "Стільці", href: "/categories/chairs" },
-      { title: "Меблеві стіни", href: "/categories/wall-units" },
-      { title: "Кухні", href: "/categories/kitchens" }
-    ]
+      { title: 'Ліжка', href: '/categories/beds' },
+      { title: 'Матраци', href: '/categories/mattresses' },
+      { title: "М'які меблі", href: '/categories/soft-furniture' },
+      { title: 'Шафи', href: '/categories/wardrobes' },
+      { title: 'Комоди', href: '/categories/dressers' },
+      { title: 'Тумби', href: '/categories/nightstands' },
+      { title: 'Столи', href: '/categories/tables' },
+      { title: 'Стільці', href: '/categories/chairs' },
+      { title: 'Меблеві стіни', href: '/categories/wall-units' },
+      { title: 'Кухні', href: '/categories/kitchens' },
+    ],
   },
   information: {
-    title: "Інформація",
+    title: 'Інформація',
     links: [
-      { title: "Про нас", href: "/about" },
-      { title: "Оплата", href: "/payment" },
-      { title: "Доставка та збірка", href: "/delivery" },
-      { title: "Відгуки", href: "/reviews" },
-      { title: "Блог", href: "/blog" },
-      { title: "Контакти", href: "/contacts" },
-      { title: "Мапа сайту", href: "/sitemap" }
-    ]
-  },
-  clients: {
-    title: "Клієнтам",
-    links: [
-      { title: "Акції", href: "/promotions" },
-      { title: "Розпродаж", href: "/sale" },
-      { title: "Купити в кредит", href: "/credit" },
-      { title: "Обмін і повернення товару", href: "/returns" },
-      { title: "Часто задавані питання", href: "/faq" },
-      { title: "Умови покупки", href: "/terms" },
-      { title: "Політика конфіденційності", href: "/privacy" }
-    ]
+      { title: 'Про нас', href: '/about' },
+      { title: 'Акції та знижки', href: '/promotions' },
+      { title: 'Умови покупки', href: '/terms' },
+      { title: 'Відгуки', href: '/reviews' },
+      { title: 'Цікаво', href: '/blog' },
+      { title: 'Контакти', href: '/contacts' },
+    ],
   },
   contacts: {
-    phones: [
-      "+38 067 929-45-45",
-      "+38 050 133-45-45", 
-      "+38 093 170-75-45"
-    ],
-    callbackText: "Передзвоніть мені",
-    address: "м. Київ, провулок Ізяславський 52, поверх 2",
-    workingHours: "Працюємо щодня з 9:00 до 18:00"
-  },
-  social: {
-    title: "Приєднуйтесь:",
-    links: [
-      { name: "Facebook", href: "https://facebook.com/krovato", icon: "facebook" },
-      { name: "Instagram", href: "https://instagram.com/krovato", icon: "instagram" }
-    ]
+    phones: ['+38 063 338-82-60', '+38 067 636-01-90'],
+    callbackText: 'Передзвоніть мені',
+    address: 'м. Дніпро, вул.Чапленко 4/2',
+    workingHours:
+      'Працюємо з 10:00-14:00 крім вихідних або самовивіз за домовленністю з 8 до 20 у будь-який день.',
   },
   messengers: {
-    title: "Допомога і консультація:",
+    title: 'Допомога і консультація:',
     links: [
-      { name: "WhatsApp", href: "https://wa.me/380679294545", icon: "whatsapp" },
-      { name: "Telegram", href: "https://t.me/krovato", icon: "telegram" },
-      { name: "Viber", href: "viber://chat?number=380679294545", icon: "viber" }
-    ]
+      {
+        name: 'WhatsApp',
+        href: 'https://wa.me/380679294545',
+        icon: 'whatsapp',
+      },
+      { name: 'Telegram', href: 'https://t.me/krovato', icon: 'telegram' },
+      {
+        name: 'Viber',
+        href: 'viber://chat?number=380679294545',
+        icon: 'viber',
+      },
+    ],
   },
-  copyright: "© KROVATO - Технології сну - 2022. Всі права захищені."
+  copyright: '2025 Розробка: Юрій Шпурик',
 };

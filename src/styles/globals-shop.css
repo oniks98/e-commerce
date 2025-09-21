@@ -8,6 +8,8 @@
   --color-light: #f8f8f8;
   --color-yellow: #ffbc57;
   --color-yellow-dark: #ffac41;
+  --color-white: #ffffff;
+  --color-blu: #1778d0;
 
   --breakpoint-xl: 1280px;
   --breakpoint-md: 768px;
@@ -98,7 +100,7 @@
   .custom-scrollbar::-webkit-scrollbar-thumb {
     visibility: visible;
   }
-  
+
   .custom-scrollbar:hover::-webkit-scrollbar-thumb {
     visibility: visible;
   }
@@ -128,4 +130,6 @@
   body::-webkit-scrollbar-thumb:hover {
     background: #d0d0d0;
   }
+
+  
 }

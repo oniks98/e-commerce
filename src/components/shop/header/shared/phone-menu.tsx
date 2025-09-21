@@ -24,7 +24,7 @@ export function PhoneMenu() {
         <PhoneIcon />
         <div>
           <div className="text-grey text-xs font-light">
-            9:00-14:00 крім вихідних
+            10:00-14:00 крім вихідних
           </div>
           <div className="text-dark text-xl font-semibold">063 338-82-60</div>
         </div>

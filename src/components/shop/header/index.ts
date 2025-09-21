@@ -19,4 +19,4 @@ export { default as SearchInput } from './shared/search-input';
 export { default as ActionButtons } from './shared/action-buttons';
 export { default as CatalogButton } from './shared/catalog-button';
 export { default as Navigation } from './shared/navigation';
-export { default as SocialLinks } from './shared/social-links';
+export { default as SocialLinks } from '../../ui/social-links';

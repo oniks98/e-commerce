@@ -6,9 +6,12 @@ import { motion } from 'framer-motion';
 
 interface SocialLinksProps {
   className?: string;
+  iconSize?: 'sm' | 'lg';
 }
 
-const SocialLinks = ({ className = '' }: SocialLinksProps) => {
+const SocialLinks = ({ className = '', iconSize = 'sm' }: SocialLinksProps) => {
+  const iconSizeClass =
+    iconSize === 'lg' ? 'h-[40px] w-[40px]' : 'h-[30px] w-[30px]';
   return (
     <div className={`flex items-center gap-[10px] ${className}`}>
       <motion.div
@@ -25,7 +28,9 @@ const SocialLinks = ({ className = '' }: SocialLinksProps) => {
           aria-label="Whatsapp"
           className="block transition-colors duration-300 hover:text-green-500"
         >
-          <WhatsappIcon className="h-[30px] w-[30px] transition-transform duration-300 hover:scale-110" />
+          <WhatsappIcon
+            className={`${iconSizeClass} transition-transform duration-300 hover:scale-110`}
+          />
         </Link>
       </motion.div>
 
@@ -43,7 +48,9 @@ const SocialLinks = ({ className = '' }: SocialLinksProps) => {
           aria-label="Telegram"
           className="block transition-colors duration-300 hover:text-blue-500"
         >
-          <TelegramIcon className="h-[30px] w-[30px] transition-transform duration-300 hover:scale-110" />
+          <TelegramIcon
+            className={`${iconSizeClass} transition-transform duration-300 hover:scale-110`}
+          />
         </Link>
       </motion.div>
 
@@ -61,7 +68,9 @@ const SocialLinks = ({ className = '' }: SocialLinksProps) => {
           aria-label="Viber"
           className="block transition-colors duration-300 hover:text-purple-500"
         >
-          <ViberIcon className="h-[30px] w-[30px] transition-transform duration-300 hover:scale-110" />
+          <ViberIcon
+            className={`${iconSizeClass} transition-transform duration-300 hover:scale-110`}
+          />
         </Link>
       </motion.div>
     </div>

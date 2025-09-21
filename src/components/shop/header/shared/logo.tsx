@@ -11,7 +11,7 @@ const Logo = ({ width = 250, height = 50, className = '' }: LogoProps) => {
   return (
     <Link href="/" aria-label="Home" className={`shrink-0 ${className}`}>
       <Image
-        src="/images/logo.png"
+        src="/images/logo-ua.png"
         alt="Logo"
         width={width}
         height={height}

@@ -9,15 +9,15 @@ import {
 } from '@/components/ui/accordion';
 import ArrowDownIcon from '@/lib/shop/icons/arrow-down-icon';
 import QualityIcon from '@/lib/shop/icons/quality-icon';
-import AssortmentIcon from '@/lib/shop/icons/assortment-icon';
+import PriceIcon from '@/lib/shop/icons/price-icon';
 import DeliveryIcon from '@/lib/shop/icons/delivery-icon';
-import AssemblyIcon from '@/lib/shop/icons/assembly-icon'; // Placeholder for ServiceIcon
+import OriginalIcon from '@/lib/shop/icons/original-icon';
 
 const iconMap = {
   delivery: DeliveryIcon,
-  assembly: AssemblyIcon, // Using AssemblyIcon as a placeholder for service icon
+  original: OriginalIcon,
   quality: QualityIcon,
-  assortment: AssortmentIcon,
+  price: PriceIcon,
 };
 
 const About = () => {
@@ -35,7 +35,7 @@ const About = () => {
                   <div className="prose text-dark max-w-none">
                     <p>{aboutData.text[0]}</p>
                     <AccordionContent>
-                      <div className="mt-4 space-y-3">
+                      <div className="mt-4 space-y-3 text-base">
                         {aboutData.services.map((s, i) => (
                           <p key={i}>{s}</p>
                         ))}
@@ -64,7 +64,7 @@ const About = () => {
             return (
               <div
                 key={index}
-                className="flex flex-col items-center text-center md:flex-row md:items-start md:text-left"
+                className="flex flex-col items-center md:flex-row md:text-left"
               >
                 <div className="mb-5 flex-shrink-0 md:mr-5 md:mb-0">
                   <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-md">

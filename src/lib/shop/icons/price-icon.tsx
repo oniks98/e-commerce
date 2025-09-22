@@ -6,7 +6,7 @@ interface IIcon {
   height?: number;
 }
 
-const AssortmentIcon: FC<IIcon> = ({ className, width = 80, height = 78 }) => {
+const PriceIcon: FC<IIcon> = ({ className, width = 80, height = 78 }) => {
   return (
     <svg
       width={width}
@@ -92,4 +92,4 @@ const AssortmentIcon: FC<IIcon> = ({ className, width = 80, height = 78 }) => {
   );
 };
 
-export default AssortmentIcon;
+export default PriceIcon;

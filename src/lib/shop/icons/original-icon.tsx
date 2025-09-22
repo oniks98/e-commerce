@@ -1,8 +1,8 @@
-interface AssemblyIconProps {
+interface OriginalIconProps {
   className?: string;
 }
 
-const AssemblyIcon = ({ className }: AssemblyIconProps) => (
+const OriginalIcon = ({ className }: OriginalIconProps) => (
   <svg
     viewBox="0 0 79 73"
     fill="none"
@@ -114,4 +114,4 @@ const AssemblyIcon = ({ className }: AssemblyIconProps) => (
   </svg>
 );
 
-export default AssemblyIcon;
+export default OriginalIcon;

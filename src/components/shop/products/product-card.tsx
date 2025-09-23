@@ -5,9 +5,7 @@ import clsx from 'clsx';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import { products } from '@/lib/shop/constants/products-data';
 
-import CheckIcon from '@/lib/shop/icons/check-icon';
-import CartIcon from '@/lib/shop/icons/cart-icon';
-import FavoritesIcon from '@/lib/shop/icons/favorites-icon';
+import { CheckIcon, CartIcon, FavoritesIcon } from '@/lib/shop/icons';
 
 interface ProductCardProps {
   product: (typeof products)[0];

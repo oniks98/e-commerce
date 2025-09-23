@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import { catalogData } from '@/lib/shop/constants/catalog-data';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
-import ArrowCategoriesIcon from '@/lib/shop/icons/arrow-up-right-icon';
+import { ArrowUpRightIcon } from '@/lib/shop/icons';
 
 const Categories = () => {
   const categories = catalogData.slice(0, 12);
@@ -49,7 +49,7 @@ const Categories = () => {
                         'h-10 w-10 md:h-12 md:w-12',
                       )}
                     >
-                      <ArrowCategoriesIcon
+                      <ArrowUpRightIcon
                         className={clsx(
                           'h-3 w-3 text-yellow-400 md:h-4 md:w-4',
                         )}

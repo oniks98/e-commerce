@@ -1,13 +1,11 @@
-interface OriginalIconProps {
-  className?: string;
-}
+import { SVGProps } from 'react';
 
-const OriginalIcon = ({ className }: OriginalIconProps) => (
+const OriginalIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 79 73"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
+    {...props}
   >
     <path
       d="M37.4 73C45.132 73 51.4 66.732 51.4 59C51.4 51.268 45.132 45 37.4 45C29.668 45 23.4 51.268 23.4 59C23.4 66.732 29.668 73 37.4 73Z"

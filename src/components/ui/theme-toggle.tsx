@@ -2,8 +2,7 @@ import * as React from 'react';
 import { useTheme } from 'next-themes';
 import clsx from 'clsx';
 
-import MoonIcon from '@/lib/shop/icons/moon-icon';
-import SunIcon from '@/lib/shop/icons/theme-icon';
+import { MoonIcon, ThemeIcon } from '@/lib/shop/icons';
 
 export function ThemeToggle({ className }: { className?: string }) {
   const { setTheme, resolvedTheme } = useTheme();
@@ -26,7 +25,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       className="hover:text-yellow p-2"
     >
       {resolvedTheme === 'dark' ? (
-        <SunIcon className={clsx('h-6 w-6', className)} />
+        <ThemeIcon className={clsx('h-6 w-6', className)} />
       ) : (
         <MoonIcon className={clsx('h-6 w-6', className)} />
       )}

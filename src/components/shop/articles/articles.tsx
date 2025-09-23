@@ -6,9 +6,11 @@ import clsx from 'clsx';
 import { articlesData } from '@/lib/shop/constants/articles-data';
 import ArticleCard from './article-card';
 import Carousel from '@/components/ui/carousel';
-import ArrowUpRightIcon from '@/lib/shop/icons/arrow-up-right-icon';
-import ChevronLeftIcon from '@/lib/shop/icons/chevron-left-icon';
-import ChevronRightIcon from '@/lib/shop/icons/chevron-right-icon';
+import {
+  ArrowUpRightIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from '@/lib/shop/icons';
 const Articles = () => {
   const slides = articlesData.map((article) => (
     <ArticleCard key={article.id} article={article} />

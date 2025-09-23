@@ -1,12 +1,7 @@
 import { SVGProps } from 'react';
 
-interface CheckIconProps extends SVGProps<SVGSVGElement> {
-  className?: string;
-}
-
-const CheckIcon = ({ className, ...props }: CheckIconProps) => (
+const CheckIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    className={className}
     width="20"
     height="20"
     viewBox="0 0 20 20"

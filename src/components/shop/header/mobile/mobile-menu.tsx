@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
-import RegistrationIcon from '@/lib/shop/icons/registration-icon';
+import { RegistrationIcon } from '@/lib/shop/icons';
 import { LanguageSwitcher } from '@/components/shop/header/shared/language-switcher';
 import Navigation from '../shared/navigation';
 

@@ -9,7 +9,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { catalogData } from '@/lib/shop/constants/catalog-data';
-import ChevronDownIcon from '@/lib/shop/icons/chevron-down-icon';
+import { ChevronDownIcon } from '@/lib/shop/icons';
 
 interface MobileCatalogMenuProps {
   isOpen: boolean;

@@ -1,17 +1,12 @@
 import { SVGProps } from 'react';
 
-interface CreditIconProps extends SVGProps<SVGSVGElement> {
-  className?: string;
-}
-
-const CreditIcon = ({ className, ...props }: CreditIconProps) => (
+const CreditIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="20"
     height="20"
     viewBox="0 0 20 20"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
     {...props}
   >
     <path

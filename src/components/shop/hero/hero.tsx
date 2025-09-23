@@ -2,8 +2,7 @@
 
 import Carousel from '@/components/ui/carousel';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
-import ChevronLeftIcon from '@/lib/shop/icons/chevron-left-icon';
-import ChevronRightIcon from '@/lib/shop/icons/chevron-right-icon';
+import { ChevronLeftIcon, ChevronRightIcon } from '@/lib/shop/icons';
 import { EmblaOptionsType } from 'embla-carousel';
 import Image from 'next/image';
 import clsx from 'clsx';

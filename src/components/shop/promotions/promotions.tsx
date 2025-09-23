@@ -9,10 +9,12 @@ import clsx from 'clsx';
 
 import { promotions } from '@/lib/shop/constants/promotions-data';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
-import ChevronLeftIcon from '@/lib/shop/icons/chevron-left-icon';
-import ChevronRightIcon from '@/lib/shop/icons/chevron-right-icon';
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ArrowUpRightIcon,
+} from '@/lib/shop/icons';
 import Link from 'next/link';
-import ArrowUpRightIcon from '@/lib/shop/icons/arrow-up-right-icon';
 
 const Promotions = () => {
   const options: EmblaOptionsType = { loop: true };

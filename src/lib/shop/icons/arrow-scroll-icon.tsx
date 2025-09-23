@@ -1,17 +1,12 @@
 import { SVGProps } from 'react';
 
-interface ArrowScrollIconProps extends SVGProps<SVGSVGElement> {
-  className?: string;
-}
-
-const ArrowScrollIcon = ({ className, ...props }: ArrowScrollIconProps) => (
+const ArrowScrollIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="25"
     height="13"
     viewBox="0 0 25 13"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
     {...props}
   >
     <path

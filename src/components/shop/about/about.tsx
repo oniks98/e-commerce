@@ -7,11 +7,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import ArrowDownIcon from '@/lib/shop/icons/arrow-down-icon';
-import QualityIcon from '@/lib/shop/icons/quality-icon';
-import PriceIcon from '@/lib/shop/icons/price-icon';
-import DeliveryIcon from '@/lib/shop/icons/delivery-icon';
-import OriginalIcon from '@/lib/shop/icons/original-icon';
+import {
+  ArrowDownIcon,
+  QualityIcon,
+  PriceIcon,
+  DeliveryIcon,
+  OriginalIcon,
+} from '@/lib/shop/icons';
 
 const iconMap = {
   delivery: DeliveryIcon,

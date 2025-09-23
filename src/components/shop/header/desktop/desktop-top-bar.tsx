@@ -2,7 +2,7 @@
 
 import { LanguageSwitcher } from '@/components/shop/header/shared/language-switcher';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
-import RegistrationIcon from '@/lib/shop/icons/registration-icon';
+import { RegistrationIcon } from '@/lib/shop/icons';
 import Navigation from '../shared/navigation';
 import SocialLinks from '../../../ui/social-links';
 import clsx from 'clsx';

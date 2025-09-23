@@ -2,8 +2,7 @@ import Link from 'next/link';
 
 import { products } from '@/lib/shop/constants/products-data';
 import ProductCard from './product-card';
-import ArrowUpRightIcon from '@/lib/shop/icons/arrow-up-right-icon';
-import ReloadIcon from '@/lib/shop/icons/reload-icon';
+import { ArrowUpRightIcon, ReloadIcon } from '@/lib/shop/icons';
 
 const Products = () => {
   const productsToShow = products.slice(0, 8);

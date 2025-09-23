@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import clsx from 'clsx';
-import PhoneIcon from '@/lib/shop/icons/phone-icon';
-import ArrowDownIcon from '@/lib/shop/icons/chevron-down-icon';
+import { PhoneIcon, ChevronDownIcon } from '@/lib/shop/icons';
 
 const PHONES = ['063 338-82-60', '067 636-01-90'];
 
@@ -21,7 +20,9 @@ export function PhoneMenu() {
         aria-expanded={isOpen}
         aria-haspopup="menu"
       >
-        <PhoneIcon />
+        <div className="bg-light relative h-[50px] w-[50px] flex-shrink-0 rounded-full">
+          <PhoneIcon className="text-grey absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
+        </div>
         <div>
           <div className="text-grey text-xs font-light">
             10:00-14:00 крім вихідних
@@ -29,7 +30,7 @@ export function PhoneMenu() {
           <div className="text-dark text-xl font-semibold">063 338-82-60</div>
         </div>
         <div className="p-1">
-          <ArrowDownIcon className="text-grey h-[7px] w-[11px]" />
+          <ChevronDownIcon className="text-grey h-[7px] w-[11px]" />
         </div>
       </button>
     );
@@ -43,10 +44,10 @@ export function PhoneMenu() {
         aria-hidden="true"
       />
 
-      <div className="relative z-20 mt-18 flex min-w-[232px] items-start gap-[10px] rounded-lg border border-gray-200 bg-white p-2 shadow-lg">
+      <div className="relative z-20 mt-18 flex min-w-[232px] items-start gap-[12px] rounded-lg border border-gray-200 bg-white p-2 shadow-lg">
         {/* Блок 1: иконка телефона */}
-        <div className="flex-shrink-0">
-          <PhoneIcon className="h-6 w-6 text-gray-700" />
+        <div className="bg-light relative h-[50px] w-[50px] flex-shrink-0 rounded-full">
+          <PhoneIcon className="text-grey absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
         </div>
 
         {/* Блок 2: контент */}

@@ -1,17 +1,12 @@
 import { SVGProps } from 'react';
 
-interface StarIconProps extends SVGProps<SVGSVGElement> {
-  className?: string;
-}
-
-const StarIcon = ({ className, ...props }: StarIconProps) => (
+const StarIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="21"
     height="20"
     viewBox="0 0 21 20"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
     {...props}
   >
     <path

@@ -1,8 +1,6 @@
-interface ThemeIconProps {
-  className?: string;
-}
+import { SVGProps } from 'react';
 
-const ThemeIcon = ({ className }: ThemeIconProps) => (
+const ThemeIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -13,7 +11,7 @@ const ThemeIcon = ({ className }: ThemeIconProps) => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className={className}
+    {...props}
   >
     <circle cx="12" cy="12" r="5" />
     <line x1="12" y1="1" x2="12" y2="3" />

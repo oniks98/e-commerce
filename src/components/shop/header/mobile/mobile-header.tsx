@@ -7,11 +7,13 @@ import Logo from '../shared/logo';
 import CatalogButton from '../shared/catalog-button';
 import SearchInput from '../shared/search-input';
 import ActionButtons from '../shared/action-buttons';
-import PhoneIcon from '@/lib/shop/icons/phone-icon';
-import HamburgerIcon from '@/lib/shop/icons/hamburger-icon';
-import CloseIcon from '@/lib/shop/icons/close-icon';
+import {
+  PhoneIcon,
+  HamburgerIcon,
+  CloseIcon,
+  SearchIcon,
+} from '@/lib/shop/icons';
 import MobileCatalogMenu from './mobile-catalog-menu';
-import SearchIcon from '@/lib/shop/icons/search-icon';
 
 interface MobileHeaderProps {
   onMenuClick: () => void;
@@ -56,8 +58,8 @@ const MobileHeader = ({ onMenuClick, isMenuOpen }: MobileHeaderProps) => {
 
           <div className="flex items-center">
             <a href="tel:+380633388260" aria-label="Call us" className="p-2">
-              <div className="h-[50px] w-[50px]">
-                <PhoneIcon className="text-grey h-6 w-6" />
+              <div className="bg-light relative h-[50px] w-[50px] rounded-full">
+                <PhoneIcon className="text-grey absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
               </div>
             </a>
           </div>

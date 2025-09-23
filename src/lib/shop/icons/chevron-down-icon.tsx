@@ -1,17 +1,12 @@
 import { SVGProps } from 'react';
 
-interface ChevronDownIconProps extends SVGProps<SVGSVGElement> {
-  className?: string;
-}
-
-const ChevronDownIcon = ({ className, ...props }: ChevronDownIconProps) => (
+const ChevronDownIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="11"
     height="7"
     viewBox="0 0 11 7"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
     {...props}
   >
     <path

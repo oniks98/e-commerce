@@ -1,11 +1,13 @@
-const MastercardIcon = ({ className }: { className?: string }) => (
+import { SVGProps } from 'react';
+
+const MastercardIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    className={className}
     width="89"
     height="30"
     viewBox="0 0 89 30"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <g clipPath="url(#clip0_77_250)">
       <path

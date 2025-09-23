@@ -1,5 +1,4 @@
-import FavoritesIcon from '@/lib/shop/icons/favorites-icon';
-import CartIcon from '@/lib/shop/icons/cart-icon';
+import { FavoritesIcon, CartIcon } from '@/lib/shop/icons';
 import clsx from 'clsx';
 
 interface ActionButtonsProps {

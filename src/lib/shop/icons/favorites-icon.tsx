@@ -1,17 +1,12 @@
 import { SVGProps } from 'react';
 
-interface FavoritesIconProps extends SVGProps<SVGSVGElement> {
-  className?: string;
-}
-
-const FavoritesIcon = ({ className, ...props }: FavoritesIconProps) => (
+const FavoritesIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="26"
     height="23"
     viewBox="0 0 26 23"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
     {...props}
   >
     <path

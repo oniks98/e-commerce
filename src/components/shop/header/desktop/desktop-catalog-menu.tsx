@@ -5,7 +5,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 
 import { catalogData } from '@/lib/shop/constants/catalog-data';
-import ChevronRightIcon from '@/lib/shop/icons/chevron-right-icon';
+import { ChevronRightIcon } from '@/lib/shop/icons';
 
 interface DesktopCatalogMenuProps {
   isOpen: boolean;

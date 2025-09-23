@@ -18,7 +18,6 @@ export { default as DeliveryIcon } from './delivery-icon';
 export { default as DiscountsIcon } from './discounts-icon';
 export { default as FavoritesIcon } from './favorites-icon';
 export { default as HamburgerIcon } from './hamburger-icon';
-export { default as Logo } from './logo';
 export { default as MoonIcon } from './moon-icon';
 export { default as PhoneIcon } from './phone-icon';
 export { default as QualityIcon } from './quality-icon';

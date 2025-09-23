@@ -3,7 +3,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
-import ArrowUpRightIcon from '@/lib/shop/icons/arrow-up-right-icon';
+import { ArrowUpRightIcon } from '@/lib/shop/icons';
 import { Article } from '@/lib/shop/constants/articles-data';
 
 interface ArticleCardProps {

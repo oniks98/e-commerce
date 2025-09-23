@@ -2,9 +2,7 @@
 
 import clsx from 'clsx';
 import Link from 'next/link';
-import StarIcon from '@/lib/shop/icons/star-icon';
-import AddIcon from '@/lib/shop/icons/add-icon';
-import ChatIcon from '@/lib/shop/icons/chat-icon';
+import { StarIcon, AddIcon, ChatIcon } from '@/lib/shop/icons';
 import LogoMin from './logo-min';
 
 type CompanyInfoVariant = 'xl-sidebar' | 'md-vertical' | 'mobile';

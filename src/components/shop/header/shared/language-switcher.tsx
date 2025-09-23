@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import clsx from 'clsx';
-import ArrowDownIcon from '@/lib/shop/icons/chevron-down-icon';
+import { ChevronDownIcon } from '@/lib/shop/icons';
 
 const LANGUAGES = [
   { code: 'UA', label: 'UA' },
@@ -30,7 +30,7 @@ export function LanguageSwitcher() {
         <span className="font-semibold text-orange-500">
           {selectedLanguage}
         </span>
-        <ArrowDownIcon className="h-[7px] w-[11px]" />
+        <ChevronDownIcon className="h-[7px] w-[11px]" />
       </button>
 
       {isOpen && (

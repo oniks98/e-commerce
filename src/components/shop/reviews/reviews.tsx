@@ -5,7 +5,7 @@ import { reviewsData } from '@/lib/shop/constants/reviews-data';
 import CompanyInfoBlock from './company-info-block';
 import ReviewCard from './review-card';
 import MobilePagination from './mobile-pagination';
-import ArrowScrollIcon from '@/lib/shop/icons/arrow-scroll-icon';
+import { ArrowScrollIcon } from '@/lib/shop/icons';
 
 const Reviews = () => {
   const scrollContainerXlRef = useRef<HTMLDivElement>(null);

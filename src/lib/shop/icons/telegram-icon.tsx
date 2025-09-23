@@ -1,15 +1,13 @@
-interface TelegramIconProps {
-  className?: string;
-}
+import { SVGProps } from 'react';
 
-const TelegramIcon = ({ className }: TelegramIconProps) => (
+const TelegramIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="30"
     height="30"
     viewBox="0 0 30 30"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
+    {...props}
   >
     <g clipPath="url(#clip0_47_276)">
       <path

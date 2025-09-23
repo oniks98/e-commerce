@@ -29,20 +29,40 @@ const About = () => {
             <h2 className="text-dark mb-6 text-center text-2xl font-semibold md:mb-8 md:text-4xl">
               {aboutData.title}
             </h2>
+
             <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="item-1" className="border-none">
-                <div className="overflow-hidden">
-                  <div className="prose text-dark max-w-none">
+              <AccordionItem
+                value="item-1"
+                className="group relative border-none"
+              >
+                <div className="relative">
+                  {/* Текст с line-clamp */}
+                  <div
+                    className={clsx(
+                      'prose text-dark relative max-w-none',
+                      'line-clamp-5 group-data-[state=open]:line-clamp-none',
+                    )}
+                  >
                     <p>{aboutData.text[0]}</p>
-                    <AccordionContent>
-                      <div className="mt-4 space-y-3 text-base">
-                        {aboutData.services.map((s, i) => (
-                          <p key={i}>{s}</p>
-                        ))}
-                      </div>
-                    </AccordionContent>
                   </div>
+
+                  {/* Градиент */}
+                  <div
+                    className={clsx(
+                      'pointer-events-none absolute bottom-0 left-0 h-12 w-full bg-gradient-to-t from-white to-transparent transition-opacity',
+                      'group-data-[state=open]:opacity-0',
+                    )}
+                  />
                 </div>
+
+                <AccordionContent>
+                  <div className="mt-4 space-y-3 text-base">
+                    {aboutData.services.map((s, i) => (
+                      <p key={i}>{s}</p>
+                    ))}
+                  </div>
+                </AccordionContent>
+
                 <AccordionTrigger className="flex w-full items-center justify-center pt-4 [&>svg]:hidden [&[data-state=open]>div]:rotate-180">
                   <div className="flex h-15 w-15 items-center justify-center rounded-full bg-white shadow-md transition-transform duration-200">
                     <ArrowDownIcon className="text-yellow h-[50px] w-[50px]" />
@@ -67,9 +87,7 @@ const About = () => {
                 className="flex flex-col items-center md:flex-row md:text-left"
               >
                 <div className="mb-5 flex-shrink-0 md:mr-5 md:mb-0">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-md">
-                    <Icon className="h-10 w-10" />
-                  </div>
+                  <Icon className="h-20 w-20" />
                 </div>
                 <h4 className="text-dark text-base font-semibold md:text-xl">
                   {advantage.title}

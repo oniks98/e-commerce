@@ -23,8 +23,8 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, className }) => {
         <Image
           src={getPlaceholder('articles', article.image)}
           alt={article.title}
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover"
         />
       </div>
       <div className="flex flex-col p-[30px]">

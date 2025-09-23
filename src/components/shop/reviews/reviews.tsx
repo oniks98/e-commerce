@@ -150,7 +150,7 @@ const Reviews = () => {
           <div
             className="flex w-full items-start pt-4"
             style={{
-              paddingLeft: 'max(35px, calc(50vw - 680px))',
+              paddingLeft: 'max(35px, calc(50vw - 645px))',
               paddingRight: '35px',
             }}
           >
@@ -180,7 +180,7 @@ const Reviews = () => {
           <div
             className="absolute bottom-0 left-0 z-10 w-full"
             style={{
-              paddingLeft: 'max(35px, calc(50vw - 680px + 450px + 30px))',
+              paddingLeft: 'max(35px, calc(50vw - 645px + 450px + 30px))',
               paddingRight: '35px',
             }}
           >

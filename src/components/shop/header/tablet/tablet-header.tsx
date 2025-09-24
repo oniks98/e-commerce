@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import Logo from '../shared/logo';
-import CatalogButton from '../shared/catalog-button';
-import SearchInput from '../shared/search-input';
-import ActionButtons from '../shared/action-buttons';
+import Logo from '@/components/shop/header/shared/logo';
+import CatalogButton from '@/components/shop/header/shared/catalog-button';
+import SearchInput from '@/components/shop/header/shared/search-input';
+import ActionButtons from '@/components/shop/header/shared/action-buttons';
 import { LanguageSwitcher } from '@/components/shop/header/shared/language-switcher';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { RegistrationIcon, HamburgerIcon, CloseIcon } from '@/lib/shop/icons';

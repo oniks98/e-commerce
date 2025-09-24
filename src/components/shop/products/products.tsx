@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { products } from '@/lib/shop/constants/products-data';
-import ProductCard from './product-card';
+import ProductCard from '@/components/shop/products/product-card';
 import { ArrowUpRightIcon, ReloadIcon } from '@/lib/shop/icons';
 
 const Products = () => {

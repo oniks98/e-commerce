@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import CategoryBlock from './category-block';
-import ContactsBlock from './contacts-block';
-import Copyright from './copyright';
-import InfoBlock from './info-block';
-import SocialBlock from './social-block';
+import CategoryBlock from '@/components/shop/footer/category-block';
+import ContactsBlock from '@/components/shop/footer/contacts-block';
+import Copyright from '@/components/shop/footer/copyright';
+import InfoBlock from '@/components/shop/footer/info-block';
+import SocialBlock from '@/components/shop/footer/social-block';
 import {
   Accordion,
   AccordionContent,

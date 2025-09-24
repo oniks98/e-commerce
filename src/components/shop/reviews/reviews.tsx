@@ -2,9 +2,9 @@
 
 import { useRef, useState, UIEvent, WheelEvent, useEffect } from 'react';
 import { reviewsData } from '@/lib/shop/constants/reviews-data';
-import CompanyInfoBlock from './company-info-block';
-import ReviewCard from './review-card';
-import MobilePagination from './mobile-pagination';
+import CompanyInfoBlock from '@/components/shop/reviews/company-info-block';
+import ReviewCard from '@/components/shop/reviews/review-card';
+import MobilePagination from '@/components/shop/reviews/mobile-pagination';
 import { ArrowScrollIcon } from '@/lib/shop/icons';
 
 const Reviews = () => {

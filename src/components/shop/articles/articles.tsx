@@ -4,7 +4,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 
 import { articlesData } from '@/lib/shop/constants/articles-data';
-import ArticleCard from './article-card';
+import ArticleCard from '@/components/shop/articles/article-card';
 import Carousel from '@/components/ui/carousel';
 import {
   ArrowUpRightIcon,

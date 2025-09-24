@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import { StarIcon, AddIcon, ChatIcon } from '@/lib/shop/icons';
-import LogoMin from './logo-min';
+import LogoMin from '@/components/shop/reviews/logo-min';
 
 type CompanyInfoVariant = 'xl-sidebar' | 'md-vertical' | 'mobile';
 

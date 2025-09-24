@@ -3,17 +3,17 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 
-import Logo from '../shared/logo';
-import CatalogButton from '../shared/catalog-button';
-import SearchInput from '../shared/search-input';
-import ActionButtons from '../shared/action-buttons';
+import Logo from '@/components/shop/header/shared/logo';
+import CatalogButton from '@/components/shop/header/shared/catalog-button';
+import SearchInput from '@/components/shop/header/shared/search-input';
+import ActionButtons from '@/components/shop/header/shared/action-buttons';
 import {
   PhoneIcon,
   HamburgerIcon,
   CloseIcon,
   SearchIcon,
 } from '@/lib/shop/icons';
-import MobileCatalogMenu from './mobile-catalog-menu';
+import MobileCatalogMenu from '@/components/shop/header/mobile/mobile-catalog-menu';
 
 interface MobileHeaderProps {
   onMenuClick: () => void;

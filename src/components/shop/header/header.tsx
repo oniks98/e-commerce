@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import DesktopHeader from './desktop/desktop-header';
-import TabletHeader from './tablet/tablet-header';
-import MobileHeader from './mobile/mobile-header';
-import MobileMenu from './mobile/mobile-menu';
+import DesktopHeader from '@/components/shop/header/desktop/desktop-header';
+import TabletHeader from '@/components/shop/header/tablet/tablet-header';
+import MobileHeader from '@/components/shop/header/mobile/mobile-header';
+import MobileMenu from '@/components/shop/header/mobile/mobile-menu';
 
 const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);

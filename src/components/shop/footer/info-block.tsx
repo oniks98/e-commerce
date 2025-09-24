@@ -9,10 +9,7 @@ const InfoBlock = () => {
       <ul className="space-y-2 text-center md:text-left">
         {information.links.map((link) => (
           <li key={link.href}>
-            <Link
-              href={link.href}
-              className="text-base text-white hover:underline"
-            >
+            <Link href={link.href} className="text-base hover:underline">
               {link.title}
             </Link>
           </li>

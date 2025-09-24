@@ -10,6 +10,9 @@
   --color-yellow-dark: #ffac41;
   --color-white: #ffffff;
   --color-blu: #1778d0;
+  --color-footer-bg: #2b2929;
+  --color-footer-text: #ffffff;
+  --color-copyright-text: #b1b1b1;
 
   --breakpoint-xl: 1280px;
   --breakpoint-md: 768px;
@@ -40,8 +43,18 @@
 }
 
 @layer base {
+  .dark {
+    --color-dark: #f8f8f8;
+    --color-grey: #b1b1b1;
+    --color-grey-light: #535353;
+    --color-grey-light-r: #4a4a4a;
+    --color-light: #2b2929;
+    --color-white: #222020;
+    --color-blu: #2e8ee5;
+  }
+
   body {
-    @apply text-dark bg-white text-base leading-normal font-normal tracking-normal;
+    @apply bg-white text-dark text-base leading-normal font-normal tracking-normal;
   }
 
   button:not(:disabled),
@@ -130,6 +143,4 @@
   body::-webkit-scrollbar-thumb:hover {
     background: #d0d0d0;
   }
-
-  
 }

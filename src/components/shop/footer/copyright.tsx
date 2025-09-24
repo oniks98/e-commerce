@@ -4,7 +4,7 @@ const Copyright = () => {
   return (
     <div className="border-grey-light border-t py-6">
       <div className="mx-auto px-4">
-        <p className="text-grey-light text-center text-sm">
+        <p className="text-copyright-text text-center text-sm">
           {footerData.copyright}
         </p>
       </div>

@@ -10,10 +10,7 @@ const CategoryBlock = ({ categories }: CategoryBlockProps) => {
     <ul className="space-y-2 text-center md:text-left">
       {categories.map((category) => (
         <li key={category.id}>
-          <Link
-            href={category.href}
-            className="text-base text-white hover:underline"
-          >
+          <Link href={category.href} className="text-base hover:underline">
             {category.name}
           </Link>
         </li>

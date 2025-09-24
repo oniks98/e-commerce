@@ -19,7 +19,7 @@ const Footer = () => {
   const secondHalf = catalogData.slice(half);
 
   return (
-    <footer className="bg-dark text-white">
+    <footer className="bg-footer-bg text-footer-text">
       <div className="mx-auto max-w-[1360px] px-4 py-16 md:px-[35px]">
         {/* Desktop Footer */}
         <div className="hidden md:grid md:grid-cols-12 md:gap-8">
@@ -37,13 +37,11 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-span-2 hidden xl:block">
-            <h3 className="mb-4 text-lg font-semibold text-white">
-              Інформація
-            </h3>
+            <h3 className="mb-4 text-lg font-semibold">Інформація</h3>
             <InfoBlock />
           </div>
           <div className="col-span-4">
-            <h3 className="mb-4 text-lg font-semibold text-white xl:text-center">
+            <h3 className="mb-4 text-lg font-semibold xl:text-center">
               Категорії
             </h3>
             <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-8">

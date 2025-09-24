@@ -6,7 +6,7 @@ const ContactsBlock = () => {
   const { contacts } = footerData;
 
   return (
-    <div className="flex flex-col items-center gap-y-6 text-white md:items-start">
+    <div className="flex flex-col items-center gap-y-6 md:items-start">
       <div className="flex flex-col items-center gap-2 text-center md:flex-row xl:gap-x-4 xl:text-left">
         <PhoneIcon className="hidden h-6 w-6 flex-shrink-0 md:block" />
         <div>

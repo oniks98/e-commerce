@@ -11,7 +11,7 @@ const Products = () => {
     <section className="bg-light w-full py-[35px]">
       <div className="mx-auto">
         <div className="mb-8 flex items-center">
-          <h2 className="text-4xl font-semibold text-gray-900">
+          <h2 className="text-3xl font-semibold text-gray-900">
             Найпопулярніші товари
           </h2>
           <Link

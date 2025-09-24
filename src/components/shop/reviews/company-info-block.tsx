@@ -27,8 +27,8 @@ const CompanyInfoBlock = ({ variant }: CompanyInfoBlockProps) => {
       <h2
         className={clsx(
           'text-dark font-semibold',
-          isXlSidebar && 'text-left text-4xl',
-          isMdVertical && 'mb-[48px] text-4xl',
+          isXlSidebar && 'text-left text-3xl',
+          isMdVertical && 'mb-[48px] text-3xl',
           isMobile && 'text-center text-3xl',
         )}
       >

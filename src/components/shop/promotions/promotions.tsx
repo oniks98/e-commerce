@@ -71,7 +71,7 @@ const Promotions = () => {
       <div className="mx-auto">
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center">
-            <h2 className="text-4xl font-semibold text-gray-900">Акції</h2>
+            <h2 className="text-3xl font-semibold text-gray-900">Акції</h2>
             <Link
               href="/promotions"
               className="ml-[30px] hidden items-center text-lg font-semibold text-yellow-500 md:flex"

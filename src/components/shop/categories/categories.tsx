@@ -11,7 +11,7 @@ const Categories = () => {
   return (
     <section className="py-[35px]">
       <div className="mx-auto">
-        <h1 className="mb-[35px] text-left text-3xl font-semibold md:text-4xl">
+        <h1 className="mb-[35px] text-left text-3xl font-semibold">
           Популярні категорії
         </h1>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-4">

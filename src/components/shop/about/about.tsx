@@ -16,7 +16,7 @@ const About = () => {
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
         <div className="relative">
           <div className="relative z-10 p-4 md:px-[110px] md:py-[70px]">
-            <h2 className="text-dark mb-6 text-center text-2xl font-semibold md:mb-8 md:text-4xl">
+            <h2 className="text-dark mb-6 text-center text-3xl font-semibold md:mb-8">
               {aboutData.title}
             </h2>
 

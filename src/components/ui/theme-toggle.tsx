@@ -1,30 +1,34 @@
-import * as React from 'react';
-import { useTheme } from 'next-themes';
-import clsx from 'clsx';
+'use client';
 
+import { useEffect, useState } from 'react';
+import clsx from 'clsx';
 import { MoonIcon, ThemeIcon } from '@/lib/shop/icons';
 
 export function ThemeToggle({ className }: { className?: string }) {
-  const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => setMounted(true), []);
-
-  if (!mounted) {
-    return <div className={clsx('h-6 w-6', className)} />;
-  }
+  useEffect(() => {
+    setMounted(true);
+    setIsDark(document.documentElement.classList.contains('dark'));
+  }, []);
 
   const toggleTheme = () => {
-    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+    const next = isDark ? 'light' : 'dark';
+    document.documentElement.classList.toggle('dark', next === 'dark');
+    localStorage.setItem('theme', next);
+    setIsDark(next === 'dark');
   };
+
+  if (!mounted) return <div className={clsx('h-6 w-6', className)} />;
 
   return (
     <button
       onClick={toggleTheme}
       aria-label="Toggle theme"
-      className="hover:text-yellow p-2"
+      className="hover:text-yellow dark:hover:text-yellow p-2 transition-colors duration-200"
     >
-      {resolvedTheme === 'dark' ? (
+      {isDark ? (
         <ThemeIcon className={clsx('h-6 w-6', className)} />
       ) : (
         <MoonIcon className={clsx('h-6 w-6', className)} />

@@ -56,7 +56,7 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
                         {
                           'bg-yellow text-white':
                             hoveredCategory?.id === category.id,
-                          'hover:bg-yellow/10 text-gray-900':
+                          'hover:bg-yellow/10 text-dark':
                             hoveredCategory?.id !== category.id,
                         },
                       )}
@@ -65,7 +65,7 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
                       {category.subcategories &&
                         category.subcategories.length > 0 && (
                           <ChevronRightIcon
-                            className={clsx('h-6 w-6', {
+                            className={clsx('h-3 w-3', {
                               'text-white': hoveredCategory?.id === category.id,
                               'text-yellow':
                                 hoveredCategory?.id !== category.id,
@@ -90,7 +90,7 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
                         key={subcategory.id}
                         href={subcategory.href}
                         onClick={onClose}
-                        className="block text-base leading-[2.1] text-gray-600 transition-colors hover:text-yellow-600"
+                        className="text-dark block text-base leading-[2.1] transition-colors hover:text-yellow-600"
                       >
                         {subcategory.name}
                       </Link>

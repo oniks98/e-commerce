@@ -59,7 +59,7 @@ export function LanguageSwitcher() {
                     'block w-full px-[7px] py-3 text-left text-base transition-colors duration-200',
                     language.code === selectedLanguage
                       ? 'font-semibold text-orange-500'
-                      : 'text-gray-700 hover:bg-gray-50',
+                      : 'text-dark hover:bg-gray-50',
                     index < LANGUAGES.length - 1 && 'border-b border-gray-100',
                   )}
                 >

@@ -16,7 +16,7 @@ export function PhoneMenu() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="flex cursor-pointer items-center gap-[10px] rounded-md p-2 hover:bg-gray-100"
+        className="flex cursor-pointer items-center gap-[10px] rounded-md p-2"
         aria-expanded={isOpen}
         aria-haspopup="menu"
       >

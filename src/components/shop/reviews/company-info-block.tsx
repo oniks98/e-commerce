@@ -1,149 +1,55 @@
-'use client';
-
-import clsx from 'clsx';
 import Link from 'next/link';
 import { StarIcon, AddIcon, ChatIcon } from '@/lib/shop/icons';
-import LogoMin from '@/components/shop/reviews/logo-min';
+import Logo from '@/components/ui/logo';
 
-type CompanyInfoVariant = 'xl-sidebar' | 'md-vertical' | 'mobile';
-
-interface CompanyInfoBlockProps {
-  variant: CompanyInfoVariant;
-}
-
-const CompanyInfoBlock = ({ variant }: CompanyInfoBlockProps) => {
-  const isXlSidebar = variant === 'xl-sidebar';
-  const isMdVertical = variant === 'md-vertical';
-  const isMobile = variant === 'mobile';
-
+const CompanyInfoBlock = () => {
   return (
-    <div
-      className={clsx(
-        isXlSidebar && 'w-[410px] pt-4 pr-[40px]',
-        isMdVertical && 'mb-10 text-center',
-        isMobile && 'mx-auto px-[35px]',
-      )}
-    >
-      <h2
-        className={clsx(
-          'text-dark font-semibold',
-          isXlSidebar && 'text-left text-3xl',
-          isMdVertical && 'mb-[48px] text-3xl',
-          isMobile && 'text-center text-3xl',
-        )}
-      >
+    <div className="mx-auto px-[35px] md:mx-0 md:mb-10 md:px-0 md:text-center xl:w-[410px] xl:p-0 xl:pt-4 xl:pr-[40px] xl:text-left">
+      <h2 className="text-dark mb-10 text-center text-3xl font-semibold xl:text-left">
         Останні відгуки
       </h2>
 
-      <div
-        className={clsx(isXlSidebar && 'mt-[48px]', isMobile && 'mt-[48px]')}
-      >
-        <div
-          className={clsx(
-            'flex',
-            isMdVertical && 'flex-col items-center',
-            isMobile && 'flex-col items-center',
-          )}
-        >
-          <div
-            className={clsx(
-              'h-[80px] w-[80px] shrink-0 overflow-hidden rounded-full bg-white',
-              isMdVertical && 'mb-[20px]',
-              isMobile && 'mt-[20px]',
-            )}
-          >
-            <LogoMin />
-          </div>
-          <div
-            className={clsx(
-              isXlSidebar && 'ml-[30px]',
-              isMdVertical && 'text-center',
-              isMobile && 'mt-[20px] text-center',
-            )}
-          >
-            <h3
-              className={clsx(
-                'text-dark text-xl font-semibold',
-                isXlSidebar && 'text-left',
-                isMdVertical && 'mb-[20px]',
-              )}
-            >
-              💎 ONYX - для Вас безпека та комфорт
-            </h3>
-            <div
-              className={clsx(
-                'flex items-center gap-[10px]',
-                isXlSidebar && 'mt-[20px]',
-                isMdVertical && 'mb-[22px] justify-center',
-                isMobile && 'mt-[20px] justify-center',
-              )}
-            >
-              <span className="text-yellow-dark text-[19px] font-semibold">
-                5.0
-              </span>
-              <div className="flex">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <StarIcon key={index} className="text-yellow-dark" />
-                ))}
-              </div>
-            </div>
-            <p
-              className={clsx(
-                'text-grey text-sm font-normal',
-                isXlSidebar && 'mt-[22px] text-left',
-                isMdVertical && 'mb-[30px]',
-                isMobile && 'mt-[22px]',
-              )}
-            >
-              Базовано на відгуках: 269
-            </p>
-          </div>
+      <div className="mb-5 flex flex-col items-center xl:flex-row">
+        <div className="h-[80px] w-[80px] shrink-0 overflow-hidden rounded-full bg-white md:mb-[20px] xl:self-start">
+          <Logo />
         </div>
-
-        <div
-          className={clsx(
-            'flex items-center',
-            isXlSidebar && 'mt-[40px] justify-between',
-            isMdVertical &&
-              'flex-col items-center gap-5 sm:flex-row sm:justify-center',
-            isMobile && 'mt-[30px] flex-col gap-5',
-          )}
-        >
-          <button
-            className={clsx(
-              'bg-yellow flex items-center justify-center rounded-lg text-white',
-              'h-[50px]',
-              isXlSidebar && 'w-[210px]',
-              isMdVertical && 'w-[210px]',
-              isMobile && 'w-full max-w-[345px]',
-            )}
-          >
-            <AddIcon />
-            <span className="ml-[15px] text-lg font-semibold">
-              Написати відгук
+        <div className="mt-[20px] text-center md:mt-0 xl:ml-[30px] xl:text-left">
+          <h3 className="text-dark text-xl font-semibold md:mb-[20px] xl:mb-0 xl:text-left">
+            💎 ONYX - для Вас безпека та комфорт
+          </h3>
+          <div className="mt-[20px] flex items-center justify-center gap-[10px] md:mb-[22px] xl:m-0 xl:mt-[20px] xl:justify-start">
+            <span className="text-yellow-dark text-[19px] font-semibold">
+              5.0
             </span>
-          </button>
-
-          <Link
-            href="/reviews"
-            className={clsx(isMobile && 'w-full max-w-[345px]')}
-          >
-            <button
-              className={clsx(
-                'text-grey flex items-center justify-center',
-                'h-[50px]',
-                isXlSidebar && 'w-[170px]',
-                isMdVertical && 'w-[170px]',
-                isMobile && 'w-full',
-              )}
-            >
-              <ChatIcon />
-              <span className="ml-[15px] text-lg font-semibold">
-                Всі відгуки
-              </span>
-            </button>
-          </Link>
+            <div className="flex">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <StarIcon key={index} className="text-yellow-dark" />
+              ))}
+            </div>
+          </div>
+          <p className="text-grey mt-[22px] text-sm font-normal md:mb-[30px] xl:m-0 xl:mt-[22px] xl:text-left">
+            Базовано на відгуках: 269
+          </p>
         </div>
+      </div>
+
+      <div className="flex flex-col items-center justify-center gap-5 md:flex-row">
+        <button className="bg-yellow flex h-[50px] items-center justify-center rounded-lg px-3 text-white">
+          <AddIcon />
+          <span className="ml-[15px] text-lg font-semibold">
+            Написати відгук
+          </span>
+        </button>
+
+        <Link
+          href="/reviews"
+          className="w-full max-w-[345px] md:w-auto md:max-w-none"
+        >
+          <button className="text-grey flex h-[50px] w-full items-center justify-center">
+            <ChatIcon />
+            <span className="ml-[15px] text-lg font-semibold">Всі відгуки</span>
+          </button>
+        </Link>
       </div>
     </div>
   );

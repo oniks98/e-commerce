@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Logo from '@/components/shop/header/shared/logo';
+import Logo from '@/components/ui/logo';
 import CatalogButton from '@/components/shop/header/shared/catalog-button';
 import SearchInput from '@/components/shop/header/shared/search-input';
 import ActionButtons from '@/components/shop/header/shared/action-buttons';
@@ -54,7 +54,16 @@ const TabletHeader = ({
               )}
             </button>
 
-            <Logo />
+            <div className="text-dark flex w-[250px] flex-row items-center">
+              <div className="h-[60px] w-[60px] shrink-0 overflow-hidden rounded-full bg-white">
+                <Logo />
+              </div>
+              <div className="text-center">
+                <h3 className="text-lg font-semibold">
+                  💎 ONYX - для Вас безпека та комфорт
+                </h3>
+              </div>
+            </div>
 
             <div className="flex items-center gap-[10px]">
               <LanguageSwitcher />
@@ -70,7 +79,7 @@ const TabletHeader = ({
         </div>
 
         {/* Главная строка */}
-        <div className="flex h-[72px] items-center gap-3 pb-4">
+        <div className="flex h-[80px] items-center gap-3">
           {/* Каталог + Поиск */}
           <div className="flex flex-1 items-center gap-3">
             <CatalogButton className="shrink-0" onClick={handleCatalogToggle} />

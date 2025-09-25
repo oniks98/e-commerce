@@ -5,6 +5,7 @@ import ContactsBlock from '@/components/shop/footer/contacts-block';
 import Copyright from '@/components/shop/footer/copyright';
 import InfoBlock from '@/components/shop/footer/info-block';
 import SocialBlock from '@/components/shop/footer/social-block';
+import Logo from '@/components/ui/logo';
 import {
   Accordion,
   AccordionContent,
@@ -24,14 +25,16 @@ const Footer = () => {
         {/* Desktop Footer */}
         <div className="hidden md:grid md:grid-cols-12 md:gap-8">
           <div className="md:col-span-4 xl:col-span-3">
-            <Link href="/" className="mb-8 inline-block">
-              <Image
-                src="/images/logo-footer.png"
-                alt="Onyx Logo"
-                width={250}
-                height={50}
-              />
-            </Link>
+            <div className="flex flex-col items-center md:items-center xl:mb-4 xl:flex-row">
+              <div className="mt-[20px] h-[70px] w-[70px] shrink-0 overflow-hidden rounded-full bg-white md:mt-0 md:mb-[20px] xl:m-0">
+                <Logo />
+              </div>
+              <div className="mt-[20px] text-center md:mt-0 xl:p-3 xl:text-left">
+                <h3 className="text-lg font-semibold md:mb-[20px] xl:mb-0 xl:text-left">
+                  💎 ONYX - для Вас безпека та комфорт
+                </h3>
+              </div>
+            </div>
             <div className="flex flex-col gap-8">
               <SocialBlock />
             </div>
@@ -57,14 +60,16 @@ const Footer = () => {
         {/* Mobile Footer */}
         <div className="flex flex-col items-center md:hidden">
           <div className="mb-8">
-            <Link href="/" className="mb-4 inline-block">
-              <Image
-                src="/images/logo-footer.png"
-                alt="Onyx Logo"
-                width={250}
-                height={50}
-              />
-            </Link>
+            <div className="flex flex-col items-center md:items-center xl:flex-row">
+              <div className="mt-[20px] h-[80px] w-[80px] shrink-0 overflow-hidden rounded-full bg-white md:mt-0 md:mb-[20px] xl:m-0">
+                <Logo />
+              </div>
+              <div className="mt-[20px] text-center md:mt-0 xl:ml-[30px] xl:text-left">
+                <h3 className="text-lg font-semibold md:mb-[20px] xl:mb-0 xl:text-left">
+                  💎 ONYX - для Вас безпека та комфорт
+                </h3>
+              </div>
+            </div>
           </div>
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">

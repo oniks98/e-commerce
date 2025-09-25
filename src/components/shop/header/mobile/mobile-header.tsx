@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 
-import Logo from '@/components/shop/header/shared/logo';
+import Logo from '@/components/ui/logo';
 import CatalogButton from '@/components/shop/header/shared/catalog-button';
 import SearchInput from '@/components/shop/header/shared/search-input';
 import ActionButtons from '@/components/shop/header/shared/action-buttons';
@@ -54,7 +54,16 @@ const MobileHeader = ({ onMenuClick, isMenuOpen }: MobileHeaderProps) => {
             )}
           </button>
 
-          <Logo width={215} height={43} />
+          <div className="flex w-[240px] flex-row items-center">
+            <div className="h-[60px] w-[60px] shrink-0 overflow-hidden rounded-full bg-white">
+              <Logo />
+            </div>
+            <div className="text-center">
+              <h3 className="text-base font-semibold">
+                💎 ONYX - для Вас безпека та комфорт
+              </h3>
+            </div>
+          </div>
 
           <div className="flex items-center">
             <a href="tel:+380633388260" aria-label="Call us" className="p-2">

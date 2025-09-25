@@ -7,11 +7,11 @@ interface LogoProps {
   className?: string;
 }
 
-const LogoMin = ({ width = 80, height = 80, className = '' }: LogoProps) => {
+const Logo = ({ width = 80, height = 80, className = '' }: LogoProps) => {
   return (
     <Link href="/" aria-label="Home" className={`shrink-0 ${className}`}>
       <Image
-        src="/images/logo-min.png"
+        src="/images/logo.png"
         alt="Logo"
         width={width}
         height={height}
@@ -21,4 +21,4 @@ const LogoMin = ({ width = 80, height = 80, className = '' }: LogoProps) => {
   );
 };
 
-export default LogoMin;
+export default Logo;

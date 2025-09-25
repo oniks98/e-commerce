@@ -30,7 +30,7 @@ const Categories = () => {
                 <div className="bg-opacity-20 bg-light absolute inset-0" />
 
                 {/* Контент карточки */}
-                <div className="relative z-10 flex h-full flex-col p-4 text-black md:p-5">
+                <div className="text-dark relative z-10 flex h-full flex-col p-4 md:p-5">
                   {/* Верхняя часть с названием и количеством */}
                   <div className="flex items-start justify-between">
                     <h2 className="text-xl leading-[1.4] font-semibold">

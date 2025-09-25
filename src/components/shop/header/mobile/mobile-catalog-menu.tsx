@@ -59,7 +59,7 @@ const MobileCatalogMenu = ({ isOpen, onClose }: MobileCatalogMenuProps) => {
                               <Link
                                 key={subcategory.id}
                                 href={subcategory.href}
-                                className="text-grey hover:text-yellow hover:border-yellow block border-l-2 border-transparent pl-4 text-base leading-8 transition-colors"
+                                className="text-dark hover:text-yellow hover:border-yellow block border-l-2 border-transparent pl-4 text-base leading-8 transition-colors"
                                 onClick={onClose}
                               >
                                 {subcategory.name}
@@ -79,7 +79,7 @@ const MobileCatalogMenu = ({ isOpen, onClose }: MobileCatalogMenuProps) => {
                       <div className="flex items-center gap-4">
                         <span>{category.name}</span>
                       </div>
-                      <ChevronDownIcon className="text-yellow h-6 w-6 rotate-[-90deg]" />
+                      <ChevronDownIcon className="text-yellow h-3 w-3 rotate-[-90deg]" />
                     </Link>
                   )}
                 </AccordionItem>

@@ -44,12 +44,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
         <div className="mt-5 flex w-full flex-col">
           <p className="text-sm text-gray-500">{`Розмір: ${product.size}`}</p>
-          <h3 className="mt-2 h-[52px] text-lg font-semibold text-gray-900">
+          <h3 className="text-dark mt-2 h-[52px] text-lg font-semibold">
             {product.name}
           </h3>
           <div className="mt-2 flex items-center">
             <CheckIcon className="h-6 w-6 text-green-500" />
-            <p className="ml-1 text-sm text-gray-900">В наявності</p>
+            <p className="text-dark ml-1 text-sm">В наявності</p>
           </div>
         </div>
       </Link>
@@ -58,7 +58,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           {product.oldPrice && (
             <p className="text-sm text-red-500 line-through">{`${product.oldPrice} грн.`}</p>
           )}
-          <p className="text-xl font-semibold text-gray-900">{`${product.price} грн.`}</p>
+          <p className="text-dark text-xl font-semibold">{`${product.price} грн.`}</p>
         </div>
         <div className="flex items-center">
           <button className="mr-2 rounded-full bg-gray-100 p-3">

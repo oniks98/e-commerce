@@ -143,4 +143,64 @@
   body::-webkit-scrollbar-thumb:hover {
     background: #d0d0d0;
   }
+
+  /* Catalog menu animations */
+  @keyframes fade-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fade-in-left {
+    animation: fade-in-left 0.3s ease-out;
+  }
+
+  /* Smooth transitions for catalog components */
+  .catalog-menu-enter {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+
+  .catalog-menu-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease-out;
+  }
+
+  .catalog-menu-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .catalog-menu-exit-active {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+    transition: all 0.3s ease-out;
+  }
+
+  /* Staggered animations for menu items */
+  .catalog-item-enter {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+
+  .catalog-item-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.2s ease-out;
+  }
+
+  /* Hover effects for better UX */
+  .catalog-hover-effect {
+    transition: all 0.15s ease-out;
+  }
+
+  .catalog-hover-effect:hover {
+    transform: translateX(0.25rem);
+  }
 }

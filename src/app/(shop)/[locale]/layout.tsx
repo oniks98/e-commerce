@@ -2,6 +2,8 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import React from 'react';
+import ScrollTopButton from '@/components/ui/scroll-top-button';
+
 import '@/styles/globals-shop.css';
 
 export default async function ShopLocaleLayout({
@@ -38,6 +40,7 @@ export default async function ShopLocaleLayout({
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
+        <ScrollTopButton />
       </body>
     </html>
   );

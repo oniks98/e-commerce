@@ -24,10 +24,10 @@ const SocialLinks = ({ className = '', iconSize = 'sm' }: SocialLinksProps) => {
         <Link
           href="https://wa.me/+380633388260"
           aria-label="Whatsapp"
-          className="block transition-colors duration-300 hover:text-green-500"
+          className="block transition-colors duration-200 hover:text-green-500"
         >
           <WhatsappIcon
-            className={`${iconSizeClass} transition-transform duration-300 hover:scale-110`}
+            className={`${iconSizeClass} transition-transform duration-200 hover:scale-110`}
           />
         </Link>
       </motion.div>
@@ -44,10 +44,10 @@ const SocialLinks = ({ className = '', iconSize = 'sm' }: SocialLinksProps) => {
         <Link
           href="https://t.me/+380633388260"
           aria-label="Telegram"
-          className="block transition-colors duration-300 hover:text-blue-500"
+          className="block transition-colors duration-200 hover:text-blue-500"
         >
           <TelegramIcon
-            className={`${iconSizeClass} transition-transform duration-300 hover:scale-110`}
+            className={`${iconSizeClass} transition-transform duration-200 hover:scale-110`}
           />
         </Link>
       </motion.div>
@@ -64,10 +64,10 @@ const SocialLinks = ({ className = '', iconSize = 'sm' }: SocialLinksProps) => {
         <Link
           href="viber://chat?number=+380633388260"
           aria-label="Viber"
-          className="block transition-colors duration-300 hover:text-purple-500"
+          className="block transition-colors duration-200 hover:text-purple-500"
         >
           <ViberIcon
-            className={`${iconSizeClass} transition-transform duration-300 hover:scale-110`}
+            className={`${iconSizeClass} transition-transform duration-200 hover:scale-110`}
           />
         </Link>
       </motion.div>

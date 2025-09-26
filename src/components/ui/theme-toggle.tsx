@@ -29,9 +29,9 @@ export function ThemeToggle({ className }: { className?: string }) {
       className="hover:text-yellow dark:hover:text-yellow p-2 transition-colors duration-200"
     >
       {isDark ? (
-        <ThemeIcon className={clsx('h-6 w-6', className)} />
+        <ThemeIcon className={clsx('h-6 w-6 transition-transform duration-200', className)} />
       ) : (
-        <MoonIcon className={clsx('h-6 w-6', className)} />
+        <MoonIcon className={clsx('h-6 w-6 transition-transform duration-200', className)} />
       )}
     </button>
   );

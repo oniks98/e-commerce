@@ -17,10 +17,10 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       <div className="px-[35px] py-[35px]">
         <div className="flex flex-col gap-[40px]">
           {/* Theme and Registration controls - visible only on mobile (< 768px) */}
-          <div className="flex items-center justify-between border-b border-gray-200 pb-4 md:hidden">
+          <div className="flex items-center justify-between border-b border-grey-light-r dark:border-grey pb-4 md:hidden transition-colors duration-300">
             <div className="hover:text-yellow flex items-center gap-4 transition-colors">
               <ThemeToggle className="text-grey h-6 w-6" />
-              <span className="text-sm text-[#535353]">Тема</span>
+              <span className="text-sm text-grey">Тема</span>
             </div>
             <LanguageSwitcher />
             <button
@@ -29,7 +29,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               onClick={onClose}
             >
               <RegistrationIcon className="text-grey h-6 w-6" />
-              <span className="text-sm text-[#535353]">Вхід</span>
+              <span className="text-sm text-grey">Вхід</span>
             </button>
           </div>
 

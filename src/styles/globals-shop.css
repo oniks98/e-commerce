@@ -54,7 +54,8 @@
   }
 
   body {
-    @apply bg-white text-dark text-base leading-normal font-normal tracking-normal;
+    @apply text-dark bg-white text-base leading-normal font-normal tracking-normal dark:bg-white;
+    @apply transition-colors duration-300;
   }
 
   button:not(:disabled),
@@ -79,6 +80,11 @@
     /* Принудительное отображение overflow для всех экранов */
     overflow-y: auto !important;
     overflow-x: hidden !important;
+  }
+
+  /* Dark theme scrollbar for Firefox */
+  .dark .custom-scrollbar {
+    scrollbar-color: #535353 #2b2929;
   }
 
   /* WebKit скроллбар для Chrome/Safari */
@@ -109,6 +115,23 @@
     background: #888888;
   }
 
+  /* Dark theme webkit scrollbar */
+  .dark .custom-scrollbar::-webkit-scrollbar-track {
+    background: #2b2929;
+  }
+
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #535353;
+  }
+
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #666666;
+  }
+
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb:active {
+    background: #777777;
+  }
+
   /* Принудительное отображение скроллбара в WebKit браузерах */
   .custom-scrollbar::-webkit-scrollbar-thumb {
     visibility: visible;
@@ -124,6 +147,10 @@
     overflow-x: hidden !important;
     scrollbar-width: thin;
     scrollbar-color: #b1b1b1 #f8f8f8;
+  }
+
+  .dark .force-scroll {
+    scrollbar-color: #535353 #2b2929;
   }
 
   /* Стили для родной вертикальной прокрутки браузера */
@@ -142,6 +169,19 @@
 
   body::-webkit-scrollbar-thumb:hover {
     background: #d0d0d0;
+  }
+
+  /* Dark theme body scrollbar */
+  .dark body::-webkit-scrollbar-track {
+    background: #2b2929;
+  }
+
+  .dark body::-webkit-scrollbar-thumb {
+    background: #535353;
+  }
+
+  .dark body::-webkit-scrollbar-thumb:hover {
+    background: #666666;
   }
 
   /* Catalog menu animations */

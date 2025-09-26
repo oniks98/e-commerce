@@ -9,11 +9,11 @@ import clsx from 'clsx';
 
 const DesktopTopBar = () => {
   return (
-    <div className="bg-light relative z-60">
+    <div className="bg-light relative z-60 transition-colors duration-300">
       <div
         className={clsx(
           'mx-auto flex max-w-[1360px] items-center justify-between px-[35px] py-2',
-          'text-grey',
+          'text-grey transition-colors duration-300',
         )}
       >
         <Navigation />

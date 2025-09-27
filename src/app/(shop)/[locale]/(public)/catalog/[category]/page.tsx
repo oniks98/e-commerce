@@ -1,47 +1,44 @@
-import { getCategoryBySlug } from '@/lib/shop/actions/category';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+// import { getTranslations } from 'next-intl/server';
+// import Breadcrumbs from '@/components/shop/catalog/breadcrumbs';
+// import Subcategories from '@/components/shop/catalog/subcategories';
+// import SearchFilter from '@/components/shop/catalog/search-filter';
+// import Sorting from '@/components/shop/catalog\sorting';
+// import Products from '@/components/shop/catalog\products';
+// import BtnLoadMore from '@/components/ui\btn-load-more';
+// import Pagination from '@/components/shop\catalog\pagination';
+// import SeoText from '@/components/shop\catalog\seo-text';
+// import Reviews from '@/components/shop/reviews/reviews';
+// import Question from '@/components/shop/catalog\question';
+// import Advantages from '@/components/ui\advantages';
 
-// This page will handle URLs like /en/catalog/smartphones
+// export default async function CategoryPage({
+//   params,
+// }: {
+//   params: Promise<{ locale: string }>;
+// }) {
+//   const { locale } = await params;
 
-type CategoryPageProps = {
-  params: Promise<{ locale: string; category: string }>;
-};
-
-export default async function CategoryPage({ params }: CategoryPageProps) {
-  const { locale, category: categorySlug } = await params;
-
-  const category = await getCategoryBySlug(categorySlug);
-
-  if (!category) {
-    notFound();
-  }
-
-  return (
-    <div className="mx-auto max-w-[1360px] px-4 py-8 md:px-[35px]">
-      <h1 className="mb-4 text-3xl font-bold">{category.name}</h1>
-
-      {category.children && category.children.length > 0 ? (
-        <div>
-          <h2 className="mb-2 text-2xl font-semibold">Підкатегорії</h2>
-          <ul className="list-disc pl-5">
-            {category.children.map(
-              (subcategory: { id: string; name: string; slug: string }) => (
-                <li key={subcategory.id} className="mb-1">
-                  <Link
-                    href={`/${locale}/catalog/${subcategory.slug}`}
-                    className="text-lg text-blue-600 hover:underline"
-                  >
-                    {subcategory.name}
-                  </Link>
-                </li>
-              ),
-            )}
-          </ul>
-        </div>
-      ) : (
-        <p className="text-lg">TODO: Відобразити товари для цієї категорії.</p>
-      )}
-    </div>
-  );
-}
+//   return (
+//     <div className="bg-light">
+//       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
+//         <Breadcrumbs />
+//         <Subcategories />
+//         <div className="flex">
+//           <SearchFilter />
+//           <div className="flex flex-col">
+//             <Sorting />
+//             <Products />
+//           </div>
+//         </div>
+//         <BtnLoadMore />
+//         <Pagination />
+//         <SeoText />
+//       </div>
+//       <Reviews />
+//       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
+//         <Question />
+//         <Advantages />
+//       </div>
+//     </div>
+//   );
+// }

@@ -1,8 +1,10 @@
-import Link from 'next/link';
+'use client';
 
+import Link from 'next/link';
 import { products } from '@/lib/shop/constants/products-data';
-import ProductCard from '@/components/shop/products/product-card';
-import { ArrowUpRightIcon, ReloadIcon } from '@/lib/shop/icons';
+import ProductCard from '@/components/shop/home/products/product-card';
+import { ArrowUpRightIcon } from '@/lib/shop/icons';
+import BtnLoadMore from '@/components/ui/btn-load-more';
 
 const Products = () => {
   const productsToShow = products.slice(0, 8);
@@ -28,10 +30,9 @@ const Products = () => {
           ))}
         </div>
         <div className="mt-8 flex justify-center md:hidden">
-          <button className="flex items-center rounded-lg bg-yellow-500 px-5 py-3 text-lg font-semibold text-white">
-            <ReloadIcon className="mr-2 h-6 w-6" />
+          <BtnLoadMore onClick={() => alert('TODO: Load more products')}>
             Показати ще товари
-          </button>
+          </BtnLoadMore>
         </div>
       </div>
     </section>

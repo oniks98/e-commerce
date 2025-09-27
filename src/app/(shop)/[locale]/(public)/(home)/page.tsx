@@ -1,11 +1,11 @@
 import { getTranslations } from 'next-intl/server';
-import Hero from '@/components/shop/hero/hero';
-import Categories from '@/components/shop/categories/categories';
-import Products from '@/components/shop/products/products';
-import Promotions from '@/components/shop/promotions/promotions';
-import About from '@/components/shop/about/about';
+import Hero from '@/components/shop/home/hero/hero';
+import Categories from '@/components/shop/home/categories/categories';
+import Products from '@/components/shop/home/products/products';
+import Promotions from '@/components/shop/home/promotions/promotions';
+import About from '@/components/shop/home/about/about';
 import Reviews from '@/components/shop/reviews/reviews';
-import Articles from '@/components/shop/articles/articles';
+import Articles from '@/components/shop/home/articles/articles';
 
 import { getAllCategories } from '@/lib/shop/actions/category';
 

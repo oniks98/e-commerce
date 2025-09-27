@@ -1,16 +1,20 @@
-import { CatalogCategory } from '@/lib/shop/constants/catalog-data';
+import { CategoryTreeItem } from '@/lib/shop/actions/category';
 import Link from 'next/link';
 
 interface CategoryBlockProps {
-  categories: CatalogCategory[];
+  categories: CategoryTreeItem[];
+  locale: string;
 }
 
-const CategoryBlock = ({ categories }: CategoryBlockProps) => {
+const CategoryBlock = ({ categories, locale }: CategoryBlockProps) => {
   return (
     <ul className="space-y-2 text-center md:text-left">
       {categories.map((category) => (
         <li key={category.id}>
-          <Link href={category.href} className="text-base hover:underline">
+          <Link
+            href={`/${locale}/catalog/${category.slug}`}
+            className="text-base hover:underline"
+          >
             {category.name}
           </Link>
         </li>

@@ -1,22 +1,22 @@
-// src\app\(shop)\[locale]\(public)\layout.tsx
-import React from 'react';
-
-import Header from '@/components/shop/header/header';
 import Footer from '@/components/shop/footer/footer';
+import Header from '@/components/shop/header/header';
+import { getAllCategories } from '@/lib/shop/actions/category';
 
-export default function ShopPublicLayout({
+export default async function PublicLayout({
   children,
-  modal,
+  params,
 }: {
   children: React.ReactNode;
-  modal: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  const catalogData = await getAllCategories();
+
   return (
     <>
-      <Header />
+      <Header locale={locale} catalogData={catalogData} />
       <main>{children}</main>
-      <Footer />
-      {modal}
+      <Footer locale={locale} catalogData={catalogData} />
     </>
   );
 }

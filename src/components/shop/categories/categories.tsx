@@ -1,11 +1,25 @@
+'use client';
+
 import Link from 'next/link';
 import clsx from 'clsx';
 
-import { catalogData } from '@/lib/shop/constants/catalog-data';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import { ArrowUpRightIcon } from '@/lib/shop/icons';
+import { CategoryTreeItem } from '@/lib/shop/actions/category';
 
-const Categories = () => {
+interface CategoriesProps {
+  locale: string;
+  catalogData: CategoryTreeItem[];
+}
+
+// Генерируем детерминированные числа на основе индекса
+const generateProductCount = (index: number): number => {
+  // Используем индекс для генерации предсказуемого числа
+  const seed = (index * 17 + 31) % 91; // Создаем число от 0 до 90
+  return seed + 10; // Возвращаем число от 10 до 100
+};
+
+const Categories = ({ locale, catalogData }: CategoriesProps) => {
   const categories = catalogData.slice(0, 12);
 
   return (
@@ -16,7 +30,10 @@ const Categories = () => {
         </h1>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-4">
           {categories.map((category, index) => (
-            <Link href={category.href} key={category.id}>
+            <Link
+              href={`/${locale}/catalog/${category.slug}`}
+              key={category.id}
+            >
               <div className="group relative h-[240px] w-full overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105 md:h-[300px]">
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
@@ -37,7 +54,7 @@ const Categories = () => {
                       {category.name}
                     </h2>
                     <span className="ml-2 flex-shrink-0 text-sm text-gray-300 md:text-base">
-                      {Math.floor(Math.random() * 100) + 10}
+                      {generateProductCount(index)}
                     </span>
                   </div>
 

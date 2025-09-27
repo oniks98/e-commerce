@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import CategoryBlock from '@/components/shop/footer/category-block';
@@ -12,9 +14,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { catalogData } from '@/lib/shop/constants/catalog-data';
+import { CategoryTreeItem } from '@/lib/shop/actions/category';
 
-const Footer = () => {
+interface FooterProps {
+  locale: string;
+  catalogData: CategoryTreeItem[];
+}
+
+const Footer = ({ locale, catalogData }: FooterProps) => {
   const half = Math.ceil(catalogData.length / 2);
   const firstHalf = catalogData.slice(0, half);
   const secondHalf = catalogData.slice(half);
@@ -48,8 +55,8 @@ const Footer = () => {
               Категорії
             </h3>
             <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-8">
-              <CategoryBlock categories={firstHalf} />
-              <CategoryBlock categories={secondHalf} />
+              <CategoryBlock locale={locale} categories={firstHalf} />
+              <CategoryBlock locale={locale} categories={secondHalf} />
             </div>
           </div>
           <div className="md:col-span-4 xl:col-span-3">
@@ -85,7 +92,7 @@ const Footer = () => {
                 Категорії
               </AccordionTrigger>
               <AccordionContent>
-                <CategoryBlock categories={catalogData} />
+                <CategoryBlock locale={locale} categories={catalogData} />
               </AccordionContent>
             </AccordionItem>
           </Accordion>

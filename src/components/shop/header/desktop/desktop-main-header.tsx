@@ -9,7 +9,14 @@ import DesktopCatalogMenu from '@/components/shop/header/desktop/desktop-catalog
 import { PhoneMenu } from '@/components/shop/header/shared/phone-menu';
 import clsx from 'clsx';
 
-const DesktopMainHeader = () => {
+import { CategoryTreeItem } from '@/lib/shop/actions/category';
+
+interface DesktopMainHeaderProps {
+  locale: string;
+  catalogData: CategoryTreeItem[];
+}
+
+const DesktopMainHeader = ({ locale, catalogData }: DesktopMainHeaderProps) => {
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
 
   const handleCatalogToggle = () => {
@@ -69,7 +76,12 @@ const DesktopMainHeader = () => {
       </div>
 
       {/* Desktop Catalog Menu */}
-      <DesktopCatalogMenu isOpen={isCatalogOpen} onClose={handleCatalogClose} />
+      <DesktopCatalogMenu
+        isOpen={isCatalogOpen}
+        onClose={handleCatalogClose}
+        locale={locale}
+        catalogData={catalogData}
+      />
     </div>
   );
 };

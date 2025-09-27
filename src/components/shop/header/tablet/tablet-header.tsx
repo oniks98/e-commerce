@@ -12,14 +12,20 @@ import { PhoneMenu } from '@/components/shop/header/shared/phone-menu';
 import MobileCatalogMenu from '../mobile/mobile-catalog-menu';
 import clsx from 'clsx';
 
+import { CategoryTreeItem } from '@/lib/shop/actions/category';
+
 interface TabletHeaderProps {
   isMobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
+  locale: string;
+  catalogData: CategoryTreeItem[];
 }
 
 const TabletHeader = ({
   isMobileMenuOpen,
   setMobileMenuOpen,
+  locale,
+  catalogData,
 }: TabletHeaderProps) => {
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
 
@@ -95,7 +101,12 @@ const TabletHeader = ({
       </div>
 
       {/* Tablet Catalog Menu (uses mobile version) */}
-      <MobileCatalogMenu isOpen={isCatalogOpen} onClose={handleCatalogClose} />
+      <MobileCatalogMenu
+        isOpen={isCatalogOpen}
+        onClose={handleCatalogClose}
+        locale={locale}
+        catalogData={catalogData}
+      />
     </div>
   );
 };

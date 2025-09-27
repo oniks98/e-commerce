@@ -8,25 +8,37 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { catalogData } from '@/lib/shop/constants/catalog-data';
 import { ChevronDownIcon } from '@/lib/shop/icons';
+import { CategoryTreeItem } from '@/lib/shop/actions/category';
 
 interface MobileCatalogMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  locale: string;
+  catalogData: CategoryTreeItem[];
 }
 
-const MobileCatalogMenu = ({ isOpen, onClose }: MobileCatalogMenuProps) => {
+const MobileCatalogMenu = ({
+  isOpen,
+  onClose,
+  locale,
+  catalogData,
+}: MobileCatalogMenuProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const [menuHeight, setMenuHeight] = useState(0);
 
   useEffect(() => {
     if (isOpen && menuRef.current) {
-      setMenuHeight(menuRef.current.scrollHeight);
+      // Use a timeout to allow the accordion to render before calculating height
+      setTimeout(() => {
+        if (menuRef.current) {
+          setMenuHeight(menuRef.current.scrollHeight);
+        }
+      }, 50); // Small delay
     } else {
       setMenuHeight(0);
     }
-  }, [isOpen]);
+  }, [isOpen, catalogData]); // Rerun when data changes
 
   return (
     <>
@@ -66,14 +78,13 @@ const MobileCatalogMenu = ({ isOpen, onClose }: MobileCatalogMenuProps) => {
                     transitionDelay: isOpen ? `${index * 50}ms` : '0ms',
                   }}
                 >
-                  {category.subcategories &&
-                  category.subcategories.length > 0 ? (
+                  {category.children && category.children.length > 0 ? (
                     <>
                       <div className="hover:bg-light/30 flex items-center justify-between px-6 py-3 transition-colors duration-150">
                         <Link
-                          href={category.href}
+                          href={`/${locale}/catalog/${category.slug}`}
                           onClick={onClose}
-                          className="text-dark hover:text-yellow flex items-center gap-4 text-lg leading-7 transition-colors duration-150"
+                          className="text-dark hover:text-yellow flex flex-1 items-center gap-4 text-lg leading-7 transition-colors duration-150"
                         >
                           <span>{category.name}</span>
                         </Link>
@@ -83,22 +94,20 @@ const MobileCatalogMenu = ({ isOpen, onClose }: MobileCatalogMenuProps) => {
                         <div className="px-6 py-4">
                           {/* Subcategories */}
                           <div className="space-y-2">
-                            {category.subcategories.map(
-                              (subcategory, subIndex) => (
-                                <Link
-                                  key={subcategory.id}
-                                  href={subcategory.href}
-                                  className={`text-dark hover:text-yellow hover:border-yellow animate-fade-in-left block translate-x-2 border-l-2 border-transparent pl-4 text-base leading-8 opacity-0 transition-all duration-150`}
-                                  style={{
-                                    animationDelay: `${subIndex * 100}ms`,
-                                    animationFillMode: 'forwards',
-                                  }}
-                                  onClick={onClose}
-                                >
-                                  {subcategory.name}
-                                </Link>
-                              ),
-                            )}
+                            {category.children.map((subcategory, subIndex) => (
+                              <Link
+                                key={subcategory.id}
+                                href={`/${locale}/catalog/${subcategory.slug}`}
+                                className={`text-dark hover:text-yellow hover:border-yellow animate-fade-in-left block translate-x-2 border-l-2 border-transparent pl-4 text-base leading-8 opacity-0 transition-all duration-150`}
+                                style={{
+                                  animationDelay: `${subIndex * 100}ms`,
+                                  animationFillMode: 'forwards',
+                                }}
+                                onClick={onClose}
+                              >
+                                {subcategory.name}
+                              </Link>
+                            ))}
                           </div>
                         </div>
                       </AccordionContent>
@@ -106,7 +115,7 @@ const MobileCatalogMenu = ({ isOpen, onClose }: MobileCatalogMenuProps) => {
                   ) : (
                     // Simple link for categories without subcategories
                     <Link
-                      href={category.href}
+                      href={`/${locale}/catalog/${category.slug}`}
                       className="text-dark hover:bg-light flex items-center justify-between px-6 py-3 text-lg leading-7 transition-all duration-150 hover:translate-x-1"
                       onClick={onClose}
                     >

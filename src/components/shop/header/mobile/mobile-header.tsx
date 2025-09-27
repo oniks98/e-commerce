@@ -15,12 +15,21 @@ import {
 } from '@/lib/shop/icons';
 import MobileCatalogMenu from '@/components/shop/header/mobile/mobile-catalog-menu';
 
+import { CategoryTreeItem } from '@/lib/shop/actions/category';
+
 interface MobileHeaderProps {
   onMenuClick: () => void;
   isMenuOpen: boolean;
+  locale: string;
+  catalogData: CategoryTreeItem[];
 }
 
-const MobileHeader = ({ onMenuClick, isMenuOpen }: MobileHeaderProps) => {
+const MobileHeader = ({
+  onMenuClick,
+  isMenuOpen,
+  locale,
+  catalogData,
+}: MobileHeaderProps) => {
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -113,7 +122,12 @@ const MobileHeader = ({ onMenuClick, isMenuOpen }: MobileHeaderProps) => {
       )}
 
       {/* Mobile Catalog Menu */}
-      <MobileCatalogMenu isOpen={isCatalogOpen} onClose={handleCatalogClose} />
+      <MobileCatalogMenu
+        isOpen={isCatalogOpen}
+        onClose={handleCatalogClose}
+        locale={locale}
+        catalogData={catalogData}
+      />
     </div>
   );
 };

@@ -4,32 +4,46 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
 
-import { catalogData } from '@/lib/shop/constants/catalog-data';
 import { ChevronRightIcon } from '@/lib/shop/icons';
+import { CategoryTreeItem } from '@/lib/shop/actions/category';
 
 interface DesktopCatalogMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  locale: string;
+  catalogData: CategoryTreeItem[];
 }
 
-const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
-  const defaultCategory =
-    catalogData.find((c) => c.subcategories && c.subcategories.length > 0) ||
-    catalogData[0];
-  const [hoveredCategory, setHoveredCategory] = useState(defaultCategory);
+const DesktopCatalogMenu = ({
+  isOpen,
+  onClose,
+  locale,
+  catalogData,
+}: DesktopCatalogMenuProps) => {
+  const [hoveredCategory, setHoveredCategory] = useState<
+    CategoryTreeItem | undefined
+  >(undefined);
   const menuRef = useRef<HTMLDivElement>(null);
   const [menuHeight, setMenuHeight] = useState(0);
 
   useEffect(() => {
+    if (isOpen && catalogData.length > 0) {
+      const newDefaultCategory =
+        catalogData.find((c) => c.children && c.children.length > 0) ||
+        catalogData[0];
+      setHoveredCategory(newDefaultCategory);
+    } else {
+      setHoveredCategory(undefined);
+    }
+  }, [isOpen, catalogData]);
+
+  useEffect(() => {
     if (isOpen) {
-      setHoveredCategory(defaultCategory);
       if (menuRef.current) {
         setMenuHeight(menuRef.current.scrollHeight);
       }
-    } else {
-      setMenuHeight(0);
     }
-  }, [isOpen, defaultCategory]);
+  }, [isOpen, hoveredCategory]); // Recalculate height when hovered category changes
 
   return (
     <>
@@ -69,7 +83,7 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
                   <div
                     key={category.id}
                     onMouseEnter={() => setHoveredCategory(category)}
-                    className={`transition-all duration-200 ${
+                    className={`transform-gpu transition-all duration-200 ${
                       isOpen
                         ? 'translate-x-0 opacity-100'
                         : '-translate-x-4 opacity-0'
@@ -79,7 +93,7 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
                     }}
                   >
                     <Link
-                      href={category.href}
+                      href={`/${locale}/catalog/${category.slug}`}
                       onClick={onClose}
                       className={clsx(
                         'flex items-center justify-between py-2 pr-[15px] pl-[30px] text-base transition-all duration-200 hover:translate-x-1',
@@ -92,20 +106,19 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
                       )}
                     >
                       <span className="w-[450px]">{category.name}</span>
-                      {category.subcategories &&
-                        category.subcategories.length > 0 && (
-                          <ChevronRightIcon
-                            className={clsx(
-                              'h-3 w-3 transition-all duration-200',
-                              {
-                                'rotate-0 text-white':
-                                  hoveredCategory?.id === category.id,
-                                'text-yellow -rotate-12':
-                                  hoveredCategory?.id !== category.id,
-                              },
-                            )}
-                          />
-                        )}
+                      {category.children && category.children.length > 0 && (
+                        <ChevronRightIcon
+                          className={clsx(
+                            'h-3 w-3 transition-all duration-200',
+                            {
+                              'rotate-0 text-white':
+                                hoveredCategory?.id === category.id,
+                              'text-yellow -rotate-12':
+                                hoveredCategory?.id !== category.id,
+                            },
+                          )}
+                        />
+                      )}
                     </Link>
                   </div>
                 ))}
@@ -123,19 +136,19 @@ const DesktopCatalogMenu = ({ isOpen, onClose }: DesktopCatalogMenuProps) => {
 
               {/* Right panel with subcategories */}
               <div className="bg-light w-[500px] overflow-hidden py-[20px] pr-[20px] pl-[30px]">
-                {hoveredCategory?.subcategories &&
-                hoveredCategory.subcategories.length > 0 ? (
+                {hoveredCategory?.children &&
+                hoveredCategory.children.length > 0 ? (
                   <div
-                    className={`transition-all duration-300 ${
+                    className={`transform-gpu transition-all duration-300 ${
                       isOpen
                         ? 'translate-x-0 opacity-100'
                         : 'translate-x-4 opacity-0'
                     }`}
                   >
-                    {hoveredCategory.subcategories.map((subcategory, index) => (
+                    {hoveredCategory.children.map((subcategory, index) => (
                       <Link
                         key={subcategory.id}
-                        href={subcategory.href}
+                        href={`/${locale}/catalog/${subcategory.slug}`}
                         onClick={onClose}
                         className={`text-dark animate-fade-in-left block translate-x-4 rounded px-2 py-1 text-base leading-[2.1] opacity-0 transition-all duration-200 hover:translate-x-2 hover:bg-white/50 hover:text-yellow-600`}
                         style={{

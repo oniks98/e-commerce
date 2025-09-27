@@ -1,5 +1,4 @@
 import { aboutData } from '@/lib/shop/constants/about-data';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import Advantages from '@/components/ui/advantages';
 import clsx from 'clsx';
 import {
@@ -9,6 +8,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { ArrowDownIcon } from '@/lib/shop/icons';
+import Shadow from '@/components/ui/shadow';
 
 const About = () => {
   return (
@@ -54,9 +54,9 @@ const About = () => {
                 </AccordionContent>
 
                 <AccordionTrigger className="flex w-full items-center justify-center pt-4 [&>svg]:hidden [&[data-state=open]>div]:rotate-180">
-                  <div className="flex h-15 w-15 items-center justify-center rounded-full bg-white shadow-md transition-transform duration-200">
+                  <Shadow>
                     <ArrowDownIcon className="text-yellow h-[50px] w-[50px]" />
-                  </div>
+                  </Shadow>
                 </AccordionTrigger>
               </AccordionItem>
             </Accordion>

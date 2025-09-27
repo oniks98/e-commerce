@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import {
   Accordion,
@@ -24,22 +24,6 @@ const MobileCatalogMenu = ({
   locale,
   catalogData,
 }: MobileCatalogMenuProps) => {
-  const menuRef = useRef<HTMLDivElement>(null);
-  const [menuHeight, setMenuHeight] = useState(0);
-
-  useEffect(() => {
-    if (isOpen && menuRef.current) {
-      // Use a timeout to allow the accordion to render before calculating height
-      setTimeout(() => {
-        if (menuRef.current) {
-          setMenuHeight(menuRef.current.scrollHeight);
-        }
-      }, 50); // Small delay
-    } else {
-      setMenuHeight(0);
-    }
-  }, [isOpen, catalogData]); // Rerun when data changes
-
   return (
     <>
       {/* Backdrop overlay */}
@@ -52,83 +36,80 @@ const MobileCatalogMenu = ({
 
       {/* Menu positioned right below the header */}
       <div
-        className={`absolute top-full left-0 z-50 w-full overflow-hidden bg-white shadow-lg transition-all duration-300 ease-out ${
+        className={`absolute top-full left-0 z-50 w-full overflow-y-auto bg-white shadow-lg transition-all duration-300 ease-out ${
           isOpen
             ? 'translate-y-0 opacity-100'
             : 'pointer-events-none -translate-y-2 opacity-0'
         }`}
         style={{
-          height: isOpen ? `${menuHeight}px` : '0px',
-          maxHeight: '80vh',
+          maxHeight: 'calc(100vh - 150px)', // Adjust 150px to be the height of your header
         }}
       >
-        <div ref={menuRef} className="overflow-y-auto">
-          <div className="py-3">
-            <Accordion type="single" collapsible className="w-full">
-              {catalogData.map((category, index) => (
-                <AccordionItem
-                  key={category.id}
-                  value={category.id}
-                  className={`border-light border-b transition-all duration-200 last:border-b-0 ${
-                    isOpen
-                      ? 'translate-x-0 opacity-100'
-                      : 'translate-x-4 opacity-0'
-                  }`}
-                  style={{
-                    transitionDelay: isOpen ? `${index * 50}ms` : '0ms',
-                  }}
-                >
-                  {category.children && category.children.length > 0 ? (
-                    <>
-                      <div className="hover:bg-light/30 flex items-center justify-between px-6 py-3 transition-colors duration-150">
-                        <Link
-                          href={`/${locale}/catalog/${category.slug}`}
-                          onClick={onClose}
-                          className="text-dark hover:text-yellow flex flex-1 items-center gap-4 text-lg leading-7 transition-colors duration-150"
-                        >
-                          <span>{category.name}</span>
-                        </Link>
-                        <AccordionTrigger className="!flex-grow-0 !p-2 transition-transform duration-200" />
-                      </div>
-                      <AccordionContent className="bg-light/30 overflow-hidden pt-0 pb-0 transition-all duration-250 ease-out">
-                        <div className="px-6 py-4">
-                          {/* Subcategories */}
-                          <div className="space-y-2">
-                            {category.children.map((subcategory, subIndex) => (
-                              <Link
-                                key={subcategory.id}
-                                href={`/${locale}/catalog/${subcategory.slug}`}
-                                className={`text-dark hover:text-yellow hover:border-yellow animate-fade-in-left block translate-x-2 border-l-2 border-transparent pl-4 text-base leading-8 opacity-0 transition-all duration-150`}
-                                style={{
-                                  animationDelay: `${subIndex * 100}ms`,
-                                  animationFillMode: 'forwards',
-                                }}
-                                onClick={onClose}
-                              >
-                                {subcategory.name}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      </AccordionContent>
-                    </>
-                  ) : (
-                    // Simple link for categories without subcategories
-                    <Link
-                      href={`/${locale}/catalog/${category.slug}`}
-                      className="text-dark hover:bg-light flex items-center justify-between px-6 py-3 text-lg leading-7 transition-all duration-150 hover:translate-x-1"
-                      onClick={onClose}
-                    >
-                      <div className="flex items-center gap-4">
+        <div className="py-3">
+          <Accordion type="single" collapsible className="w-full">
+            {catalogData.map((category, index) => (
+              <AccordionItem
+                key={category.id}
+                value={category.id}
+                className={`border-light border-b transition-all duration-200 last:border-b-0 ${
+                  isOpen
+                    ? 'translate-x-0 opacity-100'
+                    : 'translate-x-4 opacity-0'
+                }`}
+                style={{
+                  transitionDelay: isOpen ? `${index * 50}ms` : '0ms',
+                }}
+              >
+                {category.children && category.children.length > 0 ? (
+                  <>
+                    <div className="hover:bg-light/30 flex items-center justify-between px-6 py-3 transition-colors duration-150">
+                      <Link
+                        href={`/${locale}/catalog/${category.slug}`}
+                        onClick={onClose}
+                        className="text-dark hover:text-yellow flex flex-1 items-center gap-4 text-lg leading-7 transition-colors duration-150"
+                      >
                         <span>{category.name}</span>
+                      </Link>
+                      <AccordionTrigger className="!flex-grow-0 !p-2 transition-transform duration-200" />
+                    </div>
+                    <AccordionContent className="bg-light/30 overflow-hidden pt-0 pb-0 transition-all duration-250 ease-out">
+                      <div className="px-6 py-4">
+                        {/* Subcategories */}
+                        <div className="space-y-2">
+                          {category.children.map((subcategory, subIndex) => (
+                            <Link
+                              key={subcategory.id}
+                              href={`/${locale}/catalog/${subcategory.slug}`}
+                              className={`text-dark hover:text-yellow hover:border-yellow animate-fade-in-left block translate-x-2 border-l-2 border-transparent pl-4 text-base leading-8 opacity-0 transition-all duration-150`}
+                              style={{
+                                animationDelay: `${subIndex * 100}ms`,
+                                animationFillMode: 'forwards',
+                              }}
+                              onClick={onClose}
+                            >
+                              {subcategory.name}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                      <ChevronDownIcon className="text-yellow h-3 w-3 rotate-[-90deg] transition-transform duration-200 hover:rotate-0" />
-                    </Link>
-                  )}
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+                    </AccordionContent>
+                  </>
+                ) : (
+                  // Simple link for categories without subcategories
+                  <Link
+                    href={`/${locale}/catalog/${category.slug}`}
+                    className="text-dark hover:bg-light flex items-center justify-between px-6 py-3 text-lg leading-7 transition-all duration-150 hover:translate-x-1"
+                    onClick={onClose}
+                  >
+                    <div className="flex items-center gap-4">
+                      <span>{category.name}</span>
+                    </div>
+                    <ChevronDownIcon className="text-yellow h-3 w-3 rotate-[-90deg] transition-transform duration-200 hover:rotate-0" />
+                  </Link>
+                )}
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </>

@@ -43,7 +43,7 @@ export function LanguageSwitcher() {
           />
 
           {/* Меню рендерится абсолютно поверх триггера (т.е. "на месте") */}
-          <div className="absolute top-0 left-0 z-60 w-full overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg">
+          <div className="border-grey-light absolute top-0 left-0 z-60 w-full overflow-hidden rounded-lg border bg-white shadow-lg">
             <div role="listbox" aria-label="Select language">
               {LANGUAGES.map((language, index) => (
                 <button

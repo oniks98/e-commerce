@@ -44,7 +44,7 @@ export function PhoneMenu() {
         aria-hidden="true"
       />
 
-      <div className="relative z-20 mt-18 flex min-w-[232px] items-start gap-[12px] rounded-lg border border-gray-200 bg-white p-2 shadow-lg">
+      <div className="border-grey-light relative z-20 mt-18 flex min-w-[232px] items-start gap-[12px] rounded-lg border bg-white p-2 shadow-lg">
         {/* Блок 1: иконка телефона */}
         <div className="bg-light relative h-[50px] w-[50px] flex-shrink-0 rounded-full">
           <PhoneIcon className="text-grey absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
@@ -52,9 +52,7 @@ export function PhoneMenu() {
 
         {/* Блок 2: контент */}
         <div className="flex flex-col gap-2">
-          <span className="text-xs text-gray-500">
-            9:00-14:00 крім вихідних
-          </span>
+          <span className="text-grey text-xs">9:00-14:00 крім вихідних</span>
           <div className="text-dark text-xl font-semibold">063 338-82-60</div>
           <div className="text-dark text-xl font-semibold">067 636-01-90</div>
           <button
@@ -78,7 +76,7 @@ export function PhoneMenu() {
             className="rounded transition-colors duration-200 hover:bg-gray-100"
           >
             <svg
-              className="h-4 w-4 text-gray-500"
+              className="text-grey h-4 w-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

@@ -28,7 +28,7 @@ const Categories = ({ locale, catalogData }: CategoriesProps) => {
         <h1 className="mb-[35px] text-left text-3xl font-semibold">
           Популярні категорії
         </h1>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-4">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-7">
           {categories.map((category, index) => (
             <Link
               href={`/${locale}/catalog/${category.slug}`}

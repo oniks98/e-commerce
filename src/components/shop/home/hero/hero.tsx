@@ -79,12 +79,7 @@ export default function Hero({ className }: HeroProps) {
   );
 
   return (
-    <div
-      className={clsx(
-        'mx-auto h-auto w-full py-[35px] xl:mt-[138px]',
-        className,
-      )}
-    >
+    <div className={clsx('mx-auto h-auto w-full py-[35px]', className)}>
       <Carousel
         slides={slideComponents}
         options={options}

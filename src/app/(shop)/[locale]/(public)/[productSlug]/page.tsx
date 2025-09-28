@@ -37,7 +37,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <p>Price (UAH): {product.price_uah}</p>
       <div className="mt-4">
         <h2 className="text-xl">Full Details:</h2>
-        <pre className="mt-2 rounded bg-gray-100 p-4">
+        <pre className="bg-grey-light mt-2 rounded p-4">
           {JSON.stringify(product, null, 2)}
         </pre>
       </div>

@@ -166,7 +166,7 @@ const DesktopCatalogMenu = ({
                       isOpen ? 'opacity-100' : 'opacity-0'
                     }`}
                   >
-                    <p className="text-lg text-gray-500">
+                    <p className="text-grey text-lg">
                       Для цієї категорії немає підкатегорій.
                     </p>
                   </div>

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { products } from '@/lib/shop/constants/products-data';
-import ProductCard from '@/components/shop/home/products/product-card';
+import ProductCard from '@/components/ui/product-card';
 import { ArrowUpRightIcon } from '@/lib/shop/icons';
 import BtnLoadMore from '@/components/ui/btn-load-more';
 
@@ -24,7 +24,7 @@ const Products = () => {
             <ArrowUpRightIcon className="ml-2 h-4 w-4" />
           </Link>
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-4">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-7">
           {productsToShow.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

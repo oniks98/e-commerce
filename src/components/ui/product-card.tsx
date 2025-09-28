@@ -17,13 +17,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
       className={clsx(
         'group',
         'flex',
-        'h-[498px]',
         'min-w-[270px]',
         'flex-col',
         'items-center',
         'rounded-lg',
         'border',
-        'border-gray-200',
+        'border-grey-light-r',
         'bg-white',
         'p-5',
         'shadow-md',
@@ -33,7 +32,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       )}
     >
       <Link href={`/products/${product.id}`} className="flex flex-col">
-        <div className="flex justify-center">
+        <div className="mb-5 flex justify-center">
           <Image
             src={getPlaceholder('product', product.image)}
             alt={product.name}
@@ -42,18 +41,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
             className="rounded-lg"
           />
         </div>
-        <div className="mt-5 flex w-full flex-col">
-          <p className="text-sm text-gray-500">{`Розмір: ${product.size}`}</p>
-          <h3 className="text-dark mt-2 h-[52px] text-lg font-semibold">
+        <div className="flex w-full flex-col">
+          <p className="text-grey mb-3 text-sm">{`Код товару: ${product.code}`}</p>
+          <h3 className="text-dark mb-3 h-[52px] text-lg font-semibold">
             {product.name}
           </h3>
-          <div className="mt-2 flex items-center">
+          <div className="mb-5 flex items-center">
             <CheckIcon className="h-6 w-6 text-green-500" />
             <p className="text-dark ml-1 text-sm">В наявності</p>
           </div>
         </div>
       </Link>
-      <div className="mt-auto flex w-full items-center justify-between">
+      <div className="flex w-full items-center justify-between">
         <div className="flex flex-col">
           {product.oldPrice && (
             <p className="text-sm text-red-500 line-through">{`${product.oldPrice} грн.`}</p>
@@ -61,10 +60,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <p className="text-dark text-xl font-semibold">{`${product.price} грн.`}</p>
         </div>
         <div className="flex items-center">
-          <button className="mr-2 rounded-full bg-gray-100 p-3">
-            <FavoritesIcon className="h-6 w-6 text-gray-500" />
+          <button className="bg-grey-light-r mr-2 rounded-full p-3">
+            <FavoritesIcon className="text-grey h-6 w-6" />
           </button>
-          <button className="rounded-full bg-yellow-500 p-3">
+          <button className="bg-yellow rounded-full p-3">
             <CartIcon className="h-6 w-6 text-white" />
           </button>
         </div>

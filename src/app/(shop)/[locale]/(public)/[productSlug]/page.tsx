@@ -1,5 +1,6 @@
 import { getProductBySku } from '@/lib/shop/actions/product';
 import { notFound } from 'next/navigation';
+import Breadcrumbs from '@/components/shop/catalog/breadcrumbs';
 
 // This page will handle URLs like /en/p123-iphone-15-pro
 
@@ -29,6 +30,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <div className="mx-auto max-w-[1360px] px-4 py-8 md:px-[35px]">
+      <Breadcrumbs product={product} />
       <h1 className="mb-4 text-3xl font-bold">
         {/* Name is a JSONB object, showing raw data for now */}
         Product Name: {JSON.stringify(product.name)}

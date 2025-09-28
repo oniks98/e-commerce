@@ -5,7 +5,18 @@ export async function getProductBySku(sku: string) {
 
   const { data: product, error } = await supabase
     .from('products')
-    .select('*')
+    .select(
+      `
+      *,
+      categories (
+        id,
+        name,
+        slug,
+        parent_id,
+        parent:categories (id, name, slug)
+      )
+    `,
+    )
     .eq('sku', sku)
     .single();
 

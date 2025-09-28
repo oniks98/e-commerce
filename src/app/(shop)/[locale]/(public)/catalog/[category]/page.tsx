@@ -1,5 +1,6 @@
 import { getCategoryBySlug } from '@/lib/shop/actions/category';
 import Breadcrumbs from '@/components/shop/catalog/breadcrumbs';
+
 import Subcategories from '@/components/shop/catalog/subcategories';
 import SearchFilter from '@/components/shop/catalog/search-filter';
 import Sorting from '@/components/shop/catalog/sorting';
@@ -12,13 +13,15 @@ import Advantages from '@/components/ui/advantages';
 import Faq from '@/components/shop/catalog/faq';
 
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
+    locale: string;
     category: string;
-  };
+  }>;
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-  const category = await getCategoryBySlug(params.category);
+  const awaitedParams = await params;
+  const category = await getCategoryBySlug(awaitedParams.category);
 
   if (!category) {
     return <div>Category not found</div>;
@@ -27,7 +30,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   return (
     <div className="bg-light">
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
-        <Breadcrumbs />
+        <Breadcrumbs category={category} />
         <Subcategories
           subcategories={category.children}
           categoryName={category.name}

@@ -7,17 +7,14 @@ import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import { ArrowUpRightIcon } from '@/lib/shop/icons';
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
 
-interface CategoriesProps {
-  locale: string;
-  catalogData: CategoryTreeItem[];
+interface CategoryWithCount extends CategoryTreeItem {
+  productCount: number;
 }
 
-// Генерируем детерминированные числа на основе индекса
-const generateProductCount = (index: number): number => {
-  // Используем индекс для генерации предсказуемого числа
-  const seed = (index * 17 + 31) % 91; // Создаем число от 0 до 90
-  return seed + 10; // Возвращаем число от 10 до 100
-};
+interface CategoriesProps {
+  locale: string;
+  catalogData: CategoryWithCount[];
+}
 
 const Categories = ({ locale, catalogData }: CategoriesProps) => {
   const categories = catalogData.slice(0, 12);
@@ -54,7 +51,7 @@ const Categories = ({ locale, catalogData }: CategoriesProps) => {
                       {category.name}
                     </h2>
                     <span className="ml-2 flex-shrink-0 text-sm text-gray-300 md:text-base">
-                      {generateProductCount(index)}
+                      {category.productCount}
                     </span>
                   </div>
 

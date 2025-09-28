@@ -1,14 +1,15 @@
 import { getTranslations } from 'next-intl/server';
-import Hero from '@/components/shop/home/hero/hero';
-import Categories from '@/components/shop/home/categories/categories';
-import Products from '@/components/shop/home/products/products';
-import Promotions from '@/components/shop/home/promotions/promotions';
-import About from '@/components/shop/home/about/about';
+import Hero from '@/components/shop/home/hero';
+import Categories from '@/components/shop/home/categories';
+import Products from '@/components/shop/home/products';
+import Promotions from '@/components/shop/home/promotions';
+import About from '@/components/shop/home/about';
 import Reviews from '@/components/shop/reviews/reviews';
-import Articles from '@/components/shop/home/articles/articles';
+import Articles from '@/components/shop/home/articles';
 import Advantages from '@/components/ui/advantages';
 
 import { getAllCategories } from '@/lib/shop/actions/category';
+import { getProductCountByCategoryId } from '@/lib/shop/actions/product';
 
 export default async function HomePage({
   params,
@@ -18,11 +19,18 @@ export default async function HomePage({
   const { locale } = await params;
   const catalogData = await getAllCategories();
 
+  const catalogDataWithProductCount = await Promise.all(
+    catalogData.map(async (category) => {
+      const count = await getProductCountByCategoryId(category.id);
+      return { ...category, productCount: count };
+    }),
+  );
+
   return (
     <div className="bg-light">
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
         <Hero />
-        <Categories locale={locale} catalogData={catalogData} />
+        <Categories locale={locale} catalogData={catalogDataWithProductCount} />
         <Products />
         <Promotions />
       </div>

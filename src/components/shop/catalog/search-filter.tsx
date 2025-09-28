@@ -40,11 +40,26 @@ const FilterSection = ({
   </div>
 );
 
-const SearchFilter = () => {
+interface SearchFilterProps {
+  selectedFilters: string[];
+  setSelectedFilters: (filters: string[]) => void;
+}
+
+const SearchFilter = ({
+  selectedFilters,
+  setSelectedFilters,
+}: SearchFilterProps) => {
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? null : section);
+  };
+
+  const handleFilterChange = (filter: string) => {
+    const newFilters = selectedFilters.includes(filter)
+      ? selectedFilters.filter((f) => f !== filter)
+      : [...selectedFilters, filter];
+    setSelectedFilters(newFilters);
   };
 
   const manufacturers = [
@@ -70,8 +85,8 @@ const SearchFilter = () => {
   ];
 
   return (
-    <div className="w-full max-w-75 ">
-      <div className="border-grey-light bg-white flex items-center border-b p-4">
+    <div className="w-full max-w-75">
+      <div className="border-grey-light flex items-center border-b bg-white p-4">
         <FilterBarsIcon />
         <h2 className="text-dark ml-4 text-xl font-semibold">Фільтр пошуку</h2>
       </div>
@@ -120,16 +135,34 @@ const SearchFilter = () => {
         onToggle={() => toggleSection('availability')}
       >
         <label className="mb-2 flex items-center">
-          <input type="checkbox" className="hidden" />
+          <input
+            type="checkbox"
+            className="hidden"
+            checked={selectedFilters.includes('В наявності')}
+            onChange={() => handleFilterChange('В наявності')}
+          />
           <span className="mr-2">
-            <FilterCheckboxEmptyIcon />
+            {selectedFilters.includes('В наявності') ? (
+              <FilterCheckboxActiveIcon />
+            ) : (
+              <FilterCheckboxEmptyIcon />
+            )}
           </span>
           <span>В наявності</span>
         </label>
         <label className="flex items-center">
-          <input type="checkbox" className="hidden" />
+          <input
+            type="checkbox"
+            className="hidden"
+            checked={selectedFilters.includes('Під замовлення')}
+            onChange={() => handleFilterChange('Під замовлення')}
+          />
           <span className="mr-2">
-            <FilterCheckboxEmptyIcon />
+            {selectedFilters.includes('Під замовлення') ? (
+              <FilterCheckboxActiveIcon />
+            ) : (
+              <FilterCheckboxEmptyIcon />
+            )}
           </span>
           <span>Під замовлення</span>
         </label>
@@ -142,9 +175,18 @@ const SearchFilter = () => {
       >
         {manufacturers.map((manufacturer) => (
           <label key={manufacturer} className="mb-2 flex items-center">
-            <input type="checkbox" className="hidden" />
+            <input
+              type="checkbox"
+              className="hidden"
+              checked={selectedFilters.includes(manufacturer)}
+              onChange={() => handleFilterChange(manufacturer)}
+            />
             <span className="mr-2">
-              <FilterCheckboxEmptyIcon />
+              {selectedFilters.includes(manufacturer) ? (
+                <FilterCheckboxActiveIcon />
+              ) : (
+                <FilterCheckboxEmptyIcon />
+              )}
             </span>
             <span>{manufacturer}</span>
           </label>
@@ -158,9 +200,18 @@ const SearchFilter = () => {
       >
         {bedTypes.map((bedType) => (
           <label key={bedType} className="mb-2 flex items-center">
-            <input type="checkbox" className="hidden" />
+            <input
+              type="checkbox"
+              className="hidden"
+              checked={selectedFilters.includes(bedType)}
+              onChange={() => handleFilterChange(bedType)}
+            />
             <span className="mr-2">
-              <FilterCheckboxEmptyIcon />
+              {selectedFilters.includes(bedType) ? (
+                <FilterCheckboxActiveIcon />
+              ) : (
+                <FilterCheckboxEmptyIcon />
+              )}
             </span>
             <span>{bedType}</span>
           </label>
@@ -174,9 +225,18 @@ const SearchFilter = () => {
       >
         {sizes.map((size) => (
           <label key={size} className="mb-2 flex items-center">
-            <input type="checkbox" className="hidden" />
+            <input
+              type="checkbox"
+              className="hidden"
+              checked={selectedFilters.includes(size)}
+              onChange={() => handleFilterChange(size)}
+            />
             <span className="mr-2">
-              <FilterCheckboxEmptyIcon />
+              {selectedFilters.includes(size) ? (
+                <FilterCheckboxActiveIcon />
+              ) : (
+                <FilterCheckboxEmptyIcon />
+              )}
             </span>
             <span>{size}</span>
           </label>

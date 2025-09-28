@@ -63,14 +63,17 @@ const SortingDropdown = ({
   </div>
 );
 
-const Sorting = () => {
-  const [selectedFilters, setSelectedFilters] = useState([
-    'Ціна: 1195-9566',
-    'В наявності',
-    'Виробник: Corners',
-    "Без узголов'я",
-    '200x210 см',
-  ]);
+interface SortingProps {
+  selectedFilters: string[];
+  clearFilters: () => void;
+  removeFilter: (filter: string) => void;
+}
+
+const Sorting = ({
+  selectedFilters,
+  clearFilters,
+  removeFilter,
+}: SortingProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [sortOption, setSortOption] = useState('За зростанням ціни');
 
@@ -80,14 +83,6 @@ const Sorting = () => {
     'За популярністю',
     'За новизною',
   ];
-
-  const removeFilter = (filter: string) => {
-    setSelectedFilters(selectedFilters.filter((f) => f !== filter));
-  };
-
-  const clearFilters = () => {
-    setSelectedFilters([]);
-  };
 
   return (
     <div className="w-full py-4">

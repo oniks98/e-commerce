@@ -1,6 +1,7 @@
 import { getCategoryBySlug } from '@/lib/shop/actions/category';
 import { getProductCountByCategoryId } from '@/lib/shop/actions/product';
 import Breadcrumbs from '@/components/shop/catalog/breadcrumbs';
+import FilterableProducts from '@/components/shop/catalog/filterable-products';
 
 import Subcategories from '@/components/shop/catalog/subcategories';
 import SearchFilter from '@/components/shop/catalog/search-filter';
@@ -39,19 +40,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           categoryName={category.name}
           totalProducts={totalProducts}
         />
-        <div className="flex gap-[30px] py-9">
-          <SearchFilter />
-          <div className="w-full">
-            <Sorting />
-            <Products />
-            <div className="my-8 flex justify-center">
-              <BtnLoadMore>Показати ще товари</BtnLoadMore>
-            </div>
-            <Pagination
-              totalPages={18} // TODO: get total pages
-            />
-          </div>
-        </div>
+        <FilterableProducts />
         <SeoText />
       </div>
       <Reviews />

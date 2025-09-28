@@ -60,10 +60,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
             </div>
           </div>
           <div className="flex items-center">
-            <button className="rounded-full p-2 transition-colors hover:bg-gray-100">
+            <button className="hover:bg-grey-light-r rounded-full p-2 transition-colors">
               <FavoritesIcon />
             </button>
-            <button className="bg-yellow-dark ml-2 rounded-full p-2 text-white transition-colors hover:bg-yellow-600">
+            <button className="bg-yellow-dark hover:bg-yellow-dark ml-2 rounded-full p-2 text-white transition-colors">
               <CartIcon />
             </button>
           </div>

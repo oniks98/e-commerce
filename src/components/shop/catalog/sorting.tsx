@@ -54,7 +54,7 @@ const Sorting = () => {
           {selectedFilters.length > 0 && (
             <button
               onClick={clearFilters}
-              className="ml-4 flex items-center rounded-md bg-yellow-dark px-3 py-1 text-sm text-white"
+              className="bg-yellow-dark ml-4 flex items-center rounded-md px-3 py-1 text-sm text-white"
             >
               <span>Очистити</span>
               <span className="ml-2">

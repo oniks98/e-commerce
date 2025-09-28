@@ -43,7 +43,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
         <Link
           href={`/products/${product.sku}`}
-          className="text-grey mb-2 block text-lg font-semibold hover:text-yellow-dark"
+          className="text-grey hover:text-yellow-dark mb-2 block text-lg font-semibold"
         >
           {product.name}
         </Link>
@@ -63,7 +63,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <button className="rounded-full p-2 transition-colors hover:bg-gray-100">
               <FavoritesIcon />
             </button>
-            <button className="ml-2 rounded-full bg-yellow-dark p-2 text-white transition-colors hover:bg-yellow-600">
+            <button className="bg-yellow-dark ml-2 rounded-full p-2 text-white transition-colors hover:bg-yellow-600">
               <CartIcon />
             </button>
           </div>

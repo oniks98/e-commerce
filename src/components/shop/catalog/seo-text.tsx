@@ -49,7 +49,7 @@ const SeoText = () => {
         <div className="mt-4 flex justify-center">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="flex items-center text-lg text-yellow-dark"
+            className="text-yellow-dark flex items-center text-lg"
           >
             <div
               className={`transform transition-transform ${isExpanded ? 'rotate-180' : ''}`}

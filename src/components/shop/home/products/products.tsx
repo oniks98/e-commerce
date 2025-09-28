@@ -18,7 +18,7 @@ const Products = () => {
           </h2>
           <Link
             href="/catalog"
-            className="ml-6 hidden items-center text-lg font-semibold text-yellow-dark md:flex"
+            className="text-yellow-dark ml-6 hidden items-center text-lg font-semibold md:flex"
           >
             Дивитись всі
             <ArrowUpRightIcon className="ml-2 h-4 w-4" />

@@ -36,7 +36,7 @@ const Subcategories = ({
               href={`/catalog/${subcategory.slug}`}
               className="group relative block overflow-hidden rounded-lg"
             >
-              <div className="absolute top-0 left-1/2 h-1.5 w-5 -translate-x-1/2 scale-x-0 bg-yellow-dark transition-transform duration-300 group-hover:scale-x-100"></div>
+              <div className="bg-yellow-dark absolute top-0 left-1/2 h-1.5 w-5 -translate-x-1/2 scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
               <Image
                 src={getPlaceholder('category', subcategory.id)}
                 alt={subcategory.name}
@@ -56,7 +56,7 @@ const Subcategories = ({
       <div className="mt-6 flex justify-center">
         <button
           onClick={() => setIsHidden(!isHidden)}
-          className="flex items-center text-lg text-yellow transition-colors hover:text-yellow-dark"
+          className="text-yellow hover:text-yellow-dark flex items-center text-lg transition-colors"
         >
           <span className="mr-2">
             {isHidden ? 'Показати' : 'Приховати'} підкатегорії

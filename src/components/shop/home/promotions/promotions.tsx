@@ -74,7 +74,7 @@ const Promotions = () => {
             <h2 className="text-dark text-3xl font-semibold">Акції</h2>
             <Link
               href="/promotions"
-              className="ml-[30px] hidden items-center text-lg font-semibold text-yellow-dark md:flex"
+              className="text-yellow-dark ml-[30px] hidden items-center text-lg font-semibold md:flex"
             >
               Дивитись всі
               <ArrowUpRightIcon className="ml-2 h-4 w-4" />
@@ -83,13 +83,13 @@ const Promotions = () => {
           <div className="hidden items-center gap-5 md:flex">
             <button
               onClick={onPrevButtonClick}
-              className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white text-yellow-dark shadow-md transition-colors hover:bg-gray-100"
+              className="text-yellow-dark flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-100"
             >
               <ChevronLeftIcon />
             </button>
             <button
               onClick={onNextButtonClick}
-              className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white text-yellow-dark shadow-md transition-colors hover:bg-gray-100"
+              className="text-yellow-dark flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-100"
             >
               <ChevronRightIcon />
             </button>
@@ -124,7 +124,7 @@ const Promotions = () => {
                 className={clsx(
                   'h-[15px] w-[15px] rounded-full border-2 transition-colors duration-200',
                   index === selectedIndex
-                    ? 'border-white bg-yellow-dark'
+                    ? 'bg-yellow-dark border-white'
                     : 'border-gray-400 bg-white',
                 )}
                 aria-label={`Go to slide ${index + 1}`}

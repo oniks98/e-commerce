@@ -1,4 +1,5 @@
 import { getCategoryBySlug } from '@/lib/shop/actions/category';
+import { getProductCountByCategoryId } from '@/lib/shop/actions/product';
 import Breadcrumbs from '@/components/shop/catalog/breadcrumbs';
 
 import Subcategories from '@/components/shop/catalog/subcategories';
@@ -27,6 +28,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     return <div>Category not found</div>;
   }
 
+  const totalProducts = await getProductCountByCategoryId(category.id);
+
   return (
     <div className="bg-light">
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
@@ -34,7 +37,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <Subcategories
           subcategories={category.children}
           categoryName={category.name}
-          totalProducts={0} // TODO: get total products count
+          totalProducts={totalProducts}
         />
         <div className="flex gap-[30px] py-9">
           <SearchFilter />

@@ -100,7 +100,7 @@ const DesktopCatalogMenu = ({
                         {
                           'bg-yellow text-white shadow-md':
                             hoveredCategory?.id === category.id,
-                          'hover:bg-yellow/10 text-dark':
+                          'hover:bg-yellow-dark text-dark':
                             hoveredCategory?.id !== category.id,
                         },
                       )}

@@ -62,13 +62,13 @@ const Categories = ({ locale, catalogData }: CategoriesProps) => {
                   <div className="mt-auto flex justify-end">
                     <div
                       className={clsx(
-                        'flex items-center justify-center rounded-full border-2 border-yellow-400',
+                        'flex items-center justify-center rounded-full border-2 border-yellow',
                         'h-10 w-10 md:h-12 md:w-12',
                       )}
                     >
                       <ArrowUpRightIcon
                         className={clsx(
-                          'h-3 w-3 text-yellow-400 md:h-4 md:w-4',
+                          'h-3 w-3 text-yellow md:h-4 md:w-4',
                         )}
                       />
                     </div>

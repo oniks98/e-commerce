@@ -88,7 +88,7 @@ const Pagination = ({ totalPages }: PaginationProps) => {
           className={clsx(
             'flex h-12 w-12 items-center justify-center rounded-md border',
             {
-              'border-yellow-500 bg-yellow-500 text-white':
+              'border-yellow-dark bg-yellow-dark text-white':
                 currentPage === page,
               'border-gray-300': currentPage !== page,
             },

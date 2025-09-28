@@ -93,22 +93,22 @@ const SearchFilter = () => {
             placeholder="9566"
             className="border-grey-light w-2/5 rounded-md border p-2"
           />
-          <button className="rounded-md bg-yellow-500 px-4 py-2 text-white">
+          <button className="rounded-md bg-yellow-dark px-4 py-2 text-white">
             ОК
           </button>
         </div>
         {/* Placeholder for range slider */}
         <div className="bg-grey-light relative mt-4 h-1 w-full rounded-full">
           <div
-            className="absolute h-1 rounded-full bg-yellow-500"
+            className="absolute h-1 rounded-full bg-yellow-dark"
             style={{ left: '10%', width: '80%' }}
           ></div>
           <div
-            className="absolute -top-1.5 h-4 w-4 rounded-full border-2 border-white bg-yellow-500"
+            className="absolute -top-1.5 h-4 w-4 rounded-full border-2 border-white bg-yellow-dark"
             style={{ left: '10%' }}
           ></div>
           <div
-            className="absolute -top-1.5 h-4 w-4 rounded-full border-2 border-white bg-yellow-500"
+            className="absolute -top-1.5 h-4 w-4 rounded-full border-2 border-white bg-yellow-dark"
             style={{ left: '90%' }}
           ></div>
         </div>

@@ -96,3 +96,42 @@ export async function getCategoryBySlug(slug: string) {
 
   return { ...category, children: children || [] };
 }
+
+export async function getDescendantCategoryIds(
+  categoryId: string,
+): Promise<string[]> {
+  const supabase = await createClient();
+
+  const { data: allCategories, error: fetchError } = await supabase
+    .from('categories')
+    .select('id, parent_id');
+
+  if (fetchError) {
+    console.error('Error fetching categories:', fetchError);
+    return [categoryId];
+  }
+
+  const categoryMap = new Map<string, string[]>();
+  allCategories.forEach((c) => {
+    if (c.parent_id) {
+      if (!categoryMap.has(c.parent_id)) {
+        categoryMap.set(c.parent_id, []);
+      }
+      categoryMap.get(c.parent_id)!.push(c.id);
+    }
+  });
+
+  const result: string[] = [categoryId];
+  const queue: string[] = [categoryId];
+
+  while (queue.length > 0) {
+    const currentId = queue.shift()!;
+    const children = categoryMap.get(currentId);
+    if (children) {
+      result.push(...children);
+      queue.push(...children);
+    }
+  }
+
+  return result;
+}

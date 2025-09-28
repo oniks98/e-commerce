@@ -1,20 +1,7 @@
-/*
- * =====================================================================================
- *
- * To use this script, you need to:
- * 1. Make sure you have `ts-node` and `@supabase/supabase-js` installed:
- *    npm install -D ts-node @supabase/supabase-js
- * 2. Create a `.env` file in the root of your project.
- * 3. Add your Supabase URL and Service Role Key to the `.env` file:
- *    SUPABASE_URL=your_supabase_url
- *    SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
- * 4. Run the script from the root of your project:
- *    npx ts-node --require dotenv/config scripts/seed-products.ts
- *
- * =====================================================================================
- */
+const { createClient } = require('@supabase/supabase-js');
+const { config } = require('dotenv');
 
-import { createClient } from '@supabase/supabase-js';
+config({ path: '.env.local' });
 
 const productsData = [
   { name: 'Система Умный дом Metaforsa 3', price: 1250 },
@@ -109,7 +96,7 @@ if (!supabaseUrl || !supabaseKey) {
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-function slugify(text: string): string {
+function slugify(text) {
   return text
     .toString()
     .toLowerCase()

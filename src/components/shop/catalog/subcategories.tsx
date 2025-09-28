@@ -7,6 +7,7 @@ import clsx from 'clsx';
 
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
 import AngleDoubleUpIcon from '@/lib/shop/icons/angle-double-up-icon';
+import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 
 interface SubcategoriesProps {
   subcategories: CategoryTreeItem[];
@@ -20,19 +21,6 @@ const Subcategories = ({
   totalProducts,
 }: SubcategoriesProps) => {
   const [isHidden, setIsHidden] = useState(false);
-
-  const subcategoryImages: { [key: string]: string } = {
-    'promo-beds': '/images/promo-beds.png',
-    'beds-with-lifting-mechanism': '/images/beds-with-lifting-mechanism.png',
-    'children-beds': '/images/children-beds.png',
-    'podium-beds': '/images/podium-beds.png',
-    'soft-beds': '/images/soft-beds.png',
-    'metal-beds': '/images/metal-beds.png',
-    'wooden-beds': '/images/wooden-beds.png',
-    'sofa-beds': '/images/sofa-beds.png',
-    'double-beds': '/images/double-beds.png',
-    'single-beds': '/images/single-beds.png',
-  };
 
   return (
     <section className="py-8">
@@ -48,19 +36,16 @@ const Subcategories = ({
               href={`/catalog/${subcategory.slug}`}
               className="group relative block overflow-hidden rounded-lg"
             >
-              <div className="absolute top-0 left-1/2 h-1.5 w-5 -translate-x-1/2 scale-x-0 bg-yellow-500 transition-transform duration-300 group-hover:scale-x-100"></div>
+              <div className="absolute top-0 left-1/2 h-1.5 w-5 -translate-x-1/2 scale-x-0 bg-yellow-dark transition-transform duration-300 group-hover:scale-x-100"></div>
               <Image
-                src={
-                  subcategoryImages[subcategory.slug] ||
-                  '/images/default-subcategory.png'
-                }
+                src={getPlaceholder('category', subcategory.id)}
                 alt={subcategory.name}
                 width={250}
                 height={180}
                 className="h-full w-full object-cover"
               />
-              <div className="bg-opacity-20 bg-dark absolute inset-0 flex items-center justify-center p-4">
-                <h3 className="text-center text-lg font-semibold text-white">
+              <div className="bg-opacity-20 bg-dark absolute inset-0 flex items-start justify-start p-4">
+                <h3 className="pt-2 pl-2 text-left text-lg font-semibold text-white">
                   {subcategory.name}
                 </h3>
               </div>
@@ -71,12 +56,14 @@ const Subcategories = ({
       <div className="mt-6 flex justify-center">
         <button
           onClick={() => setIsHidden(!isHidden)}
-          className="flex items-center text-lg text-yellow-500 transition-colors hover:text-yellow-600"
+          className="flex items-center text-lg text-yellow transition-colors hover:text-yellow-dark"
         >
           <span className="mr-2">
             {isHidden ? 'Показати' : 'Приховати'} підкатегорії
           </span>
-          <AngleDoubleUpIcon />
+          <AngleDoubleUpIcon
+            className={clsx('transition-transform', isHidden && 'rotate-180')}
+          />
         </button>
       </div>
     </section>

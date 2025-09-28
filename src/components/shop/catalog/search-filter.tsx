@@ -22,7 +22,7 @@ const FilterSection = ({
   isOpen,
   onToggle,
 }: FilterSectionProps) => (
-  <div className="border-grey-light border-b">
+  <div className="border-grey-light bg-light border-b">
     <button
       onClick={onToggle}
       className="text-dark flex w-full items-center justify-between p-4 text-left text-lg font-semibold"
@@ -36,7 +36,7 @@ const FilterSection = ({
         <FilterArrowIcon />
       </span>
     </button>
-    {isOpen && <div className="p-4">{children}</div>}
+    {isOpen && <div className="bg-white p-4">{children}</div>}
   </div>
 );
 
@@ -70,8 +70,8 @@ const SearchFilter = () => {
   ];
 
   return (
-    <div className="w-full max-w-75">
-      <div className="border-grey-light flex items-center border-b p-4">
+    <div className="w-full max-w-75 ">
+      <div className="border-grey-light bg-white flex items-center border-b p-4">
         <FilterBarsIcon />
         <h2 className="text-dark ml-4 text-xl font-semibold">Фільтр пошуку</h2>
       </div>

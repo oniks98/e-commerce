@@ -1,14 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import { products } from '@/lib/shop/constants/products-data';
 import ProductCard from '@/components/ui/product-card';
 import { ArrowUpRightIcon } from '@/lib/shop/icons';
 import BtnLoadMore from '@/components/ui/btn-load-more';
+import { Tables } from '@/lib/supabase/types/database';
 
-const Products = () => {
-  const productsToShow = products.slice(0, 8);
+type Product = Tables<'products'>;
 
+interface ProductsProps {
+  products: Product[];
+  locale: string;
+}
+
+const Products = ({ products, locale }: ProductsProps) => {
   return (
     <section className="bg-light w-full py-[35px]">
       <div className="mx-auto">
@@ -25,8 +30,8 @@ const Products = () => {
           </Link>
         </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-7">
-          {productsToShow.map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} locale={locale} />
           ))}
         </div>
         <div className="mt-8 flex justify-center md:hidden">

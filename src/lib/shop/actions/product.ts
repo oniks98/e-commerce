@@ -47,3 +47,29 @@ export async function getProductCountByCategoryId(
 
   return count || 0;
 }
+
+export async function getProducts(options: {
+  categoryId?: string;
+  limit?: number;
+}) {
+  const supabase = await createClient();
+  let query = supabase.from('products').select('*');
+
+  if (options.categoryId) {
+    const categoryIds = await getDescendantCategoryIds(options.categoryId);
+    query = query.in('category_id', categoryIds);
+  }
+
+  if (options.limit) {
+    query = query.limit(options.limit);
+  }
+
+  const { data: products, error } = await query;
+
+  if (error) {
+    console.error('Error fetching products:', error);
+    return [];
+  }
+
+  return products;
+}

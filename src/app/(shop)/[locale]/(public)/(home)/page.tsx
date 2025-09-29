@@ -9,7 +9,10 @@ import Articles from '@/components/shop/home/articles';
 import Advantages from '@/components/ui/advantages';
 
 import { getAllCategories } from '@/lib/shop/actions/category';
-import { getProductCountByCategoryId } from '@/lib/shop/actions/product';
+import {
+  getProductCountByCategoryId,
+  getProducts,
+} from '@/lib/shop/actions/product';
 
 export default async function HomePage({
   params,
@@ -18,6 +21,7 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   const catalogData = await getAllCategories();
+  const products = await getProducts({ limit: 8 });
 
   const catalogDataWithProductCount = await Promise.all(
     catalogData.map(async (category) => {
@@ -31,7 +35,7 @@ export default async function HomePage({
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
         <Hero />
         <Categories locale={locale} catalogData={catalogDataWithProductCount} />
-        <Products />
+        <Products products={products} locale={locale} />
         <Promotions />
       </div>
       <Reviews />

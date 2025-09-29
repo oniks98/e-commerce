@@ -1,14 +1,12 @@
 import { getCategoryBySlug } from '@/lib/shop/actions/category';
-import { getProductCountByCategoryId } from '@/lib/shop/actions/product';
+import {
+  getProductCountByCategoryId,
+  getProducts,
+} from '@/lib/shop/actions/product';
 import Breadcrumbs from '@/components/shop/catalog/breadcrumbs';
 import FilterableProducts from '@/components/shop/catalog/filterable-products';
 
 import Subcategories from '@/components/shop/catalog/subcategories';
-import SearchFilter from '@/components/shop/catalog/search-filter';
-import Sorting from '@/components/shop/catalog/sorting';
-import Products from '@/components/shop/catalog/products';
-import BtnLoadMore from '@/components/ui/btn-load-more';
-import Pagination from '@/components/shop/catalog/pagination';
 import SeoText from '@/components/shop/catalog/seo-text';
 import Reviews from '@/components/shop/reviews/reviews';
 import Advantages from '@/components/ui/advantages';
@@ -30,6 +28,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const totalProducts = await getProductCountByCategoryId(category.id);
+  const products = await getProducts({ categoryId: category.id });
 
   return (
     <div className="bg-light">
@@ -40,7 +39,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           categoryName={category.name}
           totalProducts={totalProducts}
         />
-        <FilterableProducts />
+        <FilterableProducts
+          initialProducts={products}
+          locale={awaitedParams.locale}
+        />
         <SeoText />
       </div>
       <Reviews />

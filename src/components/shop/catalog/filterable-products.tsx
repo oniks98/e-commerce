@@ -46,7 +46,7 @@ const FilterableProducts = ({
           removeFilter={removeFilter}
         />
         <Products products={initialProducts} locale={locale} />
-        <div className="mt-8 flex justify-center">
+        <div className="mt-10 mb-8 flex justify-center">
           <BtnLoadMore onClick={() => alert('TODO: Load more products')}>
             Показати ще 32 товари
           </BtnLoadMore>

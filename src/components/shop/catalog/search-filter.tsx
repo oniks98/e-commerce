@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, ReactNode } from 'react';
+import { useState, ReactNode, useRef, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
 
 import FilterArrowIcon from '@/lib/shop/icons/filter-arrow-icon';
@@ -8,6 +8,13 @@ import FilterCrossIcon from '@/lib/shop/icons/filter-cross-icon';
 import FilterBarsIcon from '@/lib/shop/icons/filter-bars-icon';
 import FilterCheckboxActiveIcon from '@/lib/shop/icons/filter-checkbox-active-icon';
 import FilterCheckboxEmptyIcon from '@/lib/shop/icons/filter-checkbox-empty-icon';
+import {
+  MIN_PRICE,
+  MAX_PRICE,
+  MANUFACTURERS,
+  BED_TYPES,
+  SIZES,
+} from '@/lib/shop/constants/search-filter';
 
 interface FilterSectionProps {
   title: string;
@@ -50,6 +57,11 @@ const SearchFilter = ({
   setSelectedFilters,
 }: SearchFilterProps) => {
   const [openSection, setOpenSection] = useState<string | null>(null);
+  const [minPrice, setMinPrice] = useState(MIN_PRICE);
+  const [maxPrice, setMaxPrice] = useState(MAX_PRICE);
+  const [isDraggingMin, setIsDraggingMin] = useState(false);
+  const [isDraggingMax, setIsDraggingMax] = useState(false);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? null : section);
@@ -62,27 +74,88 @@ const SearchFilter = ({
     setSelectedFilters(newFilters);
   };
 
-  const manufacturers = [
-    'Corners',
-    'Estella',
-    'Green Line',
-    'Legko',
-    'MiroMark',
-  ];
-  const bedTypes = [
-    "Без узголов'я",
-    "З узголів'ям",
-    'Двоярусні',
-    'Розкладачки',
-    'Шафи',
-  ];
-  const sizes = [
-    '200x210 см',
-    '200x200 см',
-    '180x200 см',
-    '160x200 см',
-    '110x190 см',
-  ];
+  const handleMinPriceChange = useCallback(
+    (value: number) => {
+      setMinPrice((currentMin) => {
+        setMaxPrice((currentMax) => {
+          const validValue = Math.max(MIN_PRICE, Math.min(value, currentMax));
+          return currentMax;
+        });
+        return Math.max(MIN_PRICE, Math.min(value, maxPrice));
+      });
+    },
+    [maxPrice],
+  );
+
+  const handleMaxPriceChange = useCallback(
+    (value: number) => {
+      setMaxPrice((currentMax) => {
+        setMinPrice((currentMin) => {
+          const validValue = Math.min(MAX_PRICE, Math.max(value, currentMin));
+          return currentMin;
+        });
+        return Math.min(MAX_PRICE, Math.max(value, minPrice));
+      });
+    },
+    [minPrice],
+  );
+
+  const calculatePriceFromPosition = useCallback((clientX: number): number => {
+    if (!sliderRef.current) return 0;
+
+    const rect = sliderRef.current.getBoundingClientRect();
+    const percent = Math.max(
+      0,
+      Math.min(1, (clientX - rect.left) / rect.width),
+    );
+    return Math.round(MIN_PRICE + percent * (MAX_PRICE - MIN_PRICE));
+  }, []);
+
+  const handleMouseDown = (isMin: boolean) => {
+    if (isMin) {
+      setIsDraggingMin(true);
+    } else {
+      setIsDraggingMax(true);
+    }
+  };
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (isDraggingMin) {
+        const newPrice = calculatePriceFromPosition(e.clientX);
+        handleMinPriceChange(newPrice);
+      } else if (isDraggingMax) {
+        const newPrice = calculatePriceFromPosition(e.clientX);
+        handleMaxPriceChange(newPrice);
+      }
+    };
+
+    const handleMouseUp = () => {
+      setIsDraggingMin(false);
+      setIsDraggingMax(false);
+    };
+
+    if (isDraggingMin || isDraggingMax) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [
+    isDraggingMin,
+    isDraggingMax,
+    calculatePriceFromPosition,
+    handleMinPriceChange,
+    handleMaxPriceChange,
+  ]);
+
+  const minPricePercent =
+    ((minPrice - MIN_PRICE) / (MAX_PRICE - MIN_PRICE)) * 100;
+  const maxPricePercent =
+    ((maxPrice - MIN_PRICE) / (MAX_PRICE - MIN_PRICE)) * 100;
 
   return (
     <div className="w-full max-w-75">
@@ -96,35 +169,51 @@ const SearchFilter = ({
         isOpen={openSection === 'price'}
         onToggle={() => toggleSection('price')}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2">
           <input
             type="number"
-            placeholder="1195"
+            placeholder="0"
+            value={minPrice}
+            onChange={(e) => handleMinPriceChange(Number(e.target.value))}
+            min={MIN_PRICE}
+            max={MAX_PRICE}
             className="w-2/5 rounded-md border border-gray-300 p-2"
           />
           <span>-</span>
           <input
             type="number"
-            placeholder="9566"
+            placeholder="500000"
+            value={maxPrice}
+            onChange={(e) => handleMaxPriceChange(Number(e.target.value))}
+            min={MIN_PRICE}
+            max={MAX_PRICE}
             className="border-grey-light w-2/5 rounded-md border p-2"
           />
           <button className="bg-yellow-dark rounded-md px-4 py-2 text-white">
             ОК
           </button>
         </div>
-        {/* Placeholder for range slider */}
-        <div className="bg-grey-light relative mt-4 h-1 w-full rounded-full">
+        <div
+          ref={sliderRef}
+          className="relative mt-6 h-6 cursor-pointer select-none"
+        >
+          <div className="bg-grey-light absolute top-1/2 h-1 w-full -translate-y-1/2 rounded-full"></div>
           <div
-            className="bg-yellow-dark absolute h-1 rounded-full"
-            style={{ left: '10%', width: '80%' }}
+            className="bg-yellow-dark absolute top-1/2 h-1 -translate-y-1/2 rounded-full"
+            style={{
+              left: `${minPricePercent}%`,
+              right: `${100 - maxPricePercent}%`,
+            }}
           ></div>
           <div
-            className="bg-yellow-dark absolute -top-1.5 h-4 w-4 rounded-full border-2 border-white"
-            style={{ left: '10%' }}
+            className="bg-yellow-dark absolute top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer rounded-full border-2 border-white shadow-md transition-transform hover:scale-110"
+            style={{ left: `calc(${minPricePercent}% - 10px)` }}
+            onMouseDown={() => handleMouseDown(true)}
           ></div>
           <div
-            className="bg-yellow-dark absolute -top-1.5 h-4 w-4 rounded-full border-2 border-white"
-            style={{ left: '90%' }}
+            className="bg-yellow-dark absolute top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer rounded-full border-2 border-white shadow-md transition-transform hover:scale-110"
+            style={{ left: `calc(${maxPricePercent}% - 10px)` }}
+            onMouseDown={() => handleMouseDown(false)}
           ></div>
         </div>
       </FilterSection>
@@ -173,7 +262,7 @@ const SearchFilter = ({
         isOpen={openSection === 'manufacturer'}
         onToggle={() => toggleSection('manufacturer')}
       >
-        {manufacturers.map((manufacturer) => (
+        {MANUFACTURERS.map((manufacturer) => (
           <label key={manufacturer} className="mb-2 flex items-center">
             <input
               type="checkbox"
@@ -198,7 +287,7 @@ const SearchFilter = ({
         isOpen={openSection === 'bedType'}
         onToggle={() => toggleSection('bedType')}
       >
-        {bedTypes.map((bedType) => (
+        {BED_TYPES.map((bedType) => (
           <label key={bedType} className="mb-2 flex items-center">
             <input
               type="checkbox"
@@ -223,7 +312,7 @@ const SearchFilter = ({
         isOpen={openSection === 'size'}
         onToggle={() => toggleSection('size')}
       >
-        {sizes.map((size) => (
+        {SIZES.map((size) => (
           <label key={size} className="mb-2 flex items-center">
             <input
               type="checkbox"

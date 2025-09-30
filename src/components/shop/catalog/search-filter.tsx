@@ -50,15 +50,19 @@ const FilterSection = ({
 interface SearchFilterProps {
   selectedFilters: string[];
   setSelectedFilters: (filters: string[]) => void;
+  setPriceRange: (range: { min: number; max: number } | null) => void;
 }
 
 const SearchFilter = ({
   selectedFilters,
   setSelectedFilters,
+  setPriceRange,
 }: SearchFilterProps) => {
   const [openSection, setOpenSection] = useState<string | null>(null);
-  const [minPrice, setMinPrice] = useState(MIN_PRICE);
-  const [maxPrice, setMaxPrice] = useState(MAX_PRICE);
+  const [localPriceRange, setLocalPriceRange] = useState({
+    min: MIN_PRICE,
+    max: MAX_PRICE,
+  });
   const [isDraggingMin, setIsDraggingMin] = useState(false);
   const [isDraggingMax, setIsDraggingMax] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -74,31 +78,19 @@ const SearchFilter = ({
     setSelectedFilters(newFilters);
   };
 
-  const handleMinPriceChange = useCallback(
-    (value: number) => {
-      setMinPrice((currentMin) => {
-        setMaxPrice((currentMax) => {
-          const validValue = Math.max(MIN_PRICE, Math.min(value, currentMax));
-          return currentMax;
-        });
-        return Math.max(MIN_PRICE, Math.min(value, maxPrice));
-      });
-    },
-    [maxPrice],
-  );
+  const handleMinPriceChange = useCallback((value: number) => {
+    setLocalPriceRange((currentRange) => ({
+      ...currentRange,
+      min: Math.max(MIN_PRICE, Math.min(value, currentRange.max)),
+    }));
+  }, []);
 
-  const handleMaxPriceChange = useCallback(
-    (value: number) => {
-      setMaxPrice((currentMax) => {
-        setMinPrice((currentMin) => {
-          const validValue = Math.min(MAX_PRICE, Math.max(value, currentMin));
-          return currentMin;
-        });
-        return Math.min(MAX_PRICE, Math.max(value, minPrice));
-      });
-    },
-    [minPrice],
-  );
+  const handleMaxPriceChange = useCallback((value: number) => {
+    setLocalPriceRange((currentRange) => ({
+      ...currentRange,
+      max: Math.min(MAX_PRICE, Math.max(value, currentRange.min)),
+    }));
+  }, []);
 
   const calculatePriceFromPosition = useCallback((clientX: number): number => {
     if (!sliderRef.current) return 0;
@@ -152,10 +144,14 @@ const SearchFilter = ({
     handleMaxPriceChange,
   ]);
 
+  const handleApplyPriceFilter = () => {
+    setPriceRange(localPriceRange);
+  };
+
   const minPricePercent =
-    ((minPrice - MIN_PRICE) / (MAX_PRICE - MIN_PRICE)) * 100;
+    ((localPriceRange.min - MIN_PRICE) / (MAX_PRICE - MIN_PRICE)) * 100;
   const maxPricePercent =
-    ((maxPrice - MIN_PRICE) / (MAX_PRICE - MIN_PRICE)) * 100;
+    ((localPriceRange.max - MIN_PRICE) / (MAX_PRICE - MIN_PRICE)) * 100;
 
   return (
     <div className="w-full max-w-75">
@@ -173,7 +169,7 @@ const SearchFilter = ({
           <input
             type="number"
             placeholder="0"
-            value={minPrice}
+            value={localPriceRange.min}
             onChange={(e) => handleMinPriceChange(Number(e.target.value))}
             min={MIN_PRICE}
             max={MAX_PRICE}
@@ -183,13 +179,16 @@ const SearchFilter = ({
           <input
             type="number"
             placeholder="500000"
-            value={maxPrice}
+            value={localPriceRange.max}
             onChange={(e) => handleMaxPriceChange(Number(e.target.value))}
             min={MIN_PRICE}
             max={MAX_PRICE}
             className="border-grey-light w-2/5 rounded-md border p-2"
           />
-          <button className="bg-yellow-dark rounded-md px-4 py-2 text-white">
+          <button
+            onClick={handleApplyPriceFilter}
+            className="bg-yellow-dark rounded-md px-4 py-2 text-white"
+          >
             ОК
           </button>
         </div>

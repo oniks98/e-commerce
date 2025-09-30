@@ -29,45 +29,62 @@ const FilterableProducts = ({
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
   const [pageToLoadNext, setPageToLoadNext] = useState(2);
   const [sortOrder, setSortOrder] = useState(sortingOptions[0]);
+  const [priceRange, setPriceRange] = useState<{
+    min: number;
+    max: number;
+  } | null>(null);
 
-  const sortedProducts = useMemo(() => {
-    const sortableProducts = [...initialProducts];
+  const filteredAndSortedProducts = useMemo(() => {
+    let filteredProducts = [...initialProducts];
+
+    if (priceRange) {
+      filteredProducts = filteredProducts.filter(
+        (product) =>
+          (product.price_uah ?? 0) >= priceRange.min &&
+          (product.price_uah ?? 0) <= priceRange.max,
+      );
+    }
+
+    // TODO: Add filtering logic for selectedFilters (checkboxes)
+
     switch (sortOrder) {
       case 'За зростанням ціни':
-        return sortableProducts.sort(
+        return filteredProducts.sort(
           (a, b) => (a.price_uah ?? 0) - (b.price_uah ?? 0),
         );
       case 'За спаданням ціни':
-        return sortableProducts.sort(
+        return filteredProducts.sort(
           (a, b) => (b.price_uah ?? 0) - (a.price_uah ?? 0),
         );
       case 'За популярністю':
         // TODO: Implement sorting by popularity
-        return sortableProducts;
+        return filteredProducts;
       case 'За новизною':
-        return sortableProducts.sort((a, b) => {
+        return filteredProducts.sort((a, b) => {
           const dateA = a.created_at ? new Date(a.created_at).getTime() : 0;
           const dateB = b.created_at ? new Date(b.created_at).getTime() : 0;
           return dateB - dateA;
         });
       case 'Наявність':
-        return sortableProducts.sort(
+        return filteredProducts.sort(
           (a, b) => (b.visible ? 1 : 0) - (a.visible ? 1 : 0),
         );
       default:
-        return sortableProducts;
+        return filteredProducts;
     }
-  }, [initialProducts, sortOrder]);
+  }, [initialProducts, sortOrder, priceRange]);
 
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
-  const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
+  const totalPages = Math.ceil(
+    filteredAndSortedProducts.length / productsPerPage,
+  );
 
   useEffect(() => {
     const startIndex = (currentPage - 1) * productsPerPage;
     const endIndex = startIndex + productsPerPage;
-    setDisplayedProducts(sortedProducts.slice(startIndex, endIndex));
+    setDisplayedProducts(filteredAndSortedProducts.slice(startIndex, endIndex));
     setPageToLoadNext(currentPage + 1);
-  }, [currentPage, sortedProducts]);
+  }, [currentPage, filteredAndSortedProducts]);
 
   const handlePageChange = useCallback(
     (page: number) => {
@@ -92,13 +109,14 @@ const FilterableProducts = ({
 
     const startIndex = (pageToLoadNext - 1) * productsPerPage;
     const endIndex = startIndex + productsPerPage;
-    const newProducts = sortedProducts.slice(startIndex, endIndex);
+    const newProducts = filteredAndSortedProducts.slice(startIndex, endIndex);
     setDisplayedProducts((prevProducts) => [...prevProducts, ...newProducts]);
     setPageToLoadNext((prev) => prev + 1);
   };
 
   const clearFilters = () => {
     setSelectedFilters([]);
+    setPriceRange(null);
   };
 
   const removeFilter = (filter: string) => {
@@ -107,13 +125,14 @@ const FilterableProducts = ({
 
   const canLoadMore =
     pageToLoadNext <= totalPages &&
-    displayedProducts.length < sortedProducts.length;
+    displayedProducts.length < filteredAndSortedProducts.length;
 
   return (
     <div className="flex flex-col lg:flex-row">
       <SearchFilter
         selectedFilters={selectedFilters}
         setSelectedFilters={setSelectedFilters}
+        setPriceRange={setPriceRange}
       />
       <div className="w-full lg:pl-8">
         <Sorting
@@ -130,7 +149,7 @@ const FilterableProducts = ({
               Показати ще{' '}
               {Math.min(
                 productsPerPage,
-                sortedProducts.length - displayedProducts.length,
+                filteredAndSortedProducts.length - displayedProducts.length,
               )}{' '}
               товарів
             </BtnLoadMore>

@@ -9,6 +9,11 @@ import BtnLoadMore from '@/components/ui/btn-load-more';
 import Pagination from '@/components/shop/catalog/pagination';
 import { Tables } from '@/lib/supabase/types/database';
 import { sortingOptions } from '@/lib/shop/constants/sorting-data';
+import {
+  MANUFACTURERS,
+  BED_TYPES,
+  SIZES,
+} from '@/lib/shop/constants/search-filter-data';
 
 type Product = Tables<'products'>;
 
@@ -37,6 +42,7 @@ const FilterableProducts = ({
   const filteredAndSortedProducts = useMemo(() => {
     let filteredProducts = [...initialProducts];
 
+    // Price range filter
     if (priceRange) {
       filteredProducts = filteredProducts.filter(
         (product) =>
@@ -45,7 +51,51 @@ const FilterableProducts = ({
       );
     }
 
-    // TODO: Add filtering logic for selectedFilters (checkboxes)
+    // Checkbox filters
+    if (selectedFilters.length > 0) {
+      const filterGroups = {
+        availability: selectedFilters.filter(
+          (f) => f === 'В наявності' || f === 'Під замовлення',
+        ),
+        manufacturers: selectedFilters.filter((f) => MANUFACTURERS.includes(f)),
+        bedTypes: selectedFilters.filter((f) => BED_TYPES.includes(f)),
+        sizes: selectedFilters.filter((f) => SIZES.includes(f)),
+      };
+
+      filteredProducts = filteredProducts.filter((product) => {
+        const name = product.name as { uk: string; en: string };
+
+        const availabilityMatch =
+          filterGroups.availability.length === 0 ||
+          filterGroups.availability.some((f) =>
+            f === 'В наявності' ? product.visible : !product.visible,
+          );
+
+        const manufacturerMatch =
+          filterGroups.manufacturers.length === 0 ||
+          filterGroups.manufacturers.some((f) =>
+            name.uk.toLowerCase().includes(f.toLowerCase()),
+          );
+
+        const bedTypeMatch =
+          filterGroups.bedTypes.length === 0 ||
+          filterGroups.bedTypes.some((f) => {
+            // TODO: Implement when data is available
+            return false;
+          });
+
+        const sizeMatch =
+          filterGroups.sizes.length === 0 ||
+          filterGroups.sizes.some((f) => {
+            // TODO: Implement when data is available
+            return false;
+          });
+
+        return (
+          availabilityMatch && manufacturerMatch && bedTypeMatch && sizeMatch
+        );
+      });
+    }
 
     switch (sortOrder) {
       case 'За зростанням ціни':
@@ -72,7 +122,7 @@ const FilterableProducts = ({
       default:
         return filteredProducts;
     }
-  }, [initialProducts, sortOrder, priceRange]);
+  }, [initialProducts, sortOrder, priceRange, selectedFilters]);
 
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
   const totalPages = Math.ceil(

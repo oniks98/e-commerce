@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import SearchFilter from '@/components/shop/catalog/search-filter';
 import Sorting from '@/components/shop/catalog/sorting';
 import Products from '@/components/shop/catalog/products';
@@ -15,12 +16,55 @@ interface FilterableProductsProps {
   locale: string;
 }
 
+const productsPerPage = 18;
+
 const FilterableProducts = ({
   initialProducts,
   locale,
 }: FilterableProductsProps) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  // TODO: Add logic to filter products based on selectedFilters
+  const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
+  const [pageToLoadNext, setPageToLoadNext] = useState(2);
+
+  const currentPage = parseInt(searchParams.get('page') || '1', 10);
+  const totalPages = Math.ceil(initialProducts.length / productsPerPage);
+
+  useEffect(() => {
+    const startIndex = (currentPage - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+    setDisplayedProducts(initialProducts.slice(startIndex, endIndex));
+    setPageToLoadNext(currentPage + 1);
+  }, [currentPage, initialProducts]);
+
+  const handlePageChange = useCallback(
+    (page: number) => {
+      if (page < 1 || page > totalPages) return;
+
+      const params = new URLSearchParams(searchParams.toString());
+      if (page === 1) {
+        params.delete('page');
+      } else {
+        params.set('page', page.toString());
+      }
+
+      const newUrl = `?${params.toString()}`;
+      router.push(newUrl, { scroll: false });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    [router, searchParams, totalPages],
+  );
+
+  const loadMoreProducts = () => {
+    if (pageToLoadNext > totalPages) return;
+
+    const startIndex = (pageToLoadNext - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+    const newProducts = initialProducts.slice(startIndex, endIndex);
+    setDisplayedProducts((prevProducts) => [...prevProducts, ...newProducts]);
+    setPageToLoadNext((prev) => prev + 1);
+  };
 
   const clearFilters = () => {
     setSelectedFilters([]);
@@ -30,8 +74,7 @@ const FilterableProducts = ({
     setSelectedFilters(selectedFilters.filter((f) => f !== filter));
   };
 
-  const productsPerPage = 12;
-  const totalPages = Math.ceil(initialProducts.length / productsPerPage);
+  const canLoadMore = pageToLoadNext <= totalPages;
 
   return (
     <div className="flex flex-col lg:flex-row">
@@ -45,13 +88,24 @@ const FilterableProducts = ({
           clearFilters={clearFilters}
           removeFilter={removeFilter}
         />
-        <Products products={initialProducts} locale={locale} />
-        <div className="mt-10 mb-8 flex justify-center">
-          <BtnLoadMore onClick={() => alert('TODO: Load more products')}>
-            Показати ще 32 товари
-          </BtnLoadMore>
-        </div>
-        <Pagination totalPages={totalPages} />
+        <Products products={displayedProducts} locale={locale} />
+        {canLoadMore && (
+          <div className="mt-10 mb-8 flex justify-center">
+            <BtnLoadMore onClick={loadMoreProducts}>
+              Показати ще{' '}
+              {Math.min(
+                productsPerPage,
+                initialProducts.length - displayedProducts.length,
+              )}{' '}
+              товарів
+            </BtnLoadMore>
+          </div>
+        )}
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
       </div>
     </div>
   );

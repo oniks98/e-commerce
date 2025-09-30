@@ -1,9 +1,6 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useState, useCallback } from 'react';
 import clsx from 'clsx';
-
 import PaginationArrowLeftIcon from '@/lib/shop/icons/pagination-arrow-left-icon';
 
 const PaginationArrowRightIcon = () => (
@@ -14,31 +11,17 @@ const PaginationArrowRightIcon = () => (
 
 interface PaginationProps {
   totalPages: number;
+  currentPage: number;
+  onPageChange: (page: number) => void;
 }
 
-const Pagination = ({ totalPages }: PaginationProps) => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const currentPage = parseInt(searchParams.get('page') || '1', 10);
-
-  const handlePageChange = useCallback(
-    (page: number) => {
-      const params = new URLSearchParams(searchParams.toString());
-      if (page === 1) {
-        params.delete('page');
-      } else {
-        params.set('page', page.toString());
-      }
-
-      const newUrl = params.toString() ? `?${params.toString()}` : '';
-      router.push(newUrl);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    },
-    [router, searchParams],
-  );
-
+const Pagination = ({
+  totalPages,
+  currentPage,
+  onPageChange,
+}: PaginationProps) => {
   const getPageNumbers = () => {
-    const pageNumbers = [];
+    const pageNumbers: (number | string)[] = [];
     if (totalPages <= 7) {
       for (let i = 1; i <= totalPages; i++) {
         pageNumbers.push(i);
@@ -74,7 +57,7 @@ const Pagination = ({ totalPages }: PaginationProps) => {
   return (
     <nav className="flex items-center justify-center space-x-2">
       <button
-        onClick={() => handlePageChange(currentPage - 1)}
+        onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
         className="border-grey flex h-12 w-12 items-center justify-center rounded-md border disabled:opacity-50"
       >
@@ -83,7 +66,7 @@ const Pagination = ({ totalPages }: PaginationProps) => {
       {pageNumbers.map((page, index) => (
         <button
           key={index}
-          onClick={() => typeof page === 'number' && handlePageChange(page)}
+          onClick={() => typeof page === 'number' && onPageChange(page)}
           disabled={page === '...'}
           className={clsx(
             'flex h-12 w-12 items-center justify-center rounded-md border',
@@ -98,7 +81,7 @@ const Pagination = ({ totalPages }: PaginationProps) => {
         </button>
       ))}
       <button
-        onClick={() => handlePageChange(currentPage + 1)}
+        onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         className="border-grey flex h-12 w-12 items-center justify-center rounded-md border disabled:opacity-50"
       >

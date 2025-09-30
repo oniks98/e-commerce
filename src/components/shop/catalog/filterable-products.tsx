@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import SearchFilter from '@/components/shop/catalog/search-filter';
 import Sorting from '@/components/shop/catalog/sorting';
@@ -8,6 +8,7 @@ import Products from '@/components/shop/catalog/products';
 import BtnLoadMore from '@/components/ui/btn-load-more';
 import Pagination from '@/components/shop/catalog/pagination';
 import { Tables } from '@/lib/supabase/types/database';
+import { sortingOptions } from '@/lib/shop/constants/sorting-data';
 
 type Product = Tables<'products'>;
 
@@ -27,16 +28,46 @@ const FilterableProducts = ({
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
   const [pageToLoadNext, setPageToLoadNext] = useState(2);
+  const [sortOrder, setSortOrder] = useState(sortingOptions[0]);
+
+  const sortedProducts = useMemo(() => {
+    const sortableProducts = [...initialProducts];
+    switch (sortOrder) {
+      case 'За зростанням ціни':
+        return sortableProducts.sort(
+          (a, b) => (a.price_uah ?? 0) - (b.price_uah ?? 0),
+        );
+      case 'За спаданням ціни':
+        return sortableProducts.sort(
+          (a, b) => (b.price_uah ?? 0) - (a.price_uah ?? 0),
+        );
+      case 'За популярністю':
+        // TODO: Implement sorting by popularity
+        return sortableProducts;
+      case 'За новизною':
+        return sortableProducts.sort((a, b) => {
+          const dateA = a.created_at ? new Date(a.created_at).getTime() : 0;
+          const dateB = b.created_at ? new Date(b.created_at).getTime() : 0;
+          return dateB - dateA;
+        });
+      case 'Наявність':
+        return sortableProducts.sort(
+          (a, b) => (b.visible ? 1 : 0) - (a.visible ? 1 : 0),
+        );
+      default:
+        return sortableProducts;
+    }
+  }, [initialProducts, sortOrder]);
 
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
-  const totalPages = Math.ceil(initialProducts.length / productsPerPage);
+  const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
 
   useEffect(() => {
     const startIndex = (currentPage - 1) * productsPerPage;
     const endIndex = startIndex + productsPerPage;
-    setDisplayedProducts(initialProducts.slice(startIndex, endIndex));
+    setDisplayedProducts(sortedProducts.slice(startIndex, endIndex));
     setPageToLoadNext(currentPage + 1);
-  }, [currentPage, initialProducts]);
+  }, [currentPage, sortedProducts]);
 
   const handlePageChange = useCallback(
     (page: number) => {
@@ -61,7 +92,7 @@ const FilterableProducts = ({
 
     const startIndex = (pageToLoadNext - 1) * productsPerPage;
     const endIndex = startIndex + productsPerPage;
-    const newProducts = initialProducts.slice(startIndex, endIndex);
+    const newProducts = sortedProducts.slice(startIndex, endIndex);
     setDisplayedProducts((prevProducts) => [...prevProducts, ...newProducts]);
     setPageToLoadNext((prev) => prev + 1);
   };
@@ -74,7 +105,9 @@ const FilterableProducts = ({
     setSelectedFilters(selectedFilters.filter((f) => f !== filter));
   };
 
-  const canLoadMore = pageToLoadNext <= totalPages;
+  const canLoadMore =
+    pageToLoadNext <= totalPages &&
+    displayedProducts.length < sortedProducts.length;
 
   return (
     <div className="flex flex-col lg:flex-row">
@@ -87,6 +120,8 @@ const FilterableProducts = ({
           selectedFilters={selectedFilters}
           clearFilters={clearFilters}
           removeFilter={removeFilter}
+          sortOrder={sortOrder}
+          setSortOrder={setSortOrder}
         />
         <Products products={displayedProducts} locale={locale} />
         {canLoadMore && (
@@ -95,7 +130,7 @@ const FilterableProducts = ({
               Показати ще{' '}
               {Math.min(
                 productsPerPage,
-                initialProducts.length - displayedProducts.length,
+                sortedProducts.length - displayedProducts.length,
               )}{' '}
               товарів
             </BtnLoadMore>

@@ -14,7 +14,7 @@ import {
   MANUFACTURERS,
   BED_TYPES,
   SIZES,
-} from '@/lib/shop/constants/search-filter';
+} from '@/lib/shop/constants/search-filter-data';
 
 interface FilterSectionProps {
   title: string;

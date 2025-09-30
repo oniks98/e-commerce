@@ -6,21 +6,20 @@ import clsx from 'clsx';
 import FilterCrossIcon from '@/lib/shop/icons/filter-cross-icon';
 import SortingArrowsIcon from '@/lib/shop/icons/sorting-arrows-icon';
 import SortingAngleDownIcon from '@/lib/shop/icons/sorting-angle-down-icon';
+import { sortingOptions } from '@/lib/shop/constants/sorting-data';
 
 interface SortingDropdownProps {
   isDropdownOpen: boolean;
   setIsDropdownOpen: (open: boolean) => void;
-  sortOption: string;
-  setSortOption: (option: string) => void;
-  sortingOptions: string[];
+  sortOrder: string;
+  setSortOrder: (option: string) => void;
 }
 
 const SortingDropdown = ({
   isDropdownOpen,
   setIsDropdownOpen,
-  sortOption,
-  setSortOption,
-  sortingOptions,
+  sortOrder,
+  setSortOrder,
 }: SortingDropdownProps) => (
   <div className="relative">
     <div className="flex items-center gap-2.5">
@@ -33,7 +32,7 @@ const SortingDropdown = ({
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         className="text-grey flex items-center gap-2.5 text-[17px] leading-[24px]"
       >
-        <span>{sortOption}</span>
+        <span>{sortOrder}</span>
         <span
           className={clsx(
             'transition-transform duration-200',
@@ -50,7 +49,7 @@ const SortingDropdown = ({
           <button
             key={option}
             onClick={() => {
-              setSortOption(option);
+              setSortOrder(option);
               setIsDropdownOpen(false);
             }}
             className="text-grey block w-full px-4 py-2 text-left hover:bg-gray-100"
@@ -67,22 +66,18 @@ interface SortingProps {
   selectedFilters: string[];
   clearFilters: () => void;
   removeFilter: (filter: string) => void;
+  sortOrder: string;
+  setSortOrder: (order: string) => void;
 }
 
 const Sorting = ({
   selectedFilters,
   clearFilters,
   removeFilter,
+  sortOrder,
+  setSortOrder,
 }: SortingProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [sortOption, setSortOption] = useState('За зростанням ціни');
-
-  const sortingOptions = [
-    'За зростанням ціни',
-    'За спаданням ціни',
-    'За популярністю',
-    'За новизною',
-  ];
 
   return (
     <div className="w-full py-4">
@@ -122,9 +117,8 @@ const Sorting = ({
           <SortingDropdown
             isDropdownOpen={isDropdownOpen}
             setIsDropdownOpen={setIsDropdownOpen}
-            sortOption={sortOption}
-            setSortOption={setSortOption}
-            sortingOptions={sortingOptions}
+            sortOrder={sortOrder}
+            setSortOrder={setSortOrder}
           />
         </div>
       </div>
@@ -139,9 +133,8 @@ const Sorting = ({
           <SortingDropdown
             isDropdownOpen={isDropdownOpen}
             setIsDropdownOpen={setIsDropdownOpen}
-            sortOption={sortOption}
-            setSortOption={setSortOption}
-            sortingOptions={sortingOptions}
+            sortOrder={sortOrder}
+            setSortOrder={setSortOrder}
           />
         </div>
 

@@ -15,6 +15,7 @@
   --color-copyright-text: #b1b1b1;
 
   --breakpoint-xl: 1280px;
+  --breakpoint-lg: 1024px;
   --breakpoint-md: 768px;
 
   --font-sans: Proxima Nova, Rubik, Roboto, sans-serif;

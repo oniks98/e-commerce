@@ -7,7 +7,8 @@ import { EmblaOptionsType } from 'embla-carousel';
 import clsx from 'clsx';
 
 interface CarouselProps {
-  options?: EmblaOptionsType;
+  options?: EmblaOptionsType & { gap?: number; perPage?: number };
+
   slides: React.ReactNode[];
   prevButton?: React.ReactElement<
     React.ButtonHTMLAttributes<HTMLButtonElement>
@@ -17,8 +18,6 @@ interface CarouselProps {
   >;
   className?: string;
   showDots?: boolean;
-  gap?: number;
-  perPage?: number;
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -28,11 +27,9 @@ const Carousel: React.FC<CarouselProps> = ({
   nextButton,
   className,
   showDots = true,
-  gap = 0,
-  perPage = 1,
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    Autoplay({ delay: 5000, stopOnInteraction: false }),
+    Autoplay({ delay: 5000 }),
   ]);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
@@ -84,17 +81,17 @@ const Carousel: React.FC<CarouselProps> = ({
       <div className="overflow-hidden" ref={emblaRef}>
         <div
           className="flex"
-          style={{
-            marginLeft: gap ? `-${gap}px` : undefined,
-          }}
+          style={{ marginLeft: options?.gap ? `-${options.gap}px` : undefined }}
         >
           {slides.map((slide, index) => (
             <div
               className="flex-shrink-0"
               key={index}
               style={{
-                width: perPage ? `calc(100% / ${perPage})` : '100%',
-                paddingLeft: gap ? `${gap}px` : undefined,
+                width: options?.perPage
+                  ? `calc(100% / ${options.perPage})`
+                  : '100%',
+                paddingLeft: options?.gap ? `${options.gap}px` : undefined,
               }}
             >
               {slide}
@@ -103,7 +100,7 @@ const Carousel: React.FC<CarouselProps> = ({
         </div>
       </div>
 
-      {showDots && scrollSnaps.length > 0 && (
+      {showDots && (
         <div
           className={clsx(
             'absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center',

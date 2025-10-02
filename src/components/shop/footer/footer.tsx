@@ -7,13 +7,13 @@ import ContactsBlock from '@/components/shop/footer/contacts-block';
 import Copyright from '@/components/shop/footer/copyright';
 import InfoBlock from '@/components/shop/footer/info-block';
 import SocialBlock from '@/components/shop/footer/social-block';
-import Logo from '@/components/ui/logo';
+import Logo from '@/components/shop/ui/logo';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
+} from '@/components/shop/ui/accordion';
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
 
 interface FooterProps {

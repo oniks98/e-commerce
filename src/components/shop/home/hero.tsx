@@ -1,6 +1,6 @@
 'use client';
 
-import Carousel from '@/components/ui/carousel';
+import Carousel from '@/components/shop/ui/carousel';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import { ChevronLeftIcon, ChevronRightIcon } from '@/lib/shop/icons';
 import { EmblaOptionsType } from 'embla-carousel';

@@ -2,7 +2,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import React from 'react';
-import ScrollTopButton from '@/components/ui/scroll-top-button';
+import ScrollTopButton from '@/components/shop/ui/scroll-top-button';
 
 import '@/styles/globals-shop.css';
 

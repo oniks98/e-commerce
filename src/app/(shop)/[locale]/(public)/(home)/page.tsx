@@ -4,9 +4,9 @@ import Categories from '@/components/shop/home/categories';
 import Products from '@/components/shop/home/products';
 import Promotions from '@/components/shop/home/promotions';
 import About from '@/components/shop/home/about';
-import Reviews from '@/components/shop/reviews/reviews';
+import Reviews from '@/components/shop/ui/reviews/reviews';
 import Articles from '@/components/shop/home/articles';
-import Advantages from '@/components/ui/advantages';
+import Advantages from '@/components/shop/ui/advantages';
 
 import { getAllCategories } from '@/lib/shop/actions/category';
 import {

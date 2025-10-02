@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 
-import Logo from '@/components/ui/logo';
+import Logo from '@/components/shop/ui/logo';
 import CatalogButton from '@/components/shop/header/shared/catalog-button';
 import SearchInput from '@/components/shop/header/shared/search-input';
 import ActionButtons from '@/components/shop/header/shared/action-buttons';

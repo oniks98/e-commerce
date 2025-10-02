@@ -6,10 +6,10 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
+} from '@/components/shop/ui/accordion';
 import { seoText } from '@/lib/shop/constants/seo-text-data';
 import { ArrowDownIcon, CheckIcon } from '@/lib/shop/icons';
-import Shadow from '@/components/ui/shadow';
+import Shadow from '@/components/shop/ui/shadow';
 
 const SeoText = () => {
   return (

@@ -1,4 +1,4 @@
-import ProductCard from '@/components/ui/product-card';
+import ProductCard from '@/components/shop/ui/product-card';
 import { Tables } from '@/lib/supabase/types/database';
 
 type Product = Tables<'products'>;

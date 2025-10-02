@@ -3,13 +3,13 @@ import {
   getProductCountByCategoryId,
   getProducts,
 } from '@/lib/shop/actions/product';
-import Breadcrumbs from '@/components/shop/catalog/breadcrumbs';
+import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 import FilterableProducts from '@/components/shop/catalog/filterable-products';
 
 import Subcategories from '@/components/shop/catalog/subcategories';
 import SeoText from '@/components/shop/catalog/seo-text';
-import Reviews from '@/components/shop/reviews/reviews';
-import Advantages from '@/components/ui/advantages';
+import Reviews from '@/components/shop/ui/reviews/reviews';
+import Advantages from '@/components/shop/ui/advantages';
 import Faq from '@/components/shop/catalog/faq';
 
 interface CategoryPageProps {

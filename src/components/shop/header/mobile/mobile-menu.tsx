@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { ThemeToggle } from '@/components/shop/ui/theme-toggle';
 import { RegistrationIcon } from '@/lib/shop/icons';
 import { LanguageSwitcher } from '@/components/shop/header/shared/language-switcher';
 import Navigation from '@/components/shop/header/shared/navigation';

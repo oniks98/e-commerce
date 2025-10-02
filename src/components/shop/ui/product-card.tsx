@@ -49,7 +49,7 @@ const ProductCard = ({ product, locale }: ProductCardProps) => {
         'hover:shadow-xl',
       )}
     >
-      <Link href={`/products/${productSlug}`} className="flex w-full flex-col">
+      <Link href={`/${productSlug}`} className="flex w-full flex-col">
         <div className="mb-5 flex justify-center">
           <Image
             src={getPlaceholder('product', product.id)}

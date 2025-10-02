@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import SearchFilter from '@/components/shop/catalog/search-filter';
 import Sorting from '@/components/shop/catalog/sorting';
 import Products from '@/components/shop/catalog/products';
-import BtnLoadMore from '@/components/ui/btn-load-more';
+import BtnLoadMore from '@/components/shop/ui/btn-load-more';
 import Pagination from '@/components/shop/catalog/pagination';
 import { Tables } from '@/lib/supabase/types/database';
 import { sortingOptions } from '@/lib/shop/constants/sorting-data';

@@ -7,7 +7,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
+} from '@/components/shop/ui/accordion';
 import { ChevronDownIcon } from '@/lib/shop/icons';
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
 

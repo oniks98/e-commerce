@@ -1,6 +1,6 @@
 'use client';
 import { footerData } from '@/lib/shop/constants/footer-data';
-import SocialLinks from '@/components/ui/social-links';
+import SocialLinks from '@/components/shop/ui/social-links';
 import Link from 'next/link';
 
 const SocialBlock = () => {

@@ -22,12 +22,14 @@ const SortingDropdown = ({
   setSortOrder,
 }: SortingDropdownProps) => (
   <div className="relative">
-    <div className="flex items-center gap-2.5">
-      <SortingArrowsIcon />
+    <div className="flex flex-col items-center gap-2.5 lg:flex-row">
+      <div className="flex gap-1">
+        <SortingArrowsIcon />
 
-      <span className="text-dark hidden text-[19px] leading-[24px] font-semibold md:block">
-        Сортування:
-      </span>
+        <span className="text-dark text-[19px] leading-[24px] font-semibold">
+          Сортування:
+        </span>
+      </div>
       <button
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         className="text-grey flex items-center gap-2.5 text-[17px] leading-[24px]"
@@ -82,49 +84,9 @@ const Sorting = ({
   return (
     <div className="w-full py-4">
       {/* Mobile Layout */}
-      <div className="flex flex-col gap-4 md:hidden">
-        {/* Selected Filters Section */}
-        <div className="flex flex-col gap-3">
-          <h3 className="text-dark text-[19px] leading-[24px] font-semibold">
-            Ви вибрали:
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {selectedFilters.length > 0 && (
-              <button
-                onClick={clearFilters}
-                className="bg-yellow text-dark flex items-center gap-1.5 rounded-lg px-2.5 py-0.5 text-[15px] leading-[22px]"
-              >
-                <span>Очистити</span>
-                <FilterCrossIcon />
-              </button>
-            )}
-            {selectedFilters.map((filter) => (
-              <div
-                key={filter}
-                className="border-grey-light text-dark flex items-center gap-1.5 rounded-lg border bg-white px-2.5 py-0.5 text-[15px] leading-[22px]"
-              >
-                <span>{filter}</span>
-                <button onClick={() => removeFilter(filter)}>
-                  <FilterCrossIcon />
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Sorting Section */}
-        <div className="flex justify-end">
-          <SortingDropdown
-            isDropdownOpen={isDropdownOpen}
-            setIsDropdownOpen={setIsDropdownOpen}
-            sortOrder={sortOrder}
-            setSortOrder={setSortOrder}
-          />
-        </div>
-      </div>
 
       {/* Desktop/Tablet Layout */}
-      <div className="hidden md:block">
+      <div className="">
         {/* First Row: Labels and Sorting */}
         <div className="flex items-center justify-between">
           <h3 className="text-dark text-[19px] leading-[24px] font-semibold">

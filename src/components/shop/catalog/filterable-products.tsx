@@ -178,13 +178,13 @@ const FilterableProducts = ({
     displayedProducts.length < filteredAndSortedProducts.length;
 
   return (
-    <div className="flex flex-col lg:flex-row">
+    <div className="flex flex-col items-center gap-7 md:flex-row md:items-start">
       <SearchFilter
         selectedFilters={selectedFilters}
         setSelectedFilters={setSelectedFilters}
         setPriceRange={setPriceRange}
       />
-      <div className="w-full lg:pl-8">
+      <div className="w-full">
         <Sorting
           selectedFilters={selectedFilters}
           clearFilters={clearFilters}
@@ -194,7 +194,7 @@ const FilterableProducts = ({
         />
         <Products products={displayedProducts} locale={locale} />
         {canLoadMore && (
-          <div className="mt-10 mb-8 flex justify-center">
+          <div className="mt-10 flex justify-center">
             <BtnLoadMore onClick={loadMoreProducts}>
               Показати ще{' '}
               {Math.min(

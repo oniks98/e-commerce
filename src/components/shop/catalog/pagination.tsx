@@ -55,7 +55,7 @@ const Pagination = ({
   const pageNumbers = getPageNumbers();
 
   return (
-    <nav className="flex items-center justify-center space-x-2">
+    <nav className="mt-8 flex items-center justify-center space-x-2">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}

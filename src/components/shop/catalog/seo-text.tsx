@@ -13,7 +13,7 @@ import Shadow from '@/components/ui/shadow';
 
 const SeoText = () => {
   return (
-    <div className="relative mb-8 flex justify-end py-8">
+    <div className="relative mb-8 flex justify-center py-8 xl:justify-end">
       <div className="max-w-240">
         <h2 className="text-dark mb-6 text-center text-3xl font-semibold">
           {seoText.title}

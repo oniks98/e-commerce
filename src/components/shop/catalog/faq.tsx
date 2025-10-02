@@ -20,8 +20,8 @@ const Faq = () => {
           <AccordionItem key={index} value={`item-${index}`}>
             <AccordionTrigger>
               <div className="flex items-center">
-                <FaqQuestionIcon />
-                <span className="ml-4 text-lg font-semibold">
+                <FaqQuestionIcon className="shrink-0" />
+                <span className="ml-4 text-left text-lg font-semibold">
                   {item.question}
                 </span>
               </div>

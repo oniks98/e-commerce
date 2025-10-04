@@ -1,5 +1,6 @@
 export { default as AddIcon } from './add-icon';
 export { default as AkciiIcon } from './akcii-icon';
+export { default as AngleDoubleUpIcon } from './angle-double-up-icon';
 export { default as ArrowDownIcon } from './arrow-down-icon';
 export { default as ArrowScrollIcon } from './arrow-scroll-icon';
 export { default as ArrowUpRightIcon } from './arrow-up-right-icon';
@@ -37,3 +38,9 @@ export { default as MastercardIcon } from './mastercard-icon';
 export { default as VisaIcon } from './visa-icon';
 export { default as FacebookIcon } from './facebook-icon';
 export { default as InstagramIcon } from './instagram-icon';
+export { default as MinusIcon } from './minus-icon';
+export { default as HelpIcon } from './help-icon';
+export { default as WarrantyIcon } from './warranty-icon';
+export { default as AccountIcon } from './account-icon';
+export { default as LikeIcon } from './like-icon';
+export { default as ForwardIcon } from './forward-icon';

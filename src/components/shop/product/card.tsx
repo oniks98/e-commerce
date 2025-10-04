@@ -166,13 +166,13 @@ export function Card({ product, locale }: CardProps) {
           <div className="flex items-center gap-x-2.5">
             <CheckIcon className="text-green-500" />
             <span className="text-dark text-sm">В наличии</span>
-           </div>
+          </div>
           <div className="flex items-center gap-x-2.5">
-               <div className="flex items-center gap-x-1">
-            {[...Array(5)].map((_, i) => (
-              <StarIcon key={i} className="text-yellow" />
-            ))}
-              </div>
+            <div className="flex items-center gap-x-1">
+              {[...Array(5)].map((_, i) => (
+                <StarIcon key={i} className="text-yellow" />
+              ))}
+            </div>
             <ChatIcon className="text-grey" />
             <span className="text-grey text-sm">93 отзыва</span>
           </div>
@@ -182,7 +182,7 @@ export function Card({ product, locale }: CardProps) {
         </div>
 
         <div className="mb-8 rounded-lg bg-white p-5">
-          <div className="mb-5 flex flex-wrap items-center justify-center md:justify-between gap-y-5">
+          <div className="mb-5 flex flex-wrap items-center justify-center gap-y-5 md:justify-between">
             <div className="flex items-center gap-x-5">
               <span className="text-dark text-3xl font-semibold">
                 {product.price_uah} грн.
@@ -199,7 +199,7 @@ export function Card({ product, locale }: CardProps) {
             </button>
           </div>
           <div className="border-grey-light mb-5 rounded-2xl border-t-2 opacity-30" />
-          <div className="flex flex-wrap justify-center lg:justify-start items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-5 lg:justify-start">
             <div className="border-grey-light flex shrink-0 items-center gap-x-2 rounded-lg border px-4 py-3">
               <button
                 onClick={() => handleQuantityChange(-1)}
@@ -215,7 +215,7 @@ export function Card({ product, locale }: CardProps) {
                   const value = parseInt(e.target.value, 10);
                   setQuantity(isNaN(value) || value < 1 ? 1 : value);
                 }}
-                className="text-dark w-20 text-center text-xl font-semibold outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                className="text-dark w-20 [appearance:textfield] text-center text-xl font-semibold outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                 min="1"
               />
               <button
@@ -226,14 +226,14 @@ export function Card({ product, locale }: CardProps) {
                 <AddIcon className="text-grey" />
               </button>
             </div>
-            <button className="bg-yellow flex shrink-0 items-center justify-center gap-x-4 rounded-lg px-8 py-3.5 font-semibold text-white transition-colors hover:bg-opacity-90">
+            <button className="bg-yellow hover:bg-opacity-90 flex shrink-0 items-center justify-center gap-x-4 rounded-lg px-8 py-3.5 font-semibold text-white transition-colors">
               <CartIcon />
               Купити
             </button>
           </div>
         </div>
         <div className="bg-light rounded-lg px-5">
-          <div className="flex justify-center lg:justify-start flex-wrap items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-5 lg:justify-start">
             <div className="flex items-center gap-x-2.5">
               <PhoneIcon className="text-grey" />
               <input

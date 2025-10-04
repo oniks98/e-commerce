@@ -142,7 +142,7 @@ export function Card({ product, locale }: CardProps) {
             <button
               key={index}
               onClick={() => handleThumbnailClick(index)}
-              className="relative h-[100px] w-[100px] flex-shrink-0"
+              className="relative h-[100px] w-[100px] shrink-0"
             >
               <Image
                 src={getPlaceholder('product', `${product.id}-${index}`)}
@@ -162,16 +162,17 @@ export function Card({ product, locale }: CardProps) {
       {/* Product Info */}
       <div>
         <h1 className="text-dark mb-8 text-3xl font-semibold">{productName}</h1>
-        <div className="mb-4 flex items-center gap-x-10">
+        <div className="mb-4 flex flex-wrap items-center gap-x-10 gap-y-5">
           <div className="flex items-center gap-x-2.5">
             <CheckIcon className="text-green-500" />
             <span className="text-dark text-sm">В наличии</span>
-            <div className="flex items-center gap-x-1"></div>
+           </div>
+          <div className="flex items-center gap-x-2.5">
+               <div className="flex items-center gap-x-1">
             {[...Array(5)].map((_, i) => (
               <StarIcon key={i} className="text-yellow" />
             ))}
-          </div>
-          <div className="flex items-center gap-x-1.5">
+              </div>
             <ChatIcon className="text-grey" />
             <span className="text-grey text-sm">93 отзыва</span>
           </div>
@@ -181,7 +182,7 @@ export function Card({ product, locale }: CardProps) {
         </div>
 
         <div className="mb-8 rounded-lg bg-white p-5">
-          <div className="mb-5 flex items-center justify-between">
+          <div className="mb-5 flex flex-wrap items-center justify-center md:justify-between gap-y-5">
             <div className="flex items-center gap-x-5">
               <span className="text-dark text-3xl font-semibold">
                 {product.price_uah} грн.
@@ -198,11 +199,11 @@ export function Card({ product, locale }: CardProps) {
             </button>
           </div>
           <div className="border-grey-light mb-5 rounded-2xl border-t-2 opacity-30" />
-          <div className="flex items-center gap-x-5">
-            <div className="border-grey-light flex w-auto items-center justify-center gap-x-2 rounded-lg border px-4 py-3">
+          <div className="flex flex-wrap justify-center lg:justify-start items-center gap-5">
+            <div className="border-grey-light flex shrink-0 items-center gap-x-2 rounded-lg border px-4 py-3">
               <button
                 onClick={() => handleQuantityChange(-1)}
-                className="flex-shrink-0 py-3 transition-colors hover:opacity-60"
+                className="shrink-0 py-3 transition-colors hover:opacity-60"
                 aria-label="Decrease quantity"
               >
                 <MinusIcon className="text-grey" />
@@ -214,25 +215,25 @@ export function Card({ product, locale }: CardProps) {
                   const value = parseInt(e.target.value, 10);
                   setQuantity(isNaN(value) || value < 1 ? 1 : value);
                 }}
-                className="text-dark w-20 [appearance:textfield] text-center text-xl font-semibold outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                className="text-dark w-20 text-center text-xl font-semibold outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                 min="1"
               />
               <button
                 onClick={() => handleQuantityChange(1)}
-                className="flex-shrink-0 py-1 transition-colors hover:opacity-60"
+                className="shrink-0 py-1 transition-colors hover:opacity-60"
                 aria-label="Increase quantity"
               >
                 <AddIcon className="text-grey" />
               </button>
-            </div>{' '}
-            <button className="bg-yellow hover:bg-opacity-90 flex max-w-[176px] flex-1 items-center justify-center gap-x-4 rounded-lg py-3.5 font-semibold text-white transition-colors">
+            </div>
+            <button className="bg-yellow flex shrink-0 items-center justify-center gap-x-4 rounded-lg px-8 py-3.5 font-semibold text-white transition-colors hover:bg-opacity-90">
               <CartIcon />
               Купити
             </button>
           </div>
         </div>
         <div className="bg-light rounded-lg px-5">
-          <div className="flex items-center gap-x-5">
+          <div className="flex justify-center lg:justify-start flex-wrap items-center gap-5">
             <div className="flex items-center gap-x-2.5">
               <PhoneIcon className="text-grey" />
               <input
@@ -241,7 +242,7 @@ export function Card({ product, locale }: CardProps) {
                 className="text-grey placeholder-grey w-31 bg-transparent outline-none"
               />
             </div>
-            <button className="border-grey text-grey hover:border-dark hover:text-dark rounded-lg border px-7 py-3 font-semibold transition-colors">
+            <button className="border-grey text-grey hover:border-dark hover:text-dark rounded-lg border px-5 py-3 font-semibold transition-colors">
               Купити в 1 клік
             </button>
           </div>

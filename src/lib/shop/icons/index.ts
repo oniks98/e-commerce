@@ -28,6 +28,7 @@ export { default as SaleIcon } from './sale-icon';
 export { default as SearchIcon } from './search-icon';
 export { default as ServiceIcon } from './service-icon';
 export { default as StarIcon } from './star-icon';
+export { default as StarOutlineIcon } from './star-outline-icon';
 export { default as TelegramIcon } from './telegram-icon';
 export { default as ThemeIcon } from './theme-icon';
 export { default as ViberIcon } from './viber-icon';

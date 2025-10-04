@@ -1,47 +1,53 @@
-import { getProductBySku } from '@/lib/shop/actions/product';
-import { notFound } from 'next/navigation';
-import Breadcrumbs from '@/components/shop/catalog/breadcrumbs';
+import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
+import Advantages from '@/components/shop/ui/advantages';
+import { Recommended } from '@/components/shop/product/recommended';
+import { Reviews } from '@/components/shop/product/reviews';
+import { LeaveReview } from '@/components/shop/product/leave-review';
+import { Desc } from '@/components/shop/product/desc';
+import { Conditions } from '@/components/shop/product/conditions';
+import { Card } from '@/components/shop/product/card';
 
-// This page will handle URLs like /en/p123-iphone-15-pro
+import { Locale } from '@/i18n/types';
+import { getProductBySlug, getProducts } from '@/lib/shop/actions/product';
 
-type ProductPageProps = {
-  params: Promise<{ locale: string; productSlug: string }>;
-};
-
-export default async function ProductPage({ params }: ProductPageProps) {
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ locale: Locale; productSlug: string }>;
+}) {
   const { locale, productSlug } = await params;
-
-  // Robustly parse the SKU and the slug from the URL parameter
-  // Example: p123-iphone-15-pro -> sku: p123, slug: iphone-15-pro
-  const match = productSlug.match(/^([^-]+)-(.*)$/);
-
-  if (!match) {
-    console.warn('Product slug format is incorrect. Could not parse SKU.');
-    notFound();
-  }
-
-  const [, sku, slug] = match;
-
-  const product = await getProductBySku(sku);
+  const product = await getProductBySlug(productSlug, locale);
+  const recommendedProducts = await getProducts({ limit: 8 });
 
   if (!product) {
-    notFound();
+    return <div>Product not found</div>;
   }
 
   return (
-    <div className="mx-auto max-w-[1360px] px-4 py-8 md:px-[35px]">
-      <Breadcrumbs product={product} />
-      <h1 className="mb-4 text-3xl font-bold">
-        {/* Name is a JSONB object, showing raw data for now */}
-        Product Name: {JSON.stringify(product.name)}
-      </h1>
-      <p>SKU: {product.sku}</p>
-      <p>Price (UAH): {product.price_uah}</p>
-      <div className="mt-4">
-        <h2 className="text-xl">Full Details:</h2>
-        <pre className="bg-grey-light mt-2 rounded p-4">
-          {JSON.stringify(product, null, 2)}
-        </pre>
+    <div className="bg-light">
+      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+        <div className="flex flex-col">
+          <Breadcrumbs product={product} />
+
+          <Card product={product} locale={locale} />
+
+          <div className="mb-[50px]">
+            <Conditions />
+          </div>
+          <div className="mb-[50px] flex gap-x-5">
+            <Desc />
+            <LeaveReview />
+          </div>
+          <div className="mb-[70px]">
+            <Reviews />
+          </div>
+          <div className="mb-[80px]">
+            <Recommended products={recommendedProducts} />
+          </div>
+          <div className="mb-[70px]">
+            <Advantages />
+          </div>
+        </div>
       </div>
     </div>
   );

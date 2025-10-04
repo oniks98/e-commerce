@@ -1,6 +1,34 @@
 import { createClient } from '@/lib/supabase/server';
 import { getDescendantCategoryIds } from './category';
 
+export async function getProductBySlug(slug: string, locale: string) {
+  const supabase = await createClient();
+
+  const { data: product, error } = await supabase
+    .from('products')
+    .select(
+      `
+      *,
+      categories (
+        id,
+        name,
+        slug,
+        parent_id,
+        parent:categories (id, name, slug)
+      )
+    `,
+    )
+    .eq(`slug->>${locale}`, slug)
+    .single();
+
+  if (error) {
+    console.error(`Error fetching product with slug ${slug}:`, error);
+    return null;
+  }
+
+  return product;
+}
+
 export async function getProductBySku(sku: string) {
   const supabase = await createClient();
 

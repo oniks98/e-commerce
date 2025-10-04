@@ -135,3 +135,37 @@ export async function getDescendantCategoryIds(
 
   return result;
 }
+
+/**
+ * Gets the full breadcrumb path from root category to the given category
+ * Returns array of categories in order: [root, parent, ..., current]
+ */
+export async function getCategoryPath(categoryId: string) {
+  const supabase = await createClient();
+  const path: Array<{ id: string; name: string; slug: string }> = [];
+
+  let currentId: string | null = categoryId;
+
+  while (currentId) {
+    const { data: category, error } = await supabase
+      .from('categories')
+      .select('id, name, slug, parent_id')
+      .eq('id', currentId)
+      .single();
+
+    if (error || !category) {
+      console.error('Error fetching category path:', error);
+      break;
+    }
+
+    path.unshift({
+      id: category.id,
+      name: category.name,
+      slug: category.slug,
+    });
+
+    currentId = category.parent_id;
+  }
+
+  return path;
+}

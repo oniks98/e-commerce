@@ -36,7 +36,7 @@ const Breadcrumbs = async ({
   }
 
   return (
-    <nav className="text-grey flex flex-wrap gap-y-2 items-center py-1 text-base font-normal">
+    <nav className="text-grey flex flex-wrap items-center gap-y-2 py-1 text-base font-normal">
       <Link
         href="/"
         className="text-grey hover:text-yellow-dark transition-colors"

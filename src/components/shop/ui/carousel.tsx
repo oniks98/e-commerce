@@ -3,7 +3,7 @@
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-import { EmblaOptionsType } from 'embla-carousel';
+import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
 import clsx from 'clsx';
 
 interface CarouselProps {
@@ -18,6 +18,7 @@ interface CarouselProps {
   >;
   className?: string;
   showDots?: boolean;
+  onInit?: (api: EmblaCarouselType) => void;
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -27,6 +28,7 @@ const Carousel: React.FC<CarouselProps> = ({
   nextButton,
   className,
   showDots = true,
+  onInit,
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({ delay: 5000 }),
@@ -59,22 +61,25 @@ const Carousel: React.FC<CarouselProps> = ({
       setSelectedIndex(emblaApi.selectedScrollSnap());
     };
 
-    const onInit = () => {
+    const onInitCarousel = () => {
       setScrollSnaps(emblaApi.scrollSnapList());
+      if (onInit) {
+        onInit(emblaApi);
+      }
     };
 
     emblaApi.on('select', onSelect);
-    emblaApi.on('init', onInit);
+    emblaApi.on('init', onInitCarousel);
 
     // Initial setup
-    onInit();
+    onInitCarousel();
     onSelect();
 
     return () => {
       emblaApi.off('select', onSelect);
-      emblaApi.off('init', onInit);
+      emblaApi.off('init', onInitCarousel);
     };
-  }, [emblaApi]);
+  }, [emblaApi, onInit]);
 
   return (
     <div className={clsx('relative', className)}>

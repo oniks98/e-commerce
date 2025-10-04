@@ -67,9 +67,8 @@ export function LeaveReview() {
           <p className="mt-1 text-sm text-red-500">{errors.review.message}</p>
         )}
         <div className="mt-8 flex flex-col items-center gap-2.5">
-       
-            <span className="text-grey font-semibold">Ваша оцінка:</span>
-           
+          <span className="text-grey font-semibold">Ваша оцінка:</span>
+
           <div className="flex items-center gap-x-1">
             {[...Array(5)].map((_, i) => (
               <StarOutlineIcon key={i} className="text-grey-light" />

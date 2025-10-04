@@ -34,7 +34,7 @@ interface ConditionsProps {
 
 export function Conditions({ locale }: ConditionsProps) {
   return (
-    <section className="grid grid-cols-1 gap-5 py-8 md:grid-cols-2 xl:grid-cols-4">
+    <section className="grid grid-cols-1 gap-5 py-8 md:mx-auto md:grid-cols-2 xl:grid-cols-4">
       {conditionsData.map((item, index) => (
         <div key={index} className="flex items-center gap-x-5">
           <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-full bg-white">

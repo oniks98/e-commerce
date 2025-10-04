@@ -202,7 +202,7 @@ export function Card({ product, locale }: CardProps) {
             <div className="border-grey-light flex w-auto items-center justify-center gap-x-2 rounded-lg border px-4 py-3">
               <button
                 onClick={() => handleQuantityChange(-1)}
-                className="py-3 transition-colors hover:opacity-60"
+                className="flex-shrink-0 py-3 transition-colors hover:opacity-60"
                 aria-label="Decrease quantity"
               >
                 <MinusIcon className="text-grey" />
@@ -219,7 +219,7 @@ export function Card({ product, locale }: CardProps) {
               />
               <button
                 onClick={() => handleQuantityChange(1)}
-                className="py-1 transition-colors hover:opacity-60"
+                className="flex-shrink-0 py-1 transition-colors hover:opacity-60"
                 aria-label="Increase quantity"
               >
                 <AddIcon className="text-grey" />

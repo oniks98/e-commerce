@@ -1,87 +1,78 @@
+'use server';
+
 import Link from 'next/link';
 
 import RightArrowIcon from '@/lib/shop/icons/right-arrow-icon';
 import { getProductBySku } from '@/lib/shop/actions/product';
-import { getCategoryBySlug } from '@/lib/shop/actions/category';
-import { createClient } from '@/lib/supabase/server';
+import {
+  getCategoryBySlug,
+  getCategoryPath,
+} from '@/lib/shop/actions/category';
 
 type BreadcrumbsProps = {
   product?: Awaited<ReturnType<typeof getProductBySku>>;
   category?: Awaited<ReturnType<typeof getCategoryBySlug>>;
 };
 
-async function getParentCategory(parentId: string | null) {
-  if (!parentId) return null;
-  const supabase = await createClient();
-  const { data: parent } = await supabase
-    .from('categories')
-    .select('name, slug')
-    .eq('id', parentId)
-    .single();
-  return parent;
-}
-
 const Breadcrumbs = async ({
   product,
   category: categoryProp,
 }: BreadcrumbsProps) => {
-  let categoryForPath;
-  let parentCategoryForPath;
-  let productName;
+  let categoryPath: Array<{ id: string; name: string; slug: string }> = [];
+  let productName: string | undefined;
 
   if (product) {
-    categoryForPath = product.categories;
-    parentCategoryForPath = Array.isArray(product.categories?.parent)
-      ? product.categories?.parent[0]
-      : product.categories?.parent;
-    productName = product.name['uk']; // Assuming 'uk' locale
+    // Get full category path for product
+    if (product.category_id) {
+      categoryPath = await getCategoryPath(product.category_id);
+    }
+    productName =
+      typeof product.name === 'object' && product.name
+        ? (product.name as any)['uk'] || 'Unnamed Product'
+        : 'Unnamed Product';
   } else if (categoryProp) {
-    categoryForPath = categoryProp;
-    parentCategoryForPath = await getParentCategory(categoryProp.parent_id);
+    // Get full category path for category page
+    categoryPath = await getCategoryPath(categoryProp.id);
   }
 
   return (
-    <nav className="text-grey flex items-center py-1 text-base font-normal">
-      <Link href="/" className="text-grey hover:text-yellow-dark">
+    <nav className="text-grey flex flex-wrap gap-y-2 items-center py-1 text-base font-normal">
+      <Link
+        href="/"
+        className="text-grey hover:text-yellow-dark transition-colors"
+      >
         Головна
       </Link>
-      {parentCategoryForPath && (
-        <>
-          <span className="mx-2">
-            <RightArrowIcon />
-          </span>
-          <Link
-            href={`/catalog/${parentCategoryForPath.slug}`}
-            className="text-grey hover:text-yellow-dark"
-          >
-            {parentCategoryForPath.name}
-          </Link>
-        </>
-      )}
-      {categoryForPath && (
-        <>
-          <span className="mx-2">
-            <RightArrowIcon />
-          </span>
-          {productName ? (
-            <Link
-              href={`/catalog/${categoryForPath.slug}`}
-              className="text-grey hover:text-yellow-dark"
-            >
-              {categoryForPath.name}
-            </Link>
-          ) : (
-            <span className="text-yellow">{categoryForPath.name}</span>
-          )}
-        </>
-      )}
+
+      {categoryPath.map((cat, index) => {
+        const isLast = index === categoryPath.length - 1 && !productName;
+
+        return (
+          <div key={cat.id} className="flex items-center">
+            <span className="mx-2">
+              <RightArrowIcon />
+            </span>
+            {isLast ? (
+              <span className="text-yellow font-medium">{cat.name}</span>
+            ) : (
+              <Link
+                href={`/catalog/${cat.slug}`}
+                className="text-grey hover:text-yellow-dark transition-colors"
+              >
+                {cat.name}
+              </Link>
+            )}
+          </div>
+        );
+      })}
+
       {productName && (
-        <>
+        <div className="flex items-center">
           <span className="mx-2">
             <RightArrowIcon />
           </span>
-          <span className="text-yellow">{productName}</span>
-        </>
+          <span className="text-yellow font-medium">{productName}</span>
+        </div>
       )}
     </nav>
   );

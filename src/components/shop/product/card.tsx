@@ -29,19 +29,13 @@ type Product = Tables<'products'>;
 interface CardProps {
   product: Product;
   locale: string;
+  productName: string;
 }
 
-export function Card({ product, locale }: CardProps) {
+export function Card({ product, locale, productName }: CardProps) {
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [carouselApi, setCarouselApi] = useState<any>(null);
-
-  const productName =
-    typeof product.name === 'object' &&
-    product.name &&
-    (product.name as any)[locale]
-      ? (product.name as any)[locale]
-      : 'Unnamed Product';
 
   const handleQuantityChange = (delta: number) => {
     setQuantity((prev) => Math.max(1, prev + delta));

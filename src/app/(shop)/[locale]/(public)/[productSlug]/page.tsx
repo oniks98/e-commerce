@@ -1,7 +1,7 @@
 import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 import Advantages from '@/components/shop/ui/advantages';
 import { Recommended } from '@/components/shop/product/recommended';
-import { Reviews } from '@/components/shop/product/reviews';
+import Reviews from '@/components/shop/product/reviews';
 import { LeaveReview } from '@/components/shop/product/leave-review';
 import { Desc } from '@/components/shop/product/desc';
 import { Conditions } from '@/components/shop/product/conditions';
@@ -23,27 +23,31 @@ export default async function ProductPage({
     return <div>Product not found</div>;
   }
 
+  const productName =
+    typeof product.name === 'object' &&
+    product.name &&
+    (product.name as any)[locale]
+      ? (product.name as any)[locale]
+      : 'Unnamed Product';
+
   return (
     <div className="bg-light">
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
         <div className="flex flex-col">
           <Breadcrumbs product={product} />
 
-          <Card product={product} locale={locale} />
+          <Card product={product} locale={locale} productName={productName} />
 
-          <div className="mb-[50px]">
-            <Conditions />
-          </div>
-          <div className="mb-[50px] flex gap-x-5">
+          <Conditions locale={locale} />
+
+          <div className="grid grid-cols-1 gap-5 py-8 md:grid-cols-[1fr_350px]">
             <Desc />
             <LeaveReview />
           </div>
-          <div className="mb-[70px]">
-            <Reviews />
-          </div>
-          <div className="mb-[80px]">
-            <Recommended products={recommendedProducts} />
-          </div>
+          <Reviews productName={productName} />
+
+          <Recommended products={recommendedProducts} />
+
           <div className="mb-[70px]">
             <Advantages />
           </div>

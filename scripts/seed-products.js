@@ -152,7 +152,7 @@ async function seedData() {
         price_eur: 0,
         vat_rate: 0,
         sku: sku,
-        slug: slug,
+        slug: { en: slug, uk: slug },
         category_id: categoryId,
       })
       .select('id')

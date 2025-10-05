@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { Avatar } from './avatar';
-import { StarRating } from './star-rating';
-import { ReviewActions } from './review-actions';
+import Avatar from './avatar';
+import StarRating from './star-rating';
+import ReviewActions from './review-actions';
 import { Review } from '@/lib/shop/constants/product-reviews-data';
 
 interface ReviewItemProps {
@@ -12,14 +12,14 @@ interface ReviewItemProps {
   showReplies: Record<string, boolean>;
 }
 
-export function ReviewItem({
+const ReviewItem = ({
   review,
   onReply,
   onToggleReplies,
   activeReplyForm,
   showReplies,
-}: ReviewItemProps) {
-  const hasReplies = review.replies && review.replies.length > 0;
+}: ReviewItemProps) => {
+  const hasReplies = !!(review.replies && review.replies.length > 0);
   const repliesVisible = showReplies[review.id];
   const isReplyFormActive = activeReplyForm === review.id;
 
@@ -64,4 +64,6 @@ export function ReviewItem({
       </div>
     </div>
   );
-}
+};
+
+export default ReviewItem;

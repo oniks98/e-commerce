@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Avatar } from './avatar';
+import Avatar from './avatar';
 import { ChevronRightIcon } from '@/lib/shop/icons';
 import { Reply } from '@/lib/shop/constants/product-reviews-data';
 
@@ -7,7 +7,7 @@ interface ReplyItemProps {
   reply: Reply;
 }
 
-export function ReplyItem({ reply }: ReplyItemProps) {
+const ReplyItem = ({ reply }: ReplyItemProps) => {
   const headerStyles = clsx('flex flex-wrap items-center gap-5');
 
   const authorStyles = clsx('text-[15px] text-dark', 'md:text-[17px]');
@@ -43,4 +43,6 @@ export function ReplyItem({ reply }: ReplyItemProps) {
       </div>
     </div>
   );
-}
+};
+
+export default ReplyItem;

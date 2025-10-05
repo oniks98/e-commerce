@@ -19,12 +19,12 @@ interface ReplyFormProps {
   onSubmit: (data: ReplyFormValues) => void;
 }
 
-export function ReplyForm({
+const ReplyForm = ({
   reviewId,
   authorName,
   onCancel,
   onSubmit,
-}: ReplyFormProps) {
+}: ReplyFormProps) => {
   const {
     register,
     handleSubmit,
@@ -138,4 +138,6 @@ export function ReplyForm({
       </form>
     </div>
   );
-}
+};
+
+export default ReplyForm;

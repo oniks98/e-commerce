@@ -6,7 +6,7 @@ interface ShowMoreButtonProps {
   hasMore: boolean;
 }
 
-export function ShowMoreButton({ onClick, hasMore }: ShowMoreButtonProps) {
+const ShowMoreButton = ({ onClick, hasMore }: ShowMoreButtonProps) => {
   const buttonStyles = clsx(
     'flex items-center justify-center gap-3 rounded-lg bg-yellow px-6 py-2 font-semibold text-white',
     'max-w-73 text-[17px]',
@@ -21,4 +21,6 @@ export function ShowMoreButton({ onClick, hasMore }: ShowMoreButtonProps) {
       </button>
     </div>
   );
-}
+};
+
+export default ShowMoreButton;

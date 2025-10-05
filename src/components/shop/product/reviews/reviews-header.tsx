@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { StarRating } from './star-rating';
+import StarRating from './star-rating';
 
 interface ReviewsHeaderProps {
   productName: string;
@@ -7,11 +7,11 @@ interface ReviewsHeaderProps {
   averageRating: number;
 }
 
-export function ReviewsHeader({
+const ReviewsHeader = ({
   productName,
   totalReviews,
   averageRating,
-}: ReviewsHeaderProps) {
+}: ReviewsHeaderProps) => {
   const titleStyles = clsx(
     'mb-8 text-center text-3xl font-semibold leading-tight text-dark',
     'md:text-left',
@@ -43,4 +43,6 @@ export function ReviewsHeader({
       </div>
     </div>
   );
-}
+};
+
+export default ReviewsHeader;

@@ -3,11 +3,11 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 import { PRODUCT_REVIEWS } from '@/lib/shop/constants/product-reviews-data';
-import { ReviewItem } from './review-item';
-import { ReplyItem } from './reply-item';
-import { ReplyForm, ReplyFormValues } from './reply-form';
-import { ShowMoreButton } from './show-more-button';
-import { ReviewsHeader } from './reviews-header';
+import ReviewItem from './review-item';
+import ReplyItem from './reply-item';
+import ReplyForm, { ReplyFormValues } from './reply-form';
+import ShowMoreButton from './show-more-button';
+import ReviewsHeader from './reviews-header';
 
 const INITIAL_VISIBLE_REVIEWS = 1;
 
@@ -15,7 +15,7 @@ interface ReviewsProps {
   productName: string;
 }
 
-export default function Reviews({ productName }: ReviewsProps) {
+const Reviews = ({ productName }: ReviewsProps) => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_REVIEWS);
   const [activeReplyForm, setActiveReplyForm] = useState<string | null>(null);
   const [showReplies, setShowReplies] = useState<Record<string, boolean>>({});
@@ -113,4 +113,6 @@ export default function Reviews({ productName }: ReviewsProps) {
       )}
     </section>
   );
-}
+};
+
+export default Reviews;

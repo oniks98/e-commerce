@@ -7,7 +7,7 @@ interface AvatarProps {
   size?: 'sm' | 'md';
 }
 
-export function Avatar({ isCompany, size = 'md' }: AvatarProps) {
+const Avatar = ({ isCompany, size = 'md' }: AvatarProps) => {
   const containerStyles = clsx(
     'relative shrink-0 rounded-full',
     size === 'md' && 'h-[50px] w-[50px]',
@@ -33,4 +33,6 @@ export function Avatar({ isCompany, size = 'md' }: AvatarProps) {
       )}
     </div>
   );
-}
+};
+
+export default Avatar;

@@ -8,12 +8,12 @@ interface StarRatingProps {
   count?: number;
 }
 
-export function StarRating({
+const StarRating = ({
   rating = 5,
   size = 'md',
   showCount,
   count,
-}: StarRatingProps) {
+}: StarRatingProps) => {
   const starStyles = clsx(
     'text-yellow',
     size === 'md' && 'h-5 w-5 md:h-6 md:w-6',
@@ -40,4 +40,6 @@ export function StarRating({
       )}
     </div>
   );
-}
+};
+
+export default StarRating;

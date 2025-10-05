@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 import { PhoneIcon, ChevronDownIcon } from '@/lib/shop/icons';
-
-const PHONES = ['063 338-82-60', '067 636-01-90'];
+import { PHONES } from '@/lib/shop/constants/phone-data';
 
 const PhoneMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +15,7 @@ const PhoneMenu = () => {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="flex cursor-pointer items-center gap-[10px] rounded-md p-2"
+        className="flex cursor-pointer items-center gap-[12px] rounded-md p-2"
         aria-expanded={isOpen}
         aria-haspopup="menu"
       >
@@ -24,10 +23,7 @@ const PhoneMenu = () => {
           <PhoneIcon className="text-grey absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
         </div>
         <div>
-          <div className="text-grey text-xs font-light">
-            10:00-14:00 крім вихідних
-          </div>
-          <div className="text-dark text-xl font-semibold">063 338-82-60</div>
+          <div className="text-dark text-xl font-semibold">{PHONES[0]}</div>
         </div>
         <div className="p-1">
           <ChevronDownIcon className="text-grey h-[7px] w-[11px]" />
@@ -44,7 +40,7 @@ const PhoneMenu = () => {
         aria-hidden="true"
       />
 
-      <div className="border-grey-light relative z-20 mt-18 flex min-w-[232px] items-start gap-[12px] rounded-lg border bg-white p-2 shadow-lg">
+      <div className="border-grey-light relative z-20 mt-18 flex min-w-[232px] items-start gap-[10px] rounded-lg border bg-white p-2 shadow-lg">
         {/* Блок 1: иконка телефона */}
         <div className="bg-light relative h-[50px] w-[50px] flex-shrink-0 rounded-full">
           <PhoneIcon className="text-grey absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
@@ -53,8 +49,13 @@ const PhoneMenu = () => {
         {/* Блок 2: контент */}
         <div className="flex flex-col gap-2">
           <span className="text-grey text-xs">9:00-14:00 крім вихідних</span>
-          <div className="text-dark text-xl font-semibold">063 338-82-60</div>
-          <div className="text-dark text-xl font-semibold">067 636-01-90</div>
+          <div className="flex flex-col gap-2">
+            {PHONES.map((phone, index) => (
+              <div key={index} className="text-dark text-xl font-semibold">
+                {phone}
+              </div>
+            ))}
+          </div>
           <button
             onClick={() => {
               alert('Форма зворотного дзвінка');

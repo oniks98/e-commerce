@@ -6,7 +6,7 @@ import CatalogButton from '@/components/shop/header/shared/catalog-button';
 import SearchInput from '@/components/shop/header/shared/search-input';
 import ActionButtons from '@/components/shop/header/shared/action-buttons';
 import DesktopCatalogMenu from '@/components/shop/header/desktop/desktop-catalog-menu';
-import { PhoneMenu } from '@/components/shop/header/shared/phone-menu';
+import PhoneMenu from '@/components/shop/header/shared/phone-menu';
 import clsx from 'clsx';
 
 import { CategoryTreeItem } from '@/lib/shop/actions/category';

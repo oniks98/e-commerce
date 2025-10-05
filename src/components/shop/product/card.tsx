@@ -145,7 +145,9 @@ const Card = ({ product, locale, productName }: CardProps) => {
       </div>
 
       <div>
-        <h1 className="text-dark mb-8 text-3xl font-semibold">{productName}</h1>
+        <h1 className="text-dark mb-8 text-center text-3xl font-semibold md:text-left">
+          {productName}
+        </h1>
         <div className="mb-4 flex flex-wrap items-center gap-x-10 gap-y-5">
           <div className="flex items-center gap-x-2.5">
             <CheckIcon className="text-green-500" />

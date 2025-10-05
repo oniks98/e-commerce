@@ -44,11 +44,13 @@ export default async function ProductPage({
             <Desc />
             <LeaveReview />
           </div>
-          <Reviews productName={productName} />
-
-          <Recommended products={recommendedProducts} />
-
-          <div className="mb-[70px]">
+          <div className="py-8">
+            <Reviews productName={productName} />
+          </div>
+          <div className="py-8">
+            <Recommended products={recommendedProducts} />
+          </div>
+          <div className="py-8">
             <Advantages />
           </div>
         </div>

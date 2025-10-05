@@ -38,7 +38,7 @@ export const PRODUCT_REVIEWS: Review[] = [
       },
       {
         id: '1-2',
-        author: 'KROVATO',
+        author: 'ONYX',
         date: '25.01.2022',
         text: 'Дякуємо за відгуки! будемо раді бачити Вас знову!',
         isCompany: true,

@@ -3,7 +3,9 @@ import { characteristics } from '@/lib/shop/constants/characteristics-data';
 const Desc = () => {
   return (
     <section>
-      <h2 className="text-dark mb-5 text-3xl font-semibold">Опис товару</h2>
+      <h2 className="text-dark mb-5 text-center text-3xl font-semibold md:text-left">
+        Опис товару
+      </h2>
       <div className="text-dark mb-5 text-base">
         <p>
           Модель МК-1 – це ліжко від українського виробника, компанії MegaMebli.
@@ -14,7 +16,7 @@ const Desc = () => {
         </p>
       </div>
       <div>
-        <h3 className="text-dark mb-5 text-3xl font-semibold">
+        <h3 className="text-dark mb-5 text-center text-3xl font-semibold md:text-left">
           Характеристики
         </h3>
         <div className="flex flex-col gap-y-1.5">

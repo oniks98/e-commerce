@@ -147,16 +147,22 @@ export async function getCategoryPath(categoryId: string) {
   let currentId: string | null = categoryId;
 
   while (currentId) {
-    const { data: category, error } = await supabase
+    const { data, error } = await supabase
       .from('categories')
       .select('id, name, slug, parent_id')
       .eq('id', currentId)
       .single();
 
-    if (error || !category) {
+    if (error || !data) {
       console.error('Error fetching category path:', error);
       break;
     }
+    const category: {
+      id: string;
+      name: string;
+      slug: string;
+      parent_id: string | null;
+    } = data;
 
     path.unshift({
       id: category.id,

@@ -41,8 +41,8 @@ const Recommended = ({ products }: RecommendedProps) => {
   ));
 
   return (
-    <section className="mt-8">
-      <h2 className="text-dark mb-8 text-3xl font-semibold">
+    <section>
+      <h2 className="text-dark mb-8 text-center text-3xl font-semibold md:text-left">
         З цим товаром також замовляють
       </h2>
 

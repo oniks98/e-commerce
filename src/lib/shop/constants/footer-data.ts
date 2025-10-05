@@ -49,7 +49,6 @@ export const footerData = {
     ],
   },
   contacts: {
-    phones: ['+38 063 338-82-60', '+38 067 636-01-90'],
     callbackText: 'Передзвоніть мені',
     address: 'м. Дніпро, вул.Чапленко 4/2',
     workingHours:

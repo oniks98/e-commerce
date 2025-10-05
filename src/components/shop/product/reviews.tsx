@@ -19,6 +19,7 @@ import {
   ReloadIcon,
   ChevronRightIcon,
 } from '@/lib/shop/icons';
+import Logo from '@/components/shop/ui/logo';
 
 const INITIAL_VISIBLE_REVIEWS = 1;
 
@@ -49,88 +50,83 @@ function ReviewItem({
   const repliesVisible = showReplies[review.id];
 
   return (
-    <div className="flex flex-col gap-5">
-      <div className="flex items-start gap-5">
-        <div className="relative h-[40px] w-[40px] shrink-0 md:h-[50px] md:w-[50px]">
-          <div className="border-yellow absolute inset-0 rounded-full border bg-white" />
-          <div className="text-grey absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <AccountIcon className="h-[18px] w-[18px] md:h-[21.43px] md:w-[21.43px]" />
+    <div className="mb-5 flex flex-col items-start gap-5 md:flex-row">
+      <div className="relative h-[50px] w-[50px] shrink-0">
+        <div className="border-yellow absolute inset-0 rounded-full border bg-white" />
+        <div className="text-grey absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <AccountIcon className="h-[21.43px] w-[21.43px]" />
+        </div>
+      </div>
+
+      <div className="flex flex-1 flex-col gap-5">
+        <div className="flex flex-wrap items-center gap-5">
+          <h3 className="text-dark w-full text-[15px] font-normal md:w-[476px] md:text-[17px]">
+            {review.author}
+          </h3>
+          <div className="flex gap-0.5 md:gap-0">
+            {[...Array(5)].map((_, i) => (
+              <StarIcon key={i} className="text-yellow h-5 w-5 md:h-6 md:w-6" />
+            ))}
           </div>
+          <span className="text-grey w-auto text-[15px] md:w-[84px] md:text-[17px]">
+            {review.date}
+          </span>
         </div>
 
-        <div className="flex flex-1 flex-col gap-5">
-          <div className="flex flex-wrap items-center gap-5">
-            <h3 className="text-dark w-full text-[15px] font-normal md:w-[476px] md:text-[17px]">
-              {review.author}
-            </h3>
-            <div className="flex gap-0.5 md:gap-0">
-              {[...Array(5)].map((_, i) => (
-                <StarIcon
-                  key={i}
-                  className="text-yellow h-5 w-5 md:h-6 md:w-6"
-                />
-              ))}
-            </div>
-            <span className="text-grey w-auto text-[15px] md:w-[84px] md:text-[17px]">
-              {review.date}
-            </span>
-          </div>
+        <p className="text-dark w-full text-base leading-[30px]">
+          {review.text}
+        </p>
 
-          <p className="text-dark w-full text-[14px] leading-[24px] md:w-[790px] md:text-[16px] md:leading-[30px]">
-            {review.text}
-          </p>
+        <div className="flex flex-wrap items-center gap-4 md:gap-[30px]">
+          <button
+            onClick={() => onReply(review.id, review.author)}
+            className="text-grey flex items-center gap-[5px] text-[15px] md:text-[17px]"
+          >
+            {activeReplyForm === review.id ? (
+              <>
+                <CloseIcon className="text-yellow h-5 w-5 md:h-6 md:w-6" />
+                Передумав
+              </>
+            ) : (
+              <>
+                <ChatIcon className="text-yellow h-5 w-5 md:h-6 md:w-6" />
+                Відповісти
+              </>
+            )}
+          </button>
 
-          <div className="flex flex-wrap items-center gap-4 md:gap-[30px]">
+          {hasReplies && (
             <button
-              onClick={() => onReply(review.id, review.author)}
+              onClick={() => onToggleReplies(review.id)}
               className="text-grey flex items-center gap-[5px] text-[15px] md:text-[17px]"
             >
-              {activeReplyForm === review.id ? (
+              {repliesVisible ? (
                 <>
                   <CloseIcon className="text-yellow h-5 w-5 md:h-6 md:w-6" />
-                  Передумав
+                  Приховати відповіді
                 </>
               ) : (
                 <>
-                  <ChatIcon className="text-yellow h-5 w-5 md:h-6 md:w-6" />
-                  Відповісти
+                  <div className="relative h-5 w-5 md:h-6 md:w-6">
+                    <ChatIcon className="text-yellow h-5 w-5 md:h-6 md:w-6" />
+                    <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[13px] leading-[15.8px] font-bold text-white">
+                      {review.repliesCount}
+                    </span>
+                  </div>
+                  Показати відповіді
                 </>
               )}
             </button>
+          )}
 
-            {hasReplies && (
-              <button
-                onClick={() => onToggleReplies(review.id)}
-                className="text-grey flex items-center gap-[5px] text-[15px] md:text-[17px]"
-              >
-                {repliesVisible ? (
-                  <>
-                    <CloseIcon className="text-yellow h-5 w-5 md:h-6 md:w-6" />
-                    Приховати відповіді
-                  </>
-                ) : (
-                  <>
-                    <div className="relative h-5 w-5 md:h-6 md:w-6">
-                      <ChatIcon className="text-yellow h-5 w-5 md:h-6 md:w-6" />
-                      <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[13px] leading-[15.8px] font-bold text-white">
-                        {review.repliesCount}
-                      </span>
-                    </div>
-                    Показати відповіді
-                  </>
-                )}
-              </button>
-            )}
-
-            <div className="flex items-center gap-2.5">
-              <LikeIcon className="text-yellow h-4 w-4 md:h-5 md:w-5" />
-              <span className="text-grey text-[15px] md:text-[17px]">
-                Корисний відгук:
-              </span>
-              <span className="text-grey text-[14px] leading-[20px] md:text-[16px] md:leading-[22px]">
-                {review.helpful}
-              </span>
-            </div>
+          <div className="flex items-center gap-2.5">
+            <LikeIcon className="text-yellow h-4 w-4 md:h-5 md:w-5" />
+            <span className="text-grey text-[15px] md:text-[17px]">
+              Корисний відгук:
+            </span>
+            <span className="text-grey text-[14px] leading-[20px] md:text-[16px] md:leading-[22px]">
+              {review.helpful}
+            </span>
           </div>
         </div>
       </div>
@@ -144,28 +140,13 @@ interface ReplyItemProps {
 
 function ReplyItem({ reply }: ReplyItemProps) {
   return (
-    <div className="ml-[50px] flex flex-col gap-5 md:ml-[70px]">
+    <div className="flex flex-col gap-5 md:ml-[70px]">
       <div className="flex items-start gap-5">
         <div className="relative h-[40px] w-[40px] shrink-0 md:h-[50px] md:w-[50px]">
           <div className="border-yellow absolute inset-0 rounded-full border bg-white" />
           {reply.isCompany ? (
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <svg
-                width="28"
-                height="17"
-                viewBox="0 0 36 21"
-                fill="none"
-                className="md:h-[21px] md:w-[36px]"
-              >
-                <path
-                  d="M0 20.43L14.31 20.43L19 13.98L14.31 7.53L0 7.53L0 20.43Z"
-                  fill="#FFBC57"
-                />
-                <path
-                  d="M31.31 0L4.69 0L9.38 6.45L4.69 12.9L31.31 12.9C33.91 12.9 36 10.81 36 8.21L36 4.69C36 2.09 33.91 0 31.31 0Z"
-                  fill="#FFBC57"
-                />
-              </svg>
+            <div className="absolute">
+              <Logo />
             </div>
           ) : (
             <div className="text-grey absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -187,12 +168,10 @@ function ReplyItem({ reply }: ReplyItemProps) {
                 </span>
               </>
             )}
-            <span className="text-grey text-[15px] md:text-[17px]">
-              {reply.date}
-            </span>
+            <span className="text-grey text-base">{reply.date}</span>
           </div>
 
-          <p className="text-dark w-full text-[14px] leading-[24px] md:w-[720px] md:text-[16px] md:leading-[30px]">
+          <p className="text-dark w-full text-base leading-[30px]">
             {reply.text}
           </p>
         </div>
@@ -229,7 +208,7 @@ function ReplyForm({
   };
 
   return (
-    <div className="bg-light relative ml-[50px] w-[calc(100%-50px)] rounded-lg p-5 md:ml-[70px] md:h-[428px] md:w-[790px] md:p-[30px]">
+    <div className="bg-light relative mb-8 rounded-lg p-[30px]">
       <div className="absolute top-5 left-5 h-6 w-6 md:top-[30px] md:left-[30px] md:h-8 md:w-8">
         <ForwardIcon className="text-yellow h-full w-full" />
       </div>
@@ -266,7 +245,7 @@ function ReplyForm({
           </div>
         </div>
 
-        <div className="mt-4 mb-[20px] md:mt-5 md:mb-[30px]">
+        <div className="py-5">
           <textarea
             placeholder="Відгук"
             {...register('review')}
@@ -301,7 +280,7 @@ interface ReviewsProps {
   productName: string;
 }
 
-export default function Reviews({ productName }: ReviewsProps) {
+const Reviews = ({ productName }: ReviewsProps) => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_REVIEWS);
   const [activeReplyForm, setActiveReplyForm] = useState<string | null>(null);
   const [showReplies, setShowReplies] = useState<Record<string, boolean>>({});
@@ -334,12 +313,12 @@ export default function Reviews({ productName }: ReviewsProps) {
   };
 
   return (
-    <section className="rounded-lg bg-white px-4 py-5 shadow-[0px_0px_15px_0px_rgba(0,0,0,0.05)] md:px-[30px] md:py-[30px]">
-      <h2 className="text-dark text-2xl leading-tight font-semibold md:w-[790px] md:text-[30px] md:leading-[40px]">
+    <section className="max-w-[920px] rounded-lg bg-white px-4 py-5 shadow-[0px_0px_15px_0px_rgba(0,0,0,0.05)] md:px-[30px] md:py-[30px]">
+      <h2 className="text-dark mb-8 text-center text-3xl leading-tight font-semibold md:text-left">
         {`Відгуки про ${productName}`}
       </h2>
 
-      <div className="mt-5 mb-5 flex flex-col gap-4 md:mt-[30px] md:mb-[34px] md:flex-row md:items-center md:gap-[195px]">
+      <div className="flex flex-col gap-4 py-5 md:mb-8 md:flex-row md:items-center md:gap-[195px]">
         <div className="flex items-center gap-2.5">
           <span className="text-grey text-[17px]">Всього відгуків:</span>
           <span className="text-grey text-[17px]">93</span>
@@ -371,8 +350,8 @@ export default function Reviews({ productName }: ReviewsProps) {
             />
 
             {showReplies[review.id] && review.replies && (
-              <div className="mt-5 mb-5 flex flex-col gap-5 md:mt-[32px] md:mb-[30px] md:gap-[32px]">
-                <div className="bg-yellow ml-[50px] h-[2px] w-[calc(100%-50px)] md:ml-[100px] md:w-[720px]" />
+              <div className="flex flex-col gap-5 py-5 md:py-8">
+                <div className="bg-yellow h-[2px] md:ml-[100px]" />
                 {review.replies.map((reply) => (
                   <ReplyItem key={reply.id} reply={reply} />
                 ))}
@@ -380,7 +359,7 @@ export default function Reviews({ productName }: ReviewsProps) {
             )}
 
             {activeReplyForm === review.id && (
-              <div className="mt-5 mb-5 md:mt-[30px] md:mb-[30px]">
+              <div className="py-5">
                 <ReplyForm
                   reviewId={review.id}
                   authorName={review.author}
@@ -388,10 +367,10 @@ export default function Reviews({ productName }: ReviewsProps) {
                   onSubmit={handleSubmitReply}
                 />
 
-                <div className="mt-5 flex justify-center md:mt-[30px]">
+                <div className="flex justify-center">
                   <button
                     onClick={handleShowMore}
-                    className="bg-yellow flex h-[45px] w-full items-center justify-center gap-3 rounded-lg px-6 py-2 text-[17px] font-semibold text-white md:h-[50px] md:w-auto md:gap-[15px] md:px-[30px] md:text-[19px]"
+                    className="bg-yellow flex max-w-73 items-center justify-center gap-3 rounded-lg px-6 py-2 text-[17px] font-semibold text-white md:h-[50px] md:gap-[15px] md:px-[30px] md:text-[19px]"
                   >
                     <ReloadIcon className="h-5 w-5 md:h-6 md:w-6" />
                     {hasMoreReviews
@@ -406,10 +385,10 @@ export default function Reviews({ productName }: ReviewsProps) {
       </div>
 
       {!activeReplyForm && PRODUCT_REVIEWS.length > INITIAL_VISIBLE_REVIEWS && (
-        <div className="mt-5 flex justify-center md:mt-[30px]">
+        <div className="flex justify-center">
           <button
             onClick={handleShowMore}
-            className="bg-yellow flex h-[45px] w-full items-center justify-center gap-3 rounded-lg px-6 py-2 text-[17px] font-semibold text-white md:h-[50px] md:w-auto md:gap-[15px] md:px-[30px] md:text-[19px]"
+            className="bg-yellow w-max-73 flex items-center justify-center gap-3 rounded-lg px-6 py-2 text-[17px] font-semibold text-white md:h-[50px] md:gap-[15px] md:px-[30px] md:text-[19px]"
           >
             <ReloadIcon className="h-5 w-5 md:h-6 md:w-6" />
             {hasMoreReviews ? 'Показати ще відгуки' : 'Згорнути всі відгуки'}
@@ -418,4 +397,6 @@ export default function Reviews({ productName }: ReviewsProps) {
       )}
     </section>
   );
-}
+};
+
+export default Reviews;

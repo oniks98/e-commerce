@@ -14,7 +14,7 @@ export { default as MobileHeader } from './mobile/mobile-header';
 export { default as MobileMenu } from './mobile/mobile-menu';
 
 // Shared components
-export { default as Logo } from './shared/logo';
+export { default as Logo } from '../ui/logo';
 export { default as SearchInput } from './shared/search-input';
 export { default as ActionButtons } from './shared/action-buttons';
 export { default as CatalogButton } from './shared/catalog-button';

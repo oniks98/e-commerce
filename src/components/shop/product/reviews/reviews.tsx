@@ -1,0 +1,116 @@
+'use client';
+
+import { useState } from 'react';
+import clsx from 'clsx';
+import { PRODUCT_REVIEWS } from '@/lib/shop/constants/product-reviews-data';
+import { ReviewItem } from './review-item';
+import { ReplyItem } from './reply-item';
+import { ReplyForm, ReplyFormValues } from './reply-form';
+import { ShowMoreButton } from './show-more-button';
+import { ReviewsHeader } from './reviews-header';
+
+const INITIAL_VISIBLE_REVIEWS = 1;
+
+interface ReviewsProps {
+  productName: string;
+}
+
+export default function Reviews({ productName }: ReviewsProps) {
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_REVIEWS);
+  const [activeReplyForm, setActiveReplyForm] = useState<string | null>(null);
+  const [showReplies, setShowReplies] = useState<Record<string, boolean>>({});
+
+  const visibleReviews = PRODUCT_REVIEWS.slice(0, visibleCount);
+  const hasMoreReviews = visibleCount < PRODUCT_REVIEWS.length;
+
+  const handleShowMore = () => {
+    if (visibleCount >= PRODUCT_REVIEWS.length) {
+      setVisibleCount(INITIAL_VISIBLE_REVIEWS);
+    } else {
+      setVisibleCount(PRODUCT_REVIEWS.length);
+    }
+  };
+
+  const handleReply = (reviewId: string, authorName: string) => {
+    setActiveReplyForm(activeReplyForm === reviewId ? null : reviewId);
+  };
+
+  const handleToggleReplies = (reviewId: string) => {
+    setShowReplies((prev) => ({
+      ...prev,
+      [reviewId]: !prev[reviewId],
+    }));
+  };
+
+  const handleSubmitReply = (data: ReplyFormValues) => {
+    console.log('Reply submitted:', data);
+    setActiveReplyForm(null);
+  };
+
+  const containerStyles = clsx(
+    'max-w-[920px] rounded-lg bg-white shadow-[0px_0px_15px_0px_rgba(0,0,0,0.05)]',
+    'px-4 py-5',
+    'md:px-[30px] md:py-[30px]',
+  );
+
+  const dividerStyles = clsx(
+    'h-[2px] w-full bg-light',
+    'my-5',
+    'md:my-[30px] md:h-[3px]',
+  );
+
+  return (
+    <section className={containerStyles}>
+      <ReviewsHeader
+        productName={productName}
+        totalReviews={93}
+        averageRating={4.5}
+      />
+
+      <div className="flex flex-col">
+        {visibleReviews.map((review, index) => (
+          <div key={review.id}>
+            {index > 0 && <div className={dividerStyles} />}
+
+            <ReviewItem
+              review={review}
+              onReply={handleReply}
+              onToggleReplies={handleToggleReplies}
+              activeReplyForm={activeReplyForm}
+              showReplies={showReplies}
+            />
+
+            {showReplies[review.id] && review.replies && (
+              <div className="flex flex-col gap-5 py-5 md:py-8">
+                <div className="bg-yellow h-[2px] md:ml-[100px]" />
+                {review.replies.map((reply) => (
+                  <ReplyItem key={reply.id} reply={reply} />
+                ))}
+              </div>
+            )}
+
+            {activeReplyForm === review.id && (
+              <div className="py-5">
+                <ReplyForm
+                  reviewId={review.id}
+                  authorName={review.author}
+                  onCancel={() => setActiveReplyForm(null)}
+                  onSubmit={handleSubmitReply}
+                />
+
+                <ShowMoreButton
+                  onClick={handleShowMore}
+                  hasMore={hasMoreReviews}
+                />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {!activeReplyForm && PRODUCT_REVIEWS.length > INITIAL_VISIBLE_REVIEWS && (
+        <ShowMoreButton onClick={handleShowMore} hasMore={hasMoreReviews} />
+      )}
+    </section>
+  );
+}

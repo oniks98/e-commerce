@@ -44,7 +44,7 @@ export default async function ProductPage({
             <Desc />
             <LeaveReview />
           </div>
-          <div className="py-8">
+          <div className="grid grid-cols-1 gap-5 py-8 xl:grid-cols-[1fr_350px]">
             <Reviews productName={productName} />
           </div>
           <div className="py-8">

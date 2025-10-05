@@ -48,7 +48,7 @@ export default function Reviews({ productName }: ReviewsProps) {
   };
 
   const containerStyles = clsx(
-    'max-w-[920px] rounded-lg bg-white shadow-[0px_0px_15px_0px_rgba(0,0,0,0.05)]',
+    'xl:max-w-[920px] rounded-lg bg-white shadow-[0px_0px_15px_0px_rgba(0,0,0,0.05)]',
     'px-4 py-5',
     'md:px-[30px] md:py-[30px]',
   );

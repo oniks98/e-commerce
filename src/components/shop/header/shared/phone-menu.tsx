@@ -6,7 +6,7 @@ import { PhoneIcon, ChevronDownIcon } from '@/lib/shop/icons';
 
 const PHONES = ['063 338-82-60', '067 636-01-90'];
 
-export function PhoneMenu() {
+const PhoneMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   // This component is not used in the final header,
@@ -94,4 +94,5 @@ export function PhoneMenu() {
       </div>
     </>
   );
-}
+};
+export default PhoneMenu;

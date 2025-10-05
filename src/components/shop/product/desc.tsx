@@ -1,7 +1,6 @@
-import Image from 'next/image';
 import { characteristics } from '@/lib/shop/constants/characteristics-data';
 
-export function Desc() {
+const Desc = () => {
   return (
     <section>
       <h2 className="text-dark mb-5 text-3xl font-semibold">Опис товару</h2>
@@ -33,4 +32,6 @@ export function Desc() {
       </div>
     </section>
   );
-}
+};
+
+export default Desc;

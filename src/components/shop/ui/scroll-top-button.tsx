@@ -1,14 +1,14 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function ScrollTopButton() {
+const ScrollTopButton = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    function onScroll() {
-      setVisible(window.scrollY > 300); // Показувати кнопку після 300px скролу вниз
-    }
+    const onScroll = () => {
+      setVisible(window.scrollY > 300);
+    };
 
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
@@ -31,4 +31,6 @@ export default function ScrollTopButton() {
       </button>
     </div>
   );
-}
+};
+
+export default ScrollTopButton;

@@ -11,7 +11,27 @@ interface RecommendedProps {
   products: Product[];
 }
 
-export function Recommended({ products }: RecommendedProps) {
+const PrevButton = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
+  <button
+    {...props}
+    className="text-yellow absolute top-[-90px] right-[80px] flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-50"
+    aria-label="Previous slide"
+  >
+    <ChevronLeftIcon />
+  </button>
+);
+
+const NextButton = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
+  <button
+    {...props}
+    className="text-yellow absolute top-[-90px] right-0 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-50"
+    aria-label="Next slide"
+  >
+    <ChevronRightIcon />
+  </button>
+);
+
+const Recommended = ({ products }: RecommendedProps) => {
   if (products.length === 0) {
     return null;
   }
@@ -75,24 +95,6 @@ export function Recommended({ products }: RecommendedProps) {
       </div>
     </section>
   );
-}
+};
 
-const PrevButton = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
-  <button
-    {...props}
-    className="text-yellow absolute top-[-90px] right-[80px] flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-50"
-    aria-label="Previous slide"
-  >
-    <ChevronLeftIcon />
-  </button>
-);
-
-const NextButton = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
-  <button
-    {...props}
-    className="text-yellow absolute top-[-90px] right-0 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-50"
-    aria-label="Next slide"
-  >
-    <ChevronRightIcon />
-  </button>
-);
+export default Recommended;

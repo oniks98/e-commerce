@@ -26,7 +26,7 @@ const slides = [
   },
 ];
 
-export default function Hero({ className }: HeroProps) {
+const Hero = ({ className }: HeroProps) => {
   const options: EmblaOptionsType = { loop: true };
 
   const slideComponents = slides.map((slide) => (
@@ -88,4 +88,6 @@ export default function Hero({ className }: HeroProps) {
       />
     </div>
   );
-}
+};
+
+export default Hero;

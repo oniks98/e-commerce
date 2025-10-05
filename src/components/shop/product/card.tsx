@@ -12,13 +12,9 @@ import {
   ChatIcon,
   CheckIcon,
   FavoritesIcon,
-  ChevronDownIcon,
-  HelpIcon,
-  AngleDoubleUpIcon,
   MinusIcon,
   AddIcon,
   CartIcon,
-  CreditIcon,
   PhoneIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -32,7 +28,7 @@ interface CardProps {
   productName: string;
 }
 
-export function Card({ product, locale, productName }: CardProps) {
+const Card = ({ product, locale, productName }: CardProps) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [carouselApi, setCarouselApi] = useState<any>(null);
@@ -41,7 +37,6 @@ export function Card({ product, locale, productName }: CardProps) {
     setQuantity((prev) => Math.max(1, prev + delta));
   };
 
-  // Sync selectedImage with carousel position
   useEffect(() => {
     if (!carouselApi) return;
 
@@ -50,20 +45,18 @@ export function Card({ product, locale, productName }: CardProps) {
     };
 
     carouselApi.on('select', onSelect);
-    onSelect(); // Initial sync
+    onSelect();
 
     return () => {
       carouselApi.off('select', onSelect);
     };
   }, [carouselApi]);
 
-  // Handle thumbnail click
   const handleThumbnailClick = (index: number) => {
     if (!carouselApi) return;
     carouselApi.scrollTo(index);
   };
 
-  // Carousel configuration
   const carouselOptions: EmblaOptionsType = { loop: true };
 
   const imageSlides = [...Array(5)].map((_, index) => (
@@ -118,7 +111,6 @@ export function Card({ product, locale, productName }: CardProps) {
 
   return (
     <section className="grid grid-cols-1 gap-x-5 pt-8 pb-6 lg:grid-cols-2">
-      {/* Image Gallery with Carousel */}
       <div>
         <Carousel
           slides={imageSlides}
@@ -130,7 +122,6 @@ export function Card({ product, locale, productName }: CardProps) {
           className="mb-5"
         />
 
-        {/* Thumbnails */}
         <div className="mb-6 flex flex-wrap justify-center gap-3 lg:mb-0">
           {[...Array(5)].map((_, index) => (
             <button
@@ -153,7 +144,6 @@ export function Card({ product, locale, productName }: CardProps) {
         </div>
       </div>
 
-      {/* Product Info */}
       <div>
         <h1 className="text-dark mb-8 text-3xl font-semibold">{productName}</h1>
         <div className="mb-4 flex flex-wrap items-center gap-x-10 gap-y-5">
@@ -244,4 +234,6 @@ export function Card({ product, locale, productName }: CardProps) {
       </div>
     </section>
   );
-}
+};
+
+export default Card;

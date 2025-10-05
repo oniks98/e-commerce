@@ -9,7 +9,7 @@ const LANGUAGES = [
   { code: 'EN', label: 'EN' },
 ];
 
-export function LanguageSwitcher() {
+const LanguageSwitcher = () => {
   const [selectedLanguage, setSelectedLanguage] = useState('UA');
   const [isOpen, setIsOpen] = useState(false);
 
@@ -72,4 +72,5 @@ export function LanguageSwitcher() {
       )}
     </div>
   );
-}
+};
+export default LanguageSwitcher;

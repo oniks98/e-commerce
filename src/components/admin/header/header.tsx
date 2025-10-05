@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
+const AdminHeader = () => {
+  return <div>header</div>;
+};
 
-export default function Header() {
-  return <div> header</div>;
-}
+export default AdminHeader;

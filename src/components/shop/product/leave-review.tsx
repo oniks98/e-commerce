@@ -14,7 +14,7 @@ const reviewSchema = z.object({
 
 type ReviewFormValues = z.infer<typeof reviewSchema>;
 
-export function LeaveReview() {
+const LeaveReview = () => {
   const {
     register,
     handleSubmit,
@@ -25,7 +25,6 @@ export function LeaveReview() {
 
   const onSubmit: SubmitHandler<ReviewFormValues> = (data) => {
     console.log(data);
-    // Here you would typically send the data to your backend
   };
 
   return (
@@ -90,4 +89,6 @@ export function LeaveReview() {
       </div>
     </section>
   );
-}
+};
+
+export default LeaveReview;

@@ -1,11 +1,11 @@
 import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 import Advantages from '@/components/shop/ui/advantages';
-import { Recommended } from '@/components/shop/product/recommended';
+import Recommended from '@/components/shop/product/recommended';
 import Reviews from '@/components/shop/product/reviews';
-import { LeaveReview } from '@/components/shop/product/leave-review';
-import { Desc } from '@/components/shop/product/desc';
-import { Conditions } from '@/components/shop/product/conditions';
-import { Card } from '@/components/shop/product/card';
+import LeaveReview from '@/components/shop/product/leave-review';
+import Desc from '@/components/shop/product/desc';
+import Conditions from '@/components/shop/product/conditions';
+import Card from '@/components/shop/product/card';
 
 import { Locale } from '@/i18n/types';
 import { getProductBySlug, getProducts } from '@/lib/shop/actions/product';

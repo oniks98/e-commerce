@@ -32,7 +32,7 @@ interface ConditionsProps {
   locale: string;
 }
 
-export function Conditions({ locale }: ConditionsProps) {
+const Conditions = ({ locale }: ConditionsProps) => {
   return (
     <section className="grid grid-cols-1 gap-5 py-8 md:mx-auto md:grid-cols-2 xl:grid-cols-4">
       {conditionsData.map((item, index) => (
@@ -56,4 +56,6 @@ export function Conditions({ locale }: ConditionsProps) {
       ))}
     </section>
   );
-}
+};
+
+export default Conditions;

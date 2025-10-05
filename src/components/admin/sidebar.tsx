@@ -1,4 +1,7 @@
 'use client';
-export default function Sidebar() {
+
+const Sidebar = () => {
   return null;
-}
+};
+
+export default Sidebar;

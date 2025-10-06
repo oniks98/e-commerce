@@ -37,17 +37,22 @@ const Recommended = ({ products }: RecommendedProps) => {
   }
 
   const slides = products.map((product) => (
-    <ProductCard key={product.id} product={product} locale="uk" />
+    <ProductCard
+      key={product.id}
+      product={product}
+      locale="uk"
+      className="w-full"
+    />
   ));
 
   return (
-    <section>
-      <h2 className="text-dark mb-8 text-center text-3xl font-semibold md:text-left">
+    <section className="py-[35px]">
+      <h2 className="text-dark mb-8 py-3 text-center text-3xl font-semibold md:text-left">
         З цим товаром також замовляють
       </h2>
 
       {/* Mobile Carousel */}
-      <div className="md:hidden">
+      <div className="sm:hidden">
         <Carousel
           slides={slides}
           options={{
@@ -60,8 +65,23 @@ const Recommended = ({ products }: RecommendedProps) => {
         />
       </div>
 
+      {/* Mobile Carousel */}
+      <div className="hidden sm:block md:hidden">
+        <Carousel
+          slides={slides}
+          options={{
+            loop: true,
+            align: 'start',
+            slidesToScroll: 1,
+            perPage: 2,
+            gap: 30,
+          }}
+          showDots={false}
+        />
+      </div>
+
       {/* Tablet Carousel */}
-      <div className="hidden md:block xl:hidden">
+      <div className="hidden md:block lg:hidden">
         <Carousel
           slides={slides}
           options={{
@@ -77,7 +97,24 @@ const Recommended = ({ products }: RecommendedProps) => {
         />
       </div>
 
-      {/* Desktop Carousel */}
+      {/* Desktop-lg Carousel */}
+      <div className="hidden lg:block xl:hidden">
+        <Carousel
+          slides={slides}
+          options={{
+            loop: true,
+            align: 'start',
+            slidesToScroll: 1,
+            perPage: 3,
+            gap: 30,
+          }}
+          prevButton={<PrevButton />}
+          nextButton={<NextButton />}
+          showDots={false}
+        />
+      </div>
+
+      {/* Desktop-xl Carousel */}
       <div className="hidden xl:block">
         <Carousel
           slides={slides}

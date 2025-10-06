@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { MoonIcon, ThemeIcon } from '@/lib/shop/icons';
 
-export function ThemeToggle({ className }: { className?: string }) {
+const ThemeToggle = ({ className }: { className?: string }) => {
   const [mounted, setMounted] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
@@ -45,4 +45,6 @@ export function ThemeToggle({ className }: { className?: string }) {
       )}
     </button>
   );
-}
+};
+
+export default ThemeToggle;

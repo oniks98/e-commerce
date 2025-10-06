@@ -1,3 +1,4 @@
+export { default as AccountIcon } from './account-icon';
 export { default as AddIcon } from './add-icon';
 export { default as AkciiIcon } from './akcii-icon';
 export { default as AngleDoubleUpIcon } from './angle-double-up-icon';
@@ -42,6 +43,5 @@ export { default as InstagramIcon } from './instagram-icon';
 export { default as MinusIcon } from './minus-icon';
 export { default as HelpIcon } from './help-icon';
 export { default as WarrantyIcon } from './warranty-icon';
-export { default as AccountIcon } from './account-icon';
 export { default as LikeIcon } from './like-icon';
 export { default as ForwardIcon } from './forward-icon';

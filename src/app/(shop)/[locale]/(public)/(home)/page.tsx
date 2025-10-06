@@ -43,7 +43,7 @@ export default async function HomePage({
         <Articles />
       </div>
       <div className="bg-white">
-        <div className="mx-auto max-w-[1360px] px-4 pb-10 md:px-[35px]">
+        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
           <About />
           <Advantages />
         </div>

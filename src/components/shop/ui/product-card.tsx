@@ -12,9 +12,10 @@ type Product = Tables<'products'>;
 interface ProductCardProps {
   product: Product;
   locale: string;
+  className?: string;
 }
 
-const ProductCard = ({ product, locale }: ProductCardProps) => {
+const ProductCard = ({ product, locale, className }: ProductCardProps) => {
   const productName =
     typeof product.name === 'object' &&
     product.name &&
@@ -35,7 +36,6 @@ const ProductCard = ({ product, locale }: ProductCardProps) => {
         'group',
         'relative',
         'flex',
-        'min-w-[270px]',
         'flex-col',
         'items-center',
         'rounded-lg',
@@ -47,6 +47,7 @@ const ProductCard = ({ product, locale }: ProductCardProps) => {
         'transition-shadow',
         'duration-300',
         'hover:shadow-xl',
+        className,
       )}
     >
       <Link href={`/${productSlug}`} className="flex w-full flex-col">

@@ -47,12 +47,12 @@ export default async function ProductPage({
           <div className="grid grid-cols-1 gap-5 py-8 xl:grid-cols-[1fr_350px]">
             <Reviews productName={productName} />
           </div>
-          <div className="py-8">
-            <Recommended products={recommendedProducts} />
-          </div>
-          <div className="py-8">
-            <Advantages />
-          </div>
+        </div>
+      </div>
+      <div className="bg-white">
+        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
+          <Recommended products={recommendedProducts} />
+          <Advantages />
         </div>
       </div>
     </div>

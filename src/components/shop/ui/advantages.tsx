@@ -18,7 +18,7 @@ const Advantages = () => {
   return (
     <div
       className={clsx(
-        'grid grid-cols-2 gap-5',
+        'grid grid-cols-2 gap-5 py-10',
         'place-items-center xl:grid-cols-4 xl:gap-5',
       )}
     >

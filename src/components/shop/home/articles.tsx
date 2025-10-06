@@ -27,7 +27,7 @@ const Articles = () => {
   }
 
   return (
-    <section className="py-[60px] md:py-[80px] xl:py-[120px]">
+    <section className="py-[60px] md:py-[70px]">
       <div className="mx-auto">
         <div className="mb-10 flex items-center justify-start gap-x-[30px]">
           <h2 className="text-dark text-3xl font-semibold">

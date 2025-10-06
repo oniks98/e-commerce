@@ -47,7 +47,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       </div>
       <Reviews />
       <div className="bg-white">
-        <div className="mx-auto max-w-[1360px] px-4 pb-10 md:px-[35px]">
+        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
           <Faq />
           <Advantages />
         </div>

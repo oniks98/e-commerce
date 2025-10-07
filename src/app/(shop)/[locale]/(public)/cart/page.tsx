@@ -26,7 +26,11 @@ export default async function CartPage({
           Оформлення замовлення
         </h1>
         <ExecutionContract />
-        <Advantages />
+      </div>
+      <div className="bg-white">
+        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
+          <Advantages />
+        </div>
       </div>
     </div>
   );

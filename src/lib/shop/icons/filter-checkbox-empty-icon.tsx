@@ -1,9 +1,13 @@
 import { SVGProps } from 'react';
 
-const FilterCheckboxEmptyIcon = (props: SVGProps<SVGSVGElement>) => (
+const FilterCheckboxEmptyIcon = ({
+  width = 24,
+  height = 24,
+  ...props
+}: SVGProps<SVGSVGElement>) => (
   <svg
-    width="16"
-    height="16"
+    width={width}
+    height={height}
     viewBox="0 0 16 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +15,7 @@ const FilterCheckboxEmptyIcon = (props: SVGProps<SVGSVGElement>) => (
   >
     <path
       d="M13.6 0H2.4C1.76348 0 1.15303 0.252856 0.702944 0.702944C0.252856 1.15303 0 1.76348 0 2.4V13.6C0 14.2365 0.252856 14.847 0.702944 15.2971C1.15303 15.7471 1.76348 16 2.4 16H13.6C14.2365 16 14.847 15.7471 15.2971 15.2971C15.7471 14.847 16 14.2365 16 13.6V2.4C16 1.76348 15.7471 1.15303 15.2971 0.702944C14.847 0.252856 14.2365 0 13.6 0ZM14.4 13.6C14.4 13.8122 14.3157 14.0157 14.1657 14.1657C14.0157 14.3157 13.8122 14.4 13.6 14.4H2.4C2.18783 14.4 1.98434 14.3157 1.83431 14.1657C1.68429 14.0157 1.6 13.8122 1.6 13.6V2.4C1.6 2.18783 1.68429 1.98434 1.83431 1.83431C1.98434 1.68429 2.18783 1.6 2.4 1.6H13.6C13.8122 1.6 14.0157 1.68429 14.1657 1.83431C14.3157 1.98434 14.4 2.18783 14.4 2.4V13.6Z"
-      fill="currentColor"
+      fill="#D1D5D5"
     />
   </svg>
 );

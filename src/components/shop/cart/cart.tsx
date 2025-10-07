@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import clsx from 'clsx';
 import { useCartStore } from '@/store/cart-store';
 
@@ -20,6 +22,9 @@ const Cart = () => {
   const [showAll, setShowAll] = useState(false);
   const [noCall, setNoCall] = useState(false);
   const [mounted, setMounted] = useState(false);
+
+  const params = useParams();
+  const locale = params.locale;
 
   useEffect(() => {
     setMounted(true);
@@ -56,9 +61,9 @@ const Cart = () => {
         </div>
       ) : (
         <>
-          <div className="flex flex-col gap-y-5">
+          <ul className="flex flex-col gap-y-5">
             {visibleItems.map((item) => (
-              <div
+              <li
                 key={item.id}
                 className="border-grey-light flex gap-x-5 border-b pb-5"
               >
@@ -118,9 +123,9 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
 
           {items.length > 2 && (
             <div className="relative">
@@ -139,44 +144,27 @@ const Cart = () => {
             </div>
           )}
 
-          <div className="border-grey-light my-5 border-t-2 pt-5">
-            <div className="flex items-center gap-x-2">
-              <PromoIcon className="text-yellow h-8 w-8" />
-              <p className="text-dark text-lg font-semibold">Є промокод?</p>
-            </div>
-            <div className="mt-2 flex gap-x-2">
-              <input
-                type="text"
-                placeholder="Введіть код"
-                className="border-grey-light flex-1 rounded-lg border p-3"
-              />
-              <button className="bg-yellow rounded-lg px-6 py-3 font-semibold text-white">
-                ОК
-              </button>
-            </div>
-          </div>
-
           <div className="border-grey-light border-t-2 pt-5">
             <h4 className="text-dark mb-3 text-2xl font-semibold">Разом:</h4>
-            <div className="flex flex-col gap-y-2 text-base">
-              <div className="flex items-end justify-between">
+            <ul className="flex flex-col gap-y-2 text-base">
+              <li className="flex items-end justify-between">
                 <p className="text-dark">{totalItems} товари на суму:</p>
                 <div className="border-grey-light flex-1 border-b-2 border-dashed" />
                 <p className="text-dark">{totalAmount.toLocaleString()} грн.</p>
-              </div>
-              <div className="flex items-end justify-between">
+              </li>
+              <li className="flex items-end justify-between">
                 <p className="text-dark">Вартість доставки:</p>
                 <div className="border-grey-light flex-1 border-b-2 border-dashed" />
                 <p className="text-dark">{deliveryCost}</p>
-              </div>
-              <div className="mt-2 flex items-end justify-between">
+              </li>
+              <li className="mt-2 flex items-end justify-between">
                 <p className="text-dark">До оплати:</p>
                 <div className="border-grey-light flex-1 border-b-2 border-dashed" />
                 <p className="text-dark text-2xl font-semibold">
                   {totalAmount.toLocaleString()} грн.
                 </p>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
 
           <div className="mt-8 flex items-center gap-x-2">
@@ -205,9 +193,9 @@ const Cart = () => {
 
           <p className="text-grey mt-3 text-center text-sm">
             Підтверджуючи замовлення, я приймаю умови{' '}
-            <a href="#" className="underline">
+            <Link href={`/${locale}/terms`} className="underline">
               Угоди користувача
-            </a>
+            </Link>
           </p>
         </>
       )}

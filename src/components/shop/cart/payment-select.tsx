@@ -24,30 +24,15 @@ const PaymentSelect = () => {
       icons: [MasterCardLogo, VisaCardLogo],
     },
     {
-      id: 'privat-pay',
-      label: 'Privat Pay',
-      icons: [PrivatPayLogo],
-    },
-    {
-      id: 'krovato-credit',
-      label: 'Кредит від Krovato',
-    },
-    {
-      id: 'privat-credit',
-      label: 'Оплата частинами ПриватБанк',
-      icons: [PrivatBankCreditLogo],
-    },
-    {
-      id: 'mono-credit',
-      label: 'Оплата частинами МоноБанк',
-      icons: [MonoBankLogo],
+      id: 'payment-to-account',
+      label: 'Оплата на рахунок',
     },
   ];
 
   return (
-    <div className="w-full max-w-[342px]">
+    <div className="w-full max-w-100">
       <div className="mb-[30px] flex items-center gap-[15px]">
-        <div className="bg-yellow flex h-[60px] w-[60px] items-center justify-center rounded-full md:h-[40px] md:w-[40px]">
+        <div className="bg-yellow flex h-[60px] w-[60px] items-center justify-center rounded-full">
           <PaymentSelectIcon className="h-[27px] w-[30px] text-white" />
         </div>
         <h3 className="text-dark text-2xl font-semibold md:text-xl">
@@ -55,9 +40,9 @@ const PaymentSelect = () => {
         </h3>
       </div>
 
-      <div className="flex flex-col gap-y-[20px]">
+      <ul className="flex flex-col gap-y-[20px]">
         {paymentOptions.map(({ id, label, icons }) => (
-          <div
+          <li
             key={id}
             className="flex cursor-pointer items-center gap-x-[10px]"
             onClick={() => setSelected(id)}
@@ -78,9 +63,9 @@ const PaymentSelect = () => {
                 ))}
               </div>
             )}
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

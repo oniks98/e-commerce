@@ -6,7 +6,7 @@ const Comment = () => {
   return (
     <div className="w-full max-w-[680px]">
       <div className="mb-[30px] flex items-center gap-[15px]">
-        <div className="bg-yellow flex h-[60px] w-[60px] items-center justify-center rounded-full md:h-[40px] md:w-[40px]">
+        <div className="bg-yellow flex h-[60px] w-[60px] items-center justify-center rounded-full">
           <CommentIcon className="h-[36px] w-[36px] text-white" />
         </div>
         <h3 className="text-dark text-2xl font-semibold md:text-xl">

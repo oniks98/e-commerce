@@ -3,9 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
+import { useState } from 'react';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import { CheckIcon, CartIcon, FavoritesIcon } from '@/lib/shop/icons';
 import { Tables } from '@/lib/supabase/types/database';
+import { useCartStore } from '@/store/cart-store';
 
 type Product = Tables<'products'>;
 
@@ -16,6 +18,9 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, locale, className }: ProductCardProps) => {
+  const [isAdding, setIsAdding] = useState(false);
+  const addItem = useCartStore((state) => state.addItem);
+
   const productName =
     typeof product.name === 'object' &&
     product.name &&
@@ -29,6 +34,25 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
     (product.slug as any)[locale]
       ? (product.slug as any)[locale]
       : product.id;
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    setIsAdding(true);
+
+    addItem({
+      id: product.id,
+      name: productName,
+      price: product.price_uah || 0,
+      image: getPlaceholder('product', product.id),
+      slug: productSlug,
+    });
+
+    setTimeout(() => {
+      setIsAdding(false);
+    }, 600);
+  };
 
   return (
     <div
@@ -85,14 +109,32 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
           <p className="text-dark text-xl font-semibold">{`${product.price_uah} грн.`}</p>
         </div>
         <div className="flex items-center">
-          <button className="bg-grey-light-r mr-2 rounded-full p-3">
+          <button
+            className="bg-grey-light-r mr-2 rounded-full p-3 transition-colors hover:bg-grey-light"
+            aria-label="Додати в обране"
+          >
             <FavoritesIcon className="text-grey h-6 w-6" />
           </button>
-          <button className="bg-yellow rounded-full p-3">
+          <button
+            onClick={handleAddToCart}
+            disabled={isAdding}
+            className={clsx(
+              'bg-yellow rounded-full p-3 transition-all',
+              'hover:bg-yellow-dark disabled:cursor-not-allowed',
+              isAdding && 'scale-110',
+            )}
+            aria-label="Додати в кошик"
+          >
             <CartIcon className="h-6 w-6 text-white" />
           </button>
         </div>
       </div>
+
+      {isAdding && (
+        <div className="absolute top-2 right-2 rounded-lg bg-green-500 px-3 py-1 text-xs font-semibold text-white shadow-lg">
+          Додано!
+        </div>
+      )}
     </div>
   );
 };

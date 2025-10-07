@@ -34,7 +34,7 @@ export default async function ProductPage({
     <div className="bg-light">
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
         <div className="flex flex-col">
-          <Breadcrumbs product={product} />
+          <Breadcrumbs product={product} locale={locale} />
 
           <Card product={product} locale={locale} productName={productName} />
 

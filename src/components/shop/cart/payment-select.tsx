@@ -1,0 +1,88 @@
+'use client';
+
+import { useState } from 'react';
+import clsx from 'clsx';
+
+import PaymentSelectIcon from '@/lib/shop/icons/payment-select-icon';
+import MonoBankLogo from '@/lib/shop/icons/mono-bank-logo';
+import PrivatBankCreditLogo from '@/lib/shop/icons/privat-bank-credit-logo';
+import PrivatPayLogo from '@/lib/shop/icons/privat-pay-logo';
+import MasterCardLogo from '@/lib/shop/icons/master-card-logo';
+import VisaCardLogo from '@/lib/shop/icons/visa-card-logo';
+
+const PaymentSelect = () => {
+  const [selected, setSelected] = useState('cash');
+
+  const paymentOptions = [
+    {
+      id: 'cash',
+      label: 'Готівкою при отриманні (Післясплата)',
+    },
+    {
+      id: 'card',
+      label: 'Оплата карткою на сайті',
+      icons: [MasterCardLogo, VisaCardLogo],
+    },
+    {
+      id: 'privat-pay',
+      label: 'Privat Pay',
+      icons: [PrivatPayLogo],
+    },
+    {
+      id: 'krovato-credit',
+      label: 'Кредит від Krovato',
+    },
+    {
+      id: 'privat-credit',
+      label: 'Оплата частинами ПриватБанк',
+      icons: [PrivatBankCreditLogo],
+    },
+    {
+      id: 'mono-credit',
+      label: 'Оплата частинами МоноБанк',
+      icons: [MonoBankLogo],
+    },
+  ];
+
+  return (
+    <div className="w-full max-w-[342px]">
+      <div className="mb-[30px] flex items-center gap-[15px]">
+        <div className="bg-yellow flex h-[60px] w-[60px] items-center justify-center rounded-full md:h-[40px] md:w-[40px]">
+          <PaymentSelectIcon className="h-[27px] w-[30px] text-white" />
+        </div>
+        <h3 className="text-dark text-2xl font-semibold md:text-xl">
+          Вибір способу оплати
+        </h3>
+      </div>
+
+      <div className="flex flex-col gap-y-[20px]">
+        {paymentOptions.map(({ id, label, icons }) => (
+          <div
+            key={id}
+            className="flex cursor-pointer items-center gap-x-[10px]"
+            onClick={() => setSelected(id)}
+          >
+            <div className="relative h-6 w-6">
+              <div className="border-grey-light h-full w-full rounded-full border-2" />
+              {selected === id && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-yellow h-3 w-3 rounded-full" />
+                </div>
+              )}
+            </div>
+            <span className="text-dark text-base font-semibold">{label}</span>
+            {icons && (
+              <div className="flex items-center gap-x-2">
+                {icons.map((Icon, index) => (
+                  <Icon key={index} className="h-8 w-12" />
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default PaymentSelect;

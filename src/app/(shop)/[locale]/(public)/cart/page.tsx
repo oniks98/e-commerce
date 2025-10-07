@@ -1,11 +1,33 @@
-import React from 'react';
+import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
+import ExecutionContract from '@/components/shop/cart/execution-contract';
+import Advantages from '@/components/shop/ui/advantages';
+import { Locale } from '@/i18n/types';
 
-export default function CartPage() {
+export default async function CartPage({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const { locale } = await params;
+
+  const cartLabel = locale === 'uk' ? 'Кошик' : 'Cart';
+  const homeLabel = locale === 'uk' ? 'Головна' : 'Home';
+
+  const breadcrumbs = [
+    { label: homeLabel, href: `/${locale}` },
+    { label: cartLabel, href: `/${locale}/cart`, active: true },
+  ];
+
   return (
-    <div>
-      src\components\shop\ui\breadcrumbs.tsx
-      src\components\shop\cart\execution-contract.tsx
-      src\components\shop\ui\advantages.tsx
+    <div className="bg-light">
+      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+        <Breadcrumbs items={breadcrumbs} locale={locale} />
+        <h1 className="text-dark mb-10 text-3xl font-semibold">
+          Оформлення замовлення
+        </h1>
+        <ExecutionContract />
+        <Advantages />
+      </div>
     </div>
   );
 }

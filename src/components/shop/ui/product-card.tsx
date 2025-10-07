@@ -110,7 +110,7 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
         </div>
         <div className="flex items-center">
           <button
-            className="bg-grey-light-r mr-2 rounded-full p-3 transition-colors hover:bg-grey-light"
+            className="bg-grey-light-r hover:bg-grey-light mr-2 rounded-full p-3 transition-colors"
             aria-label="Додати в обране"
           >
             <FavoritesIcon className="text-grey h-6 w-6" />

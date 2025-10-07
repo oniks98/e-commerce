@@ -41,6 +41,13 @@ const Card = ({ product, locale, productName }: CardProps) => {
     setQuantity((prev) => Math.max(1, prev + delta));
   };
 
+  const productSlug =
+    typeof product.slug === 'object' &&
+    product.slug &&
+    (product.slug as any)[locale]
+      ? (product.slug as any)[locale]
+      : product.id;
+
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {
       addItem({
@@ -48,7 +55,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
         name: productName,
         price: product.price_uah,
         image: getPlaceholder('product', `${product.id}-0`),
-        slug: product.slug,
+        slug: productSlug,
       });
     }
     router.push(`/${locale}/cart`);

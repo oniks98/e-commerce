@@ -35,7 +35,7 @@ const Subcategories = ({
 
   return (
     <section className="py-8">
-      <div className="mb-3 flex justify-center gap-3 pr-5 pl-5 md:justify-start">
+      <div className="mb-8 flex justify-center gap-3 pr-5 pl-5 md:justify-start">
         <h1 className="text-dark text-3xl font-semibold">{categoryName}</h1>
         <div className="text-grey text-lg">{totalProducts} товарів</div>
       </div>
@@ -48,7 +48,7 @@ const Subcategories = ({
             : 'max-h-[2000px] opacity-100',
         )}
       >
-        <div className="grid [grid-template-columns:repeat(auto-fill,291px)] justify-center gap-7 p-5 md:justify-start">
+        <div className="grid [grid-template-columns:repeat(auto-fill,291px)] justify-center gap-7 px-5 pb-3 md:justify-start">
           {subcategories.map((subcategory) => (
             <Link key={subcategory.id} href={`/catalog/${subcategory.slug}`}>
               <div className="group relative h-[240px] w-full overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105 md:h-[300px]">

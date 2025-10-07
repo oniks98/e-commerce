@@ -1,12 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Tables } from '@/lib/supabase/types/database';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import Carousel from '@/components/shop/ui/carousel';
 import { EmblaOptionsType } from 'embla-carousel';
 import clsx from 'clsx';
+import { useCartStore } from '@/store/cart-store';
 import {
   StarIcon,
   ChatIcon,
@@ -29,12 +31,27 @@ interface CardProps {
 }
 
 const Card = ({ product, locale, productName }: CardProps) => {
+  const router = useRouter();
+  const addItem = useCartStore((state) => state.addItem);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [carouselApi, setCarouselApi] = useState<any>(null);
 
   const handleQuantityChange = (delta: number) => {
     setQuantity((prev) => Math.max(1, prev + delta));
+  };
+
+  const handleAddToCart = () => {
+    for (let i = 0; i < quantity; i++) {
+      addItem({
+        id: product.id,
+        name: productName,
+        price: product.price_uah,
+        image: getPlaceholder('product', `${product.id}-0`),
+        slug: product.slug,
+      });
+    }
+    router.push(`/${locale}/cart`);
   };
 
   useEffect(() => {
@@ -212,7 +229,10 @@ const Card = ({ product, locale, productName }: CardProps) => {
                 <AddIcon className="text-grey" />
               </button>
             </div>
-            <button className="bg-yellow hover:bg-opacity-90 flex shrink-0 items-center justify-center gap-x-4 rounded-lg px-8 py-3.5 font-semibold text-white transition-colors">
+            <button
+              onClick={handleAddToCart}
+              className="bg-yellow hover:bg-opacity-90 flex shrink-0 items-center justify-center gap-x-4 rounded-lg px-8 py-3.5 font-semibold text-white transition-colors"
+            >
               <CartIcon />
               Купити
             </button>

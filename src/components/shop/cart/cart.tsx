@@ -43,7 +43,7 @@ const Cart = () => {
 
   return (
     <div className="w-full rounded-lg bg-white p-[30px] shadow-lg md:max-w-[520px]">
-      <div className="mb-5 flex items-center justify-between">
+      <div className="mb-10 flex items-center gap-[10px]">
         <h3 className="text-dark text-2xl font-semibold">Ваш кошик</h3>
         <p className="text-yellow text-2xl font-semibold">{totalItems}</p>
       </div>
@@ -123,9 +123,7 @@ const Cart = () => {
 
           {items.length > 2 && (
             <div className="relative">
-              {!showAll && (
-                <div className="absolute bottom-0 h-20 w-full bg-gradient-to-t from-white" />
-              )}
+              {!showAll && <div className="absolute bottom-0 h-20 w-full" />}
               <button
                 onClick={() => setShowAll(!showAll)}
                 className="text-yellow mx-auto mt-5 flex items-center gap-x-2 py-2 font-semibold"

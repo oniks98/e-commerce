@@ -7,7 +7,7 @@ interface UkrpostOfficeProps {
 }
 
 const UkrpostOffice = ({
-  width = 80,
+  width = 55,
   height = 80,
   className = '',
 }: UkrpostOfficeProps) => {
@@ -18,6 +18,7 @@ const UkrpostOffice = ({
       width={width}
       height={height}
       className={className}
+      style={{ objectFit: 'contain' }}
     />
   );
 };

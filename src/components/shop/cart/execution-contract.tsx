@@ -9,7 +9,7 @@ import Cart from '@/components/shop/cart/cart';
 const ExecutionContract = () => {
   return (
     <div className="mb-8 flex flex-col justify-between gap-8 lg:flex-row">
-      <div className="flex flex-col gap-8 bg-white p-[30px] shadow-lg">
+      <div className="flex flex-col gap-8 rounded-lg bg-white p-[30px] shadow-lg">
         <BuyerInfo />
         <div className="bg-light h-[5px]"></div>
         <DeliverySelect />

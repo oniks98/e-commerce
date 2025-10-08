@@ -3,31 +3,11 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 
+import { paymentOptions } from '@/lib/shop/constants/payment-select-data';
 import PaymentSelectIcon from '@/lib/shop/icons/payment-select-icon';
-import MonoBankLogo from '@/lib/shop/icons/mono-bank-logo';
-import PrivatBankCreditLogo from '@/lib/shop/icons/privat-bank-credit-logo';
-import PrivatPayLogo from '@/lib/shop/icons/privat-pay-logo';
-import MasterCardLogo from '@/lib/shop/icons/master-card-logo';
-import VisaCardLogo from '@/lib/shop/icons/visa-card-logo';
 
 const PaymentSelect = () => {
   const [selected, setSelected] = useState('cash');
-
-  const paymentOptions = [
-    {
-      id: 'cash',
-      label: 'Готівкою при отриманні (Післясплата)',
-    },
-    {
-      id: 'card',
-      label: 'Оплата карткою на сайті',
-      icons: [MasterCardLogo, VisaCardLogo],
-    },
-    {
-      id: 'payment-to-account',
-      label: 'Оплата на рахунок',
-    },
-  ];
 
   return (
     <div className="w-full max-w-100">

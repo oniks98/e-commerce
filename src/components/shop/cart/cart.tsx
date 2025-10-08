@@ -7,6 +7,7 @@ import { useParams } from 'next/navigation';
 import clsx from 'clsx';
 import { useCartStore } from '@/store/cart-store';
 
+import CartSkeleton from '@/components/shop/cart/cart-skeleton';
 import MinusIcon from '@/lib/shop/icons/minus-icon';
 import PlusIcon from '@/lib/shop/icons/plus-icon';
 import CheckIconSmall from '@/lib/shop/icons/check-icon-small';
@@ -31,14 +32,7 @@ const Cart = () => {
   }, []);
 
   if (!mounted) {
-    return (
-      <div className="w-full max-w-[520px] rounded-lg bg-white p-[30px] shadow-lg">
-        <div className="mb-5 flex items-center justify-between">
-          <h3 className="text-dark text-2xl font-semibold">Ваш кошик</h3>
-          <p className="text-yellow text-2xl font-semibold">0</p>
-        </div>
-      </div>
-    );
+    return <CartSkeleton />;
   }
 
   const totalAmount = getTotalPrice();
@@ -48,7 +42,7 @@ const Cart = () => {
   const visibleItems = showAll ? items : items.slice(0, 2);
 
   return (
-    <div className="w-full max-w-[520px] rounded-lg bg-white p-[30px] shadow-lg">
+    <div className="w-full rounded-lg bg-white p-[30px] shadow-lg md:max-w-[520px]">
       <div className="mb-5 flex items-center justify-between">
         <h3 className="text-dark text-2xl font-semibold">Ваш кошик</h3>
         <p className="text-yellow text-2xl font-semibold">{totalItems}</p>

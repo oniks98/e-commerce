@@ -3,34 +3,11 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 
+import { deliveryOptions } from '@/lib/shop/constants/delivery-select-data';
 import DeliverySelectIcon from '@/lib/shop/icons/delivery-select-icon';
 import OnMapIcon from '@/lib/shop/icons/on-map-icon';
-import NovapostOfficeIcon from '@/lib/shop/icons/novapost-office-icon';
-import PickupIcon from '@/lib/shop/icons/pickup-icon';
 import CheckCircleIcon from '@/lib/shop/icons/check-circle-icon';
 import LocationIcon from '@/lib/shop/icons/location-icon';
-import UkrpostOffice from '@/components/shop/cart/ukrpost-office';
-
-const deliveryOptions = [
-  {
-    id: 'pickup',
-    label: 'Самовивіз із магазину',
-    icon: PickupIcon,
-    iconClassName: 'text-yellow h-full w-full',
-  },
-  {
-    id: 'novaposhta',
-    label: 'Доставка Нова Пошта',
-    icon: NovapostOfficeIcon,
-    iconClassName: 'h-full w-full',
-  },
-  {
-    id: 'ukrposhta',
-    label: 'Доставка Укрпошта',
-    icon: UkrpostOffice,
-    iconClassName: 'h-full w-full',
-  },
-];
 
 const DeliverySelect = () => {
   const [selected, setSelected] = useState('pickup');

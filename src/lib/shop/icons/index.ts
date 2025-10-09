@@ -45,3 +45,4 @@ export { default as HelpIcon } from './help-icon';
 export { default as WarrantyIcon } from './warranty-icon';
 export { default as LikeIcon } from './like-icon';
 export { default as ForwardIcon } from './forward-icon';
+export { default as AdvantageCheckIcon } from './advantage-check-icon';

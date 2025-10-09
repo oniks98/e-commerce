@@ -56,6 +56,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
         price: product.price_uah,
         image: getPlaceholder('product', `${product.id}-0`),
         slug: productSlug,
+        sku: product.sku,
       });
     }
     router.push(`/${locale}/cart`);

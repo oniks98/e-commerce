@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import clsx from 'clsx';
 
 import RightArrowIcon from '@/lib/shop/icons/right-arrow-icon';
 import { getProductBySku } from '@/lib/shop/actions/product';
@@ -19,6 +20,7 @@ type BreadcrumbsProps = {
   category?: Awaited<ReturnType<typeof getCategoryBySlug>>;
   items?: BreadcrumbItem[];
   locale?: Locale;
+  className?: string;
 };
 
 const Breadcrumbs = async ({
@@ -26,10 +28,16 @@ const Breadcrumbs = async ({
   category: categoryProp,
   items,
   locale = 'uk',
+  className,
 }: BreadcrumbsProps) => {
   if (items) {
     return (
-      <nav className="text-grey flex flex-wrap items-center gap-y-2 py-1 text-base font-normal">
+      <nav
+        className={clsx(
+          'text-grey flex flex-wrap items-center gap-y-2 py-1 text-base font-normal',
+          className,
+        )}
+      >
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
@@ -76,7 +84,12 @@ const Breadcrumbs = async ({
   const homeLabel = locale === 'uk' ? 'Головна' : 'Home';
 
   return (
-    <nav className="text-grey flex flex-wrap items-center gap-y-2 py-1 text-base font-normal">
+    <nav
+      className={clsx(
+        'text-grey flex flex-wrap items-center gap-y-2 py-1 text-base font-normal',
+        className,
+      )}
+    >
       <Link
         href={`/${locale}`}
         className="text-grey hover:text-yellow-dark transition-colors"

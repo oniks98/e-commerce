@@ -69,7 +69,7 @@ const BuyerInfo = () => {
   return (
     <div className="w-full max-w-[680px]">
       <div className="mb-[30px] flex items-center gap-[15px]">
-        <div className="bg-yellow flex h-[60px] w-[60px] items-center justify-center rounded-full">
+        <div className="bg-yellow flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full">
           <InfoIcon className="h-[30px] w-[30px] text-white" />
         </div>
         <h3 className="text-dark text-2xl font-semibold md:text-xl">
@@ -153,9 +153,9 @@ const BuyerInfo = () => {
               className="hidden"
             />
             {anotherPerson ? (
-              <FilterCheckboxActiveIcon width={24} height={24} />
+              <FilterCheckboxActiveIcon className="h-6 w-6 shrink-0" />
             ) : (
-              <FilterCheckboxEmptyIcon width={24} height={24} />
+              <FilterCheckboxEmptyIcon className="h-6 w-6 shrink-0" />
             )}
 
             <span className="text-grey ml-2.5 text-base">
@@ -168,7 +168,7 @@ const BuyerInfo = () => {
       {anotherPerson && (
         <div className="mt-[30px] w-full max-w-[680px]">
           <div className="mb-[30px] flex items-center gap-[15px]">
-            <div className="bg-yellow flex h-[60px] w-[60px] items-center justify-center rounded-full">
+            <div className="bg-yellow flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full">
               <InfoIcon className="h-[30px] w-[30px] text-white" />
             </div>
             <h3 className="text-dark text-2xl font-semibold md:text-xl">

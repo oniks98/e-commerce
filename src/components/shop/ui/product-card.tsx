@@ -47,8 +47,8 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
       price: product.price_uah || 0,
       image: getPlaceholder('product', product.id),
       slug: productSlug,
+      sku: product.sku,
     });
-
     setTimeout(() => {
       setIsAdding(false);
     }, 600);

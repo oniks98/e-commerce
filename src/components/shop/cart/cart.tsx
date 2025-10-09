@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
@@ -9,10 +9,9 @@ import { useCartStore } from '@/store/cart-store';
 
 import CartSkeleton from '@/components/shop/cart/cart-skeleton';
 import MinusIcon from '@/lib/shop/icons/minus-icon';
-import PlusIcon from '@/lib/shop/icons/plus-icon';
+import AddIcon from '@/lib/shop/icons/add-icon';
 import CheckIconSmall from '@/lib/shop/icons/check-icon-small';
 import DeleteIcon from '@/lib/shop/icons/delete-icon';
-import PromoIcon from '@/lib/shop/icons/promo-icon';
 import AngleDoubleUpIcon from '@/lib/shop/icons/angle-double-up-icon';
 import FilterCheckboxActiveIcon from '@/lib/shop/icons/filter-checkbox-active-icon';
 import FilterCheckboxEmptyIcon from '@/lib/shop/icons/filter-checkbox-empty-icon';
@@ -42,7 +41,7 @@ const Cart = () => {
   const visibleItems = showAll ? items : items.slice(0, 2);
 
   return (
-    <div className="w-full rounded-lg bg-white p-[30px] shadow-lg md:max-w-[520px]">
+    <div className="rounded-lg bg-white p-4 shadow-lg md:p-[30px]">
       <div className="mb-10 flex items-center gap-[10px]">
         <h3 className="text-dark text-2xl font-semibold">Ваш кошик</h3>
         <p className="text-yellow text-2xl font-semibold">{totalItems}</p>
@@ -55,75 +54,104 @@ const Cart = () => {
         </div>
       ) : (
         <>
-          <ul className="flex flex-col gap-y-5">
-            {visibleItems.map((item) => (
-              <li
-                key={item.id}
-                className="border-grey-light flex gap-x-5 border-b pb-5"
-              >
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  width={120}
-                  height={100}
-                  className="rounded-lg object-cover"
-                />
-                <div className="flex flex-1 flex-col justify-between">
-                  <div>
-                    <div className="flex justify-between">
-                      <p className="text-dark text-lg font-semibold">
-                        {item.name}
-                      </p>
-                      <button
-                        onClick={() => removeItem(item.id)}
-                        aria-label="Видалити товар"
-                      >
-                        <DeleteIcon className="h-6 w-6 cursor-pointer" />
-                      </button>
-                    </div>
-                    <div className="mt-1 flex items-center gap-x-1">
-                      <CheckIconSmall className="h-5 w-5 text-green-500" />
-                      <p className="text-dark text-sm">В наявності</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-x-4">
+          <ul className="mb-7 flex flex-col gap-y-7">
+            {visibleItems.map((item, i) => (
+              <React.Fragment key={item.id}>
+                <li className="flex flex-row flex-wrap gap-5 rounded-lg lg:flex-nowrap">
+                  {/* Ліва частина: зображення та кількість */}
+                  <div className="relative flex w-[120px] flex-shrink-0 flex-col justify-between gap-4">
+                    {/* Зображення товару */}
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      width={120}
+                      height={100}
+                      className="h-[100px] w-full rounded-lg object-cover"
+                    />
+
+                    {/* Кнопки кількості */}
+                    <div className="border-grey-light bg-light flex w-full items-center justify-center gap-[15px] rounded-lg border px-5 py-[13px]">
                       <button
                         onClick={() =>
                           updateQuantity(item.id, item.quantity - 1)
                         }
-                        className="border-grey-light flex h-8 w-8 items-center justify-center rounded-full border"
+                        className="flex h-4 w-4 items-center justify-center"
                         aria-label="Зменшити кількість"
                       >
-                        <MinusIcon className="text-grey" />
+                        <MinusIcon className="text-grey-light h-full w-full" />
                       </button>
-                      <span className="text-dark font-semibold">
+                      <span className="text-dark text-xl font-semibold">
                         {item.quantity}
                       </span>
                       <button
                         onClick={() =>
                           updateQuantity(item.id, item.quantity + 1)
                         }
-                        className="border-grey-light flex h-8 w-8 items-center justify-center rounded-full border"
+                        className="flex h-4 w-4 items-center justify-center"
                         aria-label="Збільшити кількість"
                       >
-                        <PlusIcon className="text-grey" />
+                        <AddIcon className="text-grey-light h-full w-full" />
                       </button>
                     </div>
-                    <div className="text-right">
-                      <p className="text-dark text-xl font-semibold">
-                        {(item.price * item.quantity).toLocaleString()} грн.
-                      </p>
-                    </div>
                   </div>
-                </div>
-              </li>
+
+                  {/* Права частина: інформація про товар */}
+                  <div className="flex w-100 gap-5 lg:w-auto">
+                    <div className="flex flex-1 flex-col justify-between gap-[5px]">
+                      {/* Назва товару */}
+                      <h4 className="text-dark text-[19px] leading-[1.26] font-semibold">
+                        {item.name}
+                      </h4>
+
+                      {/* Код товару */}
+                      <p className="text-grey text-[13px] leading-[22px] font-light">
+                        Код товару: {item.sku}
+                      </p>
+
+                      {/* Статус в наявності */}
+                      <div className="flex items-center gap-[5px]">
+                        <CheckIconSmall className="text-green h-6 w-6" />
+                        <p className="text-dark text-[13px] leading-[22px] font-light">
+                          В наявності
+                        </p>
+                      </div>
+
+                      {/* Ціна */}
+                      <div className="flex h-[50px] items-center gap-5">
+                        <p className="text-dark text-xl font-semibold">
+                          {(item.price * item.quantity).toLocaleString()} грн.
+                        </p>
+                        {item.oldPrice && (
+                          <p className="text-red text-[15px] leading-[22px] font-normal line-through">
+                            {(item.oldPrice * item.quantity).toLocaleString()}{' '}
+                            грн.
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Кнопка видалення */}
+                    <button
+                      onClick={() => removeItem(item.id)}
+                      className="mb-7 flex h-6 w-6 flex-shrink-0 items-center justify-center"
+                      aria-label="Видалити товар"
+                    >
+                      <DeleteIcon className="text-dark h-full w-full" />
+                    </button>
+                  </div>
+                </li>
+                {i < visibleItems.length - 1 && (
+                  <li className="bg-light h-1"></li>
+                )}
+              </React.Fragment>
             ))}
           </ul>
 
-          {items.length > 2 && (
+          {items.length > 3 && (
             <div className="relative">
-              {!showAll && <div className="absolute bottom-0 h-20 w-full" />}
+              {!showAll && (
+                <div className="pointer-events-none absolute bottom-0 h-20 w-full" />
+              )}
               <button
                 onClick={() => setShowAll(!showAll)}
                 className="text-yellow mx-auto mt-5 flex items-center gap-x-2 py-2 font-semibold"
@@ -168,9 +196,9 @@ const Cart = () => {
                 className="hidden"
               />
               {noCall ? (
-                <FilterCheckboxActiveIcon />
+                <FilterCheckboxActiveIcon className="shrink-0" />
               ) : (
-                <FilterCheckboxEmptyIcon />
+                <FilterCheckboxEmptyIcon className="shrink-0" />
               )}
 
               <span className="text-dark ml-2.5 text-base">

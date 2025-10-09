@@ -15,7 +15,7 @@ const DeliverySelect = () => {
   return (
     <div className="w-full max-w-[680px]">
       <div className="mb-[30px] flex items-center gap-[15px]">
-        <div className="bg-yellow flex h-[60px] w-[60px] items-center justify-center rounded-full">
+        <div className="bg-yellow flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full">
           <DeliverySelectIcon className="h-[35px] w-[30px] text-white" />
         </div>
         <h3 className="text-dark text-2xl font-semibold md:text-xl">
@@ -23,7 +23,7 @@ const DeliverySelect = () => {
         </h3>
       </div>
 
-      <ul className="grid grid-cols-1 gap-[20px] md:grid-cols-3">
+      <ul className="mb-5 grid grid-cols-1 gap-[20px] md:grid-cols-3">
         {deliveryOptions.map(({ id, label, icon: Icon, iconClassName }) => (
           <li
             key={id}
@@ -45,7 +45,7 @@ const DeliverySelect = () => {
       </ul>
 
       {selected === 'pickup' && (
-        <div className="bg-light mt-5 rounded-lg p-5 md:flex md:items-center md:justify-between">
+        <div className="bg-light rounded-lg p-5 md:flex md:flex-wrap md:items-center md:justify-between md:gap-5">
           <div className="flex items-center gap-5">
             <LocationIcon className="text-grey-light h-10 w-10 shrink-0" />
             <div>

@@ -12,7 +12,7 @@ const PaymentSelect = () => {
   return (
     <div className="w-full max-w-100">
       <div className="mb-[30px] flex items-center gap-[15px]">
-        <div className="bg-yellow flex h-[60px] w-[60px] items-center justify-center rounded-full">
+        <div className="bg-yellow flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full">
           <PaymentSelectIcon className="h-[27px] w-[30px] text-white" />
         </div>
         <h3 className="text-dark text-2xl font-semibold md:text-xl">
@@ -27,7 +27,7 @@ const PaymentSelect = () => {
             className="flex cursor-pointer items-center gap-x-[10px]"
             onClick={() => setSelected(id)}
           >
-            <div className="relative h-6 w-6">
+            <div className="relative h-6 w-6 shrink-0">
               <div className="border-grey-light h-full w-full rounded-full border-2" />
               {selected === id && (
                 <div className="absolute inset-0 flex items-center justify-center">

@@ -64,11 +64,11 @@ const MobileHeader = ({
           </button>
 
           <div className="flex w-[240px] flex-row items-center">
-            <div className="h-[60px] w-[60px] shrink-0 overflow-hidden rounded-full bg-white">
+            <div className="h-[50px] w-[50px] shrink-0 overflow-hidden rounded-full bg-white">
               <Logo />
             </div>
             <div className="text-center">
-              <h3 className="text-base font-semibold">
+              <h3 className="text-sm font-semibold">
                 💎 ONYX - для Вас безпека та комфорт
               </h3>
             </div>

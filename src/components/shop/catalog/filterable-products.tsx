@@ -8,12 +8,12 @@ import Products from '@/components/shop/catalog/products';
 import BtnLoadMore from '@/components/shop/ui/btn-load-more';
 import Pagination from '@/components/shop/catalog/pagination';
 import { Tables } from '@/lib/supabase/types/database';
-import { sortingOptions } from '@/lib/shop/constants/sorting-data';
+import { sortingOptions } from '@/lib/shop/constants/catalog/sorting-data';
 import {
   MANUFACTURERS,
   BED_TYPES,
   SIZES,
-} from '@/lib/shop/constants/search-filter-data';
+} from '@/lib/shop/constants/catalog/search-filter-data';
 
 type Product = Tables<'products'>;
 

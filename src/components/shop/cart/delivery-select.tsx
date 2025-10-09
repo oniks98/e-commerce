@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 
-import { deliveryOptions } from '@/lib/shop/constants/delivery-select-data';
+import { deliveryOptions } from '@/lib/shop/constants/cart/delivery-select-data';
 import DeliverySelectIcon from '@/lib/shop/icons/delivery-select-icon';
 import OnMapIcon from '@/lib/shop/icons/on-map-icon';
 import CheckCircleIcon from '@/lib/shop/icons/check-circle-icon';

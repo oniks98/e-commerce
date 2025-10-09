@@ -1,4 +1,4 @@
-import { characteristics } from '@/lib/shop/constants/characteristics-data';
+import { characteristics } from '@/lib/shop/constants/product/characteristics-data';
 
 const Desc = () => {
   return (

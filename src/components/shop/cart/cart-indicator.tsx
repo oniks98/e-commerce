@@ -43,7 +43,7 @@ export default function CartIndicator({ locale }: CartIndicatorProps) {
         className={clsx('text-grey hover:text-yellow h-[25px] w-[25px]')}
       />
       {totalItems > 0 && (
-        <span className="bg-green absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold text-white">
+        <span className="bg-yellow absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold text-white">
           {totalItems > 9 ? '9+' : totalItems}
         </span>
       )}

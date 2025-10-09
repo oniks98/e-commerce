@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import { ArrowUpRightIcon } from '@/lib/shop/icons';
-import { Article } from '@/lib/shop/constants/articles-data';
+import { Article } from '@/lib/shop/constants/home/articles-data';
 
 interface ArticleCardProps {
   article: Article;

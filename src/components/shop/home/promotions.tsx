@@ -7,7 +7,7 @@ import { EmblaOptionsType } from 'embla-carousel';
 import Image from 'next/image';
 import clsx from 'clsx';
 
-import { promotions } from '@/lib/shop/constants/promotions-data';
+import { promotions } from '@/lib/shop/constants/home/promotions-data';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import {
   ChevronLeftIcon,

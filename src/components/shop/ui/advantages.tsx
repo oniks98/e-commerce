@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { aboutData } from '@/lib/shop/constants/about-data';
+import { aboutData } from '@/lib/shop/constants/home/about-data';
 import {
   QualityIcon,
   PriceIcon,

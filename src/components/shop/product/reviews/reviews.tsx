@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import clsx from 'clsx';
-import { PRODUCT_REVIEWS } from '@/lib/shop/constants/product-reviews-data';
+import { PRODUCT_REVIEWS } from '@/lib/shop/constants/product/product-reviews-data';
 import ReviewItem from './review-item';
 import ReplyItem from './reply-item';
 import ReplyForm, { ReplyFormValues } from './reply-form';

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import clsx from 'clsx';
 
-import { articlesData } from '@/lib/shop/constants/articles-data';
+import { articlesData } from '@/lib/shop/constants/home/articles-data';
 import ArticleCard from '@/components/shop/home/article-card';
 import Carousel from '@/components/shop/ui/carousel';
 import {

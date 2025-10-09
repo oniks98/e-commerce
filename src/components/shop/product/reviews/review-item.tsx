@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Avatar from './avatar';
 import StarRating from './star-rating';
 import ReviewActions from './review-actions';
-import { Review } from '@/lib/shop/constants/product-reviews-data';
+import { Review } from '@/lib/shop/constants/product/product-reviews-data';
 
 interface ReviewItemProps {
   review: Review;

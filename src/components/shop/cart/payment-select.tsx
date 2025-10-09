@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 
-import { paymentOptions } from '@/lib/shop/constants/payment-select-data';
+import { paymentOptions } from '@/lib/shop/constants/cart/payment-select-data';
 import PaymentSelectIcon from '@/lib/shop/icons/payment-select-icon';
 
 const PaymentSelect = () => {

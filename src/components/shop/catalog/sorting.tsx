@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import FilterCrossIcon from '@/lib/shop/icons/filter-cross-icon';
 import SortingArrowsIcon from '@/lib/shop/icons/sorting-arrows-icon';
 import SortingAngleDownIcon from '@/lib/shop/icons/sorting-angle-down-icon';
-import { sortingOptions } from '@/lib/shop/constants/sorting-data';
+import { sortingOptions } from '@/lib/shop/constants/catalog/sorting-data';
 
 interface SortingDropdownProps {
   isDropdownOpen: boolean;

@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/shop/ui/accordion';
-import { faqData } from '@/lib/shop/constants/faq-data';
+import { faqData } from '@/lib/shop/constants/catalog/faq-data';
 import FaqQuestionIcon from '@/lib/shop/icons/faq-question-icon';
 
 const Faq = () => {

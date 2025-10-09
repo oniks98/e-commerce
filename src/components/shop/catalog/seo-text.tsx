@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/shop/ui/accordion';
-import { seoText } from '@/lib/shop/constants/seo-text-data';
+import { seoText } from '@/lib/shop/constants/catalog/seo-text-data';
 import { ArrowDownIcon, CheckIcon } from '@/lib/shop/icons';
 import Shadow from '@/components/shop/ui/shadow';
 

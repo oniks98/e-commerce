@@ -4,7 +4,7 @@ import { aboutHead } from '@/lib/shop/constants/about/about-data';
 
 const Head = () => {
   return (
-    <section className="relative h-[524px] w-full lg:h-[454px]">
+    <section className="@container relative h-[524px] w-full lg:h-[454px]">
       <div className="absolute inset-0 z-0">
         <div className="hidden h-full w-full lg:block">
           <Image
@@ -23,9 +23,10 @@ const Head = () => {
           />
         </div>
       </div>
-      <div className="bg-gradient-white-to-transparent absolute inset-0 z-5"></div>
+      <div className="bg-gradient-white-to-transparent-vertical absolute inset-0 z-5 lg:hidden"></div>
+      <div className="bg-gradient-white-to-transparent absolute inset-0 z-5 hidden lg:block"></div>
       <div className="relative z-10 flex h-full w-full items-center lg:items-end">
-        <div className="absolute left-1/2 w-full max-w-[450px] -translate-x-1/2 -translate-y-1/2 text-center lg:top-1/2 lg:left-[50px] lg:translate-x-0 lg:text-left">
+        <div className="absolute top-0 left-1/2 w-full -translate-x-1/2 px-4 text-center lg:top-1/2 lg:left-[50px] lg:max-w-[36.89cqw] lg:translate-x-0 lg:-translate-y-1/2 lg:px-0 lg:text-left">
           <h1 className="mb-[20px] text-[30px] font-semibold lg:mb-[30px] lg:text-[40px]">
             {aboutHead.title}
           </h1>

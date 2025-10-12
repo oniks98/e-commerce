@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import clsx from 'clsx';
 
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
@@ -22,16 +21,6 @@ const Subcategories = ({
   totalProducts,
 }: SubcategoriesProps) => {
   const [isHidden, setIsHidden] = useState(false);
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
-
-  useEffect(() => {
-    // Запускаем анимацию появления после монтирования компонента
-    const timer = setTimeout(() => {
-      setIsInitialLoad(false);
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <section className="py-8">
@@ -41,54 +30,50 @@ const Subcategories = ({
       </div>
       <div
         className={clsx(
-          'overflow-hidden transition-all duration-500 ease-in-out',
-          // Одинаковая анимация для всех случаев
-          isInitialLoad || isHidden
-            ? 'max-h-0 opacity-0'
-            : 'max-h-[2000px] opacity-100',
+          'grid transition-all duration-500 ease-in-out',
+          isHidden ? 'grid-rows-[0fr]' : 'grid-rows-[1fr]',
         )}
       >
-        <div className="grid [grid-template-columns:repeat(auto-fill,291px)] justify-center gap-7 px-5 pb-3 md:justify-start">
-          {subcategories.map((subcategory) => (
-            <Link key={subcategory.id} href={`/catalog/${subcategory.slug}`}>
-              <div className="group relative h-[240px] w-full overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105 md:h-[300px]">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                  style={{
-                    backgroundImage: `url(${getPlaceholder(
-                      'category',
-                      subcategory.id,
-                    )})`,
-                  }}
-                />
-                <div className="bg-opacity-20 bg-light absolute inset-0" />
+        <div className="overflow-hidden">
+          <div className="grid [grid-template-columns:repeat(auto-fill,291px)] justify-center gap-7 px-5 pb-3 md:justify-start">
+            {subcategories.map((subcategory) => (
+              <Link key={subcategory.id} href={`/catalog/${subcategory.slug}`}>
+                <div className="group relative h-[240px] w-full overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105 md:h-[300px]">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                    style={{
+                      backgroundImage: `url(${getPlaceholder(
+                        'category',
+                        subcategory.id,
+                      )})`,
+                    }}
+                  />
+                  <div className="bg-opacity-20 bg-light absolute inset-0" />
 
-                {/* Контент карточки */}
-                <div className="text-dark relative z-10 flex h-full flex-col p-4 md:p-5">
-                  {/* Верхняя часть с названием */}
-                  <div className="flex items-start justify-between">
-                    <h3 className="text-xl leading-[1.4] font-semibold">
-                      {subcategory.name}
-                    </h3>
-                  </div>
+                  <div className="text-dark relative z-10 flex h-full flex-col p-4 md:p-5">
+                    <div className="flex items-start justify-between">
+                      <h3 className="text-xl leading-[1.4] font-semibold">
+                        {subcategory.name}
+                      </h3>
+                    </div>
 
-                  {/* Нижняя часть с иконкой */}
-                  <div className="mt-auto flex justify-end">
-                    <div
-                      className={clsx(
-                        'border-yellow flex items-center justify-center rounded-full border-2',
-                        'h-10 w-10 md:h-12 md:w-12',
-                      )}
-                    >
-                      <ArrowUpRightIcon
-                        className={clsx('text-yellow h-3 w-3 md:h-4 md:w-4')}
-                      />
+                    <div className="mt-auto flex justify-end">
+                      <div
+                        className={clsx(
+                          'border-yellow flex items-center justify-center rounded-full border-2',
+                          'h-10 w-10 md:h-12 md:w-12',
+                        )}
+                      >
+                        <ArrowUpRightIcon
+                          className={clsx('text-yellow h-3 w-3 md:h-4 md:w-4')}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
       {subcategories && subcategories.length > 0 && (

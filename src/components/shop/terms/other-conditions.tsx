@@ -24,18 +24,14 @@ const OtherConditions = () => {
             return (
               <li
                 key={index}
-                className="flex flex-col items-start text-center md:flex-row md:text-left"
+                className="flex flex-col items-center md:flex-row md:items-start"
               >
                 <div className="mb-5 h-25 w-25 flex-shrink-0 md:mr-5 md:mb-0">
-                  {option.icon === 'DeliverySelectIcon' ? (
-                    <div className="bg-yellow flex h-full w-full items-center justify-center rounded-full">
-                      <Icon className="h-[50px] w-[50px] text-white" />
-                    </div>
-                  ) : (
-                    Icon && <Icon className={option.className} />
-                  )}
+                  <div className="bg-yellow flex h-full w-full items-center justify-center rounded-full">
+                    {Icon && <Icon className="h-full w-full text-white" />}
+                  </div>
                 </div>
-                <div>
+                <div className="w-full md:text-left">
                   <h3 className="mb-5 text-xl font-semibold">{option.title}</h3>
                   <p className="leading-normal whitespace-pre-line">
                     {option.text}

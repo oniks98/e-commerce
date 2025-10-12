@@ -24,8 +24,10 @@ const PaymentMethods = () => {
           const Icon = icons[option.icon];
           return (
             <li key={index} className="flex flex-col items-center text-center">
-              <div className="mb-5 h-25 w-25">
-                {Icon && <Icon className={option.className} />}
+              <div className="mb-5 h-25 w-25 flex-shrink-0">
+                <div className="bg-yellow flex h-full w-full items-center justify-center rounded-full">
+                  {Icon && <Icon className="h-full w-full text-white" />}
+                </div>
               </div>
               <h3 className="mb-5 text-xl font-semibold">{option.title}</h3>
               <p className="">{option.text}</p>

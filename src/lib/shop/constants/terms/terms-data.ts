@@ -4,7 +4,7 @@ export const termsPageBreadcrumbs = [
     href: '/',
   },
   {
-    label: 'Умови та положення',
+    label: 'Умови покупки',
     href: '/terms',
   },
 ];

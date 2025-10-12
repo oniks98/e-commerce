@@ -2,8 +2,8 @@ import { setRequestLocale } from 'next-intl/server';
 
 import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 import Head from '@/components/shop/terms/head';
-import PaymentCity from '@/components/shop/terms/payment-city';
-import PaymentCountry from '@/components/shop/terms/payment-country';
+import PaymentMethods from '@/components/shop/terms/payment-methods';
+import DeliveryMethods from '@/components/shop/terms/delivery-methods';
 import Faq from '@/components/shop/terms/faq';
 import Advantages from '@/components/shop/ui/advantages';
 
@@ -22,16 +22,16 @@ export default async function TermsPage({
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
         <Breadcrumbs items={termsPageBreadcrumbs} className="mb-[30px]" />
         <Head />
-        <PaymentCity />
+        <PaymentMethods />
       </div>
 
       <div className="bg-white">
-        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] md:pt-[30px]">
-          <PaymentCountry />
+        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
+          <DeliveryMethods />
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
         <Faq />
       </div>
 

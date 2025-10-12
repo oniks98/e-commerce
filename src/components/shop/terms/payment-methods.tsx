@@ -13,10 +13,10 @@ const icons: { [key: string]: React.ComponentType<any> } = {
   cashOnDeliveryPayment: CashOnDeliveryPaymentIcon,
 };
 
-const PaymentCity = () => {
+const PaymentMethods = () => {
   return (
     <section className="py-10">
-      <h2 className="mb-6 text-center text-4xl font-semibold">
+      <h2 className="mb-9 text-center text-4xl font-semibold">
         {termsData.paymentCity.title}
       </h2>
       <ul className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -24,9 +24,11 @@ const PaymentCity = () => {
           const Icon = icons[option.icon];
           return (
             <li key={index} className="flex flex-col items-center text-center">
-              {Icon && <Icon />}
-              <h3 className="mt-4 text-xl font-semibold">{option.title}</h3>
-              <p className="mt-2">{option.text}</p>
+              <div className="mb-5 h-25 w-25">
+                {Icon && <Icon className={option.className} />}
+              </div>
+              <h3 className="mb-5 text-xl font-semibold">{option.title}</h3>
+              <p className="">{option.text}</p>
             </li>
           );
         })}
@@ -35,4 +37,4 @@ const PaymentCity = () => {
   );
 };
 
-export default PaymentCity;
+export default PaymentMethods;

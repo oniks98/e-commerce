@@ -26,9 +26,6 @@ const Head = () => {
           <h3 className="mb-[10px] text-[20px] font-semibold lg:mb-[20px] lg:text-[26px]">
             {termsData.head.subtitle}
           </h3>
-          <p className="text-base font-normal md:text-[20px] lg:font-semibold">
-            {termsData.head.description}
-          </p>
         </div>
       </div>
       <div className="block w-full px-4 pb-6 lg:hidden">

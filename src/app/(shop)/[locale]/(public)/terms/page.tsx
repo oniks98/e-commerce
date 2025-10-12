@@ -1,3 +1,4 @@
+import OtherConditions from '@/components/shop/terms/other-conditions';
 import { setRequestLocale } from 'next-intl/server';
 
 import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
@@ -23,11 +24,12 @@ export default async function TermsPage({
         <Breadcrumbs items={termsPageBreadcrumbs} className="mb-[30px]" />
         <Head />
         <PaymentMethods />
+        <DeliveryMethods />
       </div>
 
       <div className="bg-white">
         <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
-          <DeliveryMethods />
+          <OtherConditions />
         </div>
       </div>
 

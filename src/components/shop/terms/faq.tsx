@@ -12,7 +12,7 @@ import FaqQuestionIcon from '@/lib/shop/icons/faq-question-icon';
 const Faq = () => {
   return (
     <section className="mx-auto max-w-[1070px] pt-[70px] pb-[30px]">
-      <h2 className="text-dark mb-6 text-center text-[40px] leading-tight font-semibold">
+      <h2 className="text-dark mb-6 text-center text-4xl leading-tight font-semibold">
         {termsData.faq.title}
       </h2>
       <Accordion type="single" collapsible className="w-full">

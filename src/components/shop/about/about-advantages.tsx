@@ -4,7 +4,7 @@ import AdvantageCheckIcon from '@/lib/shop/icons/advantage-check-icon';
 const AboutAdvantages = () => {
   return (
     <section className="flex flex-col items-center py-[80px]">
-      <h2 className="mb-[40px] text-center text-[30px] font-semibold md:mb-[80px] md:text-[40px]">
+      <h2 className="mb-[40px] text-center text-4xl font-semibold md:mb-[80px]">
         {aboutAdvantages.title}
       </h2>
       <ul className="grid grid-cols-1 gap-[80px] md:grid-cols-2 md:gap-[30px] xl:grid-cols-4">

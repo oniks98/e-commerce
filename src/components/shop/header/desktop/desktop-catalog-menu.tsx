@@ -56,7 +56,7 @@ const DesktopCatalogMenu = ({
       />
 
       {/* Menu container wrapper */}
-      <div
+      <nav
         className={`absolute top-full left-0 z-50 w-full transition-all duration-300 ease-out ${
           isOpen
             ? 'visible translate-y-0 opacity-100'
@@ -78,9 +78,9 @@ const DesktopCatalogMenu = ({
               }`}
             >
               {/* Left sidebar with categories */}
-              <div className="w-[500px] bg-white py-2">
+              <ul className="w-[500px] bg-white py-2">
                 {catalogData.map((category, index) => (
-                  <div
+                  <li
                     key={category.id}
                     onMouseEnter={() => setHoveredCategory(category)}
                     className={`transform-gpu transition-all duration-200 ${
@@ -120,9 +120,9 @@ const DesktopCatalogMenu = ({
                         />
                       )}
                     </Link>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               {/* Yellow separator line */}
               <div
@@ -138,7 +138,7 @@ const DesktopCatalogMenu = ({
               <div className="bg-light w-[500px] overflow-hidden py-[20px] pr-[20px] pl-[30px]">
                 {hoveredCategory?.children &&
                 hoveredCategory.children.length > 0 ? (
-                  <div
+                  <ul
                     className={`transform-gpu transition-all duration-300 ${
                       isOpen
                         ? 'translate-x-0 opacity-100'
@@ -146,20 +146,22 @@ const DesktopCatalogMenu = ({
                     }`}
                   >
                     {hoveredCategory.children.map((subcategory, index) => (
-                      <Link
-                        key={subcategory.id}
-                        href={`/${locale}/catalog/${subcategory.slug}`}
-                        onClick={onClose}
-                        className={`text-dark animate-fade-in-left block translate-x-4 rounded px-2 py-1 text-base leading-[2.1] opacity-0 transition-all duration-200 hover:translate-x-2 hover:bg-white/50 hover:text-yellow-600`}
-                        style={{
-                          animationDelay: `${200 + index * 50}ms`,
-                          animationFillMode: 'forwards',
-                        }}
-                      >
-                        {subcategory.name}
-                      </Link>
+                      <li key={subcategory.id}>
+                        <Link
+                          key={subcategory.id}
+                          href={`/${locale}/catalog/${subcategory.slug}`}
+                          onClick={onClose}
+                          className={`text-dark animate-fade-in-left block translate-x-4 rounded px-2 py-1 text-base leading-[2.1] opacity-0 transition-all duration-200 hover:translate-x-2 hover:bg-white/50 hover:text-yellow-600`}
+                          style={{
+                            animationDelay: `${200 + index * 50}ms`,
+                            animationFillMode: 'forwards',
+                          }}
+                        >
+                          {subcategory.name}
+                        </Link>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 ) : (
                   <div
                     className={`flex h-full items-center justify-center transition-all duration-300 ${
@@ -175,7 +177,7 @@ const DesktopCatalogMenu = ({
             </div>
           </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 };

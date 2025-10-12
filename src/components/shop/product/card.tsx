@@ -170,7 +170,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
       </div>
 
       <div>
-        <h1 className="text-dark mb-8 text-center text-3xl font-semibold md:text-left">
+        <h1 className="text-dark mb-8 text-center text-4xl font-semibold md:text-left">
           {productName}
         </h1>
         <div className="mb-4 flex flex-wrap items-center gap-x-10 gap-y-5">
@@ -195,7 +195,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
         <div className="mb-8 rounded-lg bg-white p-5">
           <div className="mb-5 flex flex-wrap items-center justify-center gap-y-5 md:justify-between">
             <div className="flex items-center gap-x-5">
-              <span className="text-dark text-3xl font-semibold">
+              <span className="text-dark text-4xl font-semibold">
                 {product.price_uah} грн.
               </span>
               <span className="text-xl text-red-500 line-through">

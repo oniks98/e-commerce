@@ -13,7 +13,7 @@ const DeliverySelect = () => {
   const [selected, setSelected] = useState('pickup');
 
   return (
-    <div className="w-full max-w-[680px]">
+    <section className="w-full max-w-[680px]">
       <div className="mb-[30px] flex items-center gap-[15px]">
         <div className="bg-yellow flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full">
           <DeliverySelectIcon className="h-[35px] w-[30px] text-white" />
@@ -52,9 +52,9 @@ const DeliverySelect = () => {
               <p className="text-dark text-sm">
                 Графік роботи: щодня з 10:00 до 14:00
               </p>
-              <p className="text-dark text-lg font-semibold">
+              <address className="text-dark text-lg font-semibold not-italic">
                 м. Дніпро, вул. Чапленко 4/2
-              </p>
+              </address>
             </div>
           </div>
           <a
@@ -68,7 +68,7 @@ const DeliverySelect = () => {
           </a>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

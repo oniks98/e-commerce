@@ -12,7 +12,7 @@ const Head = () => {
               src="/images/about-head-bg.png"
               alt="about-head-bg"
               fill
-              className="rounded-lg object-contain"
+              className="rounded-xl object-contain"
             />
           </div>
         </div>
@@ -21,7 +21,7 @@ const Head = () => {
       <div className="bg-gradient-white-to-transparent absolute inset-0 z-5 hidden lg:block"></div>
       <div className="relative z-10 flex h-full w-full flex-col lg:flex-row lg:items-center">
         <div className="w-full px-4 py-6 text-center lg:max-w-[50cqw] lg:py-0 lg:pr-0 lg:pl-[30px] lg:text-left">
-          <h1 className="mb-[20px] text-[30px] font-semibold lg:mb-[30px] lg:text-[40px]">
+          <h1 className="mb-[20px] text-4xl font-semibold lg:mb-[30px]">
             {aboutHead.title}
           </h1>
           <h3 className="mb-[10px] text-[20px] font-semibold lg:mb-[20px] lg:text-[26px]">
@@ -38,7 +38,7 @@ const Head = () => {
             src="/images/about-head-bg-mobile.png"
             alt="about-head-bg-mobile"
             fill
-            className="rounded-lg object-contain"
+            className="rounded-xl object-contain"
           />
         </div>
       </div>

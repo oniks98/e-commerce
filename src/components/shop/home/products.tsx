@@ -18,7 +18,7 @@ const Products = ({ products, locale }: ProductsProps) => {
     <section className="bg-light w-full py-[35px]">
       <div className="mx-auto">
         <div className="mb-8 flex items-center">
-          <h2 className="text-dark text-3xl font-semibold">
+          <h2 className="text-dark text-4xl font-semibold">
             Найпопулярніші товари
           </h2>
           <Link
@@ -29,11 +29,13 @@ const Products = ({ products, locale }: ProductsProps) => {
             <ArrowUpRightIcon className="ml-2 h-4 w-4" />
           </Link>
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-7">
+        <ul className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-7">
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} locale={locale} />
+            <li key={product.id}>
+              <ProductCard product={product} locale={locale} />
+            </li>
           ))}
-        </div>
+        </ul>
         <div className="mt-8 flex justify-center md:hidden">
           <BtnLoadMore onClick={() => alert('TODO: Load more products')}>
             Показати ще товари

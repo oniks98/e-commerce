@@ -14,7 +14,7 @@ const About = () => {
   return (
     <section className="relative">
       <div className="relative z-10 p-4 md:px-[110px] md:pt-[70px] md:pb-[30px]">
-        <h2 className="text-dark mb-6 text-center text-3xl font-semibold md:mb-8">
+        <h2 className="text-dark mb-6 text-center text-4xl font-semibold md:mb-8">
           {aboutData.title}
         </h2>
 

@@ -5,7 +5,7 @@ import { PhoneIcon, AddressIcon, CalendarIcon } from '@/lib/shop/icons';
 
 const ContactsBlock = () => {
   return (
-    <div className="flex flex-col items-center gap-y-6 md:items-start">
+    <address className="flex flex-col items-center gap-y-6 not-italic md:items-start">
       <div className="flex flex-col items-center gap-2 text-center md:flex-row xl:gap-x-4 xl:text-left">
         <PhoneIcon className="hidden h-6 w-6 flex-shrink-0 md:block" />
         <div>
@@ -36,7 +36,7 @@ const ContactsBlock = () => {
         <CalendarIcon className="h-6 w-6 flex-shrink-0" />
         <p>{footerData.contacts.workingHours}</p>
       </div>
-    </div>
+    </address>
   );
 };
 

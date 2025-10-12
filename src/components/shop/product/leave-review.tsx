@@ -30,7 +30,7 @@ const LeaveReview = () => {
   return (
     <section>
       <div className="rounded-lg bg-white p-8">
-        <h2 className="text-dark text-center text-3xl font-semibold md:text-left">
+        <h2 className="text-dark text-center text-4xl font-semibold md:text-left">
           Залишіть свій відгук
         </h2>
         <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>

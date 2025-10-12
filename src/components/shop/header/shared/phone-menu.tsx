@@ -49,13 +49,13 @@ const PhoneMenu = () => {
         {/* Блок 2: контент */}
         <div className="flex flex-col gap-2">
           <span className="text-grey text-xs">9:00-14:00 крім вихідних</span>
-          <div className="flex flex-col gap-2">
+          <ul className="flex flex-col gap-2">
             {PHONES.map((phone, index) => (
-              <div key={index} className="text-dark text-xl font-semibold">
-                {phone}
-              </div>
+              <li key={index} className="text-dark text-xl font-semibold">
+                <a href={`tel:${phone.replace(/\s|-/g, '')}`}>{phone}</a>
+              </li>
             ))}
-          </div>
+          </ul>
           <button
             onClick={() => {
               alert('Форма зворотного дзвінка');

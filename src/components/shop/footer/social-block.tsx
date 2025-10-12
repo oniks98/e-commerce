@@ -7,7 +7,7 @@ const SocialBlock = () => {
   const { messengers, information } = footerData;
 
   return (
-    <div className="flex flex-col items-center md:items-start">
+    <section className="flex flex-col items-center md:items-start">
       {/* Social Links Section */}
       <h3 className="mb-[10px] text-center text-lg font-semibold md:text-left">
         {messengers.title}
@@ -27,7 +27,7 @@ const SocialBlock = () => {
           ))}
         </ul>
       </div>
-    </div>
+    </section>
   );
 };
 

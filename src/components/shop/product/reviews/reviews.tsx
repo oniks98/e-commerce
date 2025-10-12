@@ -67,9 +67,9 @@ const Reviews = ({ productName }: ReviewsProps) => {
         averageRating={4.5}
       />
 
-      <div className="flex flex-col">
+      <ul className="flex flex-col">
         {visibleReviews.map((review, index) => (
-          <div key={review.id}>
+          <li key={review.id}>
             {index > 0 && <div className={dividerStyles} />}
 
             <ReviewItem
@@ -104,9 +104,9 @@ const Reviews = ({ productName }: ReviewsProps) => {
                 />
               </div>
             )}
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
 
       {!activeReplyForm && PRODUCT_REVIEWS.length > INITIAL_VISIBLE_REVIEWS && (
         <ShowMoreButton onClick={handleShowMore} hasMore={hasMoreReviews} />

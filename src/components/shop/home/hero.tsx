@@ -79,14 +79,14 @@ const Hero = ({ className }: HeroProps) => {
   );
 
   return (
-    <div className={clsx('mx-auto h-auto w-full py-[35px]', className)}>
+    <section className={clsx('mx-auto h-auto w-full py-[35px]', className)}>
       <Carousel
         slides={slideComponents}
         options={options}
         prevButton={prevButton}
         nextButton={nextButton}
       />
-    </div>
+    </section>
   );
 };
 

@@ -15,7 +15,7 @@ const PaymentCountry = () => {
   return (
     <section className="py-10">
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
-        <h2 className="mb-6 text-center text-3xl font-semibold">
+        <h2 className="mb-6 text-center text-4xl font-semibold">
           {termsData.paymentCountry.title}
         </h2>
         <ul className="grid grid-cols-1 gap-8 md:grid-cols-3">

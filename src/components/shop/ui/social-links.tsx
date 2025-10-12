@@ -11,8 +11,8 @@ const SocialLinks = ({ className = '', iconSize = 'sm' }: SocialLinksProps) => {
   const iconSizeClass =
     iconSize === 'lg' ? 'h-[40px] w-[40px]' : 'h-[30px] w-[30px]';
   return (
-    <div className={`flex items-center gap-[10px] ${className}`}>
-      <motion.div
+    <ul className={`flex items-center gap-[10px] ${className}`}>
+      <motion.li
         whileInView={{ rotate: 360 }}
         viewport={{ once: false, amount: 0.2 }}
         transition={{
@@ -30,9 +30,9 @@ const SocialLinks = ({ className = '', iconSize = 'sm' }: SocialLinksProps) => {
             className={`${iconSizeClass} transition-transform duration-200 hover:scale-110`}
           />
         </Link>
-      </motion.div>
+      </motion.li>
 
-      <motion.div
+      <motion.li
         whileInView={{ rotate: 360 }}
         viewport={{ once: false, amount: 0.2 }}
         transition={{
@@ -50,9 +50,9 @@ const SocialLinks = ({ className = '', iconSize = 'sm' }: SocialLinksProps) => {
             className={`${iconSizeClass} transition-transform duration-200 hover:scale-110`}
           />
         </Link>
-      </motion.div>
+      </motion.li>
 
-      <motion.div
+      <motion.li
         whileInView={{ rotate: 360 }}
         viewport={{ once: false, amount: 0.2 }}
         transition={{
@@ -70,8 +70,8 @@ const SocialLinks = ({ className = '', iconSize = 'sm' }: SocialLinksProps) => {
             className={`${iconSizeClass} transition-transform duration-200 hover:scale-110`}
           />
         </Link>
-      </motion.div>
-    </div>
+      </motion.li>
+    </ul>
   );
 };
 

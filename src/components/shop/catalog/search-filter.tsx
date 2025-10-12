@@ -29,12 +29,12 @@ const FilterSection = ({
   isOpen,
   onToggle,
 }: FilterSectionProps) => (
-  <div className="border-grey-light bg-light border-b">
+  <fieldset className="border-grey-light bg-light border-b">
     <button
       onClick={onToggle}
       className="text-dark flex w-full items-center justify-between p-4 text-left text-lg font-semibold"
     >
-      <span>{title}</span>
+      <legend>{title}</legend>
       <span
         className={clsx('transform transition-transform', {
           'rotate-180': isOpen,
@@ -44,7 +44,7 @@ const FilterSection = ({
       </span>
     </button>
     {isOpen && <div className="bg-white p-4">{children}</div>}
-  </div>
+  </fieldset>
 );
 
 interface SearchFilterProps {
@@ -154,7 +154,7 @@ const SearchFilter = ({
     ((localPriceRange.max - MIN_PRICE) / (MAX_PRICE - MIN_PRICE)) * 100;
 
   return (
-    <div className="w-full max-w-75">
+    <form className="w-full max-w-75">
       <div className="border-grey-light flex items-center border-b bg-white p-4">
         <FilterBarsIcon />
         <h2 className="text-dark ml-4 text-xl font-semibold">Фільтр пошуку</h2>
@@ -330,7 +330,7 @@ const SearchFilter = ({
           </label>
         ))}
       </FilterSection>
-    </div>
+    </form>
   );
 };
 

@@ -55,7 +55,7 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
   };
 
   return (
-    <div
+    <article
       className={clsx(
         'group',
         'relative',
@@ -135,7 +135,7 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
           Додано!
         </div>
       )}
-    </div>
+    </article>
   );
 };
 

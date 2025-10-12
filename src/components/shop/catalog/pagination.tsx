@@ -63,23 +63,26 @@ const Pagination = ({
       >
         <PaginationArrowLeftIcon />
       </button>
-      {pageNumbers.map((page, index) => (
-        <button
-          key={index}
-          onClick={() => typeof page === 'number' && onPageChange(page)}
-          disabled={page === '...'}
-          className={clsx(
-            'flex h-12 w-12 items-center justify-center rounded-md border',
-            {
-              'border-yellow-dark bg-yellow-dark text-white':
-                currentPage === page,
-              'border-gray-300': currentPage !== page,
-            },
-          )}
-        >
-          {page}
-        </button>
-      ))}
+      <ul className="flex items-center space-x-2">
+        {pageNumbers.map((page, index) => (
+          <li key={index}>
+            <button
+              onClick={() => typeof page === 'number' && onPageChange(page)}
+              disabled={page === '...'}
+              className={clsx(
+                'flex h-12 w-12 items-center justify-center rounded-md border',
+                {
+                  'border-yellow-dark bg-yellow-dark text-white':
+                    currentPage === page,
+                  'border-gray-300': currentPage !== page,
+                },
+              )}
+            >
+              {page}
+            </button>
+          </li>
+        ))}
+      </ul>
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}

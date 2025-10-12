@@ -30,7 +30,7 @@ const Articles = () => {
     <section className="py-[60px] md:py-[70px]">
       <div className="mx-auto">
         <div className="mb-10 flex items-center justify-start gap-x-[30px]">
-          <h2 className="text-dark text-3xl font-semibold">
+          <h2 className="text-dark text-4xl font-semibold">
             Свіжі статті та останні новини
           </h2>
           <Link

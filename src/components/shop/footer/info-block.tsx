@@ -5,7 +5,7 @@ const InfoBlock = () => {
   const { information } = footerData;
 
   return (
-    <div className="flex flex-col items-center md:items-start">
+    <nav className="flex flex-col items-center md:items-start">
       <ul className="space-y-2 text-center md:text-left">
         {information.links.map((link) => (
           <li key={link.href}>
@@ -15,7 +15,7 @@ const InfoBlock = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 };
 

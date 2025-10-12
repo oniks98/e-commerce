@@ -71,7 +71,7 @@ const Promotions = () => {
       <div className="mx-auto">
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center">
-            <h2 className="text-dark text-3xl font-semibold">Акції</h2>
+            <h2 className="text-dark text-4xl font-semibold">Акції</h2>
             <Link
               href="/promotions"
               className="text-yellow-dark ml-[30px] hidden items-center text-lg font-semibold md:flex"
@@ -97,9 +97,9 @@ const Promotions = () => {
         </div>
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex md:-ml-[30px]">
+            <ul className="flex md:-ml-[30px]">
               {promotions.map((promotion) => (
-                <div
+                <li
                   key={promotion.id}
                   className="relative h-[280px] w-full flex-shrink-0 md:w-1/3 md:pl-[30px]"
                 >
@@ -110,9 +110,9 @@ const Promotions = () => {
                     style={{ objectFit: 'cover' }}
                     className="rounded-lg"
                   />
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center space-x-[10px] md:hidden">

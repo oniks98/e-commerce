@@ -13,7 +13,7 @@ const ReviewsHeader = ({
   averageRating,
 }: ReviewsHeaderProps) => {
   const titleStyles = clsx(
-    'mb-8 text-center text-3xl font-semibold leading-tight text-dark',
+    'mb-8 text-center text-4xl font-semibold leading-tight text-dark',
     'md:text-left',
   );
 

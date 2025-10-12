@@ -13,7 +13,7 @@ interface ArticleCardProps {
 
 const ArticleCard: React.FC<ArticleCardProps> = ({ article, className }) => {
   return (
-    <div
+    <article
       className={clsx(
         'border-grey-light-r flex h-[476px] w-full flex-col overflow-hidden rounded-lg border bg-white shadow-[-3px_4px_15px_0px_rgba(0,0,0,0.06)]',
         className,
@@ -39,7 +39,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, className }) => {
           <ArrowUpRightIcon />
         </Link>
       </div>
-    </div>
+    </article>
   );
 };
 

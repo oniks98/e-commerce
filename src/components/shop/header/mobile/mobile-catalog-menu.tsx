@@ -35,7 +35,7 @@ const MobileCatalogMenu = ({
       />
 
       {/* Menu positioned right below the header */}
-      <div
+      <nav
         className={`absolute top-full left-0 z-50 w-full overflow-y-auto bg-white shadow-lg transition-all duration-300 ease-out ${
           isOpen
             ? 'translate-y-0 opacity-100'
@@ -75,22 +75,24 @@ const MobileCatalogMenu = ({
                     <AccordionContent className="bg-light/30 overflow-hidden pt-0 pb-0 transition-all duration-250 ease-out">
                       <div className="px-6 py-4">
                         {/* Subcategories */}
-                        <div className="space-y-2">
+                        <ul className="space-y-2">
                           {category.children.map((subcategory, subIndex) => (
-                            <Link
-                              key={subcategory.id}
-                              href={`/${locale}/catalog/${subcategory.slug}`}
-                              className={`text-dark hover:text-yellow hover:border-yellow animate-fade-in-left block translate-x-2 border-l-2 border-transparent pl-4 text-base leading-8 opacity-0 transition-all duration-150`}
-                              style={{
-                                animationDelay: `${subIndex * 100}ms`,
-                                animationFillMode: 'forwards',
-                              }}
-                              onClick={onClose}
-                            >
-                              {subcategory.name}
-                            </Link>
+                            <li key={subcategory.id}>
+                              <Link
+                                key={subcategory.id}
+                                href={`/${locale}/catalog/${subcategory.slug}`}
+                                className={`text-dark hover:text-yellow hover:border-yellow animate-fade-in-left block translate-x-2 border-l-2 border-transparent pl-4 text-base leading-8 opacity-0 transition-all duration-150`}
+                                style={{
+                                  animationDelay: `${subIndex * 100}ms`,
+                                  animationFillMode: 'forwards',
+                                }}
+                                onClick={onClose}
+                              >
+                                {subcategory.name}
+                              </Link>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       </div>
                     </AccordionContent>
                   </>
@@ -111,7 +113,7 @@ const MobileCatalogMenu = ({
             ))}
           </Accordion>
         </div>
-      </div>
+      </nav>
     </>
   );
 };

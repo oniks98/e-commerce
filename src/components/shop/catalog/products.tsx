@@ -10,11 +10,13 @@ interface ProductsProps {
 
 const Products = ({ products, locale }: ProductsProps) => {
   return (
-    <div className="grid [grid-template-columns:repeat(auto-fill,301px)] justify-center gap-7">
+    <ul className="grid [grid-template-columns:repeat(auto-fill,301px)] justify-center gap-7">
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} locale={locale} />
+        <li key={product.id}>
+          <ProductCard product={product} locale={locale} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 

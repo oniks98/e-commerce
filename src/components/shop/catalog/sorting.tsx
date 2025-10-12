@@ -46,20 +46,21 @@ const SortingDropdown = ({
       </button>
     </div>
     {isDropdownOpen && (
-      <div className="border-grey-light absolute right-0 z-10 mt-2 w-48 rounded-md border bg-white shadow-lg">
+      <ul className="border-grey-light absolute right-0 z-10 mt-2 w-48 rounded-md border bg-white shadow-lg">
         {sortingOptions.map((option: string) => (
-          <button
-            key={option}
-            onClick={() => {
-              setSortOrder(option);
-              setIsDropdownOpen(false);
-            }}
-            className="text-grey block w-full px-4 py-2 text-left hover:bg-gray-100"
-          >
-            {option}
-          </button>
+          <li key={option}>
+            <button
+              onClick={() => {
+                setSortOrder(option);
+                setIsDropdownOpen(false);
+              }}
+              className="text-grey block w-full px-4 py-2 text-left hover:bg-gray-100"
+            >
+              {option}
+            </button>
+          </li>
         ))}
-      </div>
+      </ul>
     )}
   </div>
 );
@@ -82,7 +83,7 @@ const Sorting = ({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <div className="w-full py-4">
+    <section className="w-full py-4">
       {/* Mobile Layout */}
 
       {/* Desktop/Tablet Layout */}
@@ -101,18 +102,20 @@ const Sorting = ({
         </div>
 
         {/* Second Row: Filter Tags */}
-        <div className="mt-[30px] flex flex-wrap items-center gap-2">
+        <ul className="mt-[30px] flex flex-wrap items-center gap-2">
           {selectedFilters.length > 0 && (
-            <button
-              onClick={clearFilters}
-              className="bg-yellow text-dark flex items-center gap-1.5 rounded-lg px-2.5 py-0.5 text-[15px] leading-[22px]"
-            >
-              <span>Очистити</span>
-              <FilterCrossIcon />
-            </button>
+            <li>
+              <button
+                onClick={clearFilters}
+                className="bg-yellow text-dark flex items-center gap-1.5 rounded-lg px-2.5 py-0.5 text-[15px] leading-[22px]"
+              >
+                <span>Очистити</span>
+                <FilterCrossIcon />
+              </button>
+            </li>
           )}
           {selectedFilters.map((filter) => (
-            <div
+            <li
               key={filter}
               className="border-grey-light text-dark flex items-center gap-1.5 rounded-lg border bg-white px-2.5 py-0.5 text-[15px] leading-[22px]"
             >
@@ -120,11 +123,11 @@ const Sorting = ({
               <button onClick={() => removeFilter(filter)}>
                 <FilterCrossIcon />
               </button>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
-    </div>
+    </section>
   );
 };
 

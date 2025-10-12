@@ -16,7 +16,7 @@ const icons: { [key: string]: React.ComponentType<any> } = {
 const PaymentCity = () => {
   return (
     <section className="py-10">
-      <h2 className="mb-6 text-center text-3xl font-semibold">
+      <h2 className="mb-6 text-center text-4xl font-semibold">
         {termsData.paymentCity.title}
       </h2>
       <ul className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">

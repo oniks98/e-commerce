@@ -13,7 +13,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="absolute top-[70px] left-0 z-50 w-full max-w-[480px] bg-white shadow-lg">
+    <nav className="absolute top-[70px] left-0 z-50 w-full max-w-[480px] bg-white shadow-lg">
       <div className="px-[35px] py-[35px]">
         <div className="flex flex-col gap-[40px]">
           {/* Theme and Registration controls - visible only on mobile (< 768px) */}
@@ -42,7 +42,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

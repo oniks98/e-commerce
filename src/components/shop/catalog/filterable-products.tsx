@@ -178,7 +178,7 @@ const FilterableProducts = ({
     displayedProducts.length < filteredAndSortedProducts.length;
 
   return (
-    <div className="flex flex-col items-center gap-7 md:flex-row md:items-start">
+    <section className="flex flex-col items-center gap-7 md:flex-row md:items-start">
       <SearchFilter
         selectedFilters={selectedFilters}
         setSelectedFilters={setSelectedFilters}
@@ -211,7 +211,7 @@ const FilterableProducts = ({
           onPageChange={handlePageChange}
         />
       </div>
-    </div>
+    </section>
   );
 };
 

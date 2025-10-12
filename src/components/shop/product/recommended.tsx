@@ -47,7 +47,7 @@ const Recommended = ({ products }: RecommendedProps) => {
 
   return (
     <section className="py-[35px]">
-      <h2 className="text-dark mb-8 py-3 text-center text-3xl font-semibold md:text-left">
+      <h2 className="text-dark mb-8 py-3 text-center text-4xl font-semibold md:text-left">
         З цим товаром також замовляють
       </h2>
 

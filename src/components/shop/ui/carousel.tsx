@@ -84,12 +84,12 @@ const Carousel: React.FC<CarouselProps> = ({
   return (
     <div className={clsx('relative', className)}>
       <div className="overflow-hidden" ref={emblaRef}>
-        <div
+        <ul
           className="flex"
           style={{ marginLeft: options?.gap ? `-${options.gap}px` : undefined }}
         >
           {slides.map((slide, index) => (
-            <div
+            <li
               className="flex-shrink-0"
               key={index}
               style={{
@@ -100,9 +100,9 @@ const Carousel: React.FC<CarouselProps> = ({
               }}
             >
               {slide}
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       {showDots && (

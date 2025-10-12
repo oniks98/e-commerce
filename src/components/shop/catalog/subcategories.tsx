@@ -25,7 +25,7 @@ const Subcategories = ({
   return (
     <section className="py-8">
       <div className="mb-8 flex justify-center gap-3 pr-5 pl-5 md:justify-start">
-        <h1 className="text-dark text-3xl font-semibold">{categoryName}</h1>
+        <h1 className="text-dark text-4xl font-semibold">{categoryName}</h1>
         <div className="text-grey text-lg">{totalProducts} товарів</div>
       </div>
       <div

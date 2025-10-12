@@ -20,7 +20,7 @@ const Categories = ({ categories, locale }: CategoriesProps) => {
   return (
     <section className="py-[35px]">
       <div className="mx-auto">
-        <h1 className="mb-[35px] text-left text-3xl font-semibold">
+        <h1 className="mb-[35px] text-left text-4xl font-semibold">
           Категорії товарів
         </h1>
         <div

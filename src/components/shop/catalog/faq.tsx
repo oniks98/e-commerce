@@ -12,7 +12,7 @@ import FaqQuestionIcon from '@/lib/shop/icons/faq-question-icon';
 const Faq = () => {
   return (
     <div className="mx-auto max-w-[1070px] pt-[70px] pb-[30px]">
-      <h2 className="text-dark mb-6 text-center text-3xl font-semibold">
+      <h2 className="text-dark mb-6 text-center text-4xl font-semibold">
         Питання, які часто задають про Ліжка
       </h2>
       <Accordion type="single" collapsible className="w-full">

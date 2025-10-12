@@ -8,7 +8,7 @@ import Cart from '@/components/shop/cart/cart';
 
 const ExecutionContract = () => {
   return (
-    <div className="mb-8 flex flex-col justify-between gap-8 lg:flex-row">
+    <section className="mb-8 flex flex-col justify-between gap-8 lg:flex-row">
       <div className="flex w-full flex-col gap-8 rounded-lg bg-white p-4 shadow-lg md:p-[30px]">
         <BuyerInfo />
         <div className="bg-light h-[5px]"></div>
@@ -21,7 +21,7 @@ const ExecutionContract = () => {
       <div>
         <Cart />
       </div>
-    </div>
+    </section>
   );
 };
 

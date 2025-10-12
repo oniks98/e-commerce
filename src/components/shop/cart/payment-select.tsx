@@ -10,7 +10,7 @@ const PaymentSelect = () => {
   const [selected, setSelected] = useState('cash');
 
   return (
-    <div className="w-full max-w-100">
+    <section className="w-full max-w-100">
       <div className="mb-[30px] flex items-center gap-[15px]">
         <div className="bg-yellow flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full">
           <PaymentSelectIcon className="h-[27px] w-[30px] text-white" />
@@ -37,16 +37,18 @@ const PaymentSelect = () => {
             </div>
             <span className="text-dark text-base font-semibold">{label}</span>
             {icons && (
-              <div className="flex items-center gap-x-2">
+              <ul className="flex items-center gap-x-2">
                 {icons.map((Icon, index) => (
-                  <Icon key={index} className="h-8 w-12" />
+                  <li key={index}>
+                    <Icon className="h-8 w-12" />
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

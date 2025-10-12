@@ -41,7 +41,7 @@ const Cart = () => {
   const visibleItems = showAll ? items : items.slice(0, 2);
 
   return (
-    <div className="rounded-lg bg-white p-4 shadow-lg md:p-[30px]">
+    <section className="rounded-lg bg-white p-4 shadow-lg md:p-[30px]">
       <div className="mb-10 flex items-center gap-[10px]">
         <h3 className="text-dark text-2xl font-semibold">Ваш кошик</h3>
         <p className="text-yellow text-2xl font-semibold">{totalItems}</p>
@@ -219,7 +219,7 @@ const Cart = () => {
           </p>
         </>
       )}
-    </div>
+    </section>
   );
 };
 

@@ -3,7 +3,7 @@ import { characteristics } from '@/lib/shop/constants/product/characteristics-da
 const Desc = () => {
   return (
     <section>
-      <h2 className="text-dark mb-5 text-center text-3xl font-semibold md:text-left">
+      <h2 className="text-dark mb-5 text-center text-4xl font-semibold md:text-left">
         Опис товару
       </h2>
       <div className="text-dark mb-5 text-base">
@@ -16,7 +16,7 @@ const Desc = () => {
         </p>
       </div>
       <div>
-        <h3 className="text-dark mb-5 text-center text-3xl font-semibold md:text-left">
+        <h3 className="text-dark mb-5 text-center text-4xl font-semibold md:text-left">
           Характеристики
         </h3>
         <div className="flex flex-col gap-y-1.5">

@@ -1,6 +1,6 @@
 const CartSkeleton = () => {
   return (
-    <div className="w-full max-w-[520px] rounded-lg bg-white p-[30px] shadow-lg">
+    <section className="w-full max-w-[520px] rounded-lg bg-white p-[30px] shadow-lg">
       <div className="mb-5 flex items-center justify-between">
         <div className="h-8 w-32 animate-pulse rounded bg-gray-200" />
         <div className="h-8 w-8 animate-pulse rounded bg-gray-200" />
@@ -51,7 +51,7 @@ const CartSkeleton = () => {
 
       <div className="mt-5 h-14 w-full animate-pulse rounded-lg bg-gray-200" />
       <div className="mx-auto mt-3 h-4 w-4/5 animate-pulse rounded bg-gray-200" />
-    </div>
+    </section>
   );
 };
 

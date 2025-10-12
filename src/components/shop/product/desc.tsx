@@ -19,18 +19,18 @@ const Desc = () => {
         <h3 className="text-dark mb-5 text-center text-4xl font-semibold md:text-left">
           Характеристики
         </h3>
-        <div className="flex flex-col gap-y-1.5">
+        <dl className="flex flex-col gap-y-1.5">
           {characteristics.map((char, index) => (
             <div
               key={index}
               className="flex items-center justify-between rounded-lg bg-white p-4"
             >
-              <span className="text-grey">{char.label}</span>
-              <div className="border-grey-light mx-4 flex-grow border-b-2 border-dashed"></div>
-              <span className="text-grey">{char.value}</span>
+              <dt className="text-grey">{char.label}</dt>
+              <div className="border-grey-light mx-4 flex-grow border-b-2 border-dashed" />
+              <dd className="text-grey">{char.value}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );

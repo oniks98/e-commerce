@@ -19,7 +19,7 @@ const ActionButtons = ({
   const locale = (params?.locale as string) || 'uk';
 
   return (
-    <div className={`flex shrink-0 items-center gap-2 ${className}`}>
+    <nav className={`flex shrink-0 items-center gap-2 ${className}`} aria-label="User actions">
       <button aria-label="Favorites" className="relative h-[50px] w-[50px]">
         <div className="border-yellow absolute inset-0 rounded-full border-2"></div>
         <FavoritesIcon className="text-grey hover:text-yellow absolute top-1/2 left-1/2 h-[23px] w-[26px] -translate-x-1/2 -translate-y-1/2" />
@@ -39,7 +39,7 @@ const ActionButtons = ({
           <CartIndicator locale={locale} />
         </div>
       </Link>
-    </div>
+    </nav>
   );
 };
 

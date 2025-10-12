@@ -25,7 +25,7 @@ interface ReviewCardProps {
 
 const ReviewCard = ({ review, isMobile = false }: ReviewCardProps) => {
   return (
-    <div
+    <article
       className={`${isMobile ? 'h-[370px] w-full' : 'h-[370px] w-[450px]'} flex-shrink-0 rounded-lg bg-white p-[30px] shadow-md`}
     >
       {/* Заголовок */}
@@ -75,7 +75,7 @@ const ReviewCard = ({ review, isMobile = false }: ReviewCardProps) => {
           {review.product.name}
         </span>
       </div>
-    </div>
+    </article>
   );
 };
 

@@ -36,7 +36,7 @@ const ReviewItem = ({
   );
 
   return (
-    <div className="mb-5 flex flex-col items-start gap-5 md:flex-row">
+    <article className="mb-5 flex flex-col items-start gap-5 md:flex-row">
       <Avatar />
 
       <div className="flex flex-1 flex-col gap-5">
@@ -62,7 +62,7 @@ const ReviewItem = ({
           helpfulCount={review.helpful}
         />
       </div>
-    </div>
+    </article>
   );
 };
 

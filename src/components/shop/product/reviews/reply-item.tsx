@@ -18,7 +18,7 @@ const ReplyItem = ({ reply }: ReplyItemProps) => {
   );
 
   return (
-    <div className="flex flex-col gap-5 md:ml-[70px]">
+    <article className="flex flex-col gap-5 md:ml-[70px]">
       <div className="flex items-start gap-5">
         <Avatar isCompany={reply.isCompany} size="sm" />
 
@@ -41,7 +41,7 @@ const ReplyItem = ({ reply }: ReplyItemProps) => {
           </p>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

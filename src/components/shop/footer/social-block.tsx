@@ -7,7 +7,7 @@ const SocialBlock = () => {
   const { messengers, information } = footerData;
 
   return (
-    <section className="flex flex-col items-center md:items-start">
+    <div className="flex flex-col items-center md:items-start">
       {/* Social Links Section */}
       <h3 className="mb-[10px] text-center text-lg font-semibold md:text-left">
         {messengers.title}
@@ -15,7 +15,7 @@ const SocialBlock = () => {
       <SocialLinks iconSize="lg" />
 
       {/* Info Block - Only visible from md to xl screens (768px - 1279px) */}
-      <div className="hidden md:mt-8 md:block xl:hidden">
+      <nav className="hidden md:mt-8 md:block xl:hidden">
         <h3 className="mb-4 text-lg font-semibold">{information.title}</h3>
         <ul className="space-y-2">
           {information.links.map((link) => (
@@ -26,8 +26,8 @@ const SocialBlock = () => {
             </li>
           ))}
         </ul>
-      </div>
-    </section>
+      </nav>
+    </div>
   );
 };
 

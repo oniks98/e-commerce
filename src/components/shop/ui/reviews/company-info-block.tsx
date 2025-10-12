@@ -8,7 +8,7 @@ interface CompanyInfoBlockProps {
 
 const CompanyInfoBlock = ({ variant }: CompanyInfoBlockProps) => {
   return (
-    <div className="mx-auto px-[35px] md:mx-0 md:mb-10 md:px-0 md:text-center xl:w-[410px] xl:p-0 xl:pt-4 xl:pr-[40px] xl:text-left">
+    <section className="mx-auto px-[35px] md:mx-0 md:mb-10 md:px-0 md:text-center xl:w-[410px] xl:p-0 xl:pt-4 xl:pr-[40px] xl:text-left">
       <h2 className="text-dark mb-10 text-center text-4xl font-semibold xl:text-left">
         Останні відгуки
       </h2>
@@ -55,7 +55,7 @@ const CompanyInfoBlock = ({ variant }: CompanyInfoBlockProps) => {
           </button>
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 

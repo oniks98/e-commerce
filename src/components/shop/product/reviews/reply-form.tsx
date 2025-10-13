@@ -1,16 +1,11 @@
 import clsx from 'clsx';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { ForwardIcon } from '@/lib/shop/icons';
-
-const replySchema = z.object({
-  name: z.string().min(1, "Ім'я обов'язкове"),
-  email: z.string().email('Невірний email'),
-  review: z.string().min(10, 'Відгук повинен містити мінімум 10 символів'),
-});
-
-export type ReplyFormValues = z.infer<typeof replySchema>;
+import {
+  replySchema,
+  type ReplyFormValues,
+} from '@/lib/shop/validation/reply-form';
 
 interface ReplyFormProps {
   reviewId: string;

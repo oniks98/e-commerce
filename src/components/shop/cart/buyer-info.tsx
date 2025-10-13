@@ -3,49 +3,14 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 
 import FilterCheckboxActiveIcon from '@/lib/shop/icons/filter-checkbox-active-icon';
 import FilterCheckboxEmptyIcon from '@/lib/shop/icons/filter-checkbox-empty-icon';
 import InfoIcon from '@/lib/shop/icons/info-icon';
-
-const formSchema = z
-  .object({
-    lastName: z.string().min(1, 'Поле не може бути порожнім'),
-    firstName: z.string().min(1, 'Поле не може бути порожнім'),
-    middleName: z.string().min(1, 'Поле не може бути порожнім'),
-    phone: z.string().min(1, 'Поле не може бути порожнім'),
-    email: z.string().email('Неправильний формат email'),
-    anotherPerson: z.boolean(),
-    recipientLastName: z.string().optional(),
-    recipientFirstName: z.string().optional(),
-    recipientMiddleName: z.string().optional(),
-    recipientPhone: z.string().optional(),
-  })
-  .refine(
-    (data) => {
-      if (data.anotherPerson) {
-        return (
-          !!data.recipientLastName &&
-          !!data.recipientFirstName &&
-          !!data.recipientMiddleName &&
-          !!data.recipientPhone
-        );
-      }
-      return true;
-    },
-    {
-      message: 'Будь ласка, заповніть інформацію про отримувача',
-      path: [
-        'recipientLastName',
-        'recipientFirstName',
-        'recipientMiddleName',
-        'recipientPhone',
-      ],
-    },
-  );
-
-type FormValues = z.infer<typeof formSchema>;
+import {
+  buyerInfoSchema,
+  type BuyerInfoFormValues,
+} from '@/lib/shop/validation/buyer-info';
 
 const BuyerInfo = () => {
   const {
@@ -53,8 +18,8 @@ const BuyerInfo = () => {
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
+  } = useForm<BuyerInfoFormValues>({
+    resolver: zodResolver(buyerInfoSchema),
     defaultValues: {
       anotherPerson: false,
     },
@@ -62,7 +27,7 @@ const BuyerInfo = () => {
 
   const anotherPerson = watch('anotherPerson');
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = (data: BuyerInfoFormValues) => {
     console.log(data);
   };
 
@@ -109,7 +74,7 @@ const BuyerInfo = () => {
         <div className="flex flex-col">
           <input
             {...register('firstName')}
-            placeholder="Ім’я"
+            placeholder="Ім'я"
             className={clsx(
               'border-grey-light text-grey placeholder:text-grey rounded-lg border bg-white px-5 py-2.5 text-base',
               errors.firstName && 'border-red-500',
@@ -212,7 +177,7 @@ const BuyerInfo = () => {
             <div className="flex flex-col">
               <input
                 {...register('recipientFirstName')}
-                placeholder="Ім’я"
+                placeholder="Ім'я"
                 className={clsx(
                   'border-grey-light text-grey placeholder:text-grey rounded-lg border bg-white px-5 py-2.5 text-base',
                   errors.recipientFirstName && 'border-red-500',

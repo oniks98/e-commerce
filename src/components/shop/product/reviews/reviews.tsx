@@ -5,7 +5,8 @@ import clsx from 'clsx';
 import { PRODUCT_REVIEWS } from '@/lib/shop/constants/product/product-reviews-data';
 import ReviewItem from './review-item';
 import ReplyItem from './reply-item';
-import ReplyForm, { ReplyFormValues } from './reply-form';
+import ReplyForm from './reply-form';
+import { type ReplyFormValues } from '@/lib/shop/validation/reply-form';
 import ShowMoreButton from './show-more-button';
 import ReviewsHeader from './reviews-header';
 

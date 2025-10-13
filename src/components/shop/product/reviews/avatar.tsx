@@ -23,7 +23,7 @@ const Avatar = ({ isCompany, size = 'md' }: AvatarProps) => {
     <div className={containerStyles}>
       <div className="border-yellow absolute inset-0 rounded-full border bg-white" />
       {isCompany ? (
-        <div className="absolute">
+        <div className="absolute overflow-hidden rounded-full">
           <Logo />
         </div>
       ) : (

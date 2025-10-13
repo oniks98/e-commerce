@@ -2,17 +2,11 @@
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { StarOutlineIcon } from '@/lib/shop/icons';
-
-const reviewSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  email: z.string().email('Invalid email address'),
-  review: z.string().min(10, 'Review must be at least 10 characters long'),
-  rating: z.number().min(1).max(5),
-});
-
-type ReviewFormValues = z.infer<typeof reviewSchema>;
+import {
+  reviewSchema,
+  type ReviewFormValues,
+} from '@/lib/shop/validation/leave-review';
 
 const LeaveReview = () => {
   const {

@@ -2,7 +2,7 @@ import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 import Advantages from '@/components/shop/ui/advantages';
 import Recommended from '@/components/shop/product/recommended';
 import Reviews from '@/components/shop/product/reviews/reviews';
-import LeaveReview from '@/components/shop/product/leave-review';
+import LeaveReview from '@/components/shop/ui/leave-review';
 import Desc from '@/components/shop/product/desc';
 import Conditions from '@/components/shop/product/conditions';
 import Card from '@/components/shop/product/card';

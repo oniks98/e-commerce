@@ -9,10 +9,6 @@ interface CompanyInfoBlockProps {
 const CompanyInfoBlock = ({ variant }: CompanyInfoBlockProps) => {
   return (
     <section className="mx-auto px-[35px] md:mx-0 md:mb-10 md:px-0 md:text-center xl:w-[410px] xl:p-0 xl:pt-4 xl:pr-[40px] xl:text-left">
-      <h2 className="text-dark mb-10 text-center text-4xl font-semibold xl:text-left">
-        Останні відгуки
-      </h2>
-
       <div className="mb-5 flex flex-col items-center xl:flex-row">
         <div className="h-[80px] w-[80px] shrink-0 overflow-hidden rounded-full bg-white md:mb-[20px] xl:self-start">
           <Logo />
@@ -25,7 +21,7 @@ const CompanyInfoBlock = ({ variant }: CompanyInfoBlockProps) => {
             <span className="text-yellow-dark text-[19px] font-semibold">
               5.0
             </span>
-            <div className="flex">
+            <div className="flex" role="img" aria-label="5 зірок з 5">
               {Array.from({ length: 5 }).map((_, index) => (
                 <StarIcon key={index} className="text-yellow-dark" />
               ))}

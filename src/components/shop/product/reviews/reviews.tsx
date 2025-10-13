@@ -7,8 +7,9 @@ import ReviewItem from './review-item';
 import ReplyItem from './reply-item';
 import ReplyForm from './reply-form';
 import { type ReplyFormValues } from '@/lib/shop/validation/reply-form';
-import ShowMoreButton from './show-more-button';
+import BtnLoadMore from '@/components/shop/ui/btn-load-more';
 import ReviewsHeader from './reviews-header';
+import { ReloadIcon } from '@/lib/shop/icons';
 
 const INITIAL_VISIBLE_REVIEWS = 1;
 
@@ -60,6 +61,11 @@ const Reviews = ({ productName }: ReviewsProps) => {
     'md:my-[30px] md:h-[3px]',
   );
 
+  const buttonStyles = clsx(
+    'bg-yellow gap-3 max-w-73 text-[17px]',
+    'md:h-[50px] md:gap-[15px] md:px-[30px] md:text-[19px]',
+  );
+
   return (
     <section className={containerStyles}>
       <ReviewsHeader
@@ -99,10 +105,17 @@ const Reviews = ({ productName }: ReviewsProps) => {
                   onSubmit={handleSubmitReply}
                 />
 
-                <ShowMoreButton
-                  onClick={handleShowMore}
-                  hasMore={hasMoreReviews}
-                />
+                <div className="flex justify-center">
+                  <BtnLoadMore
+                    onClick={handleShowMore}
+                    className={buttonStyles}
+                    icon={<ReloadIcon className="h-5 w-5 md:h-6 md:w-6" />}
+                  >
+                    {hasMoreReviews
+                      ? 'Показати ще відгуки'
+                      : 'Згорнути всі відгуки'}
+                  </BtnLoadMore>
+                </div>
               </div>
             )}
           </li>
@@ -110,7 +123,15 @@ const Reviews = ({ productName }: ReviewsProps) => {
       </ul>
 
       {!activeReplyForm && PRODUCT_REVIEWS.length > INITIAL_VISIBLE_REVIEWS && (
-        <ShowMoreButton onClick={handleShowMore} hasMore={hasMoreReviews} />
+        <div className="flex justify-center">
+          <BtnLoadMore
+            onClick={handleShowMore}
+            className={buttonStyles}
+            icon={<ReloadIcon className="h-5 w-5 md:h-6 md:w-6" />}
+          >
+            {hasMoreReviews ? 'Показати ще відгуки' : 'Згорнути всі відгуки'}
+          </BtnLoadMore>
+        </div>
       )}
     </section>
   );

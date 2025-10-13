@@ -1,8 +1,9 @@
 'use client';
 
 import { useRef, useState, UIEvent, WheelEvent, useEffect } from 'react';
-import { reviewsData } from '@/lib/shop/constants/reviews-data';
-import CompanyInfoBlock from '@/components/shop/ui/reviews/company-info-block';
+import { reviewsData } from '@/lib/shop/constants/reviews-carousel-data';
+import ReviewsTitle from '@/components/shop/ui/reviews/reviews-title';
+import CompanyInfoBlock from '@/components/shop/ui/reviews/reviews-company-info';
 import ReviewCard from '@/components/shop/ui/reviews/review-card';
 import MobilePagination from '@/components/shop/ui/reviews/mobile-pagination';
 import { ArrowScrollIcon } from '@/lib/shop/icons';
@@ -12,13 +13,15 @@ const Reviews = () => {
   const scrollContainerMdRef = useRef<HTMLDivElement>(null);
   const scrollbarXlRef = useRef<HTMLDivElement>(null);
   const scrollbarMdRef = useRef<HTMLDivElement>(null);
-  const thumbXlRef = useRef<HTMLDivElement>(null);
-  const thumbMdRef = useRef<HTMLDivElement>(null);
+  const thumbXlRef = useRef<HTMLButtonElement>(null);
+  const thumbMdRef = useRef<HTMLButtonElement>(null);
   const [isDraggingXl, setIsDraggingXl] = useState(false);
   const [isDraggingMd, setIsDraggingMd] = useState(false);
   const [currentReview, setCurrentReview] = useState(0);
+  const [scrollPercentageXl, setScrollPercentageXl] = useState(0);
+  const [scrollPercentageMd, setScrollPercentageMd] = useState(0);
 
-  // Auto-slide для мобильной версии
+  // Auto-slide для мобільної версії
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentReview((prev) => (prev + 1) % reviewsData.length);
@@ -36,6 +39,7 @@ const Reviews = () => {
       const scrollPercentage =
         e.currentTarget.scrollLeft /
         (e.currentTarget.scrollWidth - e.currentTarget.clientWidth);
+      setScrollPercentageXl(scrollPercentage * 100);
       const scrollbarWidth = scrollbarXlRef.current.clientWidth;
       const thumbWidth = thumbXlRef.current.clientWidth;
       const thumbPosition = scrollPercentage * (scrollbarWidth - thumbWidth);
@@ -68,6 +72,7 @@ const Reviews = () => {
       }
 
       const scrollPercentage = newLeft / (scrollbarRect.width - thumbWidth);
+      setScrollPercentageXl(scrollPercentage * 100);
       scrollContainerXlRef.current.scrollLeft =
         scrollPercentage *
         (scrollContainerXlRef.current.scrollWidth -
@@ -85,6 +90,7 @@ const Reviews = () => {
       const scrollPercentage =
         e.currentTarget.scrollLeft /
         (e.currentTarget.scrollWidth - e.currentTarget.clientWidth);
+      setScrollPercentageMd(scrollPercentage * 100);
       const scrollbarWidth = scrollbarMdRef.current.clientWidth;
       const thumbWidth = thumbMdRef.current.clientWidth;
       const thumbPosition = scrollPercentage * (scrollbarWidth - thumbWidth);
@@ -117,6 +123,7 @@ const Reviews = () => {
       }
 
       const scrollPercentage = newLeft / (scrollbarRect.width - thumbWidth);
+      setScrollPercentageMd(scrollPercentage * 100);
       scrollContainerMdRef.current.scrollLeft =
         scrollPercentage *
         (scrollContainerMdRef.current.scrollWidth -
@@ -138,15 +145,14 @@ const Reviews = () => {
 
   return (
     <section className="bg-grey-light-r overflow-hidden py-10 md:pt-[70px] md:pb-[70px]">
-      {/* Десктопная версия */}
+      {/* Десктопна версія */}
       <div className="hidden md:block">
-        {/* XL screens - layout с боковым инфоблоком */}
+        {/* XL screens - layout з боковим інфоблоком */}
         <div
           className="relative hidden pb-[90px] xl:block"
           onMouseMove={handleThumbMouseMoveXl}
           onMouseUp={handleThumbMouseUpXl}
         >
-          {/* Карточки отзывов - БЕЗ absolute позиционирования */}
           <div
             className="flex w-full items-start pt-4"
             style={{
@@ -154,29 +160,35 @@ const Reviews = () => {
               paddingRight: '35px',
             }}
           >
-            {/* CompanyInfoBlock - слева */}
+            {/* CompanyInfoBlock - ліворуч */}
             <div className="w-[450px] flex-shrink-0">
+              <ReviewsTitle />
               <CompanyInfoBlock variant="xl-sidebar" />
             </div>
 
-            {/* Контейнер с карточками - справа */}
+            {/* Список відгуків - праворуч */}
             <div className="flex-1 overflow-hidden">
               <div
+                id="reviews-list-xl"
                 ref={scrollContainerXlRef}
                 onScroll={handleScrollXl}
                 onWheel={handleWheelXl}
                 className="scrollbar-hide w-full overflow-x-auto overflow-y-visible"
+                role="region"
+                aria-label="Відгуки клієнтів"
               >
-                <div className="flex gap-[30px] pr-10 pl-[30px]">
+                <ul className="flex gap-[30px] pr-10 pl-[30px]">
                   {reviewsData.map((review) => (
-                    <ReviewCard key={review.id} review={review} />
+                    <li key={review.id}>
+                      <ReviewCard review={review} />
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
           </div>
 
-          {/* Кастомный скроллбар для XL - НИЖЕ карточек */}
+          {/* Кастомний скролбар для XL */}
           <div
             className="absolute bottom-0 left-0 z-10 w-full"
             style={{
@@ -187,79 +199,106 @@ const Reviews = () => {
             <div
               className="bg-grey-light relative h-[6px] w-full"
               ref={scrollbarXlRef}
+              role="scrollbar"
+              aria-controls="reviews-list-xl"
+              aria-valuenow={Math.round(scrollPercentageXl)}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-label="Прокрутка відгуків"
             >
-              <div
+              <button
+                type="button"
                 className="border-grey-light absolute top-[-27px] flex h-[60px] w-[60px] cursor-pointer items-center justify-center rounded-full border bg-white shadow-md"
                 ref={thumbXlRef}
                 onMouseDown={handleThumbMouseDownXl}
+                aria-label="Перетягніть для прокрутки відгуків"
               >
                 <ArrowScrollIcon />
-              </div>
+              </button>
             </div>
           </div>
         </div>
 
-        {/* MD screens - вертикальный layout */}
+        {/* MD screens - вертикальний layout */}
         <div
           className="block xl:hidden"
           onMouseMove={handleThumbMouseMoveMd}
           onMouseUp={handleThumbMouseUpMd}
         >
           <div className="mx-auto max-w-[1200px] px-[35px]">
+            <ReviewsTitle />
             <CompanyInfoBlock variant="md-vertical" />
 
-            {/* Карточки отзывов на средних экранах */}
+            {/* Список відгуків на середніх екранах */}
             <div
+              id="reviews-list-md"
               ref={scrollContainerMdRef}
               onScroll={handleScrollMd}
               onWheel={handleWheelMd}
               className="scrollbar-hide overflow-x-auto overflow-y-visible"
+              role="region"
+              aria-label="Відгуки клієнтів"
             >
-              <div className="flex gap-[30px] pb-4">
+              <ul className="flex gap-[30px] pb-4">
                 {reviewsData.map((review) => (
-                  <ReviewCard key={review.id} review={review} />
+                  <li key={review.id}>
+                    <ReviewCard review={review} />
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
-            {/* Скроллбар для средних экранов */}
+            {/* Скролбар для середніх екранів */}
             <div className="mt-[30px]">
               <div
                 className="bg-grey-light relative h-[6px] w-full"
                 ref={scrollbarMdRef}
+                role="scrollbar"
+                aria-controls="reviews-list-md"
+                aria-valuenow={Math.round(scrollPercentageMd)}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-label="Прокрутка відгуків"
               >
-                <div
+                <button
+                  type="button"
                   className="border-grey-light absolute top-[-27px] flex h-[60px] w-[60px] cursor-pointer items-center justify-center rounded-full border bg-white shadow-md"
                   ref={thumbMdRef}
                   onMouseDown={handleThumbMouseDownMd}
+                  aria-label="Перетягніть для прокрутки відгуків"
                 >
                   <ArrowScrollIcon />
-                </div>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Мобильная версия */}
+      {/* Мобільна версія */}
       <div className="block md:hidden">
+        <ReviewsTitle />
         <CompanyInfoBlock variant="mobile" />
 
-        {/* Мобильные карточки отзывов */}
+        {/* Мобільні відгуки */}
         <div className="mt-10">
-          <div className="overflow-hidden">
-            <div
+          <div
+            className="overflow-hidden"
+            role="region"
+            aria-label="Відгуки клієнтів"
+          >
+            <ul
               className="flex transition-transform duration-500"
               style={{
                 transform: `translateX(-${currentReview * 100}%)`,
               }}
             >
               {reviewsData.map((review) => (
-                <div key={review.id} className="w-full flex-shrink-0 px-4">
+                <li key={review.id} className="w-full flex-shrink-0 px-4">
                   <ReviewCard review={review} isMobile={true} />
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
 

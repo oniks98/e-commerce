@@ -23,11 +23,13 @@ const ReviewItem = ({
   const repliesVisible = showReplies[review.id];
   const isReplyFormActive = activeReplyForm === review.id;
 
-  const headerStyles = clsx('flex flex-wrap items-center gap-5');
+  const headerStyles = clsx(
+    'flex flex-wrap items-center justify-between gap-5',
+  );
 
   const authorStyles = clsx(
     'w-full text-[15px] font-normal text-dark',
-    'md:w-[476px] md:text-[17px]',
+    'md:w-[150px] md:text-[17px]',
   );
 
   const dateStyles = clsx(
@@ -39,11 +41,13 @@ const ReviewItem = ({
     <article className="mb-5 flex flex-col items-start gap-5 md:flex-row">
       <Avatar />
 
-      <div className="flex flex-1 flex-col gap-5">
+      <div className="flex flex-1 flex-col">
         <div className={headerStyles}>
           <h3 className={authorStyles}>{review.author}</h3>
-          <StarRating />
-          <span className={dateStyles}>{review.date}</span>
+          <div className="flex gap-5">
+            <StarRating />
+            <span className={dateStyles}>{review.date}</span>
+          </div>
         </div>
 
         <p className="text-dark w-full text-base leading-[30px]">

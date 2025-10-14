@@ -1,4 +1,7 @@
-import { characteristics } from '@/lib/shop/constants/product/characteristics-data';
+import {
+  characteristics,
+  productDescription,
+} from '@/lib/shop/constants/product/characteristics-data';
 
 const Desc = () => {
   return (
@@ -7,13 +10,7 @@ const Desc = () => {
         Опис товару
       </h2>
       <div className="text-dark mb-5 text-base">
-        <p>
-          Модель МК-1 – це ліжко від українського виробника, компанії MegaMebli.
-          Вона виготовляється з ДСП та оснащена м&apos;якою спинкою. Також може
-          бути виготовлена з дерев&apos;яного щита (сосни). Ламелі виконані з
-          бука. Подібна конструкція характеризується надійністю та привабливим
-          зовнішнім виглядом.
-        </p>
+        <p>{productDescription}</p>
       </div>
       <div>
         <h3 className="text-dark mb-5 text-center text-4xl font-semibold md:text-left">

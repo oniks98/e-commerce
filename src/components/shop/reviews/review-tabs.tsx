@@ -1,43 +1,38 @@
-// 'use client';
+'use client';
 
-// import * as Tabs from '@radix-ui/react-tabs';
-// import AllReviews from './AllReviews';
-// import ProductReviews from './ProductReviews';
-// import ShopReviews from './ShopReviews';
+import clsx from 'clsx';
 
-// export default function ReviewTabs() {
-//   return (
-//     <Tabs.Root defaultValue="all" className="w-full">
-//       <Tabs.List className="flex gap-4 border-b border-gray-200">
-//         <Tabs.Trigger
-//           value="all"
-//           className="data-[state=active]:font-semibold data-[state=active]:text-black text-gray-500"
-//         >
-//           Всі відгуки
-//         </Tabs.Trigger>
-//         <Tabs.Trigger
-//           value="product"
-//           className="data-[state=active]:font-semibold data-[state=active]:text-black text-gray-500"
-//         >
-//           Про товари
-//         </Tabs.Trigger>
-//         <Tabs.Trigger
-//           value="shop"
-//           className="data-[state=active]:font-semibold data-[state=active]:text-black text-gray-500"
-//         >
-//           Про магазин
-//         </Tabs.Trigger>
-//       </Tabs.List>
+interface ReviewTabsProps {
+  activeTab: string;
+  onTabChange: (tab: string) => void;
+}
 
-//       <Tabs.Content value="all">
-//         <AllReviews />
-//       </Tabs.Content>
-//       <Tabs.Content value="product">
-//         <ProductReviews />
-//       </Tabs.Content>
-//       <Tabs.Content value="shop">
-//         <ShopReviews />
-//       </Tabs.Content>
-//     </Tabs.Root>
-//   );
-// }
+export default function ReviewTabs({
+  activeTab,
+  onTabChange,
+}: ReviewTabsProps) {
+  const tabs = [
+    { id: 'all', label: 'Всі відгуки' },
+    { id: 'products', label: 'Про товари' },
+    { id: 'shop', label: 'Про магазин' },
+  ];
+
+  return (
+    <div className="border-b-3 border-white">
+      <div className="-mb-[3px] flex gap-[30px]">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => onTabChange(tab.id)}
+            className={clsx('h4-headline border-b-3 pb-2.5', {
+              'border-yellow text-yellow': activeTab === tab.id,
+              'text-dark border-transparent': activeTab !== tab.id,
+            })}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}

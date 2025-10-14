@@ -4,29 +4,14 @@ import PaymentIcon from '@/lib/shop/icons/payment-icon';
 import WarrantyIcon from '@/lib/shop/icons/warranty-icon';
 import HelpIcon from '@/lib/shop/icons/help-icon';
 import ArrowUpRightIcon from '@/lib/shop/icons/arrow-up-right-icon';
+import { conditionsData } from '@/lib/shop/constants/product/conditions-data';
 
-const conditionsData = [
-  {
-    icon: <LocationIcon className="text-yellow" />,
-    title: 'Доставка',
-    description: 'Доставка по всій Україні',
-  },
-  {
-    icon: <PaymentIcon className="text-yellow" />,
-    title: 'Оплата',
-    description: 'Карткою на сайті, готівкою або через термінал',
-  },
-  {
-    icon: <WarrantyIcon className="text-yellow" />,
-    title: 'Гарантія',
-    description: 'Гарантія від виробника до 2 років',
-  },
-  {
-    icon: <HelpIcon className="text-yellow" />,
-    title: 'Підтримка',
-    description: 'Безкоштовна консультація по вибору товара',
-  },
-];
+const iconMap = {
+  LocationIcon: <LocationIcon className="text-yellow" />,
+  PaymentIcon: <PaymentIcon className="text-yellow" />,
+  WarrantyIcon: <WarrantyIcon className="text-yellow" />,
+  HelpIcon: <HelpIcon className="text-yellow" />,
+};
 
 interface ConditionsProps {
   locale: string;
@@ -39,7 +24,7 @@ const Conditions = ({ locale }: ConditionsProps) => {
         {conditionsData.map((item, index) => (
           <li key={index} className="flex items-center gap-x-5">
             <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-full bg-white">
-              {item.icon}
+              {iconMap[item.icon as keyof typeof iconMap]}
             </div>
             <div>
               <h4 className="text-dark mb-1 text-xl font-semibold">

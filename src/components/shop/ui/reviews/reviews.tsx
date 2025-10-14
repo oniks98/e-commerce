@@ -3,9 +3,10 @@
 import { useRef, useState, UIEvent, WheelEvent, useEffect } from 'react';
 import { reviewsData } from '@/lib/shop/constants/reviews-carousel-data';
 import ReviewsTitle from '@/components/shop/ui/reviews/reviews-title';
-import CompanyInfoBlock from '@/components/shop/ui/reviews/reviews-company-info';
+import ReviewsCompanyInfo from '@/components/shop/ui/reviews/reviews-company-info';
 import ReviewCard from '@/components/shop/ui/reviews/review-card';
 import MobilePagination from '@/components/shop/ui/reviews/mobile-pagination';
+import ReviewActions from './review-actions';
 import { ArrowScrollIcon } from '@/lib/shop/icons';
 
 const Reviews = () => {
@@ -160,10 +161,12 @@ const Reviews = () => {
               paddingRight: '35px',
             }}
           >
-            {/* CompanyInfoBlock - ліворуч */}
+            {/* ReviewsCompanyInfo - ліворуч */}
             <div className="w-[450px] flex-shrink-0">
               <ReviewsTitle />
-              <CompanyInfoBlock variant="xl-sidebar" />
+              <ReviewsCompanyInfo variant="xl-sidebar" />
+
+              <ReviewActions />
             </div>
 
             {/* Список відгуків - праворуч */}
@@ -227,7 +230,9 @@ const Reviews = () => {
         >
           <div className="mx-auto max-w-[1200px] px-[35px]">
             <ReviewsTitle />
-            <CompanyInfoBlock variant="md-vertical" />
+            <ReviewsCompanyInfo variant="md-vertical" />
+
+            <ReviewActions />
 
             {/* Список відгуків на середніх екранах */}
             <div
@@ -278,7 +283,10 @@ const Reviews = () => {
       {/* Мобільна версія */}
       <div className="block md:hidden">
         <ReviewsTitle />
-        <CompanyInfoBlock variant="mobile" />
+        <ReviewsCompanyInfo variant="mobile" />
+        <div className="px-4">
+          <ReviewActions />
+        </div>
 
         {/* Мобільні відгуки */}
         <div className="mt-10">

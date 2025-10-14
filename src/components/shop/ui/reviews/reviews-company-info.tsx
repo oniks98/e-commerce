@@ -2,11 +2,11 @@ import Link from 'next/link';
 import { StarIcon, AddIcon, ChatIcon } from '@/lib/shop/icons';
 import Logo from '@/components/shop/ui/logo';
 
-interface CompanyInfoBlockProps {
+interface ReviewsCompanyInfoProps {
   variant?: 'xl-sidebar' | 'md-vertical' | 'mobile';
 }
 
-const CompanyInfoBlock = ({ variant }: CompanyInfoBlockProps) => {
+const ReviewsCompanyInfo = ({ variant }: ReviewsCompanyInfoProps) => {
   return (
     <section className="mx-auto px-[35px] md:mx-0 md:mb-10 md:px-0 md:text-center xl:w-[410px] xl:p-0 xl:pt-4 xl:pr-[40px] xl:text-left">
       <div className="mb-5 flex flex-col items-center xl:flex-row">
@@ -32,27 +32,8 @@ const CompanyInfoBlock = ({ variant }: CompanyInfoBlockProps) => {
           </p>
         </div>
       </div>
-
-      <div className="flex flex-col items-center justify-center gap-5 md:flex-row">
-        <button className="bg-yellow flex h-[50px] items-center justify-center rounded-lg px-3 text-white">
-          <AddIcon />
-          <span className="ml-[15px] text-lg font-semibold">
-            Написати відгук
-          </span>
-        </button>
-
-        <Link
-          href="/reviews"
-          className="w-full max-w-[345px] md:w-auto md:max-w-none"
-        >
-          <button className="text-grey flex h-[50px] w-full items-center justify-center">
-            <ChatIcon />
-            <span className="ml-[15px] text-lg font-semibold">Всі відгуки</span>
-          </button>
-        </Link>
-      </div>
     </section>
   );
 };
 
-export default CompanyInfoBlock;
+export default ReviewsCompanyInfo;

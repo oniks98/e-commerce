@@ -7,6 +7,7 @@ export interface Review {
   helpful: number;
   repliesCount: number;
   isCompany?: boolean;
+  product?: string;
   replies?: Reply[];
 }
 

@@ -1,36 +1,44 @@
-// 'use client';
+import { reviewsPageBreadcrumbs } from '@/lib/shop/constants/reviews/reviews-data';
+import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
+import ReviewsCompanyInfo from '@/components/shop/ui/reviews/reviews-company-info';
+import LeaveReview from '@/components/shop/ui/leave-review';
+import Advantages from '@/components/shop/ui/advantages';
+import ReviewsClient from '@/components/shop/reviews/reviews-client';
+import { Locale } from '@/i18n/types';
+import { setRequestLocale } from 'next-intl/server';
 
-// import { useState, useEffect } from 'react';
-// import { useRouter, useSearchParams } from 'next/navigation';
-// import ReviewTabs from './components/ReviewTabs';
-// import AllReviews from './components/AllReviews';
-// import ProductReviews from './components/ProductReviews';
-// import ShopReviews from './components/ShopReviews';
+export default async function ReviewsPage({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
-// type TabType = 'all' | 'products' | 'shop';
+  return (
+    <section className="bg-light">
+      <div className="mx-auto max-w-[1360px] px-4 pb-8 md:px-[35px] xl:mt-[138px]">
+        <Breadcrumbs className="mb-10" items={reviewsPageBreadcrumbs} />
 
-// export default function ReviewsPage() {
-//   const router = useRouter();
-//   const searchParams = useSearchParams();
-//   const [activeTab, setActiveTab] = useState<TabType>(
-//     (searchParams.get('tab') as TabType) || 'all'
-//   );
+        <h1 className="mb-10 text-4xl font-semibold">Відгуки</h1>
 
-//   // Синхронізація з URL
-//   const handleTabChange = (tab: TabType) => {
-//     setActiveTab(tab);
-//     router.push(`/reviews?tab=${tab}`, { scroll: false });
-//   };
-
-//   return (
-//     <section className="container mx-auto py-8">
-//       <h1 className="text-2xl font-bold mb-6">Відгуки</h1>
-
-//       <ReviewTabs activeTab={activeTab} onTabChange={handleTabChange} />
-
-//       {activeTab === 'all' && <AllReviews />}
-//       {activeTab === 'products' && <ProductReviews />}
-//       {activeTab === 'shop' && <ShopReviews />}
-//     </section>
-//   );
-// }
+        <div className="flex flex-col gap-10 lg:flex-row">
+          <div className="flex-grow">
+            <ReviewsClient />
+          </div>
+          <div className="flex-shrink-0 lg:w-[410px]">
+            <div className="flex flex-col">
+              <ReviewsCompanyInfo />
+              <LeaveReview />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-white">
+        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
+          <Advantages />
+        </div>
+      </div>
+    </section>
+  );
+}

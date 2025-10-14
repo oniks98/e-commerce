@@ -3,7 +3,7 @@ import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 import ReviewsCompanyInfo from '@/components/shop/ui/reviews/reviews-company-info';
 import LeaveReview from '@/components/shop/ui/leave-review';
 import Advantages from '@/components/shop/ui/advantages';
-import ReviewsClient from '@/components/shop/reviews/reviews-client';
+import ReviewsContent from '@/components/shop/reviews/reviews-content';
 import { Locale } from '@/i18n/types';
 import { setRequestLocale } from 'next-intl/server';
 
@@ -24,7 +24,7 @@ export default async function ReviewsPage({
 
         <div className="flex flex-col gap-10 lg:flex-row">
           <div className="flex-grow">
-            <ReviewsClient />
+            <ReviewsContent />
           </div>
           <div className="flex-shrink-0 lg:w-[410px]">
             <div className="flex flex-col">

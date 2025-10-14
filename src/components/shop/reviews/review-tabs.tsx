@@ -2,23 +2,25 @@
 
 import clsx from 'clsx';
 
+type TabType = 'all' | 'products' | 'shop';
+
 interface ReviewTabsProps {
-  activeTab: string;
-  onTabChange: (tab: string) => void;
+  activeTab: TabType;
+  onTabChange: (tab: TabType) => void;
 }
 
 export default function ReviewTabs({
   activeTab,
   onTabChange,
 }: ReviewTabsProps) {
-  const tabs = [
+  const tabs: Array<{ id: TabType; label: string }> = [
     { id: 'all', label: 'Всі відгуки' },
     { id: 'products', label: 'Про товари' },
     { id: 'shop', label: 'Про магазин' },
   ];
 
   return (
-    <div className="border-b-3 border-white">
+    <nav className="border-b-3 border-white" aria-label="Навігація по відгуках">
       <div className="-mb-[3px] flex gap-[30px]">
         {tabs.map((tab) => (
           <button
@@ -28,11 +30,12 @@ export default function ReviewTabs({
               'border-yellow text-yellow': activeTab === tab.id,
               'text-dark border-transparent': activeTab !== tab.id,
             })}
+            aria-current={activeTab === tab.id ? 'page' : undefined}
           >
             {tab.label}
           </button>
         ))}
       </div>
-    </div>
+    </nav>
   );
 }

@@ -41,7 +41,7 @@ const ReviewItem = ({
     <article className="mb-5 flex flex-col items-start gap-5 md:flex-row">
       <Avatar />
 
-      <div className="flex flex-1 flex-col">
+      <div className="flex flex-1 flex-col gap-5">
         <div className={headerStyles}>
           <h3 className={authorStyles}>{review.author}</h3>
           <div className="flex gap-5">

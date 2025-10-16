@@ -13,7 +13,7 @@ export default function ReviewsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<TabType>(
-    (searchParams.get('tab') as TabType) || 'all'
+    (searchParams.get('tab') as TabType) || 'all',
   );
 
   const handleTabChange = (tab: TabType) => {
@@ -24,7 +24,7 @@ export default function ReviewsContent() {
   return (
     <div>
       <ReviewTabs activeTab={activeTab} onTabChange={handleTabChange} />
-      
+
       <div className="mt-10">
         {activeTab === 'all' && <AllReviews />}
         {activeTab === 'products' && <ProductReviews />}

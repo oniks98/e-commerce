@@ -205,11 +205,13 @@ const FilterableProducts = ({
             </BtnLoadMore>
           </div>
         )}
-        <Pagination
-          totalPages={totalPages}
-          currentPage={currentPage}
-          onPageChange={handlePageChange}
-        />
+        <div className="hidden md:block">
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+          />
+        </div>
       </div>
     </section>
   );

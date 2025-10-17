@@ -31,7 +31,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const products = await getProducts({ categoryId: category.id });
 
   return (
-    <div className="bg-light">
+    <section className="bg-light">
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
         <Breadcrumbs category={category} />
         <Subcategories
@@ -52,6 +52,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <Advantages />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

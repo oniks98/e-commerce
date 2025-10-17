@@ -29,7 +29,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   ];
 
   return (
-    <div className="bg-light">
+    <section className="bg-light">
       <div className="mx-auto mb-8 max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
         <Breadcrumbs items={breadcrumbItems} />
         <Categories
@@ -47,6 +47,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <Advantages />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

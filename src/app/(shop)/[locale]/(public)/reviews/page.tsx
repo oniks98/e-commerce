@@ -2,7 +2,7 @@ import { reviewsPageBreadcrumbs } from '@/lib/shop/constants/reviews/reviews-dat
 import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 import ReviewsCompanyInfo from '@/components/shop/ui/reviews/reviews-company-info';
 import LeaveReview from '@/components/shop/ui/leave-review';
-import Advantages from '@/components/shop/ui/advantages';
+
 import ReviewsContent from '@/components/shop/reviews/reviews-content';
 import { Locale } from '@/i18n/types';
 import { setRequestLocale } from 'next-intl/server';
@@ -32,11 +32,6 @@ export default async function ReviewsPage({
               <LeaveReview />
             </div>
           </div>
-        </div>
-      </div>
-      <div className="bg-white">
-        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
-          <Advantages />
         </div>
       </div>
     </section>

@@ -9,7 +9,7 @@ import FilterableProducts from '@/components/shop/catalog/filterable-products';
 import Subcategories from '@/components/shop/catalog/subcategories';
 import SeoText from '@/components/shop/catalog/seo-text';
 import Reviews from '@/components/shop/ui/reviews/reviews';
-import Advantages from '@/components/shop/ui/advantages';
+
 import Faq from '@/components/shop/catalog/faq';
 
 interface CategoryPageProps {
@@ -49,7 +49,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <div className="bg-white">
         <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
           <Faq />
-          <Advantages />
         </div>
       </div>
     </section>

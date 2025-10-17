@@ -4,31 +4,32 @@ import { useState, useEffect, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BLOG_DATA } from '@/lib/shop/constants/blog/blog-data';
+import { blogData } from '@/lib/shop/constants/blog-data';
 import ArrowUpRightIcon from '@/lib/shop/icons/arrow-up-right-icon';
 import BtnLoadMore from '@/components/shop/ui/btn-load-more';
 import Pagination from '@/components/shop/ui/pagination';
+import { Locale } from '@/i18n/types';
 
 const BLOG_POSTS_PER_PAGE = 9;
 
-const Blog = () => {
+const Blog = ({ locale }: { locale: Locale }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const [displayedBlogPosts, setDisplayedBlogPosts] = useState(
-    BLOG_DATA.slice(0, BLOG_POSTS_PER_PAGE),
+    blogData.articles.slice(0, BLOG_POSTS_PER_PAGE),
   );
 
   const [pageToLoadNext, setPageToLoadNext] = useState(2);
 
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
-  const totalPages = Math.ceil(BLOG_DATA.length / BLOG_POSTS_PER_PAGE);
+  const totalPages = Math.ceil(blogData.articles.length / BLOG_POSTS_PER_PAGE);
 
   useEffect(() => {
     const startIndex = (currentPage - 1) * BLOG_POSTS_PER_PAGE;
     const endIndex = startIndex + BLOG_POSTS_PER_PAGE;
 
-    setDisplayedBlogPosts(BLOG_DATA.slice(startIndex, endIndex));
+    setDisplayedBlogPosts(blogData.articles.slice(startIndex, endIndex));
     setPageToLoadNext(currentPage + 1);
   }, [currentPage]);
 
@@ -56,7 +57,7 @@ const Blog = () => {
 
     const startIndex = (pageToLoadNext - 1) * BLOG_POSTS_PER_PAGE;
     const endIndex = startIndex + BLOG_POSTS_PER_PAGE;
-    const newBlogPosts = BLOG_DATA.slice(startIndex, endIndex);
+    const newBlogPosts = blogData.articles.slice(startIndex, endIndex);
 
     setDisplayedBlogPosts((prevBlogPosts) => [
       ...prevBlogPosts,
@@ -68,7 +69,7 @@ const Blog = () => {
 
   const canLoadMore =
     pageToLoadNext <= totalPages &&
-    displayedBlogPosts.length < BLOG_DATA.length;
+    displayedBlogPosts.length < blogData.articles.length;
 
   return (
     <section className="py-10" aria-labelledby="blog-heading">
@@ -96,7 +97,7 @@ const Blog = () => {
                 </h2>
 
                 <Link
-                  href="#"
+                  href={`/${locale}/blog/${post.slug}`}
                   className="text-yellow gap-[10px]font-semibold flex items-center text-[19px]"
                   aria-label={`Читати більше про ${post.title}`}
                 >
@@ -118,9 +119,8 @@ const Blog = () => {
             Показати ще{' '}
             {Math.min(
               BLOG_POSTS_PER_PAGE,
-              BLOG_DATA.length - displayedBlogPosts.length,
+              blogData.articles.length - displayedBlogPosts.length,
             )}{' '}
-            статей
           </BtnLoadMore>
         </footer>
       )}

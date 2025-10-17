@@ -1,6 +1,7 @@
 import Footer from '@/components/shop/footer/footer';
 import Header from '@/components/shop/header/header';
 import { getAllCategories } from '@/lib/shop/actions/category';
+import Advantages from '@/components/shop/ui/advantages';
 
 export default async function PublicLayout({
   children,
@@ -16,10 +17,17 @@ export default async function PublicLayout({
 
   return (
     <>
-      <Header locale={locale} catalogData={catalogData} />
-      <main>{children}</main>
+      <div className="bg-light flex min-h-screen flex-col">
+        <Header locale={locale} catalogData={catalogData} />
+        <main className="flex-grow">{children}</main>
+        <div className="bg-white">
+          <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
+            <Advantages />
+          </div>
+        </div>
+        <Footer locale={locale} catalogData={catalogData} />
+      </div>
       {modal}
-      <Footer locale={locale} catalogData={catalogData} />
     </>
   );
 }

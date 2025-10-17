@@ -6,7 +6,6 @@ import {
 import { getProducts } from '@/lib/shop/actions/product';
 import FilterableProducts from '@/components/shop/catalog/filterable-products';
 import Categories from '@/components/shop/catalog/categories';
-import Advantages from '@/components/shop/ui/advantages';
 
 interface CategoryPageProps {
   params: Promise<{
@@ -40,12 +39,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           initialProducts={products}
           locale={awaitedParams.locale}
         />
-      </div>
-
-      <div className="bg-white">
-        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
-          <Advantages />
-        </div>
       </div>
     </section>
   );

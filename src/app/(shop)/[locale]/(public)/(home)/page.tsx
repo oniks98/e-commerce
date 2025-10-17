@@ -6,7 +6,6 @@ import Promotions from '@/components/shop/home/promotions';
 import About from '@/components/shop/home/about';
 import Reviews from '@/components/shop/ui/reviews/reviews';
 import Articles from '@/components/shop/home/articles';
-import Advantages from '@/components/shop/ui/advantages';
 
 import { getAllCategories } from '@/lib/shop/actions/category';
 import {
@@ -41,12 +40,6 @@ export default async function HomePage({
       <Reviews />
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
         <Articles />
-      </div>
-      <div className="bg-white">
-        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
-          <About />
-          <Advantages />
-        </div>
       </div>
     </div>
   );

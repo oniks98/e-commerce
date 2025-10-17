@@ -6,7 +6,6 @@ import Head from '@/components/shop/terms/head';
 import PaymentMethods from '@/components/shop/terms/payment-methods';
 import DeliveryMethods from '@/components/shop/terms/delivery-methods';
 import Faq from '@/components/shop/terms/faq';
-import Advantages from '@/components/shop/ui/advantages';
 
 import { termsPageBreadcrumbs } from '@/lib/shop/constants/terms/terms-data';
 
@@ -35,12 +34,6 @@ export default async function TermsPage({
 
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
         <Faq />
-      </div>
-
-      <div className="bg-white">
-        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] md:pt-[30px]">
-          <Advantages />
-        </div>
       </div>
     </section>
   );

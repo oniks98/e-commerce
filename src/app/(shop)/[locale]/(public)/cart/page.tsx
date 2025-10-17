@@ -1,6 +1,6 @@
 import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 import ExecutionContract from '@/components/shop/cart/execution-contract';
-import Advantages from '@/components/shop/ui/advantages';
+
 import { Locale } from '@/i18n/types';
 
 export default async function CartPage({
@@ -26,11 +26,6 @@ export default async function CartPage({
           Оформлення замовлення
         </h1>
         <ExecutionContract />
-      </div>
-      <div className="bg-white">
-        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
-          <Advantages />
-        </div>
       </div>
     </div>
   );

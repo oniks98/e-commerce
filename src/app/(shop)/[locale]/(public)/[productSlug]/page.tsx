@@ -1,5 +1,5 @@
 import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
-import Advantages from '@/components/shop/ui/advantages';
+
 import Recommended from '@/components/shop/product/recommended';
 import Reviews from '@/components/shop/product/reviews/reviews';
 import LeaveReview from '@/components/shop/ui/leave-review';
@@ -52,7 +52,6 @@ export default async function ProductPage({
       <div className="bg-white">
         <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
           <Recommended products={recommendedProducts} />
-          <Advantages />
         </div>
       </div>
     </div>

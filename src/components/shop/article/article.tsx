@@ -46,7 +46,7 @@ const Article: FC<IArticleProps> = ({ article, articles }) => {
           {article.body.list.map((item, index) => (
             <li key={index} className="flex items-start">
               <div className="mr-4 h-8 w-8">
-                <MarkIcon />
+                <MarkIcon className="text-yellow" />
               </div>
               <p className="text-dark flex-1 text-base">{item}</p>
             </li>

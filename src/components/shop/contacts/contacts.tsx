@@ -35,7 +35,7 @@ const Contacts = () => {
                 <Icon className="h-5 w-5" />
               </div>
               <div className="flex flex-col gap-[5px]">
-                <h3 className="text-grey-light text-[17px] leading-[1.41] font-normal">
+                <h3 className="text-grey text-[17px] leading-[1.41] font-normal">
                   {title}
                 </h3>
                 <div className="flex flex-col gap-0">

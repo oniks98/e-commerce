@@ -57,7 +57,9 @@ export const contactsData = {
       iconClassName:
         'flex h-[50px] w-[50px] items-center justify-center rounded-full bg-yellow text-white',
       title: 'Графік роботи:',
-      content: ['Працюємо щодня з 10:00 до 14:00 крім вихідних'],
+      content: [
+        'Працюємо щодня з 10:00 до 14:00 крім вихідних або самовивіз за домовленністю з 8 до 20 у будь-який день.',
+      ],
       showSocial: false,
     },
   ] satisfies ContactCard[],

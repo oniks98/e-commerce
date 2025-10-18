@@ -53,3 +53,6 @@ export { default as CashOnDeliveryPaymentIcon } from './cash-on-delivery-payment
 export { default as UkrainePaymentIcon } from './ukraine-payment-icon';
 export { default as CreditPaymentIcon } from './credit-payment-icon';
 export { default as PrepaymentIcon } from './prepayment-icon';
+export { default as EmailIcon } from './email-icon';
+export { default as OnMapIcon } from './on-map-icon';
+export { default as LocationIcon } from './location-icon';

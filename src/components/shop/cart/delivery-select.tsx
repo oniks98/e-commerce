@@ -50,7 +50,7 @@ const DeliverySelect = () => {
             <LocationIcon className="text-grey-light h-10 w-10 shrink-0" />
             <div>
               <p className="text-dark text-sm">
-                Графік роботи: щодня з 10:00 до 14:00
+                Графік роботи: щодня з 10:00 до 14:00 крім вихідних
               </p>
               <address className="text-dark text-lg font-semibold not-italic">
                 м. Дніпро, вул. Чапленко 4/2

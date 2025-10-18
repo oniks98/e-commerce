@@ -23,7 +23,7 @@ const Article: FC<IArticleProps> = ({ article, articles }) => {
     currentIndex < articles.length - 1 ? articles[currentIndex + 1] : null;
   return (
     <div className="mx-auto max-w-[1070px] pb-[60px]">
-      <h1 className="text-dark mb-10 text-4xl font-semibold">
+      <h1 className="text-dark mb-10 text-4xl font-semibold break-words">
         {article.title}
       </h1>
       <div className="relative mb-12 h-[380px] w-full">
@@ -53,9 +53,7 @@ const Article: FC<IArticleProps> = ({ article, articles }) => {
           ))}
         </ul>
       </div>
-      <div className="text-dark mb-12 text-base">
-        <p>{article.body.p2}</p>
-      </div>
+      <div className="text-dark mb-12 text-base"></div>
       <div className="flex flex-wrap justify-center gap-5 md:justify-between">
         {prevArticle ? (
           <Link href={`/blog/${prevArticle.slug}`}>

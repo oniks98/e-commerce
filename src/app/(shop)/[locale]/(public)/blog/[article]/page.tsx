@@ -3,7 +3,7 @@ import { setRequestLocale } from 'next-intl/server';
 import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 import Article from '@/components/shop/article/article';
 
-import { blogData } from '@/lib/shop/constants/blog-data';
+import { blogData } from '@/lib/shop/constants/blog/blog-data';
 import { Locale } from '@/i18n/types';
 import { IArticle } from '@/lib/shop/types/article';
 

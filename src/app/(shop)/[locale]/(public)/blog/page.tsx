@@ -3,7 +3,7 @@ import { setRequestLocale } from 'next-intl/server';
 import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 import Blog from '@/components/shop/blog/blog';
 
-import { blogData } from '@/lib/shop/constants/blog-data';
+import { blogData } from '@/lib/shop/constants/blog/blog-data';
 import { Locale } from '@/i18n/types';
 
 export default async function BlogPage({

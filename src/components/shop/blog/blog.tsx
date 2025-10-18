@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { blogData } from '@/lib/shop/constants/blog-data';
+import { blogData } from '@/lib/shop/constants/blog/blog-data';
 import ArrowUpRightIcon from '@/lib/shop/icons/arrow-up-right-icon';
 import BtnLoadMore from '@/components/shop/ui/btn-load-more';
 import Pagination from '@/components/shop/ui/pagination';

@@ -8,6 +8,5 @@ export interface IArticle {
     p1: string;
     h2: string;
     list: string[];
-    p2: string;
   };
 }

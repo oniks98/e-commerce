@@ -1,5 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 
+import { getLocalizedValue } from '@/i18n/localized-content';
 import { Locale } from '@/i18n/types';
 
 import Card from '@/components/shop/product/card';
@@ -26,12 +27,11 @@ export default async function ProductPage({
     return <div>Product not found</div>;
   }
 
-  const productName =
-    typeof product.name === 'object' &&
-    product.name &&
-    (product.name as any)[locale]
-      ? (product.name as any)[locale]
-      : 'Unnamed Product';
+  const productName = getLocalizedValue(
+    product.name,
+    locale,
+    'Unnamed Product',
+  );
 
   return (
     <div className="bg-light">

@@ -1,4 +1,4 @@
-import { setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
 import About from '@/components/shop/home/about';
 import Articles from '@/components/shop/home/articles';

@@ -1,6 +1,7 @@
 // src/middleware.ts
-import createIntlMiddleware from 'next-intl/middleware';
 import type { NextRequest } from 'next/server';
+
+import createIntlMiddleware from 'next-intl/middleware';
 
 import { adminRouting } from '@/i18n/admin-routing';
 import { shopRouting } from '@/i18n/shop-routing';

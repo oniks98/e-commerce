@@ -1,4 +1,3 @@
-// src\components\shop\ui\dropdown-menu.tsx
 'use client';
 
 import * as React from 'react';
@@ -6,23 +5,18 @@ import * as React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import clsx from 'clsx';
 
-// src\components\shop\ui\dropdown-menu.tsx
-
-// Корневой контейнер
 export function DropdownMenu({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
   return <DropdownMenuPrimitive.Root {...props} />;
 }
 
-// Кнопка-триггер
 export function DropdownMenuTrigger({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
   return <DropdownMenuPrimitive.Trigger {...props} />;
 }
 
-// Контейнер меню
 export function DropdownMenuContent({
   className,
   sideOffset = 4,
@@ -49,7 +43,6 @@ export function DropdownMenuContent({
   );
 }
 
-// Элемент меню
 export function DropdownMenuItem({
   className,
   inset,

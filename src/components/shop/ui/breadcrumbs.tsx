@@ -1,7 +1,9 @@
 import Link from 'next/link';
 
-import { Locale } from '@/i18n/types';
 import clsx from 'clsx';
+
+import { getLocalizedValue } from '@/i18n/localized-content';
+import { Locale } from '@/i18n/types';
 
 import {
   getCategoryBySlug,
@@ -73,10 +75,7 @@ const Breadcrumbs = async ({
     if (product.category_id) {
       categoryPath = await getCategoryPath(product.category_id);
     }
-    productName =
-      typeof product.name === 'object' && product.name
-        ? (product.name as any)[locale] || 'Unnamed Product'
-        : 'Unnamed Product';
+    productName = getLocalizedValue(product.name, locale, 'Unnamed Product');
   } else if (categoryProp) {
     // Get full category path for category page
     categoryPath = await getCategoryPath(categoryProp.id);

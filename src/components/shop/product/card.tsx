@@ -8,6 +8,9 @@ import { useRouter } from 'next/navigation';
 import clsx from 'clsx';
 import { EmblaOptionsType } from 'embla-carousel';
 
+import { getLocalizedValue } from '@/i18n/localized-content';
+import { type Locale } from '@/i18n/types';
+
 import Carousel from '@/components/shop/ui/carousel';
 
 import {
@@ -31,7 +34,7 @@ type Product = Tables<'products'>;
 
 interface CardProps {
   product: Product;
-  locale: string;
+  locale: Locale;
   productName: string;
 }
 
@@ -46,12 +49,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
     setQuantity((prev) => Math.max(1, prev + delta));
   };
 
-  const productSlug =
-    typeof product.slug === 'object' &&
-    product.slug &&
-    (product.slug as any)[locale]
-      ? (product.slug as any)[locale]
-      : product.id;
+  const productSlug = getLocalizedValue(product.slug, locale, product.id);
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {

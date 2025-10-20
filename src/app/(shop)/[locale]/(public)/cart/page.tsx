@@ -1,7 +1,9 @@
-import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
-import ExecutionContract from '@/components/shop/cart/execution-contract';
+import { setRequestLocale } from 'next-intl/server';
 
 import { Locale } from '@/i18n/types';
+
+import ExecutionContract from '@/components/shop/cart/execution-contract';
+import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 
 export default async function CartPage({
   params,
@@ -9,6 +11,7 @@ export default async function CartPage({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
 
   const cartLabel = locale === 'uk' ? 'Кошик' : 'Cart';
   const homeLabel = locale === 'uk' ? 'Головна' : 'Home';

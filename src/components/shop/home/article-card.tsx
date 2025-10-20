@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
+
 import clsx from 'clsx';
 
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
-import { ArrowUpRightIcon } from '@/lib/shop/icons';
 import { Article } from '@/lib/shop/constants/home/articles-data';
+import { ArrowUpRightIcon } from '@/lib/shop/icons';
+import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 
 interface ArticleCardProps {
   article: Article;

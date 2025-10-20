@@ -1,15 +1,19 @@
 'use client';
 
 import { useState } from 'react';
+
 import clsx from 'clsx';
-import { PRODUCT_REVIEWS } from '@/lib/shop/constants/product/product-reviews-data';
-import ReviewItem from './review-item';
-import ReplyItem from './reply-item';
-import ReplyForm from './reply-form';
-import { type ReplyFormValues } from '@/lib/shop/validation/reply-form';
+
 import BtnLoadMore from '@/components/shop/ui/btn-load-more';
-import ReviewsHeader from './reviews-header';
+
+import { PRODUCT_REVIEWS } from '@/lib/shop/constants/product/product-reviews-data';
 import { ReloadIcon } from '@/lib/shop/icons';
+import { type ReplyFormValues } from '@/lib/shop/validation/reply-form';
+
+import ReplyForm from './reply-form';
+import ReplyItem from './reply-item';
+import ReviewItem from './review-item';
+import ReviewsHeader from './reviews-header';
 
 const INITIAL_VISIBLE_REVIEWS = 1;
 

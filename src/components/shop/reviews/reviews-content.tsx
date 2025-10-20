@@ -1,11 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+
 import { useRouter, useSearchParams } from 'next/navigation';
+
 import AllReviews from '@/components/shop/reviews/all-reviews';
 import ProductReviews from '@/components/shop/reviews/product-reviews';
-import ShopReviews from '@/components/shop/reviews/shop-reviews';
 import ReviewTabs from '@/components/shop/reviews/review-tabs';
+import ShopReviews from '@/components/shop/reviews/shop-reviews';
 
 type TabType = 'all' | 'products' | 'shop';
 

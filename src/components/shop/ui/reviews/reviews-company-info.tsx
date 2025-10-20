@@ -1,6 +1,8 @@
 import Link from 'next/link';
-import { StarIcon, AddIcon, ChatIcon } from '@/lib/shop/icons';
+
 import Logo from '@/components/shop/ui/logo';
+
+import { StarIcon, AddIcon, ChatIcon } from '@/lib/shop/icons';
 
 interface ReviewsCompanyInfoProps {
   variant?: 'xl-sidebar' | 'md-vertical' | 'mobile';

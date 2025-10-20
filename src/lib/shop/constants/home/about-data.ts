@@ -1,3 +1,5 @@
+import type { ComponentType, SVGProps } from 'react';
+
 import {
   CalendarIcon,
   DeliveryIcon,
@@ -9,7 +11,6 @@ import {
   PriceIcon,
   QualityIcon,
 } from '@/lib/shop/icons';
-import type { ComponentType, SVGProps } from 'react';
 
 export const aboutData = {
   title: 'ONYX - для Вас безпека та комфорт',

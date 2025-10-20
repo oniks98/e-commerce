@@ -1,10 +1,10 @@
 'use client';
 
 import BuyerInfo from '@/components/shop/cart/buyer-info';
+import Cart from '@/components/shop/cart/cart';
+import Comment from '@/components/shop/cart/comment';
 import DeliverySelect from '@/components/shop/cart/delivery-select';
 import PaymentSelect from '@/components/shop/cart/payment-select';
-import Comment from '@/components/shop/cart/comment';
-import Cart from '@/components/shop/cart/cart';
 
 const ExecutionContract = () => {
   return (

@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+
 import clsx from 'clsx';
+
 import { MoonIcon, ThemeIcon } from '@/lib/shop/icons';
 
 const ThemeToggle = ({ className }: { className?: string }) => {

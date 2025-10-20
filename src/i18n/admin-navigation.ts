@@ -1,4 +1,5 @@
 import { createNavigation } from 'next-intl/navigation';
+
 import { adminRouting } from './admin-routing';
 
 export const {

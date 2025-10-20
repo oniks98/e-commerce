@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+
 import { aboutData } from '@/lib/shop/constants/home/about-data';
 
 const Advantages = () => {

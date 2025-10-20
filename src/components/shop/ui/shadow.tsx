@@ -1,5 +1,6 @@
-import { cn } from '@/lib/utils/utils-tw-merge';
 import { HTMLAttributes } from 'react';
+
+import { cn } from '@/lib/utils/utils-tw-merge';
 
 interface IShadowProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;

@@ -1,13 +1,15 @@
-import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
-
-import Recommended from '@/components/shop/product/recommended';
-import Reviews from '@/components/shop/product/reviews/reviews';
-import LeaveReview from '@/components/shop/ui/leave-review';
-import Desc from '@/components/shop/product/desc';
-import Conditions from '@/components/shop/product/conditions';
-import Card from '@/components/shop/product/card';
+import { setRequestLocale } from 'next-intl/server';
 
 import { Locale } from '@/i18n/types';
+
+import Card from '@/components/shop/product/card';
+import Conditions from '@/components/shop/product/conditions';
+import Desc from '@/components/shop/product/desc';
+import Recommended from '@/components/shop/product/recommended';
+import Reviews from '@/components/shop/product/reviews/reviews';
+import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
+import LeaveReview from '@/components/shop/ui/leave-review';
+
 import { getProductBySlug, getProducts } from '@/lib/shop/actions/product';
 
 export default async function ProductPage({
@@ -16,6 +18,7 @@ export default async function ProductPage({
   params: Promise<{ locale: Locale; productSlug: string }>;
 }) {
   const { locale, productSlug } = await params;
+  setRequestLocale(locale);
   const product = await getProductBySlug(productSlug, locale);
   const recommendedProducts = await getProducts({ limit: 8 });
 

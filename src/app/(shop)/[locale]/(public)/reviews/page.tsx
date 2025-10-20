@@ -1,11 +1,13 @@
-import { reviewsPageBreadcrumbs } from '@/lib/shop/constants/reviews/reviews-data';
-import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
-import ReviewsCompanyInfo from '@/components/shop/ui/reviews/reviews-company-info';
-import LeaveReview from '@/components/shop/ui/leave-review';
+import { setRequestLocale } from 'next-intl/server';
+
+import { Locale } from '@/i18n/types';
 
 import ReviewsContent from '@/components/shop/reviews/reviews-content';
-import { Locale } from '@/i18n/types';
-import { setRequestLocale } from 'next-intl/server';
+import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
+import LeaveReview from '@/components/shop/ui/leave-review';
+import ReviewsCompanyInfo from '@/components/shop/ui/reviews/reviews-company-info';
+
+import { reviewsPageBreadcrumbs } from '@/lib/shop/constants/reviews/reviews-data';
 
 export default async function ReviewsPage({
   params,

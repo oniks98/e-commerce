@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import clsx from 'clsx';
 
 import { contactsData } from '@/lib/shop/constants/contacts/contacts-data';

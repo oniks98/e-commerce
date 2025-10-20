@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
+
 import { getDescendantCategoryIds } from './category';
 
 export async function getProductBySlug(slug: string, locale: string) {

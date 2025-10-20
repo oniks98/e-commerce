@@ -1,7 +1,9 @@
 import clsx from 'clsx';
-import Avatar from './avatar';
-import { ChevronRightIcon } from '@/lib/shop/icons';
+
 import { Reply } from '@/lib/shop/constants/product/product-reviews-data';
+import { ChevronRightIcon } from '@/lib/shop/icons';
+
+import Avatar from './avatar';
 
 interface ReplyItemProps {
   reply: Reply;

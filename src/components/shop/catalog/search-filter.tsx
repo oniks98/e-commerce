@@ -1,15 +1,9 @@
 'use client';
 
 import { useState, ReactNode, useRef, useEffect, useCallback } from 'react';
+
 import clsx from 'clsx';
 
-import {
-  FilterArrowIcon,
-  FilterCrossIcon,
-  FilterBarsIcon,
-  FilterCheckboxActiveIcon,
-  FilterCheckboxEmptyIcon,
-} from '@/lib/shop/icons';
 import {
   MIN_PRICE,
   MAX_PRICE,
@@ -17,6 +11,13 @@ import {
   BED_TYPES,
   SIZES,
 } from '@/lib/shop/constants/catalog/search-filter-data';
+import {
+  FilterArrowIcon,
+  FilterCrossIcon,
+  FilterBarsIcon,
+  FilterCheckboxActiveIcon,
+  FilterCheckboxEmptyIcon,
+} from '@/lib/shop/icons';
 
 interface FilterSectionProps {
   title: string;

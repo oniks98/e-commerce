@@ -1,14 +1,18 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useCallback, useEffect, useState } from 'react';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { blogData } from '@/lib/shop/constants/blog/blog-data';
-import { ArrowUpRightIcon } from '@/lib/shop/icons';
+import { useRouter, useSearchParams } from 'next/navigation';
+
+import { Locale } from '@/i18n/types';
+
 import BtnLoadMore from '@/components/shop/ui/btn-load-more';
 import Pagination from '@/components/shop/ui/pagination';
-import { Locale } from '@/i18n/types';
+
+import { blogData } from '@/lib/shop/constants/blog/blog-data';
+import { ArrowUpRightIcon } from '@/lib/shop/icons';
 
 const BLOG_POSTS_PER_PAGE = 9;
 

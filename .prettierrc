@@ -4,5 +4,20 @@
   "printWidth": 80,
   "tabWidth": 2,
   "trailingComma": "all",
- "plugins": ["./node_modules/prettier-plugin-tailwindcss/dist/index.mjs"]
+  "plugins": [
+    "./node_modules/prettier-plugin-tailwindcss/dist/index.mjs",
+    "@trivago/prettier-plugin-sort-imports"
+  ],
+  "importOrder": [
+    "^react",
+    "^next",
+    "<THIRD_PARTY_MODULES>",
+    "^@/components/(.*)$",
+    "^@/lib/(.*)$",
+    "^@/store/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/styles/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true
 }

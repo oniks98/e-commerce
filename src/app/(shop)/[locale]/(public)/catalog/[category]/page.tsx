@@ -1,16 +1,17 @@
+import { setRequestLocale } from 'next-intl/server';
+
+import Faq from '@/components/shop/catalog/faq';
+import FilterableProducts from '@/components/shop/catalog/filterable-products';
+import SeoText from '@/components/shop/catalog/seo-text';
+import Subcategories from '@/components/shop/catalog/subcategories';
+import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
+import Reviews from '@/components/shop/ui/reviews/reviews';
+
 import { getCategoryBySlug } from '@/lib/shop/actions/category';
 import {
   getProductCountByCategoryId,
   getProducts,
 } from '@/lib/shop/actions/product';
-import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
-import FilterableProducts from '@/components/shop/catalog/filterable-products';
-
-import Subcategories from '@/components/shop/catalog/subcategories';
-import SeoText from '@/components/shop/catalog/seo-text';
-import Reviews from '@/components/shop/ui/reviews/reviews';
-
-import Faq from '@/components/shop/catalog/faq';
 
 interface CategoryPageProps {
   params: Promise<{
@@ -21,6 +22,7 @@ interface CategoryPageProps {
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const awaitedParams = await params;
+  setRequestLocale(awaitedParams.locale);
   const category = await getCategoryBySlug(awaitedParams.category);
 
   if (!category) {

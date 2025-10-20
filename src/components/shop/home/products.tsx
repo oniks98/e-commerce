@@ -1,9 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import ProductCard from '@/components/shop/ui/product-card';
-import { ArrowUpRightIcon } from '@/lib/shop/icons';
+
 import BtnLoadMore from '@/components/shop/ui/btn-load-more';
+import ProductCard from '@/components/shop/ui/product-card';
+
+import { ArrowUpRightIcon } from '@/lib/shop/icons';
 import { Tables } from '@/lib/supabase/types/database';
 
 type Product = Tables<'products'>;

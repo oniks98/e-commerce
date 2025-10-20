@@ -1,14 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+
 import clsx from 'clsx';
 
+import { sortingOptions } from '@/lib/shop/constants/catalog/sorting-data';
 import {
   FilterCrossIcon,
   SortingArrowsIcon,
   SortingAngleDownIcon,
 } from '@/lib/shop/icons';
-import { sortingOptions } from '@/lib/shop/constants/catalog/sorting-data';
 
 interface SortingDropdownProps {
   isDropdownOpen: boolean;

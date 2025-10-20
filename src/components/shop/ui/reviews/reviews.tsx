@@ -1,13 +1,16 @@
 'use client';
 
 import { useRef, useState, UIEvent, WheelEvent, useEffect } from 'react';
-import { reviewsData } from '@/lib/shop/constants/reviews-carousel-data';
-import ReviewsTitle from '@/components/shop/ui/reviews/reviews-title';
-import ReviewsCompanyInfo from '@/components/shop/ui/reviews/reviews-company-info';
-import ReviewCard from '@/components/shop/ui/reviews/review-card';
+
 import MobilePagination from '@/components/shop/ui/reviews/mobile-pagination';
-import ReviewActions from './review-actions';
+import ReviewCard from '@/components/shop/ui/reviews/review-card';
+import ReviewsCompanyInfo from '@/components/shop/ui/reviews/reviews-company-info';
+import ReviewsTitle from '@/components/shop/ui/reviews/reviews-title';
+
+import { reviewsData } from '@/lib/shop/constants/reviews-carousel-data';
 import { ArrowScrollIcon } from '@/lib/shop/icons';
+
+import ReviewActions from './review-actions';
 
 const Reviews = () => {
   const scrollContainerXlRef = useRef<HTMLDivElement>(null);

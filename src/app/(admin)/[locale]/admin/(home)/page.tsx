@@ -1,5 +1,4 @@
 // src\app\(admin)\[locale]\admin\(home)\page.tsx
-
 import { getTranslations } from 'next-intl/server';
 
 export default async function AdminHomePage() {

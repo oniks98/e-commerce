@@ -1,22 +1,26 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+
 import clsx from 'clsx';
-import { useCartStore } from '@/store/cart-store';
 
 import CartSkeleton from '@/components/shop/cart/cart-skeleton';
+
 import {
-  MinusIcon,
   AddIcon,
+  AngleDoubleUpIcon,
   CheckIconSmall,
   DeleteIcon,
-  AngleDoubleUpIcon,
   FilterCheckboxActiveIcon,
   FilterCheckboxEmptyIcon,
+  MinusIcon,
 } from '@/lib/shop/icons';
+
+import { useCartStore } from '@/store/cart-store';
 
 const Cart = () => {
   const { items, updateQuantity, removeItem, getTotalItems, getTotalPrice } =

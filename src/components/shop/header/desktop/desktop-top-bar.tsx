@@ -1,11 +1,13 @@
 'use client';
 
+import clsx from 'clsx';
+
 import LanguageSwitcher from '@/components/shop/header/shared/language-switcher';
-import ThemeToggle from '@/components/shop/ui/theme-toggle';
-import { AccountIcon } from '@/lib/shop/icons';
 import Navigation from '@/components/shop/header/shared/navigation';
 import SocialLinks from '@/components/shop/ui/social-links';
-import clsx from 'clsx';
+import ThemeToggle from '@/components/shop/ui/theme-toggle';
+
+import { AccountIcon } from '@/lib/shop/icons';
 
 const DesktopTopBar = () => {
   return (

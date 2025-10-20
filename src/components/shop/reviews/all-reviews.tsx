@@ -1,16 +1,19 @@
 'use client';
 
 import { useState } from 'react';
+
 import clsx from 'clsx';
+
+import ReplyForm from '@/components/shop/product/reviews/reply-form';
+import ReplyItem from '@/components/shop/product/reviews/reply-item';
+import ReviewItem from '@/components/shop/product/reviews/review-item';
+import BtnLoadMore from '@/components/shop/ui/btn-load-more';
+import Pagination from '@/components/shop/ui/pagination';
+
 import { Reply } from '@/lib/shop/constants/product/product-reviews-data';
 import { ALL_REVIEWS } from '@/lib/shop/constants/reviews/reviews-data';
-import ReviewItem from '@/components/shop/product/reviews/review-item';
-import ReplyItem from '@/components/shop/product/reviews/reply-item';
-import ReplyForm from '@/components/shop/product/reviews/reply-form';
-import { type ReplyFormValues } from '@/lib/shop/validation/reply-form';
-import Pagination from '@/components/shop/ui/pagination';
-import BtnLoadMore from '@/components/shop/ui/btn-load-more';
 import { ReloadIcon } from '@/lib/shop/icons';
+import { type ReplyFormValues } from '@/lib/shop/validation/reply-form';
 
 const REVIEWS_PER_PAGE = 5;
 

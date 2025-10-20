@@ -1,8 +1,10 @@
 // src\app\(admin)\[locale]\layout.tsx
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
-import { getMessages } from '@/i18n/utils';
+
 import { locales } from '@/i18n/types';
+import { getMessages } from '@/i18n/utils';
+
 import '@/styles/globals-admin.css';
 
 interface AdminLocaleLayoutProps {

@@ -1,5 +1,6 @@
 // src\app\(admin)\[locale]\(private)\layout.tsx
 import React from 'react';
+
 import Sidebar from '@/components/admin/sidebar';
 
 export default function AdminLayout({

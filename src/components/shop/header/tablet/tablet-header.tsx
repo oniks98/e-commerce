@@ -1,18 +1,21 @@
 'use client';
 
 import { useState } from 'react';
-import Logo from '@/components/shop/ui/logo';
-import CatalogButton from '@/components/shop/header/shared/catalog-button';
-import SearchInput from '@/components/shop/header/shared/search-input';
-import ActionButtons from '@/components/shop/header/shared/action-buttons';
-import LanguageSwitcher from '@/components/shop/header/shared/language-switcher';
-import ThemeToggle from '@/components/shop/ui/theme-toggle';
-import { RegistrationIcon, HamburgerIcon, CloseIcon } from '@/lib/shop/icons';
-import PhoneMenu from '@/components/shop/header/shared/phone-menu';
-import MobileCatalogMenu from '../mobile/mobile-catalog-menu';
+
 import clsx from 'clsx';
 
+import ActionButtons from '@/components/shop/header/shared/action-buttons';
+import CatalogButton from '@/components/shop/header/shared/catalog-button';
+import LanguageSwitcher from '@/components/shop/header/shared/language-switcher';
+import PhoneMenu from '@/components/shop/header/shared/phone-menu';
+import SearchInput from '@/components/shop/header/shared/search-input';
+import Logo from '@/components/shop/ui/logo';
+import ThemeToggle from '@/components/shop/ui/theme-toggle';
+
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
+import { RegistrationIcon, HamburgerIcon, CloseIcon } from '@/lib/shop/icons';
+
+import MobileCatalogMenu from '../mobile/mobile-catalog-menu';
 
 interface TabletHeaderProps {
   isMobileMenuOpen: boolean;

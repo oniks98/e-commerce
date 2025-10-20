@@ -1,11 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+
 import clsx from 'clsx';
 
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
-import { ArrowUpRightIcon } from '@/lib/shop/icons';
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
+import { ArrowUpRightIcon } from '@/lib/shop/icons';
+import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 
 interface CategoryWithCount extends CategoryTreeItem {
   productCount: number;

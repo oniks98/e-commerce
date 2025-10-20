@@ -1,9 +1,9 @@
 import { setRequestLocale } from 'next-intl/server';
 
-import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 import Contacts from '@/components/shop/contacts/contacts';
 import Form from '@/components/shop/contacts/form';
 import Map from '@/components/shop/contacts/map';
+import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 
 import { contactsPageBreadcrumbs } from '@/lib/shop/constants/contacts/contacts-data';
 

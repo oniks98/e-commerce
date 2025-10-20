@@ -1,8 +1,8 @@
 import { setRequestLocale } from 'next-intl/server';
 
-import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
-import Head from '@/components/shop/about/head';
 import AboutAdvantages from '@/components/shop/about/about-advantages';
+import Head from '@/components/shop/about/head';
+import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 import Reviews from '@/components/shop/ui/reviews/reviews';
 
 import { aboutPageBreadcrumbs } from '@/lib/shop/constants/about/about-data';

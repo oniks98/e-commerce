@@ -1,7 +1,8 @@
 import Footer from '@/components/shop/footer/footer';
 import Header from '@/components/shop/header/header';
-import { getAllCategories } from '@/lib/shop/actions/category';
 import Advantages from '@/components/shop/ui/advantages';
+
+import { getAllCategories } from '@/lib/shop/actions/category';
 
 export default async function PublicLayout({
   children,

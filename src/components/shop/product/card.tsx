@@ -1,14 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+
 import Image from 'next/image';
-import { Tables } from '@/lib/supabase/types/database';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
-import Carousel from '@/components/shop/ui/carousel';
-import { EmblaOptionsType } from 'embla-carousel';
+import { useRouter } from 'next/navigation';
+
 import clsx from 'clsx';
-import { useCartStore } from '@/store/cart-store';
+import { EmblaOptionsType } from 'embla-carousel';
+
+import Carousel from '@/components/shop/ui/carousel';
+
 import {
   StarIcon,
   ChatIcon,
@@ -21,6 +22,10 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from '@/lib/shop/icons';
+import { getPlaceholder } from '@/lib/shop/media/cloudinary';
+import { Tables } from '@/lib/supabase/types/database';
+
+import { useCartStore } from '@/store/cart-store';
 
 type Product = Tables<'products'>;
 

@@ -1,5 +1,6 @@
-import { CategoryTreeItem } from '@/lib/shop/actions/category';
 import Link from 'next/link';
+
+import { CategoryTreeItem } from '@/lib/shop/actions/category';
 
 interface CategoryBlockProps {
   categories: CategoryTreeItem[];

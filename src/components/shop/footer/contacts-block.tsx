@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { footerData } from '@/lib/shop/constants/footer-data';
 import { PHONES } from '@/lib/shop/constants/phone-data';
 import { PhoneIcon, AddressIcon, CalendarIcon } from '@/lib/shop/icons';

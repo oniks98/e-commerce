@@ -1,11 +1,14 @@
 'use client';
 
-import Carousel from '@/components/shop/ui/carousel';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
-import { ChevronLeftIcon, ChevronRightIcon } from '@/lib/shop/icons';
-import { EmblaOptionsType } from 'embla-carousel';
 import Image from 'next/image';
+
 import clsx from 'clsx';
+import { EmblaOptionsType } from 'embla-carousel';
+
+import Carousel from '@/components/shop/ui/carousel';
+
+import { ChevronLeftIcon, ChevronRightIcon } from '@/lib/shop/icons';
+import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 
 interface HeroProps {
   className?: string;

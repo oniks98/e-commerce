@@ -1,15 +1,18 @@
 'use client';
 
 import React from 'react';
+
 import Link from 'next/link';
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/shop/ui/accordion';
-import { ChevronDownIcon } from '@/lib/shop/icons';
+
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
+import { ChevronDownIcon } from '@/lib/shop/icons';
 
 interface MobileCatalogMenuProps {
   isOpen: boolean;

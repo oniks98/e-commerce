@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+
 import clsx from 'clsx';
+
 import { ChevronDownIcon } from '@/lib/shop/icons';
 
 const LANGUAGES = [

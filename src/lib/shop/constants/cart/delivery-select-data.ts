@@ -1,6 +1,7 @@
+import UkrpostOffice from '@/components/shop/cart/ukrpost-office';
+
 import NovapostOfficeIcon from '@/lib/shop/icons/novapost-office-icon';
 import PickupIcon from '@/lib/shop/icons/pickup-icon';
-import UkrpostOffice from '@/components/shop/cart/ukrpost-office';
 
 export const deliveryOptions = [
   {

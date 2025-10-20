@@ -1,6 +1,8 @@
 import Link from 'next/link';
-import { WhatsappIcon, TelegramIcon, ViberIcon } from '@/lib/shop/icons';
+
 import { motion } from 'framer-motion';
+
+import { WhatsappIcon, TelegramIcon, ViberIcon } from '@/lib/shop/icons';
 
 interface SocialLinksProps {
   className?: string;

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+
 import { ReloadIcon } from '@/lib/shop/icons';
 
 interface BtnLoadMoreProps

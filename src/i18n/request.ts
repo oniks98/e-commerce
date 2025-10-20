@@ -1,10 +1,11 @@
 // src/i18n/request.ts
 import { getRequestConfig } from 'next-intl/server';
 import { headers } from 'next/headers';
-import { getMessages, validateLocale } from './utils';
-import { shopRouting } from './shop-routing';
+
 import { adminRouting } from './admin-routing';
+import { shopRouting } from './shop-routing';
 import type { Locale, Segment } from './types';
+import { getMessages, validateLocale } from './utils';
 
 export default getRequestConfig(async ({ requestLocale }) => {
   const headersList = await headers();

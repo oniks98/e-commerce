@@ -1,13 +1,14 @@
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import * as z from 'zod';
+
+import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
+import * as z from 'zod';
 
 import { contactsData } from '@/lib/shop/constants/contacts/contacts-data';
-import { contactFormSchema } from '@/lib/shop/validation/form';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
+import { contactFormSchema } from '@/lib/shop/validation/form';
 
 const ContactForm = () => {
   const { title, description, subtitle, ...placeholders } = contactsData.form;

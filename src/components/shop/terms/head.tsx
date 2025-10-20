@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import { termsData } from '@/lib/shop/constants/terms/terms-data';
 
 const Head = () => {

@@ -1,15 +1,17 @@
 'use client';
 
 import clsx from 'clsx';
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/shop/ui/accordion';
+import Shadow from '@/components/shop/ui/shadow';
+
 import { seoText } from '@/lib/shop/constants/catalog/seo-text-data';
 import { ArrowDownIcon, CheckIcon } from '@/lib/shop/icons';
-import Shadow from '@/components/shop/ui/shadow';
 
 const SeoText = () => {
   return (

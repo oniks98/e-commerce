@@ -1,10 +1,11 @@
 import { setRequestLocale } from 'next-intl/server';
 
-import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
+import { Locale } from '@/i18n/types';
+
 import Blog from '@/components/shop/blog/blog';
+import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 
 import { blogData } from '@/lib/shop/constants/blog/blog-data';
-import { Locale } from '@/i18n/types';
 
 export default async function BlogPage({
   params,

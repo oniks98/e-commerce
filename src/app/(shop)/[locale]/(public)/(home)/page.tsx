@@ -1,11 +1,12 @@
-import { getTranslations } from 'next-intl/server';
-import Hero from '@/components/shop/home/hero';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
+
+import About from '@/components/shop/home/about';
+import Articles from '@/components/shop/home/articles';
 import Categories from '@/components/shop/home/categories';
+import Hero from '@/components/shop/home/hero';
 import Products from '@/components/shop/home/products';
 import Promotions from '@/components/shop/home/promotions';
-import About from '@/components/shop/home/about';
 import Reviews from '@/components/shop/ui/reviews/reviews';
-import Articles from '@/components/shop/home/articles';
 
 import { getAllCategories } from '@/lib/shop/actions/category';
 import {
@@ -19,6 +20,7 @@ export default async function HomePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const catalogData = await getAllCategories();
   const products = await getProducts({ limit: 8 });
 
@@ -40,6 +42,7 @@ export default async function HomePage({
       <Reviews />
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
         <Articles />
+        <About />
       </div>
     </div>
   );

@@ -1,13 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Logo from '@/components/shop/ui/logo';
-import CatalogButton from '@/components/shop/header/shared/catalog-button';
-import SearchInput from '@/components/shop/header/shared/search-input';
-import ActionButtons from '@/components/shop/header/shared/action-buttons';
-import DesktopCatalogMenu from '@/components/shop/header/desktop/desktop-catalog-menu';
-import PhoneMenu from '@/components/shop/header/shared/phone-menu';
+
 import clsx from 'clsx';
+
+import DesktopCatalogMenu from '@/components/shop/header/desktop/desktop-catalog-menu';
+import ActionButtons from '@/components/shop/header/shared/action-buttons';
+import CatalogButton from '@/components/shop/header/shared/catalog-button';
+import PhoneMenu from '@/components/shop/header/shared/phone-menu';
+import SearchInput from '@/components/shop/header/shared/search-input';
+import Logo from '@/components/shop/ui/logo';
 
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
 

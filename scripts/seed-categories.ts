@@ -13,7 +13,6 @@
  *
  * =====================================================================================
  */
-
 import { createClient } from '@supabase/supabase-js';
 
 // Data copied from src/lib/shop/constants/catalog-data.ts

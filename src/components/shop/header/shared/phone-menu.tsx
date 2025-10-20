@@ -1,9 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+
 import clsx from 'clsx';
-import { PhoneIcon, ChevronDownIcon } from '@/lib/shop/icons';
+
 import { PHONES } from '@/lib/shop/constants/phone-data';
+import { PhoneIcon, ChevronDownIcon } from '@/lib/shop/icons';
 
 const PhoneMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

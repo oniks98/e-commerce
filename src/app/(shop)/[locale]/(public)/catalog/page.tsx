@@ -1,11 +1,14 @@
+import { setRequestLocale } from 'next-intl/server';
+
+import Categories from '@/components/shop/catalog/categories';
+import FilterableProducts from '@/components/shop/catalog/filterable-products';
 import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
+
 import {
   getAllCategories,
   type CategoryTreeItem,
 } from '@/lib/shop/actions/category';
 import { getProducts } from '@/lib/shop/actions/product';
-import FilterableProducts from '@/components/shop/catalog/filterable-products';
-import Categories from '@/components/shop/catalog/categories';
 
 interface CategoryPageProps {
   params: Promise<{
@@ -15,6 +18,7 @@ interface CategoryPageProps {
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const awaitedParams = await params;
+  setRequestLocale(awaitedParams.locale);
   const products = await getProducts({});
 
   const allCategoriesTree = await getAllCategories();

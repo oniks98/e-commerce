@@ -1,12 +1,16 @@
 'use client';
 
+import { useState } from 'react';
+
 import Image from 'next/image';
 import Link from 'next/link';
+
 import clsx from 'clsx';
-import { useState } from 'react';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
+
 import { CheckIcon, CartIcon, FavoritesIcon } from '@/lib/shop/icons';
+import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import { Tables } from '@/lib/supabase/types/database';
+
 import { useCartStore } from '@/store/cart-store';
 
 type Product = Tables<'products'>;

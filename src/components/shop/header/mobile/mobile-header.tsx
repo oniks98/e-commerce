@@ -1,21 +1,22 @@
 'use client';
 
 import { useState } from 'react';
+
 import clsx from 'clsx';
 
-import Logo from '@/components/shop/ui/logo';
+import MobileCatalogMenu from '@/components/shop/header/mobile/mobile-catalog-menu';
+import ActionButtons from '@/components/shop/header/shared/action-buttons';
 import CatalogButton from '@/components/shop/header/shared/catalog-button';
 import SearchInput from '@/components/shop/header/shared/search-input';
-import ActionButtons from '@/components/shop/header/shared/action-buttons';
+import Logo from '@/components/shop/ui/logo';
+
+import { CategoryTreeItem } from '@/lib/shop/actions/category';
 import {
   PhoneIcon,
   HamburgerIcon,
   CloseIcon,
   SearchIcon,
 } from '@/lib/shop/icons';
-import MobileCatalogMenu from '@/components/shop/header/mobile/mobile-catalog-menu';
-
-import { CategoryTreeItem } from '@/lib/shop/actions/category';
 
 interface MobileHeaderProps {
   onMenuClick: () => void;

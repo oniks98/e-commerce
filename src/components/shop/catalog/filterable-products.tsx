@@ -1,19 +1,22 @@
 'use client';
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
+
 import { useRouter, useSearchParams } from 'next/navigation';
+
+import Products from '@/components/shop/catalog/products';
 import SearchFilter from '@/components/shop/catalog/search-filter';
 import Sorting from '@/components/shop/catalog/sorting';
-import Products from '@/components/shop/catalog/products';
 import BtnLoadMore from '@/components/shop/ui/btn-load-more';
 import Pagination from '@/components/shop/ui/pagination';
-import { Tables } from '@/lib/supabase/types/database';
-import { sortingOptions } from '@/lib/shop/constants/catalog/sorting-data';
+
 import {
   MANUFACTURERS,
   BED_TYPES,
   SIZES,
 } from '@/lib/shop/constants/catalog/search-filter-data';
+import { sortingOptions } from '@/lib/shop/constants/catalog/sorting-data';
+import { Tables } from '@/lib/supabase/types/database';
 
 type Product = Tables<'products'>;
 

@@ -1,7 +1,10 @@
 import { FC } from 'react';
+
 import Image from 'next/image';
 import Link from 'next/link';
+
 import { Button } from '@/components/shop/ui/button';
+
 import { ArrowLeftIcon, ArrowRightIcon, MarkIcon } from '@/lib/shop/icons';
 import { IArticle } from '@/lib/shop/types/article';
 

@@ -1,11 +1,13 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+
 import Link from 'next/link';
+
 import clsx from 'clsx';
 
-import { ChevronRightIcon } from '@/lib/shop/icons';
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
+import { ChevronRightIcon } from '@/lib/shop/icons';
 
 interface DesktopCatalogMenuProps {
   isOpen: boolean;

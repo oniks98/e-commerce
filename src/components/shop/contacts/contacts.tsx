@@ -2,8 +2,9 @@
 
 import clsx from 'clsx';
 
-import { contactsData } from '@/lib/shop/constants/contacts/contacts-data';
 import SocialLinks from '@/components/shop/ui/social-links';
+
+import { contactsData } from '@/lib/shop/constants/contacts/contacts-data';
 
 const Contacts = () => {
   return (

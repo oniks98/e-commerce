@@ -1,5 +1,6 @@
-import { footerData } from '@/lib/shop/constants/footer-data';
 import Link from 'next/link';
+
+import { footerData } from '@/lib/shop/constants/footer-data';
 
 const InfoBlock = () => {
   const { information } = footerData;

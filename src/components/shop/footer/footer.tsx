@@ -2,18 +2,20 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+
 import CategoryBlock from '@/components/shop/footer/category-block';
 import ContactsBlock from '@/components/shop/footer/contacts-block';
 import Copyright from '@/components/shop/footer/copyright';
 import InfoBlock from '@/components/shop/footer/info-block';
 import SocialBlock from '@/components/shop/footer/social-block';
-import Logo from '@/components/shop/ui/logo';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/shop/ui/accordion';
+import Logo from '@/components/shop/ui/logo';
+
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
 
 interface FooterProps {

@@ -1,11 +1,11 @@
-import OtherConditions from '@/components/shop/terms/other-conditions';
 import { setRequestLocale } from 'next-intl/server';
 
-import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
-import Head from '@/components/shop/terms/head';
-import PaymentMethods from '@/components/shop/terms/payment-methods';
 import DeliveryMethods from '@/components/shop/terms/delivery-methods';
 import Faq from '@/components/shop/terms/faq';
+import Head from '@/components/shop/terms/head';
+import OtherConditions from '@/components/shop/terms/other-conditions';
+import PaymentMethods from '@/components/shop/terms/payment-methods';
+import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
 
 import { termsPageBreadcrumbs } from '@/lib/shop/constants/terms/terms-data';
 

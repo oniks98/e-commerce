@@ -1,16 +1,19 @@
 'use client';
 
 import Link from 'next/link';
+
 import clsx from 'clsx';
 
-import { articlesData } from '@/lib/shop/constants/home/articles-data';
 import ArticleCard from '@/components/shop/home/article-card';
 import Carousel from '@/components/shop/ui/carousel';
+
+import { articlesData } from '@/lib/shop/constants/home/articles-data';
 import {
   ArrowUpRightIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
 } from '@/lib/shop/icons';
+
 const Articles = () => {
   const slides = articlesData.map((article) => (
     <ArticleCard key={article.id} article={article} />

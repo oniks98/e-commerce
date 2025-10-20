@@ -1,5 +1,6 @@
 // src\app\(shop)\[locale]\(private)\layout.tsx
 import Footer from '@/components/shop/footer/footer';
+
 import { getAllCategories } from '@/lib/shop/actions/category';
 
 export default async function PrivateLayout({

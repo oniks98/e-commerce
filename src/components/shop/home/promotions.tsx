@@ -1,20 +1,22 @@
 'use client';
 
 import React from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
-import { EmblaOptionsType } from 'embla-carousel';
+
 import Image from 'next/image';
+import Link from 'next/link';
+
 import clsx from 'clsx';
+import { EmblaOptionsType } from 'embla-carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import useEmblaCarousel from 'embla-carousel-react';
 
 import { promotions } from '@/lib/shop/constants/home/promotions-data';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ArrowUpRightIcon,
 } from '@/lib/shop/icons';
-import Link from 'next/link';
+import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 
 const Promotions = () => {
   const options: EmblaOptionsType = { loop: true };

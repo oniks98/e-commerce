@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/shop/ui/accordion';
+
 import { termsData } from '@/lib/shop/constants/terms/terms-data';
 import { FaqQuestionIcon } from '@/lib/shop/icons';
 

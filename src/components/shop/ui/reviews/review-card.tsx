@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
+
 import { StarIcon, RegistrationIcon } from '@/lib/shop/icons';
+import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 
 interface ReviewProduct {
   name: string;

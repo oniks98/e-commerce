@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+
 import StarRating from './star-rating';
 
 interface ReviewsHeaderProps {

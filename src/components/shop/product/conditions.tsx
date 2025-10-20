@@ -1,4 +1,6 @@
 import Link from 'next/link';
+
+import { conditionsData } from '@/lib/shop/constants/product/conditions-data';
 import {
   LocationIcon,
   PaymentIcon,
@@ -6,7 +8,6 @@ import {
   HelpIcon,
   ArrowUpRightIcon,
 } from '@/lib/shop/icons';
-import { conditionsData } from '@/lib/shop/constants/product/conditions-data';
 
 const iconMap = {
   LocationIcon: <LocationIcon className="text-yellow" />,

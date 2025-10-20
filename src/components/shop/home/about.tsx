@@ -1,14 +1,15 @@
-import { aboutData } from '@/lib/shop/constants/home/about-data';
-
 import clsx from 'clsx';
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/shop/ui/accordion';
-import { ArrowDownIcon } from '@/lib/shop/icons';
 import Shadow from '@/components/shop/ui/shadow';
+
+import { aboutData } from '@/lib/shop/constants/home/about-data';
+import { ArrowDownIcon } from '@/lib/shop/icons';
 
 const About = () => {
   return (

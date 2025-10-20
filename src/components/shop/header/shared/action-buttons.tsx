@@ -1,10 +1,13 @@
 'use client';
 
-import { FavoritesIcon } from '@/lib/shop/icons';
-import CartIndicator from '@/components/shop/cart/cart-indicator';
-import clsx from 'clsx';
-import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
+
+import clsx from 'clsx';
+
+import CartIndicator from '@/components/shop/cart/cart-indicator';
+
+import { FavoritesIcon } from '@/lib/shop/icons';
 
 interface ActionButtonsProps {
   showLabels?: boolean;

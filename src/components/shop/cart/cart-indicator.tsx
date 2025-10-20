@@ -1,10 +1,14 @@
 'use client';
 
-import { useCartStore } from '@/store/cart-store';
-import { CartIcon } from '@/lib/shop/icons';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+
+import Link from 'next/link';
+
 import clsx from 'clsx';
+
+import { CartIcon } from '@/lib/shop/icons';
+
+import { useCartStore } from '@/store/cart-store';
 
 interface CartIndicatorProps {
   locale: string;

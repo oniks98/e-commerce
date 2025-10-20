@@ -1,13 +1,14 @@
 import Link from 'next/link';
+
+import { Locale } from '@/i18n/types';
 import clsx from 'clsx';
 
-import { RightArrowIcon } from '@/lib/shop/icons';
-import { getProductBySku } from '@/lib/shop/actions/product';
 import {
   getCategoryBySlug,
   getCategoryPath,
 } from '@/lib/shop/actions/category';
-import { Locale } from '@/i18n/types';
+import { getProductBySku } from '@/lib/shop/actions/product';
+import { RightArrowIcon } from '@/lib/shop/icons';
 
 type BreadcrumbItem = {
   label: string;

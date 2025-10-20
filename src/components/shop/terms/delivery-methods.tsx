@@ -1,6 +1,7 @@
+import UkrpostOffice from '@/components/shop/cart/ukrpost-office';
+
 import { termsData } from '@/lib/shop/constants/terms/terms-data';
 import { NovapostOfficeIcon, PickupIcon } from '@/lib/shop/icons';
-import UkrpostOffice from '@/components/shop/cart/ukrpost-office';
 
 const icons: { [key: string]: React.ComponentType<any> } = {
   NovapostOfficeIcon: NovapostOfficeIcon,

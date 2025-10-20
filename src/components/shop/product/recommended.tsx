@@ -1,7 +1,8 @@
 'use client';
 
-import ProductCard from '@/components/shop/ui/product-card';
 import Carousel from '@/components/shop/ui/carousel';
+import ProductCard from '@/components/shop/ui/product-card';
+
 import { ChevronLeftIcon, ChevronRightIcon } from '@/lib/shop/icons';
 import { Tables } from '@/lib/supabase/types/database';
 

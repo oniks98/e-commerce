@@ -1,6 +1,8 @@
 import clsx from 'clsx';
-import { AccountIcon } from '@/lib/shop/icons';
+
 import Logo from '@/components/shop/ui/logo';
+
+import { AccountIcon } from '@/lib/shop/icons';
 
 interface AvatarProps {
   isCompany?: boolean;

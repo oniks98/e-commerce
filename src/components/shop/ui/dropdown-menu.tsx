@@ -2,8 +2,11 @@
 'use client';
 
 import * as React from 'react';
+
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import clsx from 'clsx';
+
+// src\components\shop\ui\dropdown-menu.tsx
 
 // Корневой контейнер
 export function DropdownMenu({

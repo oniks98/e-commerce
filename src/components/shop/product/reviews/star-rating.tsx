@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+
 import { StarIcon } from '@/lib/shop/icons';
 
 interface StarRatingProps {

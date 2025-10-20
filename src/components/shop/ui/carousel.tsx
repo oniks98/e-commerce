@@ -1,10 +1,11 @@
 'use client';
 
 import React from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
-import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
+
 import clsx from 'clsx';
+import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import useEmblaCarousel from 'embla-carousel-react';
 
 interface CarouselProps {
   options?: EmblaOptionsType & { gap?: number; perPage?: number };

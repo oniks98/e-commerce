@@ -1,10 +1,8 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import MarkIcon from '@/lib/shop/icons/mark-icon';
 import { Button } from '@/components/shop/ui/button';
-import ArrowLeftIcon from '@/lib/shop/icons/arrow-left-icon';
-import ArrowRightIcon from '@/lib/shop/icons/arrow-right-icon';
+import { ArrowLeftIcon, ArrowRightIcon, MarkIcon } from '@/lib/shop/icons';
 import { IArticle } from '@/lib/shop/types/article';
 
 interface IArticleProps {

@@ -1,8 +1,10 @@
 import { termsData } from '@/lib/shop/constants/terms/terms-data';
-import GuaranteeIcon from '@/lib/shop/icons/guarantee-icon';
-import ReturnsExchangesIcon from '@/lib/shop/icons/returns-exchanges-icon';
-import RefundIcon from '@/lib/shop/icons/refund-icon';
-import DeliverySelectIcon from '@/lib/shop/icons/delivery-select-icon';
+import {
+  GuaranteeIcon,
+  ReturnsExchangesIcon,
+  RefundIcon,
+  DeliverySelectIcon,
+} from '@/lib/shop/icons';
 
 const icons: { [key: string]: React.ComponentType<any> } = {
   GuaranteeIcon: GuaranteeIcon,

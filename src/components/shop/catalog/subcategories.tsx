@@ -5,8 +5,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
-import { ArrowUpRightIcon } from '@/lib/shop/icons';
-import AngleDoubleUpIcon from '@/lib/shop/icons/angle-double-up-icon';
+import { ArrowUpRightIcon, AngleDoubleUpIcon } from '@/lib/shop/icons';
 import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 
 interface SubcategoriesProps {

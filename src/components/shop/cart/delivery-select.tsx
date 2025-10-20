@@ -4,10 +4,12 @@ import { useState } from 'react';
 import clsx from 'clsx';
 
 import { deliveryOptions } from '@/lib/shop/constants/cart/delivery-select-data';
-import DeliverySelectIcon from '@/lib/shop/icons/delivery-select-icon';
-import OnMapIcon from '@/lib/shop/icons/on-map-icon';
-import CheckCircleIcon from '@/lib/shop/icons/check-circle-icon';
-import LocationIcon from '@/lib/shop/icons/location-icon';
+import {
+  DeliverySelectIcon,
+  OnMapIcon,
+  CheckCircleIcon,
+  LocationIcon,
+} from '@/lib/shop/icons';
 
 const DeliverySelect = () => {
   const [selected, setSelected] = useState('pickup');

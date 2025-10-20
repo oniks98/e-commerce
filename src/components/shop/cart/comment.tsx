@@ -1,6 +1,6 @@
 'use client';
 
-import CommentIcon from '@/lib/shop/icons/comment-icon';
+import { CommentIcon } from '@/lib/shop/icons';
 
 const Comment = () => {
   return (

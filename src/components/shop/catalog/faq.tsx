@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from '@/components/shop/ui/accordion';
 import { faqData } from '@/lib/shop/constants/catalog/faq-data';
-import FaqQuestionIcon from '@/lib/shop/icons/faq-question-icon';
+import { FaqQuestionIcon } from '@/lib/shop/icons';
 
 const Faq = () => {
   return (

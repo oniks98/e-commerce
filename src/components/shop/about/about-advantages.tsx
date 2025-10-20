@@ -1,5 +1,5 @@
 import { aboutAdvantages } from '@/lib/shop/constants/about/about-data';
-import AdvantageCheckIcon from '@/lib/shop/icons/advantage-check-icon';
+import { AdvantageCheckIcon } from '@/lib/shop/icons';
 
 const AboutAdvantages = () => {
   return (

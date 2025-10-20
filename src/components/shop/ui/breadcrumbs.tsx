@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import clsx from 'clsx';
 
-import RightArrowIcon from '@/lib/shop/icons/right-arrow-icon';
+import { RightArrowIcon } from '@/lib/shop/icons';
 import { getProductBySku } from '@/lib/shop/actions/product';
 import {
   getCategoryBySlug,

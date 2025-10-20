@@ -8,13 +8,15 @@ import clsx from 'clsx';
 import { useCartStore } from '@/store/cart-store';
 
 import CartSkeleton from '@/components/shop/cart/cart-skeleton';
-import MinusIcon from '@/lib/shop/icons/minus-icon';
-import AddIcon from '@/lib/shop/icons/add-icon';
-import CheckIconSmall from '@/lib/shop/icons/check-icon-small';
-import DeleteIcon from '@/lib/shop/icons/delete-icon';
-import AngleDoubleUpIcon from '@/lib/shop/icons/angle-double-up-icon';
-import FilterCheckboxActiveIcon from '@/lib/shop/icons/filter-checkbox-active-icon';
-import FilterCheckboxEmptyIcon from '@/lib/shop/icons/filter-checkbox-empty-icon';
+import {
+  MinusIcon,
+  AddIcon,
+  CheckIconSmall,
+  DeleteIcon,
+  AngleDoubleUpIcon,
+  FilterCheckboxActiveIcon,
+  FilterCheckboxEmptyIcon,
+} from '@/lib/shop/icons';
 
 const Cart = () => {
   const { items, updateQuantity, removeItem, getTotalItems, getTotalPrice } =

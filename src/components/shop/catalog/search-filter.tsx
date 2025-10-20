@@ -3,11 +3,13 @@
 import { useState, ReactNode, useRef, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
 
-import FilterArrowIcon from '@/lib/shop/icons/filter-arrow-icon';
-import FilterCrossIcon from '@/lib/shop/icons/filter-cross-icon';
-import FilterBarsIcon from '@/lib/shop/icons/filter-bars-icon';
-import FilterCheckboxActiveIcon from '@/lib/shop/icons/filter-checkbox-active-icon';
-import FilterCheckboxEmptyIcon from '@/lib/shop/icons/filter-checkbox-empty-icon';
+import {
+  FilterArrowIcon,
+  FilterCrossIcon,
+  FilterBarsIcon,
+  FilterCheckboxActiveIcon,
+  FilterCheckboxEmptyIcon,
+} from '@/lib/shop/icons';
 import {
   MIN_PRICE,
   MAX_PRICE,

@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import LocationIcon from '@/lib/shop/icons/location-icon';
-import PaymentIcon from '@/lib/shop/icons/payment-icon';
-import WarrantyIcon from '@/lib/shop/icons/warranty-icon';
-import HelpIcon from '@/lib/shop/icons/help-icon';
-import ArrowUpRightIcon from '@/lib/shop/icons/arrow-up-right-icon';
+import {
+  LocationIcon,
+  PaymentIcon,
+  WarrantyIcon,
+  HelpIcon,
+  ArrowUpRightIcon,
+} from '@/lib/shop/icons';
 import { conditionsData } from '@/lib/shop/constants/product/conditions-data';
 
 const iconMap = {

@@ -4,9 +4,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
 
-import FilterCheckboxActiveIcon from '@/lib/shop/icons/filter-checkbox-active-icon';
-import FilterCheckboxEmptyIcon from '@/lib/shop/icons/filter-checkbox-empty-icon';
-import InfoIcon from '@/lib/shop/icons/info-icon';
+import {
+  FilterCheckboxActiveIcon,
+  FilterCheckboxEmptyIcon,
+  InfoIcon,
+} from '@/lib/shop/icons';
 import {
   buyerInfoSchema,
   type BuyerInfoFormValues,

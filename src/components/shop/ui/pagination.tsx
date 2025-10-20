@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import PaginationArrowLeftIcon from '@/lib/shop/icons/pagination-arrow-left-icon';
+import { PaginationArrowLeftIcon } from '@/lib/shop/icons';
 
 const PaginationArrowRightIcon = () => (
   <div className="rotate-180 transform">

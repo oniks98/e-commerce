@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -13,7 +11,7 @@ interface IArticleProps {
   articles: IArticle[];
 }
 
-const Article: FC<IArticleProps> = ({ article, articles }) => {
+const Article = ({ article, articles }: IArticleProps) => {
   if (!article) {
     return <div className="h-full">Article not found</div>;
   }
@@ -24,37 +22,34 @@ const Article: FC<IArticleProps> = ({ article, articles }) => {
     currentIndex < articles.length - 1 ? articles[currentIndex + 1] : null;
   return (
     <div className="mx-auto max-w-[1070px] pb-[60px]">
-      <h1 className="text-dark mb-10 text-4xl font-semibold break-words">
+      <div className="text-grey mb-4 text-sm">{article.date}</div>
+      <h1 className="text-dark mb-10 text-3xl font-semibold break-words md:text-4xl">
         {article.title}
       </h1>
-      <div className="relative mb-12 h-[380px] w-full">
+      <div className="relative mb-12 aspect-[954/435] w-full">
         <Image
           src={article.image}
           alt={article.title}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-lg"
+          fill
+          className="rounded-lg object-cover"
         />
       </div>
       <div className="text-dark mb-12 text-base">
         <p>{article.body.p1}</p>
       </div>
       <div className="mb-12">
-        <h2 className="text-dark mb-6 text-2xl font-semibold">
+        <h2 className="text-dark mb-6 text-xl font-semibold">
           {article.body.h2}
         </h2>
-        <ul className="space-y-5">
+        <ul className="">
           {article.body.list.map((item, index) => (
             <li key={index} className="flex items-start">
-              <div className="mr-4 h-8 w-8">
-                <MarkIcon className="text-yellow" />
-              </div>
               <p className="text-dark flex-1 text-base">{item}</p>
             </li>
           ))}
         </ul>
       </div>
-      <div className="text-dark mb-12 text-base"></div>
+
       <div className="flex flex-wrap justify-center gap-5 md:justify-between">
         {prevArticle ? (
           <Link href={`/blog/${prevArticle.slug}`}>

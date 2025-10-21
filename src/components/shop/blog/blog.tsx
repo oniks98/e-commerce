@@ -83,36 +83,37 @@ const Blog = ({ locale }: { locale: Locale }) => {
         </h1>
       </header>
 
-      <ul className="grid list-none grid-cols-[repeat(auto-fit,minmax(410px,1fr))] gap-[30px]">
+      <ul className="grid list-none gap-[30px] md:grid-cols-[repeat(auto-fit,minmax(410px,1fr))]">
         {displayedBlogPosts.map((post, index) => (
           <li key={index}>
-            <article className="border-grey-light-r flex h-full flex-col overflow-hidden rounded-lg border bg-white transition-shadow duration-300 hover:shadow-xl">
-              <Image
-                src={post.image}
-                alt={post.title}
-                width={410}
-                height={270}
-                className="h-auto w-full rounded-lg"
-              />
+            <Link
+              href={`/${locale}/blog/${post.slug}`}
+              aria-label={`Читати більше про ${post.title}`}
+            >
+              <article className="border-grey-light-r flex h-full flex-col overflow-hidden rounded-lg border bg-white transition-shadow duration-300 hover:shadow-xl">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={410}
+                  height={270}
+                  className="h-auto w-full rounded-lg"
+                />
 
-              <div className="flex flex-grow flex-col p-6">
-                <h2 className="mb-4 flex-grow text-xl font-semibold">
-                  {post.title}
-                </h2>
+                <div className="flex flex-grow flex-col p-6">
+                  <h2 className="mb-4 flex-grow text-xl font-semibold">
+                    {post.title}
+                  </h2>
 
-                <Link
-                  href={`/${locale}/blog/${post.slug}`}
-                  className="text-yellow gap-[10px]font-semibold flex items-center text-[19px]"
-                  aria-label={`Читати більше про ${post.title}`}
-                >
-                  <span className="mr-[10px]">Детальніше</span>
-                  <ArrowUpRightIcon
-                    className="text-yellow h-3 w-3"
-                    aria-hidden="true"
-                  />
-                </Link>
-              </div>
-            </article>
+                  <div className="text-yellow gap-[10px]font-semibold flex items-center text-[19px]">
+                    <span className="mr-[10px]">Детальніше</span>
+                    <ArrowUpRightIcon
+                      className="text-yellow h-3 w-3"
+                      aria-hidden="true"
+                    />
+                  </div>
+                </div>
+              </article>
+            </Link>
           </li>
         ))}
       </ul>

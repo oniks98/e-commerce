@@ -32,16 +32,13 @@ export default async function ArticlePage({
     (a) => a.slug === articleSlug,
   );
 
-  const breadcrumbs: BreadcrumbItem[] = blogData.breadcrumbs.map((item) => {
-    if (item.href.includes('[article]')) {
-      return {
-        ...item,
-        label: article?.title || '',
-        href: item.href.replace('[article]', article?.slug || ''),
-      };
-    }
-    return item;
-  });
+  const breadcrumbs: BreadcrumbItem[] = [
+    ...blogData.breadcrumbs,
+    {
+      label: article?.title || '',
+      href: `/blog/${article?.slug || ''}`,
+    },
+  ];
 
   return (
     <div className="bg-light">

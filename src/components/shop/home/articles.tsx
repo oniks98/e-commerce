@@ -4,27 +4,31 @@ import Link from 'next/link';
 
 import clsx from 'clsx';
 
+import { Locale } from '@/i18n/types';
+
 import ArticleCard from '@/components/shop/home/article-card';
 import Carousel from '@/components/shop/ui/carousel';
 
-import { articlesData } from '@/lib/shop/constants/home/articles-data';
+import { blogData } from '@/lib/shop/constants/blog/blog-data';
 import {
   ArrowUpRightIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
 } from '@/lib/shop/icons';
 
-const Articles = () => {
-  const slides = articlesData.map((article) => (
-    <ArticleCard key={article.id} article={article} />
+const Articles = ({ locale }: { locale: Locale }) => {
+  const slides = blogData.articles.map((article) => (
+    <ArticleCard key={article.id} article={article} locale={locale} />
   ));
 
   const tabletSlides = [];
-  for (let i = 0; i < articlesData.length; i += 2) {
+  for (let i = 0; i < blogData.articles.length; i += 2) {
     tabletSlides.push(
       <div key={i} className="flex gap-x-[30px]">
-        <ArticleCard article={articlesData[i]} />
-        {articlesData[i + 1] && <ArticleCard article={articlesData[i + 1]} />}
+        <ArticleCard article={blogData.articles[i]} locale={locale} />
+        {blogData.articles[i + 1] && (
+          <ArticleCard article={blogData.articles[i + 1]} locale={locale} />
+        )}
       </div>,
     );
   }

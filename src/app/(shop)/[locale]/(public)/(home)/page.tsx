@@ -41,7 +41,7 @@ export default async function HomePage({
       </div>
       <Reviews />
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px]">
-        <Articles />
+        <Articles locale={locale} />
         <About />
       </div>
     </div>

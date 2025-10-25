@@ -70,7 +70,7 @@ const ReviewCard = ({ review, isMobile = false }: ReviewCardProps) => {
       {/* Product info */}
       <footer className="mt-[30px] flex h-[50px] flex-shrink-0 items-center">
         <Image
-          src={getPlaceholder('product', review.product.image)}
+          src={'/images/logo.png'}
           alt={review.product.name}
           width={50}
           height={50}

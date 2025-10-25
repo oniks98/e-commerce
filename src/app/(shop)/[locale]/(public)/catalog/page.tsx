@@ -8,7 +8,10 @@ import {
   getAllCategories,
   type CategoryTreeItem,
 } from '@/lib/shop/actions/category';
-import { getProducts } from '@/lib/shop/actions/product';
+import {
+  getProducts,
+  getProductCountByCategoryId,
+} from '@/lib/shop/actions/product';
 
 interface CategoryPageProps {
   params: Promise<{
@@ -22,6 +25,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const products = await getProducts({});
 
   const allCategoriesTree = await getAllCategories();
+
+  const categoriesWithProductCount = await Promise.all(
+    allCategoriesTree.map(async (category) => {
+      const count = await getProductCountByCategoryId(category.id);
+      return { ...category, productCount: count };
+    }),
+  );
 
   const homeLabel = awaitedParams.locale === 'uk' ? 'Головна' : 'Home';
   const catalogLabel = awaitedParams.locale === 'uk' ? 'Каталог' : 'Catalog';
@@ -37,7 +47,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <Breadcrumbs items={breadcrumbItems} />
         <Categories
           locale={awaitedParams.locale}
-          categories={allCategoriesTree}
+          categories={categoriesWithProductCount}
         />
         <FilterableProducts
           initialProducts={products}

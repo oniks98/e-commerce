@@ -1,16 +1,6 @@
 'use client';
 
-import Link from 'next/link';
-
-import clsx from 'clsx';
-
-import { CategoryTreeItem } from '@/lib/shop/actions/category';
-import { ArrowUpRightIcon } from '@/lib/shop/icons';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
-
-interface CategoryWithCount extends CategoryTreeItem {
-  productCount: number;
-}
+import { CategoryCard, CategoryWithCount } from './category-card';
 
 interface CategoriesProps {
   locale: string;
@@ -28,50 +18,12 @@ const Categories = ({ locale, catalogData }: CategoriesProps) => {
         </h1>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-7">
           {categories.map((category, index) => (
-            <Link
-              href={`/${locale}/catalog/${category.slug}`}
+            <CategoryCard
               key={category.id}
-            >
-              <div className="group relative h-[240px] w-full overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105 md:h-[300px]">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                  style={{
-                    backgroundImage: `url(${getPlaceholder(
-                      'category',
-                      `v162930289${index}`,
-                    )})`,
-                  }}
-                />
-                <div className="bg-opacity-20 bg-light absolute inset-0" />
-
-                {/* Контент карточки */}
-                <div className="text-dark relative z-10 flex h-full flex-col p-4 md:p-5">
-                  {/* Верхняя часть с названием и количеством */}
-                  <div className="flex items-start justify-between">
-                    <h2 className="text-xl leading-[1.4] font-semibold">
-                      {category.name}
-                    </h2>
-                    <span className="ml-2 flex-shrink-0 text-sm text-gray-300 md:text-base">
-                      {category.productCount}
-                    </span>
-                  </div>
-
-                  {/* Нижняя часть с иконкой */}
-                  <div className="mt-auto flex justify-end">
-                    <div
-                      className={clsx(
-                        'border-yellow flex items-center justify-center rounded-full border-2',
-                        'h-10 w-10 md:h-12 md:w-12',
-                      )}
-                    >
-                      <ArrowUpRightIcon
-                        className={clsx('text-yellow h-3 w-3 md:h-4 md:w-4')}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
+              category={category}
+              locale={locale}
+              isPriority={index < 4}
+            />
           ))}
         </div>
       </div>

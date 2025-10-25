@@ -24,6 +24,8 @@ export default async function HomePage({
   const catalogData = await getAllCategories();
   const products = await getProducts({ limit: 8 });
 
+  // getAllCategories returns only root categories (those without parent_id)
+  // as the tree structure already filters them
   const catalogDataWithProductCount = await Promise.all(
     catalogData.map(async (category) => {
       const count = await getProductCountByCategoryId(category.id);

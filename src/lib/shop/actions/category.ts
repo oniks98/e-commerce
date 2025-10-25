@@ -1,10 +1,13 @@
 import { createClient } from '@/lib/supabase/server';
 
+import { getProductCountByCategoryId } from './product';
+
 // This is the type for the hierarchical structure
 export interface CategoryTreeItem {
   id: string;
   name: string;
   slug: string;
+  image_url?: string | null;
   children: CategoryTreeItem[];
 }
 
@@ -17,7 +20,7 @@ export async function getAllCategories(): Promise<CategoryTreeItem[]> {
 
   const { data: categories, error } = await supabase
     .from('categories')
-    .select('id, name, slug, parent_id');
+    .select('id, name, slug, parent_id, image_url');
 
   if (error) {
     console.error('Error fetching categories:', error);
@@ -37,6 +40,7 @@ export async function getAllCategories(): Promise<CategoryTreeItem[]> {
       id: category.id,
       name: category.name,
       slug: category.slug,
+      image_url: category.image_url,
       children: [],
     });
   });
@@ -82,7 +86,7 @@ export async function getCategoryBySlug(slug: string) {
   // Fetch its direct children (subcategories)
   const { data: children, error: childrenError } = await supabase
     .from('categories')
-    .select('id, name, slug')
+    .select('id, name, slug, image_url')
     .eq('parent_id', category.id);
 
   if (childrenError) {
@@ -94,7 +98,14 @@ export async function getCategoryBySlug(slug: string) {
     return { ...category, children: [] };
   }
 
-  return { ...category, children: children || [] };
+  const childrenWithProductCount = await Promise.all(
+    (children || []).map(async (child) => {
+      const count = await getProductCountByCategoryId(child.id);
+      return { ...child, productCount: count };
+    }),
+  );
+
+  return { ...category, children: childrenWithProductCount };
 }
 
 export async function getDescendantCategoryIds(

@@ -33,8 +33,7 @@ const ContactForm = () => {
     reset();
   };
 
-  // Using placeholder until real background image is uploaded to Cloudinary
-  const backgroundImageUrl = getPlaceholder('banner', 'contacts-form-bg');
+  const backgroundImageUrl = '/images/logo.png';
 
   const inputStyles = clsx(
     'w-full rounded-lg border border-[#D1D5D5] bg-white px-5 py-2.5',

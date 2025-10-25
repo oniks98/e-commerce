@@ -1,34 +1,34 @@
-type ImageType =
-  | 'about'
-  | 'product'
-  | 'articles'
-  | 'category'
-  | 'promotions'
-  | 'banner';
+/**
+ * Get optimized Cloudinary URL for an image
+ */
+export const getOptimizedCloudinaryUrl = (
+  publicId: string,
+  options: {
+    width?: number;
+    height?: number;
+    crop?: 'fill' | 'fit' | 'scale' | 'crop' | 'thumb' | 'limit' | 'pad';
+    quality?: 'auto' | number;
+    format?: 'auto' | 'webp' | 'png' | 'jpg';
+  } = {},
+): string => {
+  const transformations = [];
 
-const placeholders: Record<ImageType, string> = {
-  about: 'v1724863310/about_placeholder.png',
-  product: 'v1724863310/product_placeholder.png',
-  articles: 'v1724863310/articles_placeholder.png',
-  category: 'v1724863310/category_placeholder.png',
-  promotions: 'v1724863310/promotions_placeholder.png',
-  banner: 'v1724863310/about_placeholder.png', // Reusing about placeholder for banner
-};
+  // Default crop to 'fill' if width and height are provided
+  const crop =
+    options.crop || (options.width && options.height ? 'fill' : undefined);
 
-export const getPlaceholder = (type: ImageType, id: string) => {
-  // Simple hash function to get a number from a string
-  const hash = (s: string) => {
-    let h = 0;
-    for (let i = 0; i < s.length; i++) {
-      h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
-    }
-    return h;
-  };
+  if (options.width) transformations.push(`w_${options.width}`);
+  if (options.height) transformations.push(`h_${options.height}`);
+  if (crop) transformations.push(`c_${crop}`);
 
-  const hashedId = Math.abs(hash(id));
-  const version = `v${1724863310 + (hashedId % 100)}`; // Create a semi-random version
+  // Defaults for quality and format
+  const quality = options.quality || 'auto';
+  const format = options.format || 'auto';
 
-  const placeholderUrl = placeholders[type] || placeholders.about;
+  transformations.push(`q_${quality}`);
+  transformations.push(`f_${format}`);
 
-  return `https://res.cloudinary.com/my-cloud/image/upload/c_fill,w_600,q_auto,f_auto/dpr_auto/${version}/${placeholderUrl}`;
+  const transformationString = transformations.join(',');
+
+  return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/${transformationString}/dpr_auto/${publicId}`;
 };

@@ -57,7 +57,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
         id: product.id,
         name: productName,
         price: product.price_uah,
-        image: getPlaceholder('product', `${product.id}-0`),
+        image: '/images/logo.png',
         slug: productSlug,
         sku: product.sku,
       });
@@ -90,7 +90,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
   const imageSlides = [...Array(5)].map((_, index) => (
     <div key={index} className="relative aspect-[630/538] w-full">
       <Image
-        src={getPlaceholder('product', `${product.id}-${index}`)}
+        src={'/images/logo.png'}
         alt={`${productName} - фото ${index + 1}`}
         fill
         className="rounded-lg object-cover"
@@ -158,7 +158,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
               className="relative h-[100px] w-[100px] shrink-0"
             >
               <Image
-                src={getPlaceholder('product', `${product.id}-${index}`)}
+                src={'/images/logo.png'}
                 alt={`${productName} thumbnail ${index + 1}`}
                 fill
                 className={`rounded-lg border-2 object-cover transition-all ${

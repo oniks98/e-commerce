@@ -49,7 +49,7 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
       id: product.id,
       name: productName,
       price: product.price_uah || 0,
-      image: getPlaceholder('product', product.id),
+      image: '/images/logo.png',
       slug: productSlug,
       sku: product.sku,
     });
@@ -81,7 +81,7 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
       <Link href={`/${productSlug}`} className="flex w-full flex-col">
         <div className="mb-5 flex justify-center">
           <Image
-            src={getPlaceholder('product', product.id)}
+            src={'/images/logo.png'}
             alt={productName}
             width={260}
             height={220}

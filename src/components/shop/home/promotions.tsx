@@ -106,7 +106,7 @@ const Promotions = () => {
                   className="relative h-[280px] w-full flex-shrink-0 md:w-1/3 md:pl-[30px]"
                 >
                   <Image
-                    src={getPlaceholder('promotions', promotion.id)}
+                    src={'/images/logo.png'}
                     alt={promotion.alt}
                     fill
                     style={{ objectFit: 'cover' }}

@@ -2,16 +2,15 @@
 
 import { useState } from 'react';
 
-import Link from 'next/link';
-
 import clsx from 'clsx';
 
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
-import { ArrowUpRightIcon, AngleDoubleUpIcon } from '@/lib/shop/icons';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
+import { AngleDoubleUpIcon } from '@/lib/shop/icons';
+
+import { CategoryCard, CategoryWithCount } from './category-card';
 
 interface CategoriesProps {
-  categories: CategoryTreeItem[];
+  categories: CategoryWithCount[];
   locale: string;
 }
 
@@ -32,47 +31,13 @@ const Categories = ({ categories, locale }: CategoriesProps) => {
         >
           <div className="overflow-hidden">
             <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-7 py-4">
-              {categories.map((category) => (
-                <Link
+              {categories.map((category, index) => (
+                <CategoryCard
                   key={category.id}
-                  href={`/${locale}/catalog/${category.slug}`}
-                >
-                  <div className="group relative h-[240px] w-full overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105 md:h-[300px]">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                      style={{
-                        backgroundImage: `url(${getPlaceholder(
-                          'category',
-                          category.id,
-                        )})`,
-                      }}
-                    />
-                    <div className="bg-opacity-20 bg-light absolute inset-0" />
-
-                    <div className="text-dark relative z-10 flex h-full flex-col p-4 md:p-5">
-                      <div className="flex items-start justify-between">
-                        <h3 className="text-xl leading-[1.4] font-semibold">
-                          {category.name}
-                        </h3>
-                      </div>
-
-                      <div className="mt-auto flex justify-end">
-                        <div
-                          className={clsx(
-                            'border-yellow flex items-center justify-center rounded-full border-2',
-                            'h-10 w-10 md:h-12 md:w-12',
-                          )}
-                        >
-                          <ArrowUpRightIcon
-                            className={clsx(
-                              'text-yellow h-3 w-3 md:h-4 md:w-4',
-                            )}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
+                  category={category}
+                  locale={locale}
+                  isPriority={index < 4}
+                />
               ))}
             </div>
           </div>

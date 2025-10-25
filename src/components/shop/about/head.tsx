@@ -9,7 +9,7 @@ const Head = () => {
         <div className="relative hidden h-full w-full lg:flex lg:justify-end">
           <div className="relative h-full w-full max-w-[450px]">
             <Image
-              src="/images/about-head-bg.png"
+              src="/images/about/about-head-bg.png"
               alt="about-head-bg"
               fill
               className="rounded-xl object-contain"
@@ -35,7 +35,7 @@ const Head = () => {
       <div className="block w-full px-4 pb-6 lg:hidden">
         <div className="relative mx-auto aspect-[480/524] w-full max-w-[480px]">
           <Image
-            src="/images/about-head-bg-mobile.png"
+            src="/images/about/about-head-bg-mobile.png"
             alt="about-head-bg-mobile"
             fill
             className="rounded-xl object-contain"

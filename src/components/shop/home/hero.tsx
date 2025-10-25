@@ -7,27 +7,12 @@ import { EmblaOptionsType } from 'embla-carousel';
 
 import Carousel from '@/components/shop/ui/carousel';
 
+import { slides } from '@/lib/shop/constants/home/hero-data';
 import { ChevronLeftIcon, ChevronRightIcon } from '@/lib/shop/icons';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 
 interface HeroProps {
   className?: string;
 }
-
-const slides = [
-  {
-    id: 'e1c99fbd75fef4721f21625d062aa7b4a4d22dd7',
-    alt: 'Slide 1',
-  },
-  {
-    id: 'd69e4f5a7a02d1bf4b341b58c83ff1951825da6a',
-    alt: 'Slide 2',
-  },
-  {
-    id: 'e1c99fbd75fef4721f21625d062aa7b4a4d22dd7',
-    alt: 'Slide 3',
-  },
-];
 
 const Hero = ({ className }: HeroProps) => {
   const options: EmblaOptionsType = { loop: true };
@@ -35,7 +20,7 @@ const Hero = ({ className }: HeroProps) => {
   const slideComponents = slides.map((slide) => (
     <div key={slide.id} className="relative h-[420px] w-full md:h-[600px]">
       <Image
-        src={getPlaceholder('banner', slide.id)}
+        src={slide.image}
         alt={slide.alt}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

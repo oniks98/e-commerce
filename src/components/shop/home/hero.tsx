@@ -18,14 +18,18 @@ const Hero = ({ className }: HeroProps) => {
   const options: EmblaOptionsType = { loop: true };
 
   const slideComponents = slides.map((slide) => (
-    <div key={slide.id} className="relative h-[420px] w-full md:h-[600px]">
+    <div key={slide.id} className="relative h-[410px] w-full md:h-[480px]">
+      <Image
+        src={slide.imageMob}
+        alt={slide.alt}
+        fill
+        className="block rounded-lg object-cover md:hidden"
+      />
       <Image
         src={slide.image}
         alt={slide.alt}
         fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        style={{ objectFit: 'cover' }}
-        className="rounded-lg"
+        className="hidden rounded-lg object-cover md:block"
       />
     </div>
   ));

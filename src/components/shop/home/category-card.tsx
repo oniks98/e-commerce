@@ -59,13 +59,11 @@ export function CategoryCard({
           )}
         </div>
         <div className="flex flex-1 flex-col p-4">
-          <h3 className="flex-grow text-lg font-semibold text-black">
+          <h3 className="text-dark flex-grow text-lg font-semibold">
             {category.name}
           </h3>
           <div className="mt-2 flex items-center justify-between text-sm">
-            <span className="text-gray-500">
-              {category.productCount} товарів
-            </span>
+            <span className="text-grey">{category.productCount} товарів</span>
             <ArrowUpRightIcon className="text-yellow h-5 w-5 transition-transform duration-300 group-hover:rotate-45" />
           </div>
         </div>

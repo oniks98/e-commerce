@@ -20,7 +20,8 @@ export async function getAllCategories(): Promise<CategoryTreeItem[]> {
 
   const { data: categories, error } = await supabase
     .from('categories')
-    .select('id, name, slug, parent_id, image_url');
+    .select('id, name, slug, parent_id, image_url, sort_order')
+    .order('sort_order');
 
   if (error) {
     console.error('Error fetching categories:', error);
@@ -86,8 +87,9 @@ export async function getCategoryBySlug(slug: string) {
   // Fetch its direct children (subcategories)
   const { data: children, error: childrenError } = await supabase
     .from('categories')
-    .select('id, name, slug, image_url')
-    .eq('parent_id', category.id);
+    .select('id, name, slug, image_url, sort_order')
+    .eq('parent_id', category.id)
+    .order('sort_order');
 
   if (childrenError) {
     console.error(

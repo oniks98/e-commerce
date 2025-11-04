@@ -51,7 +51,7 @@ const DesktopCatalogMenu = ({
     <>
       {/* Backdrop overlay */}
       <div
-        className={`fixed top-[138px] right-0 bottom-0 left-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-300 ${
+        className={`bg-dark/50 fixed top-[138px] right-0 bottom-0 left-0 z-40 backdrop-blur-sm transition-all duration-300 ${
           isOpen ? 'visible opacity-100' : 'invisible opacity-0'
         }`}
         onClick={onClose}

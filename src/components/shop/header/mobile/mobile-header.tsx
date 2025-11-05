@@ -96,12 +96,12 @@ const MobileHeader = ({
             >
               {isSearchOpen ? (
                 <>
-                  <div className="border-yellow h-full w-full rounded-full border-2" />
+                  <div className="border-sky h-full w-full rounded-full border-2" />
                   <CloseIcon className="text-grey absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
                 </>
               ) : (
                 <>
-                  <div className="border-yellow h-full w-full rounded-full border-2" />
+                  <div className="border-sky h-full w-full rounded-full border-2" />
                   <SearchIcon
                     className={clsx(
                       'text-grey absolute top-1/2 left-1/2 h-6 w-6',

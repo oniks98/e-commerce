@@ -20,14 +20,14 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         <div className="flex flex-col gap-[40px]">
           {/* Theme and Registration controls - visible only on mobile (< 768px) */}
           <div className="border-grey-light-r dark:border-grey flex items-center justify-between border-b pb-4 transition-colors duration-200 md:hidden">
-            <div className="hover:text-yellow flex items-center gap-4 transition-colors">
+            <div className="hover:text-sky flex items-center gap-4 transition-colors">
               <ThemeToggle className="text-grey h-6 w-6" />
               <span className="text-grey text-sm">Тема</span>
             </div>
             <LanguageSwitcher />
             <button
               aria-label="Registration"
-              className="hover:text-yellow flex items-center gap-2 p-2 transition-colors"
+              className="hover:text-sky flex items-center gap-2 p-2 transition-colors"
               onClick={onClose}
             >
               <RegistrationIcon className="text-grey h-6 w-6" />

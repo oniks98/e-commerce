@@ -21,7 +21,7 @@ const MobilePagination = ({
             key={index}
             className={clsx(
               'h-[15px] w-[15px] cursor-pointer rounded-full',
-              currentIndex === index ? 'bg-yellow' : 'bg-grey-light',
+              currentIndex === index ? 'bg-sky' : 'bg-grey-light',
             )}
             onClick={() => onPageChange(index)}
           />

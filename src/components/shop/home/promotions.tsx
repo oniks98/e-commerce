@@ -16,7 +16,6 @@ import {
   ChevronRightIcon,
   ArrowUpRightIcon,
 } from '@/lib/shop/icons';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 
 const Promotions = () => {
   const options: EmblaOptionsType = { loop: true };
@@ -76,7 +75,7 @@ const Promotions = () => {
             <h2 className="text-dark text-4xl font-semibold">Акції</h2>
             <Link
               href="/promotions"
-              className="text-yellow-dark ml-[30px] hidden items-center text-lg font-semibold md:flex"
+              className="text-sky hover:text-sky-dark ml-[30px] hidden items-center text-lg font-semibold md:flex"
             >
               Дивитись всі
               <ArrowUpRightIcon className="ml-2 h-4 w-4" />
@@ -85,13 +84,13 @@ const Promotions = () => {
           <div className="hidden items-center gap-5 md:flex">
             <button
               onClick={onPrevButtonClick}
-              className="text-yellow-dark flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-100"
+              className="text-sky-dark flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-100"
             >
               <ChevronLeftIcon />
             </button>
             <button
               onClick={onNextButtonClick}
-              className="text-yellow-dark flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-100"
+              className="text-sky-dark flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-gray-100"
             >
               <ChevronRightIcon />
             </button>
@@ -126,7 +125,7 @@ const Promotions = () => {
                 className={clsx(
                   'h-[15px] w-[15px] rounded-full border-2 transition-colors duration-200',
                   index === selectedIndex
-                    ? 'bg-yellow-dark border-white'
+                    ? 'bg-sky-dark border-white'
                     : 'border-gray-400 bg-white',
                 )}
                 aria-label={`Go to slide ${index + 1}`}

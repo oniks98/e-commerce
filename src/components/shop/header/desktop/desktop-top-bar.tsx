@@ -32,7 +32,7 @@ const DesktopTopBar = () => {
             <ThemeToggle />
             <button
               aria-label="Registration"
-              className="hover:text-yellow p-2 transition-colors duration-200"
+              className="hover:text-sky p-2 transition-colors duration-200"
             >
               <AccountIcon className="h-6 w-6" />
             </button>

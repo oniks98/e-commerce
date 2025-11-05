@@ -36,7 +36,7 @@ const BuyerInfo = () => {
   return (
     <section className="w-full max-w-[680px]">
       <div className="mb-[30px] flex items-center gap-[15px]">
-        <div className="bg-yellow flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full">
+        <div className="bg-sky flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full">
           <InfoIcon className="h-[30px] w-[30px] text-white" />
         </div>
         <h3 className="text-dark text-2xl font-semibold md:text-xl">
@@ -135,7 +135,7 @@ const BuyerInfo = () => {
       {anotherPerson && (
         <div className="mt-[30px] w-full max-w-[680px]">
           <div className="mb-[30px] flex items-center gap-[15px]">
-            <div className="bg-yellow flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full">
+            <div className="bg-sky flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full">
               <InfoIcon className="h-[30px] w-[30px] text-white" />
             </div>
             <h3 className="text-dark text-2xl font-semibold md:text-xl">

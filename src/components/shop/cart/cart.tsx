@@ -50,7 +50,7 @@ const Cart = () => {
     <section className="rounded-lg bg-white p-4 shadow-lg md:p-[30px]">
       <div className="mb-10 flex items-center gap-[10px]">
         <h3 className="text-dark text-2xl font-semibold">Ваш кошик</h3>
-        <p className="text-yellow text-2xl font-semibold">{totalItems}</p>
+        <p className="text-sky text-2xl font-semibold">{totalItems}</p>
       </div>
 
       {items.length === 0 ? (
@@ -160,7 +160,7 @@ const Cart = () => {
               )}
               <button
                 onClick={() => setShowAll(!showAll)}
-                className="text-yellow mx-auto mt-5 flex items-center gap-x-2 py-2 font-semibold"
+                className="text-sky mx-auto mt-5 flex items-center gap-x-2 py-2 font-semibold"
               >
                 <span>{showAll ? 'Згорнути' : 'Показати всі'}</span>
                 <AngleDoubleUpIcon
@@ -213,7 +213,7 @@ const Cart = () => {
             </label>
           </div>
 
-          <button className="bg-yellow mt-5 w-full rounded-lg py-4 text-center font-semibold text-white">
+          <button className="bg-sky mt-5 w-full rounded-lg py-4 text-center font-semibold text-white">
             ОФОРМИТИ ЗАМОВЛЕННЯ
           </button>
 

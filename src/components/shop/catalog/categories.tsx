@@ -46,7 +46,7 @@ const Categories = ({ categories, locale }: CategoriesProps) => {
           <div className="mt-6 flex justify-center">
             <button
               onClick={() => setIsHidden(!isHidden)}
-              className="text-yellow hover:text-yellow-dark flex items-center text-lg transition-colors"
+              className="text-sky hover:text-sky-dark flex items-center text-lg transition-colors"
             >
               <span className="mr-2">
                 {isHidden ? 'Показати' : 'Приховати'} категорії

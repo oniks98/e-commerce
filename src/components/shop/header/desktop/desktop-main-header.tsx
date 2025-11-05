@@ -63,7 +63,7 @@ const DesktopMainHeader = ({ locale, catalogData }: DesktopMainHeaderProps) => {
           {/* Каталог + Поиск */}
           <div className="flex flex-1 items-center gap-[30px]">
             <CatalogButton
-              className={clsx('shrink-0', isCatalogOpen && 'bg-yellow-dark')}
+              className={clsx('shrink-0', isCatalogOpen && 'bg-sky-dark')}
               onClick={handleCatalogToggle}
             />
             <SearchInput className="flex-1" />

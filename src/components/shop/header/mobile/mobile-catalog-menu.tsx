@@ -69,7 +69,7 @@ const MobileCatalogMenu = ({
                       <Link
                         href={`/${locale}/catalog/${category.slug}`}
                         onClick={onClose}
-                        className="text-dark hover:text-yellow flex flex-1 items-center gap-4 text-lg leading-7 transition-colors duration-150"
+                        className="text-dark hover:text-sky flex flex-1 items-center gap-4 text-lg leading-7 transition-colors duration-150"
                       >
                         <span>{category.name}</span>
                       </Link>
@@ -84,7 +84,7 @@ const MobileCatalogMenu = ({
                               <Link
                                 key={subcategory.id}
                                 href={`/${locale}/catalog/${subcategory.slug}`}
-                                className={`text-dark hover:text-yellow hover:border-yellow animate-fade-in-left block translate-x-2 border-l-2 border-transparent pl-4 text-base leading-8 opacity-0 transition-all duration-150`}
+                                className={`text-dark hover:text-sky hover:border-sky animate-fade-in-left block translate-x-2 border-l-2 border-transparent pl-4 text-base leading-8 opacity-0 transition-all duration-150`}
                                 style={{
                                   animationDelay: `${subIndex * 100}ms`,
                                   animationFillMode: 'forwards',
@@ -109,7 +109,7 @@ const MobileCatalogMenu = ({
                     <div className="flex items-center gap-4">
                       <span>{category.name}</span>
                     </div>
-                    <ChevronDownIcon className="text-yellow h-3 w-3 rotate-[-90deg] transition-transform duration-200 hover:rotate-0" />
+                    <ChevronDownIcon className="text-sky h-3 w-3 rotate-[-90deg] transition-transform duration-200 hover:rotate-0" />
                   </Link>
                 )}
               </AccordionItem>

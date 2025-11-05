@@ -100,9 +100,9 @@ const DesktopCatalogMenu = ({
                       className={clsx(
                         'flex items-center justify-between py-2 pr-[15px] pl-[30px] text-base transition-all duration-200 hover:translate-x-1',
                         {
-                          'bg-yellow text-white shadow-md':
+                          'bg-sky text-white shadow-md':
                             hoveredCategory?.id === category.id,
-                          'hover:bg-yellow-dark text-dark':
+                          'hover:bg-sky-dark text-dark':
                             hoveredCategory?.id !== category.id,
                         },
                       )}
@@ -115,7 +115,7 @@ const DesktopCatalogMenu = ({
                             {
                               'rotate-0 text-white':
                                 hoveredCategory?.id === category.id,
-                              'text-yellow -rotate-12':
+                              'text-sky -rotate-12':
                                 hoveredCategory?.id !== category.id,
                             },
                           )}
@@ -126,9 +126,9 @@ const DesktopCatalogMenu = ({
                 ))}
               </ul>
 
-              {/* Yellow separator line */}
+              {/* sky separator line */}
               <div
-                className={`bg-yellow w-[5px] transition-all duration-300 ${
+                className={`bg-sky w-[5px] transition-all duration-300 ${
                   isOpen ? 'scale-y-100' : 'scale-y-0'
                 }`}
                 style={{
@@ -153,7 +153,7 @@ const DesktopCatalogMenu = ({
                           key={subcategory.id}
                           href={`/${locale}/catalog/${subcategory.slug}`}
                           onClick={onClose}
-                          className={`text-dark animate-fade-in-left block translate-x-4 rounded px-2 py-1 text-base leading-[2.1] opacity-0 transition-all duration-200 hover:translate-x-2 hover:bg-white/50 hover:text-yellow-600`}
+                          className={`text-dark animate-fade-in-left hover:text-sky-dark block translate-x-4 rounded px-2 py-1 text-base leading-[2.1] opacity-0 transition-all duration-200 hover:translate-x-2 hover:bg-white/50`}
                           style={{
                             animationDelay: `${200 + index * 50}ms`,
                             animationFillMode: 'forwards',

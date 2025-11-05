@@ -21,7 +21,7 @@ const Navigation = ({ className = '', isMobile = false }: NavigationProps) => {
         <Link
           href={link.href}
           key={link.href}
-          className={`hover:text-yellow transition-colors duration-200 ${
+          className={`hover:text-sky transition-colors duration-200 ${
             isMobile
               ? 'text-xl leading-[28px] font-semibold'
               : 'text-base leading-[30px] font-normal'

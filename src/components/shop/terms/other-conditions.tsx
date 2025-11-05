@@ -29,7 +29,7 @@ const OtherConditions = () => {
                 className="flex flex-col items-center md:flex-row md:items-start"
               >
                 <div className="mb-5 h-25 w-25 flex-shrink-0 md:mr-5 md:mb-0">
-                  <div className="bg-yellow flex h-full w-full items-center justify-center rounded-full">
+                  <div className="bg-sky flex h-full w-full items-center justify-center rounded-full">
                     {Icon && <Icon className="h-full w-full text-white" />}
                   </div>
                 </div>

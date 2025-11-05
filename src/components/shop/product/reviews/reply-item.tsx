@@ -30,7 +30,7 @@ const ReplyItem = ({ reply }: ReplyItemProps) => {
 
             {reply.replyTo && (
               <>
-                <ChevronRightIcon className="text-yellow h-4 w-4 md:h-5 md:w-5" />
+                <ChevronRightIcon className="text-sky h-4 w-4 md:h-5 md:w-5" />
                 <span className={replyToStyles}>{reply.replyTo}</span>
               </>
             )}

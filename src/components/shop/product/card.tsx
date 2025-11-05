@@ -107,7 +107,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
         'h-[60px] w-[60px]',
         'flex items-center justify-center',
         'rounded-full bg-white',
-        'text-yellow',
+        'text-sky',
         'transition-all duration-200 hover:bg-gray-50',
         'shadow-md',
         'hidden md:flex',
@@ -126,7 +126,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
         'h-[60px] w-[60px]',
         'flex items-center justify-center',
         'rounded-full bg-white',
-        'text-yellow',
+        'text-sky',
         'transition-all duration-200 hover:bg-gray-50',
         'shadow-md',
         'hidden md:flex',
@@ -163,7 +163,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
                 fill
                 className={`rounded-lg border-2 object-cover transition-all ${
                   index === selectedImage
-                    ? 'border-yellow'
+                    ? 'border-sky'
                     : 'border-grey-light hover:border-grey'
                 }`}
               />
@@ -184,7 +184,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
           <div className="flex items-center gap-x-2.5">
             <div className="flex items-center gap-x-1">
               {[...Array(5)].map((_, i) => (
-                <StarIcon key={i} className="text-yellow" />
+                <StarIcon key={i} className="text-sky" />
               ))}
             </div>
             <ChatIcon className="text-grey" />
@@ -242,7 +242,7 @@ const Card = ({ product, locale, productName }: CardProps) => {
             </div>
             <button
               onClick={handleAddToCart}
-              className="bg-yellow hover:bg-opacity-90 flex shrink-0 items-center justify-center gap-x-4 rounded-lg px-8 py-3.5 font-semibold text-white transition-colors"
+              className="bg-sky hover:bg-opacity-90 flex shrink-0 items-center justify-center gap-x-4 rounded-lg px-8 py-3.5 font-semibold text-white transition-colors"
             >
               <CartIcon />
               Купити

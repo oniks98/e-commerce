@@ -28,7 +28,7 @@ const ThemeToggle = ({ className }: { className?: string }) => {
     <button
       onClick={toggleTheme}
       aria-label="Toggle theme"
-      className="hover:text-yellow dark:hover:text-yellow p-2 transition-colors duration-200"
+      className="hover:text-sky dark:hover:text-sky p-2 transition-colors duration-200"
     >
       {isDark ? (
         <ThemeIcon

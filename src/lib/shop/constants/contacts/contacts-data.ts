@@ -31,7 +31,7 @@ export const contactsData = {
     {
       Icon: PhoneIcon,
       iconClassName:
-        'flex h-[50px] w-[50px] items-center justify-center rounded-full bg-yellow text-white',
+        'flex h-[50px] w-[50px] items-center justify-center rounded-full bg-sky text-white',
       title: 'Телефони:',
       content: ['+38 063 338-82-60', '+38 067 636-01-90'],
       showSocial: false,
@@ -39,7 +39,7 @@ export const contactsData = {
     {
       Icon: EmailIcon,
       iconClassName:
-        'flex h-[50px] w-[50px] items-center justify-center rounded-full bg-yellow text-white',
+        'flex h-[50px] w-[50px] items-center justify-center rounded-full bg-sky text-white',
       title: 'Напишіть нам:',
       content: ['oniksdnipro@gmail.com'],
       showSocial: true,
@@ -47,7 +47,7 @@ export const contactsData = {
     {
       Icon: LocationIcon,
       iconClassName:
-        'flex h-[50px] w-[50px] items-center justify-center rounded-full bg-yellow text-white',
+        'flex h-[50px] w-[50px] items-center justify-center rounded-full bg-sky text-white',
       title: 'Де ми знаходимось:',
       content: ['м.Дніпро, вул. Чапленка 4/2'],
       showSocial: false,
@@ -55,7 +55,7 @@ export const contactsData = {
     {
       Icon: CalendarIcon,
       iconClassName:
-        'flex h-[50px] w-[50px] items-center justify-center rounded-full bg-yellow text-white',
+        'flex h-[50px] w-[50px] items-center justify-center rounded-full bg-sky text-white',
       title: 'Графік роботи:',
       content: [
         'Працюємо щодня з 10:00 до 14:00 крім вихідних або самовивіз за домовленністю з 8 до 20 у будь-який день.',

@@ -8,7 +8,7 @@ export const deliveryOptions = [
     id: 'pickup',
     label: 'Самовивіз із магазину',
     icon: PickupIcon,
-    iconClassName: 'text-yellow h-full w-full',
+    iconClassName: 'text-sky h-full w-full',
   },
   {
     id: 'novaposhta',

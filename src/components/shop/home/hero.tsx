@@ -42,7 +42,7 @@ const Hero = ({ className }: HeroProps) => {
         'h-[60px] w-[60px]',
         'flex items-center justify-center',
         'rounded-full bg-white',
-        'text-yellow',
+        'text-sky',
         'transition-all duration-200 hover:bg-gray-50',
         'hidden md:flex',
       )}
@@ -60,7 +60,7 @@ const Hero = ({ className }: HeroProps) => {
         'h-[60px] w-[60px]',
         'flex items-center justify-center',
         'rounded-full bg-white',
-        'text-yellow',
+        'text-sky',
         'transition-all duration-200 hover:bg-gray-50',
         'hidden md:flex',
       )}

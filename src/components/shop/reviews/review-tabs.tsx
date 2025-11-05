@@ -27,7 +27,7 @@ export default function ReviewTabs({
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
             className={clsx('h4-headline border-b-3 pb-2.5', {
-              'border-yellow text-yellow': activeTab === tab.id,
+              'border-sky text-sky': activeTab === tab.id,
               'text-dark border-transparent': activeTab !== tab.id,
             })}
             aria-current={activeTab === tab.id ? 'page' : undefined}

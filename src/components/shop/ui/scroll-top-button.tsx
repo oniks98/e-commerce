@@ -24,7 +24,7 @@ const ScrollTopButton = () => {
     <div className="fixed right-8 bottom-8 z-50">
       <button
         onClick={scrollToTop}
-        className="bg-yellow hover:bg-yellow-dark rounded-full px-4 py-2 text-sm font-bold shadow-lg"
+        className="bg-sky hover:bg-sky-dark rounded-full px-4 py-2 text-sm font-bold shadow-lg"
         aria-label="Scroll to top"
       >
         UP

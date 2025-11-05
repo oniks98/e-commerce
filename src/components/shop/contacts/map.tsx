@@ -38,9 +38,9 @@ const Map = () => {
           target="_blank"
           rel="noopener noreferrer"
           className={clsx(
-            'bg-yellow flex h-[50px] items-center justify-center gap-[15px] rounded-lg px-5 py-2',
+            'bg-sky flex h-[50px] items-center justify-center gap-[15px] rounded-lg px-5 py-2',
             'text-[19px] leading-[1.26] font-semibold text-white',
-            'hover:bg-yellow-dark transition-colors',
+            'hover:bg-sky-dark transition-colors',
             'w-[270px]',
           )}
         >

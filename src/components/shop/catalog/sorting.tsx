@@ -110,7 +110,7 @@ const Sorting = ({
             <li>
               <button
                 onClick={clearFilters}
-                className="bg-yellow text-dark flex items-center gap-1.5 rounded-lg px-2.5 py-0.5 text-[15px] leading-[22px]"
+                className="bg-sky text-dark flex items-center gap-1.5 rounded-lg px-2.5 py-0.5 text-[15px] leading-[22px]"
               >
                 <span>Очистити</span>
                 <FilterCrossIcon />

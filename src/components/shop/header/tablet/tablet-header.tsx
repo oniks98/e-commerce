@@ -77,10 +77,7 @@ const TabletHeader = ({
             <div className="flex items-center gap-[10px]">
               <LanguageSwitcher />
               <ThemeToggle />
-              <button
-                aria-label="Registration"
-                className="hover:text-yellow p-2"
-              >
+              <button aria-label="Registration" className="hover:text-sky p-2">
                 <RegistrationIcon className="h-6 w-6" />
               </button>
             </div>

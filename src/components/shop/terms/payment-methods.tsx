@@ -25,7 +25,7 @@ const PaymentMethods = () => {
           return (
             <li key={index} className="flex flex-col items-center text-center">
               <div className="mb-5 h-25 w-25 flex-shrink-0">
-                <div className="bg-yellow flex h-full w-full items-center justify-center rounded-full">
+                <div className="bg-sky flex h-full w-full items-center justify-center rounded-full">
                   {Icon && <Icon className="h-full w-full text-white" />}
                 </div>
               </div>

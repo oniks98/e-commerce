@@ -51,11 +51,11 @@ const Breadcrumbs = async ({
                 </span>
               )}
               {isLast ? (
-                <span className="text-yellow font-medium">{item.label}</span>
+                <span className="text-sky font-medium">{item.label}</span>
               ) : (
                 <Link
                   href={item.href}
-                  className="text-grey hover:text-yellow-dark transition-colors"
+                  className="text-grey hover:text-sky-dark transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -92,7 +92,7 @@ const Breadcrumbs = async ({
     >
       <Link
         href={`/${locale}`}
-        className="text-grey hover:text-yellow-dark transition-colors"
+        className="text-grey hover:text-sky-dark transition-colors"
       >
         {homeLabel}
       </Link>
@@ -106,11 +106,11 @@ const Breadcrumbs = async ({
               <RightArrowIcon />
             </span>
             {isLast ? (
-              <span className="text-yellow font-medium">{cat.name}</span>
+              <span className="text-sky font-medium">{cat.name}</span>
             ) : (
               <Link
                 href={`/${locale}/catalog/${cat.slug}`}
-                className="text-grey hover:text-yellow-dark transition-colors"
+                className="text-grey hover:text-sky-dark transition-colors"
               >
                 {cat.name}
               </Link>
@@ -124,7 +124,7 @@ const Breadcrumbs = async ({
           <span className="mx-2">
             <RightArrowIcon />
           </span>
-          <span className="text-yellow font-medium">{productName}</span>
+          <span className="text-sky font-medium">{productName}</span>
         </div>
       )}
     </nav>

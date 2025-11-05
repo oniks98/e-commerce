@@ -25,7 +25,7 @@ const Products = ({ products, locale }: ProductsProps) => {
           </h2>
           <Link
             href="/catalog"
-            className="text-yellow-dark ml-6 hidden items-center text-lg font-semibold md:flex"
+            className="text-sky hover:text-sky-dark ml-6 hidden items-center text-lg font-semibold md:flex"
           >
             Дивитись всі
             <ArrowUpRightIcon className="ml-2 h-4 w-4" />

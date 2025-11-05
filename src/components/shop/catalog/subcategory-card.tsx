@@ -61,7 +61,7 @@ export function SubcategoryCard({
             <span className="text-grey">
               {subcategory.productCount} товарів
             </span>
-            <ArrowUpRightIcon className="text-yellow h-5 w-5 transition-transform duration-300 group-hover:rotate-45" />
+            <ArrowUpRightIcon className="text-sky h-5 w-5 transition-transform duration-300 group-hover:rotate-45" />
           </div>
         </div>
       </div>

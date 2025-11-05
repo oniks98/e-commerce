@@ -10,10 +10,10 @@ import {
 } from '@/lib/shop/icons';
 
 const iconMap = {
-  LocationIcon: <LocationIcon className="text-yellow" />,
-  PaymentIcon: <PaymentIcon className="text-yellow" />,
-  WarrantyIcon: <WarrantyIcon className="text-yellow" />,
-  HelpIcon: <HelpIcon className="text-yellow" />,
+  LocationIcon: <LocationIcon className="text-sky" />,
+  PaymentIcon: <PaymentIcon className="text-sky" />,
+  WarrantyIcon: <WarrantyIcon className="text-sky" />,
+  HelpIcon: <HelpIcon className="text-sky" />,
 };
 
 interface ConditionsProps {
@@ -36,7 +36,7 @@ const Conditions = ({ locale }: ConditionsProps) => {
               <p className="text-grey mb-2 text-sm">{item.description}</p>
               <Link
                 href={`/${locale}/terms`}
-                className="text-yellow flex items-center gap-x-1.5 text-sm font-semibold transition-opacity hover:opacity-80"
+                className="text-sky hover:text-sky-dark flex items-center gap-x-1.5 text-sm font-semibold transition-opacity hover:opacity-80"
               >
                 Детальніше <ArrowUpRightIcon />
               </Link>

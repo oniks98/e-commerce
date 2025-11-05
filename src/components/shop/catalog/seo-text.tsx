@@ -61,7 +61,7 @@ const SeoText = () => {
 
             <AccordionTrigger className="flex w-full items-center justify-center pt-4 [&>svg]:hidden [&[data-state=open]>div]:rotate-180">
               <Shadow>
-                <ArrowDownIcon className="text-yellow h-[50px] w-[50px]" />
+                <ArrowDownIcon className="text-sky hover:text-sky-dark h-[50px] w-[50px]" />
               </Shadow>
             </AccordionTrigger>
           </AccordionItem>

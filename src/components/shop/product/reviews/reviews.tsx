@@ -66,7 +66,7 @@ const Reviews = ({ productName }: ReviewsProps) => {
   );
 
   const buttonStyles = clsx(
-    'bg-yellow gap-3 max-w-73 text-[17px]',
+    'bg-sky gap-3 max-w-73 text-[17px]',
     'md:h-[50px] md:gap-[15px] md:px-[30px] md:text-[19px]',
   );
 
@@ -93,7 +93,7 @@ const Reviews = ({ productName }: ReviewsProps) => {
 
             {showReplies[review.id] && review.replies && (
               <div className="flex flex-col gap-5 py-5 md:py-8">
-                <div className="bg-yellow h-[2px] md:ml-[100px]" />
+                <div className="bg-sky h-[2px] md:ml-[100px]" />
                 {review.replies.map((reply) => (
                   <ReplyItem key={reply.id} reply={reply} />
                 ))}

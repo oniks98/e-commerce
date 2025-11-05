@@ -42,7 +42,7 @@ const Articles = ({ locale }: { locale: Locale }) => {
           </h2>
           <Link
             href="/blog"
-            className="text-yellow hidden items-center gap-[10px] text-[19px] font-semibold md:inline-flex"
+            className="text-sky hover:text-sky-dark hidden items-center gap-[10px] text-[19px] font-semibold md:inline-flex"
           >
             Читати блог
             <ArrowUpRightIcon />
@@ -100,7 +100,7 @@ const Articles = ({ locale }: { locale: Locale }) => {
         <div className="mt-10 md:hidden">
           <Link
             href="/blog"
-            className="bg-yellow flex h-[50px] w-full items-center justify-center gap-[15px] rounded-lg"
+            className="bg-sky flex h-[50px] w-full items-center justify-center gap-[15px] rounded-lg"
           >
             <span className="text-lg font-semibold text-white">
               Читати блог
@@ -116,7 +116,7 @@ const Articles = ({ locale }: { locale: Locale }) => {
 const PrevButton = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
   <button
     {...props}
-    className="text-yellow absolute top-[-90px] right-[80px] flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md"
+    className="text-sky absolute top-[-90px] right-[80px] flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md"
   >
     <ChevronLeftIcon />
   </button>
@@ -125,7 +125,7 @@ const PrevButton = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
 const NextButton = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
   <button
     {...props}
-    className="text-yellow absolute top-[-90px] right-0 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md"
+    className="text-sky absolute top-[-90px] right-0 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white shadow-md"
   >
     <ChevronRightIcon />
   </button>

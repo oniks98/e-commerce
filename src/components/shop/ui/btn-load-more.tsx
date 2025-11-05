@@ -19,7 +19,7 @@ const BtnLoadMore = ({
   ...props
 }: BtnLoadMoreProps) => {
   const baseStyles =
-    'bg-yellow-dark flex items-center rounded-lg px-5 py-3 text-lg font-semibold text-white disabled:opacity-50';
+    'bg-sky-dark flex items-center rounded-lg px-5 py-3 text-lg font-semibold text-white disabled:opacity-50';
 
   const variantStyles = variant === 'center' ? 'justify-center' : '';
 

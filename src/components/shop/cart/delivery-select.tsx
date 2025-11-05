@@ -18,7 +18,7 @@ const DeliverySelect = () => {
   return (
     <section className="w-full max-w-[680px]">
       <div className="mb-[30px] flex items-center gap-[15px]">
-        <div className="bg-yellow flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full">
+        <div className="bg-sky flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full">
           <DeliverySelectIcon className="h-full w-full text-white" />
         </div>
         <h3 className="text-dark text-2xl font-semibold md:text-xl">
@@ -32,14 +32,14 @@ const DeliverySelect = () => {
             key={id}
             className={clsx(
               'relative cursor-pointer rounded-lg border-2 p-5 text-center',
-              selected === id ? 'border-yellow' : 'border-light',
+              selected === id ? 'border-sky' : 'border-light',
             )}
             onClick={() => setSelected(id)}
           >
             <div className="mx-auto mb-2.5 flex h-10 w-10 items-center justify-center">
               <Icon className={iconClassName} />
               {selected === id && (
-                <CheckCircleIcon className="text-yellow absolute top-[10px] right-[10px] h-8 w-8" />
+                <CheckCircleIcon className="text-sky absolute top-[10px] right-[10px] h-8 w-8" />
               )}
             </div>
             <p className="text-dark text-base">{label}</p>
@@ -64,7 +64,7 @@ const DeliverySelect = () => {
             href="https://maps.app.goo.gl/boz9UG9UF8cAVkr66"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-yellow mt-5 flex items-center justify-center gap-2.5 rounded-lg px-5 py-3 text-white md:mt-0"
+            className="bg-sky mt-5 flex items-center justify-center gap-2.5 rounded-lg px-5 py-3 text-white md:mt-0"
           >
             <OnMapIcon className="h-6 w-6" />
             <span>На мапі</span>

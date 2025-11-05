@@ -17,7 +17,7 @@ const ContactsBlock = () => {
               </li>
             ))}
           </ul>
-          <a href="#" className="text-yellow mt-2 inline-block underline">
+          <a href="#" className="text-sky mt-2 inline-block underline">
             {footerData.contacts.callbackText}
           </a>
         </div>
@@ -28,7 +28,7 @@ const ContactsBlock = () => {
           href="https://maps.app.goo.gl/eWLotVL1DGVTakV56"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-yellow underline transition-colors duration-300"
+          className="hover:text-sky underline transition-colors duration-300"
         >
           {footerData.contacts.address}
         </Link>

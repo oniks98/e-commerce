@@ -16,7 +16,7 @@ const StarRating = ({
   count,
 }: StarRatingProps) => {
   const starStyles = clsx(
-    'text-yellow',
+    'text-sky',
     size === 'md' && 'h-5 w-5 md:h-6 md:w-6',
     size === 'sm' && 'h-4 w-4 md:h-5 md:w-5',
   );

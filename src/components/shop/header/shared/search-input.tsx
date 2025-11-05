@@ -17,7 +17,7 @@ const SearchInput = ({
     return (
       <button aria-label="Search" className="relative">
         <div className="relative h-[50px] w-[50px]">
-          <div className="border-yellow h-full w-full rounded-full border-2" />
+          <div className="border-sky h-full w-full rounded-full border-2" />
           <SearchIcon className="text-grey absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
         </div>
       </button>

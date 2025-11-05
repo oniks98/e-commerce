@@ -41,7 +41,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
         <h3 className="text-dark text-[26px] leading-[1.3] font-semibold">
           {article.title}
         </h3>
-        <div className="text-yellow mt-[30px] inline-flex items-center gap-[10px] text-[19px] font-semibold">
+        <div className="text-sky hover:text-sky-dark mt-[30px] inline-flex items-center gap-[10px] text-[19px] font-semibold">
           Детальніше
           <ArrowUpRightIcon />
         </div>

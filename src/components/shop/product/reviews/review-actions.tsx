@@ -9,7 +9,7 @@ interface RepliesCountBadgeProps {
 const RepliesCountBadge = ({ count }: RepliesCountBadgeProps) => {
   return (
     <div className="relative h-5 w-5 md:h-6 md:w-6">
-      <ChatIcon className="text-yellow h-5 w-5 md:h-6 md:w-6" />
+      <ChatIcon className="text-sky h-5 w-5 md:h-6 md:w-6" />
       <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[13px] leading-[15.8px] font-bold text-white">
         {count}
       </span>
@@ -36,7 +36,7 @@ const ReviewActions = ({
   repliesVisible = false,
   helpfulCount,
 }: ReviewActionsProps) => {
-  const iconStyles = 'h-5 w-5 md:h-6 md:w-6 text-yellow';
+  const iconStyles = 'h-5 w-5 md:h-6 md:w-6 text-sky';
   const buttonStyles =
     'flex items-center gap-[5px] text-[15px] md:text-[17px] text-grey';
 
@@ -73,7 +73,7 @@ const ReviewActions = ({
       )}
 
       <div className="flex items-center gap-2.5">
-        <LikeIcon className="text-yellow h-4 w-4 md:h-5 md:w-5" />
+        <LikeIcon className="text-sky h-4 w-4 md:h-5 md:w-5" />
         <span className="text-grey text-[15px] md:text-[17px]">
           Корисний відгук:
         </span>

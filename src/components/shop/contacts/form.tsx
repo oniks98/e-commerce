@@ -38,19 +38,19 @@ const ContactForm = () => {
   const inputStyles = clsx(
     'w-full rounded-lg border border-[#D1D5D5] bg-white px-5 py-2.5',
     'text-[16px] leading-[1.875] text-grey placeholder:text-grey',
-    'transition-colors focus:border-yellow focus:outline-none',
+    'transition-colors focus:border-sky focus:outline-none',
   );
 
   const textareaStyles = clsx(
     'h-[150px] w-full resize-none rounded-lg border border-[#D1D5D5] bg-white px-5 py-2.5',
     'text-[16px] leading-[1.875] text-grey placeholder:text-grey',
-    'transition-colors focus:border-yellow focus:outline-none',
+    'transition-colors focus:border-sky focus:outline-none',
   );
 
   const submitButtonStyles = clsx(
-    'flex h-[50px] w-full items-center justify-center gap-[15px] rounded-lg bg-yellow px-5 py-2',
+    'flex h-[50px] w-full items-center justify-center gap-[15px] rounded-lg bg-sky px-5 py-2',
     'text-[19px] font-semibold leading-[1.26] text-white',
-    'transition-colors hover:bg-yellow-dark',
+    'transition-colors hover:bg-sky-dark',
     'md:w-[240px]',
   );
 
@@ -81,7 +81,7 @@ const ContactForm = () => {
             <p className="text-dark text-[20px] leading-[1.3] font-semibold md:text-[26px]">
               {description}
             </p>
-            <p className="text-yellow text-[26px] leading-[1.33] font-semibold md:text-[30px]">
+            <p className="text-sky text-[26px] leading-[1.33] font-semibold md:text-[30px]">
               {subtitle}
             </p>
           </div>

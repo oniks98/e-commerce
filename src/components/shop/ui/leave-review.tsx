@@ -76,7 +76,7 @@ const LeaveReview = () => {
           </div>
           <button
             type="submit"
-            className="bg-yellow mt-8 w-full rounded-lg py-3.5 font-semibold text-white"
+            className="bg-sky mt-8 w-full rounded-lg py-3.5 font-semibold text-white"
           >
             Залишити відгук
           </button>

@@ -60,7 +60,7 @@ const LanguageSwitcher = () => {
                   className={clsx(
                     'block w-full px-[7px] py-3 text-left text-base transition-colors duration-200',
                     language.code === selectedLanguage
-                      ? 'text-yellow-dark font-semibold'
+                      ? 'text-sky-dark font-semibold'
                       : 'text-dark',
                     index < LANGUAGES.length - 1 && 'border-b border-gray-100',
                   )}

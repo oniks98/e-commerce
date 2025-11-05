@@ -120,7 +120,7 @@ const Carousel: React.FC<CarouselProps> = ({
               onClick={() => onDotButtonClick(index)}
               className={clsx(
                 'h-[15px] w-[15px] rounded-full transition-colors duration-200',
-                index === selectedIndex ? 'bg-yellow' : 'bg-light',
+                index === selectedIndex ? 'bg-sky' : 'bg-light',
               )}
               aria-label={`Go to slide ${index + 1}`}
             />

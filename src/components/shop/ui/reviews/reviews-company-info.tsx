@@ -20,12 +20,10 @@ const ReviewsCompanyInfo = ({ variant }: ReviewsCompanyInfoProps) => {
             💎 ONYX - для Вас безпека та комфорт
           </h3>
           <div className="mt-[20px] flex items-center justify-center gap-[10px] md:mb-[22px] xl:m-0 xl:mt-[20px] xl:justify-start">
-            <span className="text-yellow-dark text-[19px] font-semibold">
-              5.0
-            </span>
+            <span className="text-sky-dark text-[19px] font-semibold">5.0</span>
             <div className="flex" role="img" aria-label="5 зірок з 5">
               {Array.from({ length: 5 }).map((_, index) => (
-                <StarIcon key={index} className="text-yellow-dark" />
+                <StarIcon key={index} className="text-sky-dark" />
               ))}
             </div>
           </div>

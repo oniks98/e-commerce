@@ -123,8 +123,8 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
             onClick={handleAddToCart}
             disabled={isAdding}
             className={clsx(
-              'bg-yellow rounded-full p-3 transition-all',
-              'hover:bg-yellow-dark disabled:cursor-not-allowed',
+              'bg-sky rounded-full p-3 transition-all',
+              'hover:bg-sky-dark disabled:cursor-not-allowed',
               isAdding && 'scale-110',
             )}
             aria-label="Додати в кошик"

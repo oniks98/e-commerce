@@ -48,13 +48,13 @@ const ReplyForm = ({
   );
 
   const primaryButtonStyles = clsx(
-    'flex items-center justify-center gap-3 rounded-lg bg-yellow px-5 py-2 font-semibold text-white',
+    'flex items-center justify-center gap-3 rounded-lg bg-sky px-5 py-2 font-semibold text-white',
     'h-[45px] w-full text-[17px]',
     'md:h-[50px] md:w-[160px] md:gap-[15px] md:text-[19px]',
   );
 
   const secondaryButtonStyles = clsx(
-    'flex items-center justify-center gap-3 rounded-lg border border-yellow px-5 py-2 font-semibold text-yellow',
+    'flex items-center justify-center gap-3 rounded-lg border border-sky px-5 py-2 font-semibold text-sky',
     'h-[45px] w-full text-[17px]',
     'md:h-[50px] md:w-[160px] md:gap-[15px] md:text-[19px]',
   );
@@ -74,7 +74,7 @@ const ReplyForm = ({
   return (
     <div className="bg-light relative mb-8 rounded-lg p-[30px]">
       <div className={iconContainerStyles}>
-        <ForwardIcon className="text-yellow h-full w-full" />
+        <ForwardIcon className="text-sky h-full w-full" />
       </div>
 
       <h3 className={headerStyles}>Відповідь для {authorName}</h3>

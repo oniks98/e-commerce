@@ -104,10 +104,10 @@ const Blog = ({ locale }: { locale: Locale }) => {
                     {post.title}
                   </h2>
 
-                  <div className="text-yellow gap-[10px]font-semibold flex items-center text-[19px]">
+                  <div className="text-sky hover:text-sky-dark gap-[10px]font-semibold flex items-center text-[19px]">
                     <span className="mr-[10px]">Детальніше</span>
                     <ArrowUpRightIcon
-                      className="text-yellow h-3 w-3"
+                      className="text-sky h-3 w-3"
                       aria-hidden="true"
                     />
                   </div>

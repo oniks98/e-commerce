@@ -5,7 +5,7 @@ import { AddIcon, ChatIcon } from '@/lib/shop/icons';
 const ReviewActions = () => {
   return (
     <div className="mb-8 flex flex-col items-center justify-center gap-5 md:flex-row xl:justify-start">
-      <button className="bg-yellow flex h-[50px] items-center justify-center rounded-lg px-3 text-white">
+      <button className="bg-sky hover:bg-sky-dark flex h-[50px] items-center justify-center rounded-lg px-3 text-white">
         <AddIcon />
         <span className="ml-[15px] text-lg font-semibold">Написати відгук</span>
       </button>

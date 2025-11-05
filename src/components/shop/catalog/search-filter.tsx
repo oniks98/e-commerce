@@ -190,7 +190,7 @@ const SearchFilter = ({
           />
           <button
             onClick={handleApplyPriceFilter}
-            className="bg-yellow-dark rounded-md px-4 py-2 text-white"
+            className="bg-sky-dark rounded-md px-4 py-2 text-white"
           >
             ОК
           </button>
@@ -201,19 +201,19 @@ const SearchFilter = ({
         >
           <div className="bg-grey-light absolute top-1/2 h-1 w-full -translate-y-1/2 rounded-full"></div>
           <div
-            className="bg-yellow-dark absolute top-1/2 h-1 -translate-y-1/2 rounded-full"
+            className="bg-sky-dark absolute top-1/2 h-1 -translate-y-1/2 rounded-full"
             style={{
               left: `${minPricePercent}%`,
               right: `${100 - maxPricePercent}%`,
             }}
           ></div>
           <div
-            className="bg-yellow-dark absolute top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer rounded-full border-2 border-white shadow-md transition-transform hover:scale-110"
+            className="bg-sky-dark absolute top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer rounded-full border-2 border-white shadow-md transition-transform hover:scale-110"
             style={{ left: `calc(${minPricePercent}% - 10px)` }}
             onMouseDown={() => handleMouseDown(true)}
           ></div>
           <div
-            className="bg-yellow-dark absolute top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer rounded-full border-2 border-white shadow-md transition-transform hover:scale-110"
+            className="bg-sky-dark absolute top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer rounded-full border-2 border-white shadow-md transition-transform hover:scale-110"
             style={{ left: `calc(${maxPricePercent}% - 10px)` }}
             onMouseDown={() => handleMouseDown(false)}
           ></div>

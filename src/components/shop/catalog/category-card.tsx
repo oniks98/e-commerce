@@ -64,7 +64,7 @@ export function CategoryCard({
           </h3>
           <div className="mt-2 flex items-center justify-between text-sm">
             <span className="text-grey">{category.productCount} товарів</span>
-            <ArrowUpRightIcon className="text-yellow h-5 w-5 transition-transform duration-300 group-hover:rotate-45" />
+            <ArrowUpRightIcon className="text-sky h-5 w-5 transition-transform duration-300 group-hover:rotate-45" />
           </div>
         </div>
       </div>

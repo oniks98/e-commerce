@@ -31,7 +31,7 @@ const ReviewCard = ({ review, isMobile = false }: ReviewCardProps) => {
     >
       {/* Header */}
       <header className="flex h-[70px] flex-shrink-0 items-center">
-        <div className="border-yellow relative h-[50px] w-[50px] flex-shrink-0 rounded-full border">
+        <div className="border-sky relative h-[50px] w-[50px] flex-shrink-0 rounded-full border">
           <RegistrationIcon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
         </div>
         <div className="ml-[20px] min-w-0 flex-1">
@@ -51,7 +51,7 @@ const ReviewCard = ({ review, isMobile = false }: ReviewCardProps) => {
             {Array.from({ length: review.rating }).map((_, index) => (
               <div
                 key={index}
-                className="text-yellow h-[24px] w-[24px] flex-shrink-0"
+                className="text-sky h-[24px] w-[24px] flex-shrink-0"
               >
                 <StarIcon />
               </div>

@@ -17,7 +17,7 @@ const ReviewsCompanyInfo = ({ variant }: ReviewsCompanyInfoProps) => {
         </div>
         <div className="mt-[20px] text-center md:mt-0 xl:ml-[30px] xl:text-left">
           <h3 className="text-dark text-xl font-semibold md:mb-[20px] xl:mb-0 xl:text-left">
-             ONYX - для Вас безпека та комфорт
+            ONYX - для Вас безпека та комфорт
           </h3>
           <div className="mt-[20px] flex items-center justify-center gap-[10px] md:mb-[22px] xl:m-0 xl:mt-[20px] xl:justify-start">
             <span className="text-sky-dark text-[19px] font-semibold">5.0</span>

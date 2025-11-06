@@ -36,7 +36,7 @@ const TabletTopBar = ({
           </div>
           <div className="text-center">
             <h3 className="text-lg font-semibold">
-               ONYX - для Вас безпека та комфорт
+              ONYX - для Вас безпека та комфорт
             </h3>
           </div>
         </div>

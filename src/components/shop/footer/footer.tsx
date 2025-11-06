@@ -40,7 +40,7 @@ const Footer = ({ locale, catalogData }: FooterProps) => {
               </div>
               <div className="mt-[20px] text-center md:mt-0 xl:p-3 xl:text-left">
                 <h3 className="text-lg font-semibold md:mb-[20px] xl:mb-0 xl:text-left">
-                   ONYX - для Вас безпека та комфорт
+                  ONYX - для Вас безпека та комфорт
                 </h3>
               </div>
             </div>
@@ -75,7 +75,7 @@ const Footer = ({ locale, catalogData }: FooterProps) => {
               </div>
               <div className="mt-[20px] text-center md:mt-0 xl:ml-[30px] xl:text-left">
                 <h3 className="text-lg font-semibold md:mb-[20px] xl:mb-0 xl:text-left">
-                   ONYX - для Вас безпека та комфорт
+                  ONYX - для Вас безпека та комфорт
                 </h3>
               </div>
             </div>

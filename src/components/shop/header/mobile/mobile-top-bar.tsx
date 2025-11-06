@@ -20,15 +20,11 @@ const MobileTopBar = ({ onMenuClick, isMenuOpen }: MobileTopBarProps) => {
         )}
       </button>
 
-      <div className="flex w-[240px] flex-row items-center">
-        <div className="h-[50px] w-[50px] shrink-0 overflow-hidden rounded-full bg-white">
+      <div className="flex flex-row items-center gap-2">
+        <div className="h-[60px] w-[60px] shrink-0 overflow-hidden rounded-full bg-white">
           <Logo />
         </div>
-        <div className="text-center">
-          <h3 className="text-sm font-semibold">
-            💎 ONYX - для Вас безпека та комфорт
-          </h3>
-        </div>
+        <h3 className="text-lg font-semibold"> ONYX</h3>
       </div>
 
       <div className="flex items-center">

@@ -55,7 +55,7 @@ const DesktopMainHeader = ({ locale, catalogData }: DesktopMainHeaderProps) => {
             </div>
             <div className="text-center xl:pl-3 xl:text-left">
               <h3 className="text-lg font-semibold xl:text-left">
-                💎 ONYX - для Вас безпека та комфорт
+                 ONYX - для Вас безпека та комфорт
               </h3>
             </div>
           </div>

@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from 'react';
 
-import Link from 'next/link';
-
 import clsx from 'clsx';
 
 import { CartIcon } from '@/lib/shop/icons';

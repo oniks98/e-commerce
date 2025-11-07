@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,6 +11,7 @@ import { CheckIcon, CartIcon, FavoritesIcon } from '@/lib/shop/icons';
 import { Tables } from '@/lib/supabase/types/database';
 
 import { useCartStore } from '@/store/cart-store';
+import { useFavoritesStore } from '@/store/favorites-store';
 
 type Product = Tables<'products'>;
 
@@ -22,7 +23,13 @@ interface ProductCardProps {
 
 const ProductCard = ({ product, locale, className }: ProductCardProps) => {
   const [isAdding, setIsAdding] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [isFavoriteAnimating, setIsFavoriteAnimating] = useState(false);
+
   const addItem = useCartStore((state) => state.addItem);
+  const isInCart = useCartStore((state) => state.isInCart);
+  const toggleFavorite = useFavoritesStore((state) => state.toggleItem);
+  const isFavorite = useFavoritesStore((state) => state.isFavorite);
 
   const productName =
     typeof product.name === 'object' &&
@@ -37,6 +44,10 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
     (product.slug as any)[locale]
       ? (product.slug as any)[locale]
       : product.id;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -56,6 +67,32 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
       setIsAdding(false);
     }, 600);
   };
+
+  const handleToggleFavorite = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const wasInFavorites = isFavorite(product.id);
+
+    toggleFavorite({
+      id: product.id,
+      name: productName,
+      price: product.price_uah || 0,
+      image: '/images/logo.png',
+      slug: productSlug,
+      sku: product.sku,
+    });
+
+    if (!wasInFavorites) {
+      setIsFavoriteAnimating(true);
+      setTimeout(() => {
+        setIsFavoriteAnimating(false);
+      }, 400);
+    }
+  };
+
+  const isInFavorites = mounted ? isFavorite(product.id) : false;
+  const isProductInCart = mounted ? isInCart(product.id) : false;
 
   return (
     <article
@@ -113,22 +150,38 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
         </div>
         <div className="flex items-center">
           <button
-            className="bg-grey-light-r hover:bg-grey-light mr-2 rounded-full p-3 transition-colors"
-            aria-label="Додати в обране"
+            onClick={handleToggleFavorite}
+            className={clsx(
+              'mr-2 rounded-full p-3 transition-all',
+              mounted && isInFavorites
+                ? 'bg-sky hover:bg-sky-dark text-white'
+                : 'bg-grey-light-r text-grey hover:bg-grey-light',
+              isFavoriteAnimating && 'scale-110',
+            )}
+            aria-label={
+              mounted && isInFavorites
+                ? 'Видалити з обраного'
+                : 'Додати в обране'
+            }
           >
-            <FavoritesIcon className="text-grey h-6 w-6" />
+            <FavoritesIcon className="h-6 w-6" />
           </button>
           <button
             onClick={handleAddToCart}
             disabled={isAdding}
             className={clsx(
-              'bg-sky rounded-full p-3 transition-all',
-              'hover:bg-sky-dark disabled:cursor-not-allowed',
+              'rounded-full p-3 transition-all',
+              mounted && isProductInCart
+                ? 'bg-sky hover:bg-sky-dark text-white'
+                : 'bg-grey-light-r text-grey hover:bg-grey-light',
+              'disabled:cursor-not-allowed',
               isAdding && 'scale-110',
             )}
-            aria-label="Додати в кошик"
+            aria-label={
+              mounted && isProductInCart ? 'Товар в кошику' : 'Додати в кошик'
+            }
           >
-            <CartIcon className="h-6 w-6 text-white" />
+            <CartIcon className="h-6 w-6" />
           </button>
         </div>
       </div>

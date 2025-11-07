@@ -20,6 +20,7 @@ interface CartStore {
   clearCart: () => void;
   getTotalItems: () => number;
   getTotalPrice: () => number;
+  isInCart: (id: string) => boolean;
 }
 
 export const useCartStore = create<CartStore>()(
@@ -72,6 +73,10 @@ export const useCartStore = create<CartStore>()(
           (total, item) => total + item.price * item.quantity,
           0,
         );
+      },
+
+      isInCart: (id) => {
+        return get().items.some((item) => item.id === id);
       },
     }),
     {

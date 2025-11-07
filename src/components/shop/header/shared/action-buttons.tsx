@@ -6,8 +6,7 @@ import { useParams } from 'next/navigation';
 import clsx from 'clsx';
 
 import CartIndicator from '@/components/shop/cart/cart-indicator';
-
-import { FavoritesIcon } from '@/lib/shop/icons';
+import FavoritesIndicator from '@/components/shop/favorites/favorites-indicator';
 
 interface ActionButtonsProps {
   showLabels?: boolean;
@@ -26,10 +25,20 @@ const ActionButtons = ({
       className={`flex shrink-0 items-center gap-2 ${className}`}
       aria-label="User actions"
     >
-      <button aria-label="Favorites" className="relative h-[50px] w-[50px]">
+      <Link
+        href={`/${locale}/favorites`}
+        aria-label="Favorites"
+        className="relative h-[50px] w-[50px]"
+      >
         <div className="border-sky absolute inset-0 rounded-full border-2"></div>
-        <FavoritesIcon className="text-grey hover:text-sky absolute top-1/2 left-1/2 h-[23px] w-[26px] -translate-x-1/2 -translate-y-1/2" />
-      </button>
+        <div
+          className={clsx(
+            'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+          )}
+        >
+          <FavoritesIndicator locale={locale} />
+        </div>
+      </Link>
 
       <Link
         href={`/${locale}/cart`}

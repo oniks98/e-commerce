@@ -14,6 +14,9 @@ interface DesktopCatalogMenuProps {
   onClose: () => void;
   locale: string;
   catalogData: CategoryTreeItem[];
+  onMousePositionCheck: (
+    menuElement: HTMLElement | null,
+  ) => (e: MouseEvent) => void;
 }
 
 const DesktopCatalogMenu = ({
@@ -21,6 +24,7 @@ const DesktopCatalogMenu = ({
   onClose,
   locale,
   catalogData,
+  onMousePositionCheck,
 }: DesktopCatalogMenuProps) => {
   const [hoveredCategory, setHoveredCategory] = useState<
     CategoryTreeItem | undefined
@@ -45,41 +49,47 @@ const DesktopCatalogMenu = ({
         setMenuHeight(menuRef.current.scrollHeight);
       }
     }
-  }, [isOpen, hoveredCategory]); // Recalculate height when hovered category changes
+  }, [isOpen, hoveredCategory]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const menuElement = menuRef.current;
+    const handleMouseMove = onMousePositionCheck(menuElement);
+
+    document.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [isOpen, onMousePositionCheck]);
 
   return (
     <>
-      {/* Backdrop overlay */}
       <div
-        className={`bg-dark/50 fixed top-[138px] right-0 bottom-0 left-0 z-40 backdrop-blur-sm transition-all duration-300 ${
-          isOpen ? 'visible opacity-100' : 'invisible opacity-0'
+        className={`fixed inset-0 z-40 transition-all duration-300 ${
+          isOpen ? 'visible' : 'invisible'
         }`}
         onClick={onClose}
       />
 
-      {/* Menu container wrapper */}
       <nav
         className={`absolute top-full left-0 z-50 w-full transition-all duration-300 ease-out ${
           isOpen
             ? 'visible translate-y-0 opacity-100'
             : 'invisible -translate-y-4 opacity-0'
         }`}
-        onClick={onClose}
         style={{
           height: isOpen ? `${menuHeight}px` : '0px',
         }}
       >
-        {/* Container to align with header content */}
         <div className="mx-auto max-w-[1360px] px-[35px]">
-          {/* Left-aligned menu with fixed width */}
-          <div className="w-[920px]" onClick={(e) => e.stopPropagation()}>
+          <div className="w-[920px]">
             <div
               ref={menuRef}
               className={`flex w-full overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ${
                 isOpen ? 'scale-100' : 'scale-95'
               }`}
             >
-              {/* Left sidebar with categories */}
               <ul className="w-[500px] bg-white py-2">
                 {catalogData.map((category, index) => (
                   <li
@@ -126,7 +136,6 @@ const DesktopCatalogMenu = ({
                 ))}
               </ul>
 
-              {/* sky separator line */}
               <div
                 className={`bg-sky w-[5px] transition-all duration-300 ${
                   isOpen ? 'scale-y-100' : 'scale-y-0'
@@ -136,7 +145,6 @@ const DesktopCatalogMenu = ({
                 }}
               />
 
-              {/* Right panel with subcategories */}
               <div className="bg-light w-[500px] overflow-hidden py-[20px] pr-[20px] pl-[30px]">
                 {hoveredCategory?.children &&
                 hoveredCategory.children.length > 0 ? (

@@ -6,12 +6,14 @@ interface CatalogButtonProps {
   className?: string;
   size?: 'default' | 'compact';
   onClick?: () => void;
+  onMouseEnter?: () => void;
 }
 
 const CatalogButton = ({
   className = '',
   size = 'default',
   onClick,
+  onMouseEnter,
 }: CatalogButtonProps) => {
   const isCompact = size === 'compact';
 
@@ -24,6 +26,7 @@ const CatalogButton = ({
         className,
       )}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
     >
       <CatalogIcon className="h-6 w-6" />
       <span>Каталог</span>

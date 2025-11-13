@@ -9,7 +9,8 @@ import ActionButtons from '@/components/shop/header/shared/action-buttons';
 import CatalogButton from '@/components/shop/header/shared/catalog-button';
 import PhoneMenu from '@/components/shop/header/shared/phone-menu';
 import SearchInput from '@/components/shop/header/shared/search-input';
-import Logo from '@/components/shop/ui/logo';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
 
@@ -113,16 +114,27 @@ const DesktopMainHeader = ({
     <div className="border-light relative z-50 border-b-2 bg-white">
       <div className="relative z-50 mx-auto max-w-[1360px] bg-white px-[35px]">
         <div className="flex h-[80px] items-center gap-[30px]">
-          <div className="flex w-[260px] flex-col items-center xl:flex-row">
+          <Link
+            href="/"
+            className="group flex w-[260px] flex-col items-center xl:flex-row"
+            aria-label="Повернутися на головну сторінку"
+          >
             <div className="h-[60px] w-[60px] shrink-0 overflow-hidden rounded-full bg-white">
-              <Logo />
+              <Image
+                src="/images/logo.png"
+                alt="ONYX Logo"
+                width={60}
+                height={60}
+                priority
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="text-center xl:pl-3 xl:text-left">
-              <h3 className="text-lg font-semibold xl:text-left">
+              <h3 className="text-lg font-semibold transition-colors xl:text-left group-hover:text-sky-dark">
                 ONYX - для Вас безпека та комфорт
               </h3>
             </div>
-          </div>
+          </Link>
 
           <div className="flex flex-1 items-center gap-[30px]">
             <div ref={buttonRef} onMouseEnter={handleCatalogOpen}>

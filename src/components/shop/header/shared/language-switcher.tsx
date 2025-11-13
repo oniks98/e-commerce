@@ -24,14 +24,12 @@ const LanguageSwitcher = () => {
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         className={clsx(
-          'flex items-center gap-1 text-base font-normal transition-colors duration-200 hover:text-orange-500',
+          'hover:text-sky-dark flex items-center gap-1 text-base font-normal transition-colors duration-200',
           // сохраняет место в потоке, но скрывает визуально и блокирует клики
           isOpen ? 'pointer-events-none invisible' : 'visible',
         )}
       >
-        <span className="font-semibold text-orange-500">
-          {selectedLanguage}
-        </span>
+        <span className="text-sky font-semibold">{selectedLanguage}</span>
         <ChevronDownIcon className="h-[7px] w-[11px]" />
       </button>
 

@@ -64,8 +64,8 @@ const PhoneMenu = () => {
               setIsOpen(false);
             }}
             className={clsx(
-              'text-xm w-full text-left font-medium text-orange-400',
-              'transition-colors duration-200 hover:text-orange-500',
+              'text-xm text-sky w-full text-left font-medium',
+              'hover:text-sky-dark transition-colors duration-200',
             )}
           >
             Передзвоніть мені

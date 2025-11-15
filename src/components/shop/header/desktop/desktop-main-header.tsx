@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 
+import Image from 'next/image';
+import Link from 'next/link';
+
 import clsx from 'clsx';
 
 import DesktopCatalogMenu from '@/components/shop/header/desktop/desktop-catalog-menu';
@@ -9,8 +12,6 @@ import ActionButtons from '@/components/shop/header/shared/action-buttons';
 import CatalogButton from '@/components/shop/header/shared/catalog-button';
 import PhoneMenu from '@/components/shop/header/shared/phone-menu';
 import SearchInput from '@/components/shop/header/shared/search-input';
-import Image from 'next/image';
-import Link from 'next/link';
 
 import { CategoryTreeItem } from '@/lib/shop/actions/category';
 
@@ -19,10 +20,7 @@ interface DesktopMainHeaderProps {
   catalogData: CategoryTreeItem[];
 }
 
-const DesktopMainHeader = ({
-  locale,
-  catalogData,
-}: DesktopMainHeaderProps) => {
+const DesktopMainHeader = ({ locale, catalogData }: DesktopMainHeaderProps) => {
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
@@ -130,7 +128,7 @@ const DesktopMainHeader = ({
               />
             </div>
             <div className="text-center xl:pl-3 xl:text-left">
-              <h3 className="text-lg font-semibold transition-colors xl:text-left group-hover:text-sky-dark">
+              <h3 className="group-hover:text-sky-dark text-lg font-semibold transition-colors xl:text-left">
                 ONYX - для Вас безпека та комфорт
               </h3>
             </div>

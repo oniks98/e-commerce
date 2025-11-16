@@ -1,5 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 
+import { Locale } from '@/i18n/types'; // Import Locale type
+
 import About from '@/components/shop/home/about';
 import Articles from '@/components/shop/home/articles';
 import Categories from '@/components/shop/home/categories';
@@ -19,7 +21,8 @@ export default async function HomePage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale: localeString } = await params;
+  const locale = localeString as Locale; // Type assertion
   setRequestLocale(locale);
   const catalogData = await getAllCategories();
   const products = await getProducts({ limit: 8 });

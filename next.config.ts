@@ -13,7 +13,21 @@ const nextConfig: NextConfig = {
         hostname: 'res.cloudinary.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        pathname: '/**',
+      },
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: '/:locale/auth',
+        destination: '/:locale',
+        permanent: false,
+      },
+    ];
   },
 };
 

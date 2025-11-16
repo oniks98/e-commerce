@@ -4,10 +4,9 @@ import clsx from 'clsx';
 
 import LanguageSwitcher from '@/components/shop/header/shared/language-switcher';
 import Navigation from '@/components/shop/header/shared/navigation';
+import AuthButton from '@/components/shop/modals/auth-button';
 import SocialLinks from '@/components/shop/ui/social-links';
 import ThemeToggle from '@/components/shop/ui/theme-toggle';
-
-import { AccountIcon } from '@/lib/shop/icons';
 
 const DesktopTopBar = () => {
   return (
@@ -30,12 +29,7 @@ const DesktopTopBar = () => {
           <div className="flex items-center gap-[10px]">
             <LanguageSwitcher />
             <ThemeToggle />
-            <button
-              aria-label="Registration"
-              className="hover:text-sky p-2 transition-colors duration-200"
-            >
-              <AccountIcon className="h-6 w-6" />
-            </button>
+            <AuthButton />
           </div>
         </div>
       </div>

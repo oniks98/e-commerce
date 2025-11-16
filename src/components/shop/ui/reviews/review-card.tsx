@@ -3,8 +3,6 @@
 import Image from 'next/image';
 
 import { StarIcon, RegistrationIcon } from '@/lib/shop/icons';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
-
 interface ReviewProduct {
   name: string;
   image: string;

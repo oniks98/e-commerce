@@ -2,9 +2,8 @@ import Link from 'next/link';
 
 import LanguageSwitcher from '@/components/shop/header/shared/language-switcher';
 import Navigation from '@/components/shop/header/shared/navigation';
+import AuthButton from '@/components/shop/modals/auth-button';
 import ThemeToggle from '@/components/shop/ui/theme-toggle';
-
-import { RegistrationIcon } from '@/lib/shop/icons';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -25,14 +24,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               <span className="text-grey text-sm">Тема</span>
             </div>
             <LanguageSwitcher />
-            <button
-              aria-label="Registration"
-              className="hover:text-sky flex items-center gap-2 p-2 transition-colors"
-              onClick={onClose}
-            >
-              <RegistrationIcon className="text-grey h-6 w-6" />
-              <span className="text-grey text-sm">Вхід</span>
-            </button>
+            <AuthButton />
           </div>
 
           {/* Navigation Links */}

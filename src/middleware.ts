@@ -33,7 +33,7 @@ export default function middleware(req: NextRequest) {
   return res;
 }
 
-// Обрабатываем всё, кроме статики
+// Обрабатываем всё, кроме статики и API роутов
 export const config = {
-  matcher: ['/((?!_next|.*\\..*).*)'],
+  matcher: ['/((?!api|_next|.*\\..*).*)'],
 };

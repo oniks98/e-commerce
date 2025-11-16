@@ -56,6 +56,7 @@ export { default as PrepaymentIcon } from './prepayment-icon';
 export { default as EmailIcon } from './email-icon';
 export { default as OnMapIcon } from './on-map-icon';
 export { default as LocationIcon } from './location-icon';
+export { default as LogOutIcon } from './log-out-icon';
 export { default as ArrowLeftIcon } from './arrow-left-icon';
 export { default as ArrowRightIcon } from './arrow-right-icon';
 export { default as CheckCircleIcon } from './check-circle-icon';

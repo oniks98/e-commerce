@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import { CheckIcon, CartIcon, FavoritesIcon } from '@/lib/shop/icons';
 import { Tables } from '@/lib/supabase/types/database';
 
+import { useAuthStore } from '@/store/auth-store';
 import { useCartStore } from '@/store/cart-store';
 import { useFavoritesStore } from '@/store/favorites-store';
 
@@ -26,10 +27,14 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
   const [mounted, setMounted] = useState(false);
   const [isFavoriteAnimating, setIsFavoriteAnimating] = useState(false);
 
+  const { user } = useAuthStore();
   const addItem = useCartStore((state) => state.addItem);
   const isInCart = useCartStore((state) => state.isInCart);
   const toggleFavorite = useFavoritesStore((state) => state.toggleItem);
-  const isFavorite = useFavoritesStore((state) => state.isFavorite);
+
+  const isFavorited = useFavoritesStore((state) =>
+    state.items.some((item) => item.id === product.id),
+  );
 
   const productName =
     typeof product.name === 'object' &&
@@ -72,16 +77,19 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
     e.preventDefault();
     e.stopPropagation();
 
-    const wasInFavorites = isFavorite(product.id);
+    const wasInFavorites = isFavorited;
 
-    toggleFavorite({
-      id: product.id,
-      name: productName,
-      price: product.price_uah || 0,
-      image: '/images/logo.png',
-      slug: productSlug,
-      sku: product.sku,
-    });
+    toggleFavorite(
+      {
+        id: product.id,
+        name: productName,
+        price: product.price_uah || 0,
+        image: '/images/logo.png',
+        slug: productSlug,
+        sku: product.sku,
+      },
+      user,
+    );
 
     if (!wasInFavorites) {
       setIsFavoriteAnimating(true);
@@ -91,7 +99,7 @@ const ProductCard = ({ product, locale, className }: ProductCardProps) => {
     }
   };
 
-  const isInFavorites = mounted ? isFavorite(product.id) : false;
+  const isInFavorites = mounted && isFavorited;
   const isProductInCart = mounted ? isInCart(product.id) : false;
 
   return (

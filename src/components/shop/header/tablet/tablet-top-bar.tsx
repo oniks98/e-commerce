@@ -1,10 +1,11 @@
 'use client';
 
 import LanguageSwitcher from '@/components/shop/header/shared/language-switcher';
+import AuthButton from '@/components/shop/modals/auth-button';
 import Logo from '@/components/shop/ui/logo';
 import ThemeToggle from '@/components/shop/ui/theme-toggle';
 
-import { RegistrationIcon, HamburgerIcon, CloseIcon } from '@/lib/shop/icons';
+import { HamburgerIcon, CloseIcon } from '@/lib/shop/icons';
 
 interface TabletTopBarProps {
   isMobileMenuOpen: boolean;
@@ -44,9 +45,7 @@ const TabletTopBar = ({
         <div className="flex items-center gap-[10px]">
           <LanguageSwitcher />
           <ThemeToggle />
-          <button aria-label="Registration" className="hover:text-sky p-2">
-            <RegistrationIcon className="h-6 w-6" />
-          </button>
+          <AuthButton />
         </div>
       </div>
     </div>

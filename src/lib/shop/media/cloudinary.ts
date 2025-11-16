@@ -1,6 +1,8 @@
 /**
  * Get optimized Cloudinary URL for an image
  */
+const CLOUDINARY_CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+
 export const getOptimizedCloudinaryUrl = (
   publicId: string,
   options: {

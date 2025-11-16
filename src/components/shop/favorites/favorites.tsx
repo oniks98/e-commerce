@@ -14,6 +14,7 @@ import {
   DeleteIcon,
 } from '@/lib/shop/icons';
 
+import { useAuthStore } from '@/store/auth-store';
 import { useCartStore } from '@/store/cart-store';
 import { useFavoritesStore, FavoriteItem } from '@/store/favorites-store';
 
@@ -22,16 +23,12 @@ interface FavoritesProps {
 }
 
 export default function Favorites({ locale }: FavoritesProps) {
+  const { user } = useAuthStore();
   const items = useFavoritesStore((state) => state.items);
-  const removeItem = useFavoritesStore((state) => state.removeItem);
-  const clearFavorites = useFavoritesStore((state) => state.clearFavorites);
+  const { toggleItem, handleLogout: clearFavorites } = useFavoritesStore();
   const addToCart = useCartStore((state) => state.addItem);
 
   const [addingItems, setAddingItems] = useState<Record<string, boolean>>({});
-
-  const handleRemoveFromFavorites = (id: string) => {
-    removeItem(id);
-  };
 
   const handleAddToCart = (item: FavoriteItem) => {
     setAddingItems((prev) => ({ ...prev, [item.id]: true }));
@@ -127,7 +124,7 @@ export default function Favorites({ locale }: FavoritesProps) {
             )}
           >
             <button
-              onClick={() => handleRemoveFromFavorites(item.id)}
+              onClick={() => toggleItem(item, user)}
               className="hover:bg-grey-light-r absolute top-3 right-3 z-10 rounded-full bg-white p-2 shadow-md transition-colors"
               aria-label="Видалити з обраного"
             >

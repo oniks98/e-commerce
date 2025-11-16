@@ -1,5 +1,6 @@
 import Footer from '@/components/shop/footer/footer';
 import Header from '@/components/shop/header/header';
+import AuthProvider from '@/components/shop/providers/auth-provider';
 import Advantages from '@/components/shop/ui/advantages';
 
 import { getAllCategories } from '@/lib/shop/actions/category';
@@ -7,17 +8,15 @@ import { getAllCategories } from '@/lib/shop/actions/category';
 export default async function PublicLayout({
   children,
   params,
-  modal,
 }: {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
-  modal: React.ReactNode;
 }) {
   const { locale } = await params;
   const catalogData = await getAllCategories();
 
   return (
-    <>
+    <AuthProvider>
       <div className="bg-light flex min-h-screen flex-col">
         <Header locale={locale} catalogData={catalogData} />
         <main className="flex-grow">{children}</main>
@@ -28,7 +27,6 @@ export default async function PublicLayout({
         </div>
         <Footer locale={locale} catalogData={catalogData} />
       </div>
-      {modal}
-    </>
+    </AuthProvider>
   );
 }

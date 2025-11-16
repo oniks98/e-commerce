@@ -25,7 +25,6 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from '@/lib/shop/icons';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import { Tables } from '@/lib/supabase/types/database';
 
 import { useCartStore } from '@/store/cart-store';

@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
 import { contactsData } from '@/lib/shop/constants/contacts/contacts-data';
-import { getPlaceholder } from '@/lib/shop/media/cloudinary';
 import { contactFormSchema } from '@/lib/shop/validation/form';
 
 const ContactForm = () => {

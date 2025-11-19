@@ -8,6 +8,8 @@ import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
+import ClientBreadcrumbs from '@/components/shop/ui/client-breadcrumbs';
+
 import {
   profileSchema,
   passwordSchema,
@@ -17,6 +19,11 @@ import {
 import { createClient } from '@/lib/supabase/client';
 
 import { useAuthStore } from '@/store/auth-store';
+
+const cabinetBreadcrumbs = [
+  { label: 'Головна', href: '/' },
+  { label: 'Кабінет', href: '/cabinet' },
+];
 
 export default function CabinetPage() {
   const router = useRouter();
@@ -325,6 +332,7 @@ export default function CabinetPage() {
   return (
     <div className="bg-light min-h-screen py-8">
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+        <ClientBreadcrumbs items={cabinetBreadcrumbs} className="mb-8" />
         <h1 className="text-dark mb-8 text-3xl font-bold">Особистий кабінет</h1>
 
         <div className="space-y-6">

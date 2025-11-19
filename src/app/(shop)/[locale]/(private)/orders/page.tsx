@@ -2,7 +2,14 @@
 
 import { useRouter } from 'next/navigation';
 
+import ClientBreadcrumbs from '@/components/shop/ui/client-breadcrumbs';
+
 import { useAuthStore } from '@/store/auth-store';
+
+const ordersBreadcrumbs = [
+  { label: 'Головна', href: '/' },
+  { label: 'Замовлення', href: '/orders' },
+];
 
 export default function OrdersPage() {
   const router = useRouter();
@@ -16,6 +23,7 @@ export default function OrdersPage() {
   return (
     <div className="bg-light min-h-screen py-8">
       <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+        <ClientBreadcrumbs items={ordersBreadcrumbs} className="mb-8" />
         <h1 className="text-dark mb-8 text-3xl font-bold">Мої замовлення</h1>
 
         <div className="rounded-lg bg-white p-8 text-center shadow-sm">

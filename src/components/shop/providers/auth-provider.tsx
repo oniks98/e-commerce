@@ -29,9 +29,11 @@ export default function AuthProvider({
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((event: AuthChangeEvent, session: Session | null) => {
-      setUser(session?.user ?? null, event);
-    });
+    } = supabase.auth.onAuthStateChange(
+      (event: AuthChangeEvent, session: Session | null) => {
+        setUser(session?.user ?? null, event);
+      },
+    );
 
     return () => {
       subscription.unsubscribe();

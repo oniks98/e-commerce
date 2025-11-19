@@ -95,7 +95,6 @@ export const useFavoritesStore = create<FavoritesState>()(
         }
       },
 
-
       handleLogout: () => {
         set({ items: [] });
       },

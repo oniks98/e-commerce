@@ -3,8 +3,8 @@ import { setRequestLocale } from 'next-intl/server';
 import Favorites from '@/components/shop/favorites/favorites';
 import AuthProvider from '@/components/shop/providers/auth-provider';
 import Breadcrumbs from '@/components/shop/ui/breadcrumbs';
-import ProfileSidebar from '@/components/shop/ui/profile-sidebar';
 import ConditionalProfileLayout from '@/components/shop/ui/conditional-profile-layout';
+import ProfileSidebar from '@/components/shop/ui/profile-sidebar';
 
 interface FavoritesPageProps {
   params: Promise<{ locale: string }>;

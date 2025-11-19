@@ -1,7 +1,8 @@
 'use client';
 
-import { useAuthStore } from '@/store/auth-store';
 import ProfileSidebar from '@/components/shop/ui/profile-sidebar';
+
+import { useAuthStore } from '@/store/auth-store';
 
 interface ConditionalProfileLayoutProps {
   children: React.ReactNode;

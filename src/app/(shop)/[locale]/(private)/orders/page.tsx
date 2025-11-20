@@ -21,8 +21,8 @@ export default function OrdersPage() {
   }
 
   return (
-    <div className="bg-light min-h-screen py-8">
-      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+    <div className="bg-light min-h-screen">
+      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-38">
         <ClientBreadcrumbs items={ordersBreadcrumbs} className="mb-8" />
         <h1 className="text-dark mb-8 text-3xl font-bold">Мої замовлення</h1>
 

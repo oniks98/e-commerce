@@ -43,7 +43,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <section className="bg-light">
-      <div className="mx-auto mb-8 max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+      <div className="mx-auto mb-8 max-w-[1360px] px-4 md:px-[35px] xl:mt-38">
         <Breadcrumbs items={breadcrumbItems} />
         <Categories
           locale={awaitedParams.locale}

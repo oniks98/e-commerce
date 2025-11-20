@@ -21,7 +21,7 @@ const MobileTopBar = ({ onMenuClick, isMenuOpen }: MobileTopBarProps) => {
       </button>
 
       <div className="flex flex-row items-center gap-2">
-        <div className="h-[60px] w-[60px] shrink-0 overflow-hidden rounded-full bg-white">
+        <div className="h-[50px] w-[50px] shrink-0 overflow-hidden rounded-full bg-white">
           <Logo />
         </div>
         <h3 className="text-lg font-semibold"> ONYX</h3>

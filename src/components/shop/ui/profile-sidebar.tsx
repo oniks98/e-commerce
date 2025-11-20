@@ -75,7 +75,7 @@ const sidebarItems: SidebarItem[] = [
   },
 ];
 
-export default function ProfileSidebar() {
+export default function ProfileSidebar({ className }: { className?: string }) {
   const pathname = usePathname();
   const router = useRouter();
   const { setUser } = useAuthStore();
@@ -89,7 +89,12 @@ export default function ProfileSidebar() {
   };
 
   return (
-    <aside className="dark:bg-dark-card h-fit w-full rounded-lg bg-white shadow-sm transition-colors duration-200 md:w-64 md:px-[35px] xl:mt-[138px]">
+    <aside
+      className={clsx(
+        'dark:bg-dark-card mt-2 h-fit w-full rounded-lg bg-white shadow-sm transition-colors duration-200 md:w-64 md:px-[35px] xl:mt-0',
+        className,
+      )}
+    >
       <nav className="p-4">
         <ul className="space-y-2">
           {sidebarItems.map((item) => {

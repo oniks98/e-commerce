@@ -17,7 +17,7 @@ export default async function AboutPage({
 
   return (
     <div className="bg-light">
-      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-38">
         <Breadcrumbs items={aboutPageBreadcrumbs} className="mb-[30px]" />
         <Head />
         <AboutAdvantages />

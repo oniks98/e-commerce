@@ -19,7 +19,7 @@ export default function ConditionalProfileLayout({
 
   return (
     <div className="flex flex-col gap-6 md:flex-row">
-      <ProfileSidebar />
+      <ProfileSidebar className="hidden lg:block" />
       <div className="flex-1">{children}</div>
     </div>
   );

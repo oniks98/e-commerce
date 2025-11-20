@@ -23,7 +23,7 @@ export default async function CartPage({
 
   return (
     <div className="bg-light">
-      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-38">
         <Breadcrumbs items={breadcrumbs} locale={locale} />
         <h1 className="text-dark py-8 text-center text-4xl font-semibold md:text-start">
           Оформлення замовлення

@@ -38,7 +38,7 @@ export default async function HomePage({
 
   return (
     <div className="bg-light">
-      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-38">
         <Hero />
         <Categories locale={locale} catalogData={catalogDataWithProductCount} />
         <Products products={products} locale={locale} />

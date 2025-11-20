@@ -32,11 +32,11 @@ const TabletTopBar = ({
         </button>
 
         <div className="text-dark flex w-[250px] flex-row items-center">
-          <div className="h-[60px] w-[60px] shrink-0 overflow-hidden rounded-full bg-white">
+          <div className="h-[50px] w-[50px] shrink-0 overflow-hidden rounded-full bg-white">
             <Logo />
           </div>
           <div className="text-center">
-            <h3 className="text-lg font-semibold">
+            <h3 className="text-lg leading-tight font-semibold">
               ONYX - для Вас безпека та комфорт
             </h3>
           </div>

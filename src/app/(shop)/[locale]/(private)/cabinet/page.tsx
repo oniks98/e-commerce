@@ -80,7 +80,7 @@ export default function CabinetPage() {
   if (isLoading) {
     return (
       <div className="bg-light min-h-screen py-8">
-        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+        <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-38">
           <div className="flex items-center justify-center py-20">
             <div className="border-sky h-12 w-12 animate-spin rounded-full border-4 border-t-transparent" />
           </div>
@@ -330,8 +330,8 @@ export default function CabinetPage() {
   };
 
   return (
-    <div className="bg-light min-h-screen py-8">
-      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+    <div className="bg-light min-h-screen">
+      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-38">
         <ClientBreadcrumbs items={cabinetBreadcrumbs} className="mb-8" />
         <h1 className="text-dark mb-8 text-3xl font-bold">Особистий кабінет</h1>
 
@@ -346,7 +346,7 @@ export default function CabinetPage() {
               className="space-y-4"
             >
               {/* Avatar Upload */}
-              <div className="flex items-center gap-6">
+              <div className="flex flex-wrap items-center gap-6">
                 <div className="relative">
                   {user?.user_metadata?.avatar_url ? (
                     <Image

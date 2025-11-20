@@ -22,7 +22,7 @@ export default async function FavoritesPage({ params }: FavoritesPageProps) {
   return (
     <AuthProvider>
       <div className="bg-light">
-        <div className="mx-auto max-w-[1360px] px-4 pb-8 md:px-[35px] xl:mt-[138px]">
+        <div className="mx-auto max-w-[1360px] px-4 pb-8 md:px-[35px] xl:mt-38">
           <ConditionalProfileLayout>
             <Breadcrumbs items={favoritesBreadcrumbs} className="mb-8" />
             <Favorites locale={locale} />

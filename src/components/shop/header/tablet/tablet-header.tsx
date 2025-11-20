@@ -23,12 +23,15 @@ const TabletHeader = ({
   };
 
   return (
-    <div className="border-light relative border-b-2 bg-white">
+    <div className="relative bg-white">
       <div className="relative z-50 mx-auto max-w-[1360px] bg-white px-[35px]">
         <TabletTopBar
           isMobileMenuOpen={isMobileMenuOpen}
           onToggleMobileMenu={toggleMobileMenu}
         />
+      </div>
+      <div className="border-light border-b-2"></div>
+      <div className="relative z-50 mx-auto max-w-[1360px] bg-white px-[35px]">
         <TabletMainHeader locale={locale} catalogData={catalogData} />
       </div>
     </div>

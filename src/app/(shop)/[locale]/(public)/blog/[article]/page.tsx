@@ -42,7 +42,7 @@ export default async function ArticlePage({
 
   return (
     <div className="bg-light">
-      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-[138px]">
+      <div className="mx-auto max-w-[1360px] px-4 md:px-[35px] xl:mt-38">
         <Breadcrumbs items={breadcrumbs} className="mb-10" />
         <Article article={article as IArticle} articles={blogData.articles} />
       </div>
